@@ -1,4 +1,10 @@
 fileignoreconfig:
+- filename: apps/helm-guestbook/values.yaml
+  checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
+- filename: charts/helm-guestbook/values.yaml
+  checksum: 5f157101a70a53df78efbffade2c082930c01bfdf2c6d54e7a1c497238d6abaa
+- filename: plugins/nix/README.md
+  checksum: 8bd9f7b87419fb8dc6a51feeaa33b5c996a7a763d251882bbfce8ab287161733
 - filename: schema/schema.json
   checksum: 8f35aa89e1193724df10cbbe4812ba1ae98caaf314abbde61ebd1b6faae0b3fd
 version: "1.0"
