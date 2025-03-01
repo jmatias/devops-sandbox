@@ -13,4 +13,11 @@ spec:
   source:
     path: manifests/crds
     repoURL: https://github.com/argoproj/argo-cd.git
-    targetRevision: v2.14.3
+    targetRevision: stable
+
+  syncPolicy:
+    retry:
+      limit: 3
+    automated:
+      selfHeal: true
+      prune: true
