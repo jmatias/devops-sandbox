@@ -1,31 +1,17 @@
+# nonk8s
 ---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: datamesh
-  region: us-east-1
-  version: '1.18'
-
-git:
-  repo:
-    url: git@github.com:jmatias/eks-sandbox.git
-    email: jmatias@thoughtworks.com
-    branch: main
-    fluxPath: "flux/"
-  operator:
-    namespace: "flux"
-    withHelm: false
-  bootstrapProfile:
-    source: git@github.com:jmatias/eks-quick-start.git
-    revision: main
+  name: javier-sandbox
+  region: "us-east-1"
+  version: "1.32"
 
 
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 
-
 nodeGroups:
-
   - name: ng2
     instancesDistribution:
       instanceTypes: [ "t2.medium" ] # At least one instance type should be specified
@@ -87,9 +73,3 @@ iam:
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
-    - metadata:
-        name: external-dns-sa
-        namespace: external-dns
-      attachPolicyARNs:
-        - arn:aws:iam::786226178105:policy/ExternalDns
