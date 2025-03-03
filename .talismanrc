@@ -1,6 +1,10 @@
 fileignoreconfig:
 - filename: apps/helm-guestbook/values.yaml
   checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
+- filename: celery-sandbox/templates/ingress.yaml
+  checksum: f446d262f38284ebf5364f2f30266fbe161185a73b2fc82b3d9d7ec430e7f644
+- filename: celery-sandbox/values.yaml
+  checksum: a695309398bcc433774c090cd265be0fdf940f762b7689acb45fb245df12aca8
 - filename: charts/helm-guestbook/values.yaml
   checksum: 5f157101a70a53df78efbffade2c082930c01bfdf2c6d54e7a1c497238d6abaa
 - filename: plugins/nix/README.md
