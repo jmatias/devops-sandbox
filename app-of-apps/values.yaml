@@ -3,4 +3,4 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/jmatias/eks-sandbox.git
-    targetRevision: argocd
+    targetRevision: main
