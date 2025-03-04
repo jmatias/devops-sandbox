@@ -23,8 +23,7 @@ spec:
         - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: worker
-          command: ["celery"]
-          args:  ["-A", "celery_worker.celery", "worker", "--loglevel=info"]
+          command: [ "poetry", "run", "celery","-A", "celery_sandbox.worker.celery", "worker", "--loglevel=info" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
