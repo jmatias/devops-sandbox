@@ -24,7 +24,7 @@ spec:
         - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower" ]
+          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower", "--port=8001" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
@@ -38,7 +38,7 @@ spec:
               value: "true"
 
           ports:
-            - containerPort: 5555
+            - containerPort: 8001
               protocol: TCP
           resources:
           {{- toYaml .Values.resources | nindent 14 }}

@@ -17,11 +17,11 @@ spec:
           service:
             name: fast-api
             port:
-              number: 5000
+              number: 8000
       - path: /flower
         pathType: Prefix
         backend:
           service:
             name: flower-ui
             port:
-              number: 5555
+              number: 8001
