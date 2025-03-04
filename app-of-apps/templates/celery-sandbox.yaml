@@ -19,6 +19,10 @@ spec:
       limit: 3
       backoff:
         duration: "30s"
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
     syncOptions:
       - CreateNamespace=true
       - Prune=true

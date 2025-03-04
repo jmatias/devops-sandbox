@@ -5,6 +5,7 @@ metadata:
   name: flower-ui
   namespace: celery-sandbox
 spec:
+  replicas: 0
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,8 +25,7 @@ spec:
         - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: [ "poetry" ]
-          args: [ "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower" ]
+          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
@@ -36,5 +36,4 @@ spec:
               protocol: TCP
           resources:
           {{- toYaml .Values.resources | nindent 14 }}
-
 {{ end }}
