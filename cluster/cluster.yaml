@@ -13,6 +13,33 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
+  - name: mng2-spot
+    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    minSize: 2
+    desiredCapacity: 2
+    spot: true
+    maxSize: 5
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        ebs: true
+        fsx: true
+        efs: true
+        albIngress: true
+        xRay: true
+        cloudWatch: true
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
   - name: mng1
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 2
@@ -68,7 +95,6 @@ iam:
 
     - metadata:
         name: eksctl-sa
-        namespace: chartmuseum
+        namespace: argocd
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
