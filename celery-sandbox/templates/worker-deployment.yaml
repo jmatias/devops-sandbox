@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: worker
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: worker
+    spec:
+      restartPolicy: Always
+      serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
+      containers:
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: worker
+          command: ["celery"]
+          args:  ["-A", "celery_worker.celery", "worker", "--loglevel=info"]
+          env:
+            - name: CELERY_BROKER_URL
+              value: {{ .Values.redis.url }}
+            - name: CELERY_RESULT_BACKEND
+              value: {{ .Values.redis.url }}
