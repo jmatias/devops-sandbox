@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
           command: [ "poetry" ]
-          args: [ "run","celery","-A", "worker.celery", "flower", "--url_prefix=flower" ]
+          args: [ "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
