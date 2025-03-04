@@ -18,6 +18,9 @@ spec:
         clusterName: javier-sandbox
 
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
     automated:
       prune: true
       selfHeal: true
