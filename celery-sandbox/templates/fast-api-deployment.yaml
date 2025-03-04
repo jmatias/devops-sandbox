@@ -2,15 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fast-api
-  labels:
-    {{- include "celery-sandbox.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "celery-sandbox.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: fast-api
   template:
     metadata:
       {{- with .Values.podAnnotations }}
