@@ -120,3 +120,6 @@ affinity: { }
 
 redis:
   url : "redis://redis:6379/0"
+
+flower:
+  enabled: false
