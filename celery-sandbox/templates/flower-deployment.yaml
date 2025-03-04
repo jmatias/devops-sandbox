@@ -23,15 +23,15 @@ spec:
         - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: ["celery"]
-          args:  ["-A", "celery_worker.celery", "flower", "--url_prefix=flower"]
+          command: [ "poetry" ]
+          args: [ "run","celery","-A", "worker.celery", "flower", "--url_prefix=flower" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
             - name: CELERY_RESULT_BACKEND
               value: {{ .Values.redis.url }}
           ports:
-          - containerPort: 5555
-            protocol: TCP
+            - containerPort: 5555
+              protocol: TCP
           resources:
           {{- toYaml .Values.resources | nindent 14 }}

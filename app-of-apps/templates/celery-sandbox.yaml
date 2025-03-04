@@ -15,11 +15,12 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
+    retry:
+      limit: 3
+      backoff:
+        duration: "30s"
     syncOptions:
       - CreateNamespace=true
       - Prune=true
       - Validate=true
       - Retry=true
-    automated:
-      prune: true
-      selfHeal: true
