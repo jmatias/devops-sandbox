@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: celery-sandbox
 spec:
   strategy:
     type: RollingUpdate
@@ -20,8 +19,6 @@ spec:
     spec:
       containers:
       - name: master
-        image: redis:6.2  # or just image: redis
-        resources:
-          {{- toYaml .Values.resources | nindent 14 }}
+        image: redis:6.2-alpine  # or just image: redis
         ports:
           - containerPort: 6379
