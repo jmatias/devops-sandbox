@@ -18,6 +18,7 @@ managedNodeGroups:
     minSize: 2
     desiredCapacity: 2
     spot: true
+
     maxSize: 5
     privateNetworking: true
     iam:
