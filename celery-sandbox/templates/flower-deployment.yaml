@@ -3,9 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flower-ui
-  namespace: celery-sandbox
 spec:
-  replicas: 0
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
