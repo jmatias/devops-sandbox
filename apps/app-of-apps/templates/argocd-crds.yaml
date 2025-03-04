@@ -16,8 +16,4 @@ spec:
     targetRevision: stable
 
   syncPolicy:
-    retry:
-      limit: 3
-    automated:
-      selfHeal: true
-      prune: true
+    automated: {}
