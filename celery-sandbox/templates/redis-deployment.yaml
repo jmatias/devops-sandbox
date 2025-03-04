@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: celery-sandbox
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: redis
+    spec:
+      containers:
+      - name: master
+        image: redis:6.2  # or just image: redis
+        resources:
+          {{- toYaml .Values.resources | nindent 14 }}
+        ports:
+          - containerPort: 6379

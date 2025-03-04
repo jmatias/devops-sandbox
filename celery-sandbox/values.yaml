@@ -117,3 +117,6 @@ nodeSelector: { }
 tolerations: [ ]
 
 affinity: { }
+
+redis:
+  url : "redis://redis:6379/0"
