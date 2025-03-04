@@ -11,15 +11,8 @@ spec:
       app.kubernetes.io/name: fast-api
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
-        {{- include "celery-sandbox.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        app.kubernetes.io/name: fast-api
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
