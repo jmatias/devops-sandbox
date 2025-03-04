@@ -28,5 +28,5 @@ spec:
             - name: CELERY_RESULT_BACKEND
               value: {{ .Values.redis.url }}
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - containerPort: 5000
               protocol: TCP
