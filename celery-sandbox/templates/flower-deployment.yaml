@@ -32,6 +32,11 @@ spec:
               value: {{ .Values.redis.url }}
             - name: FLOWER_UNAUTHENTICATED_API
               value: "true"
+            - name: FLOWER_BROKER_API
+              value: {{ .Values.redis.url }}
+            - name: FLOWER_PERSISTENT
+              value: "true"
+
           ports:
             - containerPort: 5555
               protocol: TCP
