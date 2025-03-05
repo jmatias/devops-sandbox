@@ -24,7 +24,7 @@ spec:
         - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower", "--port=8001" ]
+          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url_prefix=flower", "--port=8001", "--auto_refresh=true" ]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
