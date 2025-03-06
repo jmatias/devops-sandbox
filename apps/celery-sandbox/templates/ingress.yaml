@@ -32,3 +32,11 @@ spec:
             name: fast-api
             port:
               number: 5000
+
+      - path: /*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: fast-api
+            port:
+              number: 5000
