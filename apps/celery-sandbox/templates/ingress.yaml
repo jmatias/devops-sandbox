@@ -17,14 +17,14 @@ spec:
   - http:
       paths:
       - path: /flower
-        pathType: ImplementationSpecific
+        pathType: Exact
         backend:
           service:
             name: redirect-to-flower
             port:
               name: use-annotation
       - path: /flower/
-        pathType: ImplementationSpecific
+        pathType: Prefix
         backend:
           service:
             name: flower-ui
