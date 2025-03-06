@@ -19,7 +19,7 @@ spec:
             port:
               number: 5555
       - path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: fast-api
