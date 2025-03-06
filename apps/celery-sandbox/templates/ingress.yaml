@@ -11,17 +11,17 @@ spec:
   rules:
   - http:
       paths:
+      - path: /flower
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: flower-ui
+            port:
+              number: 5555
       - path: /
         pathType: Prefix
         backend:
           service:
             name: fast-api
             port:
-              number: 8000
-      - path: /flower
-        pathType: Prefix
-        backend:
-          service:
-            name: flower-ui
-            port:
-              number: 8001
+              number: 5000
