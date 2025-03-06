@@ -7,6 +7,11 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/load-balancer-name: celery-sandbox
+    alb.ingress.kubernetes.io/actions.redirect-to-flower: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTP", "Port": "80", "Host": "#{host}", "Path": "/#{path}/", "Query": "#{query}", "StatusCode": "HTTP_301"}}'
+
+
+
+
 spec:
   rules:
   - http:
@@ -15,9 +20,9 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: flower-ui
+            name: redirect-to-flower
             port:
-              number: 80
+              name: use-annotation
       - path: /flower/*
         pathType: ImplementationSpecific
         backend:
@@ -32,6 +37,7 @@ spec:
             name: fast-api
             port:
               number: 5000
+
 
       - path: /*
         pathType: ImplementationSpecific
