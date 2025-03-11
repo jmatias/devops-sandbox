@@ -1,9 +1,9 @@
 image:
   repository: 590184073526.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
   # This sets the pull policy for images.
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.1.13"
+  tag: "0.2.0"
 
 # This is to override the chart name.
 nameOverride: ""
@@ -25,3 +25,7 @@ redis:
 
 flower:
   enabled: true
+
+ingress:
+  enabled: true
+  class: nginx

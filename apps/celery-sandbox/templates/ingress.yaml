@@ -1,3 +1,5 @@
+{{- if .Values.ingress.enabled -}}
+{{ if eq .Values.ingress.class "alb" }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -10,39 +12,86 @@ metadata:
     alb.ingress.kubernetes.io/actions.redirect-to-flower: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTP", "Port": "80", "Host": "#{host}", "Path": "/#{path}/", "Query": "#{query}", "StatusCode": "HTTP_301"}}'
 
 
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /flower
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: redirect-to-flower
+                port:
+                  name: use-annotation
+          - path: /flower/*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: flower-ui
+                port:
+                  number: 80
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fast-api
+                port:
+                  number: 5000
+
+
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fast-api
+                port:
+                  number: 5000
+{{- else }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: celery-fast-api-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/app-root: "/api"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: fast-api
+                port:
+                  number: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: celery-flower-ui-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/app-root: "/flower"
 
 
 spec:
   rules:
-  - http:
-      paths:
-      - path: /flower
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: redirect-to-flower
-            port:
-              name: use-annotation
-      - path: /flower/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: flower-ui
-            port:
-              number: 80
-      - path: /
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: fast-api
-            port:
-              number: 5000
-
-
-      - path: /*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: fast-api
-            port:
-              number: 5000
+    - http:
+        paths:
+          - path: /flower
+            pathType: Prefix
+            backend:
+              service:
+                name: flower-ui
+                port:
+                  number: 5555
+---
+{{- end }}
+{{- end }}

@@ -7,6 +7,8 @@ fileignoreconfig:
   checksum: a695309398bcc433774c090cd265be0fdf940f762b7689acb45fb245df12aca8
 - filename: charts/helm-guestbook/values.yaml
   checksum: 5f157101a70a53df78efbffade2c082930c01bfdf2c6d54e7a1c497238d6abaa
+- filename: hack/bootstrap.sh
+  checksum: 92c96da596131742d70d7390604acb611926c312c050343a772f61a130427a42
 - filename: plugins/nix/README.md
   checksum: 8bd9f7b87419fb8dc6a51feeaa33b5c996a7a763d251882bbfce8ab287161733
 - filename: schema/schema.json

@@ -4,3 +4,7 @@ spec:
   source:
     repoURL: git@github.com:jmatias/eks-sandbox.git
     targetRevision: main
+
+ingress:
+  enabled: true
+  class: nginx

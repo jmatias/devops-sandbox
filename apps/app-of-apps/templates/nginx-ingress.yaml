@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-ingress-controller
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: nginx-ingress-controller
+    repoURL: registry-1.docker.io/bitnamicharts
+    targetRevision: 11.6.11
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
+    automated:
+      prune: true
+      selfHeal: true

@@ -17,9 +17,11 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      imagePullSecrets:
+        - name: ecr-registry-secret
       containers:
         - name: {{ .Chart.Name }}
-          command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port", "5000" ]
+          command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port", "5000", "--root-path=/api" ]
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
@@ -27,6 +29,8 @@ spec:
               value: {{ .Values.redis.url }}
             - name: CELERY_RESULT_BACKEND
               value: {{ .Values.redis.url }}
+            - name: ROOT_PATH
+              value: /api
           ports:
             - containerPort: 5000
               protocol: TCP
