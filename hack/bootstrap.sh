@@ -2,8 +2,9 @@
 
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-sleep 2
-kubectl wait --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
+
+sleep 5
+kubectl wait  --timeout=60s --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
 
 argocd login --core --insecure
 
@@ -17,7 +18,7 @@ argocd app create app-of-apps \
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path apps/app-of-apps --revision main --sync-policy automated
 
-sleep 2
+sleep 5
 argocd app wait backstage --timeout 300
 
 kubectl -n celery-sandbox create secret docker-registry ecr-registry-secret \
@@ -39,6 +40,6 @@ kubectl -n backstage create secret docker-registry ecr-registry-secret \
 # Force restart of argocd-server and argocd-application-controller
 kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-server
 kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-application-controller
-sleep 2
 
+sleep 5
 kubectl wait --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
