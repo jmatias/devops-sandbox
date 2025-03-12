@@ -14,10 +14,12 @@ spec:
     path: apps/app-of-apps
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+        values: |
+            environment: {{ .Values.environment }}
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - Prune=true
     automated:
       prune: true
       selfHeal: true

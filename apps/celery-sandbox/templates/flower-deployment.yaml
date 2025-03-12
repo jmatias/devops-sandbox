@@ -23,10 +23,10 @@ spec:
       imagePullSecrets:
         - name: ecr-registry-secret
       containers:
-        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        - image: "mher/flower:2.0"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: [ "poetry", "run","celery","-A", "celery_sandbox.worker.celery", "flower", "--url-prefix=flower","--auto_refresh=true" ]
+          command: [ "celery", "flower", "--url-prefix=flower", "--host=0.0.0.0",  "--logging=DEBUG","--purge_offline_workers=60","--port=5555","--tasks_columns=name,uuid,state,result,received,started,runtime,worker"]
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}

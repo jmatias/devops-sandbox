@@ -3,7 +3,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.2.0"
+  tag: "0.2.6"
 
 # This is to override the chart name.
 nameOverride: ""
@@ -26,6 +26,7 @@ redis:
 flower:
   enabled: true
 
+environment: "local"
+
 ingress:
   enabled: true
-  class: nginx

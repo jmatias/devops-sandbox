@@ -5,6 +5,13 @@ spec:
     repoURL: git@github.com:jmatias/eks-sandbox.git
     targetRevision: main
 
-ingress:
-  enabled: true
-  class: nginx
+
+environment: "aws"
+
+argocd:
+  ingress:
+    enabled: true
+
+backstage:
+  ingress:
+    enabled: false

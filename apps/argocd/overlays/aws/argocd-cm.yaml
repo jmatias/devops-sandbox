@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  timeout.reconciliation: "20s"
+metadata:
+  name: argocd-cm
+  

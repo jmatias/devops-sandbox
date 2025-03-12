@@ -1,3 +1,5 @@
+{{- if ne (lower .Values.environment) "aws" }}
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,17 +9,26 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: nginx-ingress
+    namespace: kube-system
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
     chart: nginx-ingress-controller
     repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 11.6.11
+
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - Prune=true
+      - Prune=false
     automated:
       prune: true
       selfHeal: true
+
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 5
+{{- end }}

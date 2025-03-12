@@ -21,7 +21,9 @@ spec:
         - name: ecr-registry-secret
       containers:
         - name: {{ .Chart.Name }}
-          command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port", "5000", "--root-path=/api" ]
+          command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port=5000" ]
+
+
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
@@ -29,8 +31,11 @@ spec:
               value: {{ .Values.redis.url }}
             - name: CELERY_RESULT_BACKEND
               value: {{ .Values.redis.url }}
+          {{- if ne (lower .Values.environment) "aws" }}
             - name: ROOT_PATH
               value: /api
+          {{- end }}
+
           ports:
             - containerPort: 5000
               protocol: TCP
