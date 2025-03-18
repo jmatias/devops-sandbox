@@ -32,7 +32,7 @@ backend:
     connection:
       host: backstage-postgresql
       user: backstage
-      password: ${POSTGRES_PASSWORD}
+      password: UnauditedRisingKisserDiagn1sisSpouse
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:

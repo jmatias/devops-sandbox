@@ -37,6 +37,7 @@ spec:
             tag: latest
           extraEnvVarsSecrets:
             - postgres-secrets
+            - backstage-secrets
 
   syncPolicy:
     syncOptions:
