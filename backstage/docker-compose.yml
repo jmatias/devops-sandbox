@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17.0-bookworm
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_USER}
+    ports:
+      - 5432:5432
+
+  backstage:
+    image: backstage:latest
+    pull_policy: build
+    build: .
+    ports:
+      - 7007:7007
+      - 3000:3000
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_USER}
+      POSTGRES_PORT: 5432

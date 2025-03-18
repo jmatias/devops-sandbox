@@ -33,6 +33,10 @@ fileignoreconfig:
   checksum: fd6656a888c4edc301cc2d295523d481eb6284267a75aa93d6fc242c0f8dd1a3
 - filename: apps/helm-guestbook/values.yaml
   checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
+- filename: backstage/app-config.production.yaml
+  checksum: c39531fbed19ee1b97d0dc0fcb3e4750a21358fdface777bd6c86d89b81ffc58
+- filename: backstage/docker-compose.yml
+  checksum: 5a5a49c3c991ff860e481a7140ee36a45c9142cc1216600e50075b8696eae1c3
 - filename: backstage/yarn.lock
   checksum: 92082cfb6b8e0bc3c367b5b90f6d0f16f558146a7b421e8e71bb92224fa88d92
 - filename: celery-sandbox/templates/ingress.yaml

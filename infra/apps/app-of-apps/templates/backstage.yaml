@@ -34,7 +34,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: latest
+            tag: 0.2.1
           extraEnvVarsSecrets:
             - backstage-secrets
 
