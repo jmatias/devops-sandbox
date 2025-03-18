@@ -33,6 +33,8 @@ fileignoreconfig:
   checksum: fd6656a888c4edc301cc2d295523d481eb6284267a75aa93d6fc242c0f8dd1a3
 - filename: apps/helm-guestbook/values.yaml
   checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
+- filename: backstage/yarn.lock
+  checksum: 92082cfb6b8e0bc3c367b5b90f6d0f16f558146a7b421e8e71bb92224fa88d92
 - filename: celery-sandbox/templates/ingress.yaml
   checksum: f446d262f38284ebf5364f2f30266fbe161185a73b2fc82b3d9d7ec430e7f644
 - filename: celery-sandbox/values.yaml
