@@ -13,12 +13,15 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
-  - name: mng2-spot
+  - name: mng1-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 2
-    desiredCapacity: 2
+    desiredCapacity: 3
     spot: true
-
+    availabilityZones:
+      - "us-east-1a"
+    nodeRepairConfig:
+      enabled: true
     maxSize: 5
     privateNetworking: true
     iam:
