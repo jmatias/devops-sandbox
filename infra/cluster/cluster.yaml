@@ -15,14 +15,14 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 managedNodeGroups:
   - name: mng1-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
-    minSize: 2
-    desiredCapacity: 3
+    minSize: 1
+    desiredCapacity: 1
+    maxSize: 5
     spot: true
     availabilityZones:
       - "us-east-1a"
     nodeRepairConfig:
       enabled: true
-    maxSize: 5
     privateNetworking: true
     iam:
       withAddonPolicies:
@@ -47,33 +47,39 @@ managedNodeGroups:
         # For dev only
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
-#  - name: mng1
-#    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
-#    minSize: 2
-#    desiredCapacity: 2
-#    maxSize: 5
-#    privateNetworking: true
-#    iam:
-#      withAddonPolicies:
-#        imageBuilder: true
-#        autoScaler: true
-#        externalDNS: true
-#        certManager: true
-#        appMesh: true
-#        ebs: true
-#        fsx: true
-#        efs: true
-#        albIngress: true
-#        xRay: true
-#        cloudWatch: true
-#      attachPolicyARNs:
-#        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-#        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-#        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-#        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-#
-#         For dev only
-#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+  - name: mng1
+    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    minSize: 0
+    desiredCapacity: 1
+    maxSize: 2
+    spot: false
+    availabilityZones:
+      - "us-east-1a"
+    nodeRepairConfig:
+      enabled: true
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        xRay: false
+        cloudWatch: true
+
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
+        # For dev only
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 iam:
   withOIDC: true
