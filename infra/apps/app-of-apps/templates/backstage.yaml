@@ -35,8 +35,10 @@ spec:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
             tag: latest
+          envFrom:
+            - secretRef:
+                name: backstage-secrets
           extraEnvVarsSecrets:
-            - postgres-secrets
             - backstage-secrets
 
   syncPolicy:
