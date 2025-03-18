@@ -156,8 +156,7 @@ backstage:
   extraEnvVarsCM: []
 
   # -- Backstage container environment variables from existing Secrets
-  extraEnvVarsSecrets:
-    - backstage-secrets
+  extraEnvVarsSecrets: []
 
   # -- Backstage container additional ports
   extraPorts: []
