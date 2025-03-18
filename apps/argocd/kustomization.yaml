@@ -5,6 +5,7 @@ namespace: argocd
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.10/manifests/install.yaml
+#  - base/argocd-cm.yaml
 
 patches:
   - path: overlays/aws/argocd-cm.yaml

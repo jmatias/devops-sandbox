@@ -111,10 +111,10 @@ backstage:
   image:
 
     # -- Backstage image registry
-    registry: ghcr.io
+    registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
 
     # -- Backstage image repository
-    repository: backstage/backstage
+    repository: javier/backstage
 
     # -- Backstage image tag (immutable tags are recommended)
     tag: latest
@@ -404,8 +404,11 @@ networkPolicy:
 # @default -- See below
 postgresql:
 
+  persistence:
+    size: 8Gi
   # -- Switch to enable or disable the PostgreSQL helm chart
   enabled: false
+
 
   # -- The authentication details of the Postgres database
   auth:
@@ -417,19 +420,19 @@ postgresql:
     password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: ""
+    existingSecret: postgres-secrets
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: admin-password
+      adminPasswordKey: password
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: user-password
+      userPasswordKey: password
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: replication-password
+      replicationPasswordKey: password
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: standalone

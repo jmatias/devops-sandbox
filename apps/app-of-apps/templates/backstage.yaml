@@ -14,13 +14,27 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valuesObject:
+        postgresql:
+          global:
+            defaultStorageClass: gp2
+            storageClass: gp2
+          enabled: true
+          auth:
+            username: backstage
         ingress:
           enabled: false
           annotations:
             kubernetes.io/ingress.class: alb
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: 'ip'
-            alb.ingress.kubernetes.io/load-balancer-name: argocd
+            alb.ingress.kubernetes.io/load-balancer-name: backstage
+
+        backstage:
+          replicas: 1
+          image:
+            registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
+            repository: javier/backstage
+            tag: latest
 
 
   syncPolicy:

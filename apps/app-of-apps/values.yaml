@@ -11,7 +11,3 @@ environment: "aws"
 argocd:
   ingress:
     enabled: true
-
-backstage:
-  ingress:
-    enabled: false

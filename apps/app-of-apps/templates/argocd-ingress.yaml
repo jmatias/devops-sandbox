@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/load-balancer-name: argocd
+    # Use this annotation (which must match a service name) to route traffic to HTTP2 backends.
 
   name: argocd
   namespace: argocd
