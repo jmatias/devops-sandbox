@@ -425,4 +425,4 @@ dist
 
 ### Application specific files
 
-!/apps/argocd/overlays/local
+!/infra/apps/argocd/overlays/local
