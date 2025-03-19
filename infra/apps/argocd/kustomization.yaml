@@ -8,5 +8,5 @@ resources:
 #  - base/argocd-cm.yaml
 
 patches:
-  - path: overlays/aws/argocd-cm.yaml
-  - path: overlays/aws/argocd-cmd-params-cm.yaml
+  - path: overlays/local/argocd-cm.yaml
+  - path: overlays/local/argocd-cmd-params-cm.yaml

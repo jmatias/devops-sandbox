@@ -5,3 +5,4 @@ metadata:
 data:
   server.insecure: "true"
   server.rootpath: "/argo"
+  server.basehref: "/argo"

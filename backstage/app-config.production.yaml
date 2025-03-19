@@ -1,9 +1,6 @@
 app:
   # Should be the same as backend.baseUrl when using the `app-backend` plugin.
-  baseUrl: http://backstage-1628266975.us-east-1.elb.amazonaws.com
-
-
-
+  baseUrl: http://192.168.106.8:7007
 
 backend:
   # Note that the baseUrl should be the URL that the browser and other clients
@@ -11,15 +8,15 @@ backend:
   # reachable not just from within the backend host, but from all of your
   # callers. When its value is "http://localhost:7007", it's strictly private
   # and can't be reached by others.
-  baseUrl: http://backstage-1628266975.us-east-1.elb.amazonaws.com
+  baseUrl: http://192.168.106.8:7007
   # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
   listen:
     port: 7007
-
   database:
     client: better-sqlite3
     connection: ':memory:'
+
 
   # config options: https://node-postgres.com/apis/client
 #  database:
@@ -42,6 +39,15 @@ auth:
     # See https://backstage.io/docs/auth/guest/provider
     github:
       development:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers
+            - resolver: usernameMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
+            - resolver: usernameMatchingUserEntityName
+      production:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
         signIn:
@@ -74,11 +80,11 @@ catalog:
         - allow: [ User, Group ]
 
     ## Uncomment these lines to add more example data
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
-
-    ## Uncomment these lines to add an example org
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-      rules:
-        - allow: [ User, Group ]
+#    - type: url
+#      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+#
+    # Uncomment these lines to add an example org
+#    - type: url
+#      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+#      rules:
+#        - allow: [ User, Group ]

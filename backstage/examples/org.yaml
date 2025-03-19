@@ -33,13 +33,3 @@ metadata:
   name: jmatias
 spec:
   memberOf: [ admin, guests ]
-  email: jmatias@thoughtworks.com
-
-
----
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: jmatias@thoughtworks.com
-spec:
-  memberOf: [ admin, guests ]

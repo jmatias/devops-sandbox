@@ -3,8 +3,14 @@
 install_argocd() {
 
   set -e
-  kubectl create namespace argocd
+  set -x
+  kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
+
+  kubectl -n argocd create secret generic argocd-secret \
+    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
+
+  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.10/manifests/install.yaml
   sleep 1
@@ -23,15 +29,15 @@ add_ecr_repos() {
   kubectl -n celery-sandbox create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
-    --docker-password="$ecr_password"
+    --docker-password="$ecr_password" || true
   kubectl -n argocd create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
-    --docker-password="$ecr_password"
+    --docker-password="$ecr_password" || true
   kubectl -n backstage create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
-    --docker-password="$ecr_password"
+    --docker-password="$ecr_password" || true
 }
 
 install_apps() {
@@ -40,17 +46,26 @@ install_apps() {
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
     --repo git@github.com:jmatias/eks-sandbox.git \
-    --path apps/app-of-apps \
-    --revision local \
+    --path infra/apps/app-of-apps \
+    --revision local-harder \
     --sync-policy automated
 
-  postgres_password="$(diceware -n 5 -s 1)"
-  kubectl create namespace backstage
+  kubectl create namespace backstage || true
   # create secret for backstage postgres
   kubectl -n backstage create secret generic postgres-secrets \
-    --from-literal=POSTGRES_USER=backstage \
-    --from-literal=POSTGRES_PASSWORD="$postgres_password" \
-    --from-literal=password="$postgres_password"
+      --from-literal=POSTGRES_USER="$POSTGRES_USER" \
+      --from-literal=POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+      --from-literal=password="$POSTGRES_PASSWORD" || true
+
+  kubectl -n backstage create secret generic backstage-secrets \
+    --from-literal=AUTH_GITHUB_CLIENT_ID="$AUTH_GITHUB_CLIENT_ID" \
+    --from-literal=AUTH_GITHUB_CLIENT_SECRET="$AUTH_GITHUB_CLIENT_SECRET" || true
+
+  kubectl -n backstage create secret generic github-auth \
+    --from-literal=AUTH_GITHUB_CLIENT_ID="$AUTH_GITHUB_CLIENT_ID" \
+    --from-literal=AUTH_GITHUB_CLIENT_SECRET="$AUTH_GITHUB_CLIENT_SECRET" \
+    --from-literal=GITHUB_TOKEN="$GITHUB_TOKEN" || true
+
 
   sleep 2
   argocd app wait backstage --timeout 300
@@ -60,6 +75,6 @@ install_apps() {
 
 set -e
 
-#install_argocd
+install_argocd
 install_apps
 add_ecr_repos

@@ -17,7 +17,7 @@ services:
 
     build:
         context: .
-        dockerfile: Dockerfile
+        dockerfile: packages/backend/Dockerfile
         no_cache: false
     ports:
       - 7007:7007

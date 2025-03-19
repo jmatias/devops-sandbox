@@ -1,3 +1,4 @@
+{{ if .Values.backstage.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -13,28 +14,54 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
+      namespace: backstage
       valuesObject:
+        service:
+          type: LoadBalancer
+          ports:
+            backend: 7007
         postgresql:
           global:
+            {{- if eq (lower .Values.environment) "aws" }}
             defaultStorageClass: gp2
             storageClass: gp2
+            {{- end }}
+
           enabled: true
           auth:
             username: backstage
         ingress:
           enabled: false
+          path: /
           annotations:
+            {{- if eq (lower .Values.environment) "aws" }}
             kubernetes.io/ingress.class: alb
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: 'ip'
             alb.ingress.kubernetes.io/load-balancer-name: backstage
+            {{ else }}
+            kubernetes.io/ingress.class: "nginx"
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+            nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+            {{- end }}
 
         backstage:
+          appConfig:
+            auth:
+              providers:
+                guest: {}
+
+          command: ["node", "packages/backend"]
+          args: ["--config]
+          containerPorts:
+            backend: 7007
           replicas: 1
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.5.3
+            tag: 0.7.9
+            pullSecrets:
+              - ecr-registry-secret
           extraEnvVarsSecrets:
             - backstage-secrets
             - github-auth
@@ -42,12 +69,12 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true
+
     retry:
       backoff:
         duration: 5s
         factor: 2
         maxDuration: 3m0s
       limit: 5
+
+{{- end}}

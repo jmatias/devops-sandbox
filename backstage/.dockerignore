@@ -2,7 +2,9 @@
 .yarn/cache
 .yarn/install-state.gz
 node_modules
+node_modules.nosync
 packages/*/src
 packages/*/node_modules
+packages/*/node_modules.nosync
 plugins
 *.local.yaml

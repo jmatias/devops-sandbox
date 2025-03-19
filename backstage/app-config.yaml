@@ -1,7 +1,8 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://192.168.106.8
 
+enableExperimentalRedirectFlow: true
 
 organization:
   name: My Company
@@ -13,7 +14,7 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost:7007
+  baseUrl: http://192.168.106.8
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
@@ -23,7 +24,7 @@ backend:
     # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: http://localhost:7007
+    origin: http://192.168.106.8:7007
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -76,6 +77,17 @@ auth:
           resolvers:
             # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers
             - resolver: usernameMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
+            - resolver: usernameMatchingUserEntityName
+      production:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            # See https://backstage.io/docs/auth/github/provider#resolvers for more resolvers
+            - resolver: usernameMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
+            - resolver: usernameMatchingUserEntityName
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -103,15 +115,15 @@ catalog:
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
-
-    ## Uncomment these lines to add an example org
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
-      rules:
-        - allow: [User, Group]
+#    ## Uncomment these lines to add more example data
+#    - type: url
+#      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+#
+#    ## Uncomment these lines to add an example org
+#    - type: url
+#      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
+#      rules:
+#        - allow: [User, Group]
   # Experimental: Always use the search method in UrlReaderProcessor.
   # New adopters are encouraged to enable it as this behavior will be the default in a future release.
   useUrlReadersSearch: true
@@ -122,4 +134,4 @@ kubernetes:
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
   # setting this to `false` will disable permissions
-  enabled: true
+  enabled: false
