@@ -38,7 +38,7 @@ fileignoreconfig:
 - filename: backstage/docker-compose.yml
   checksum: abd9a92594647e03ab05894c8a696e0395b19f9477f3ebbb59cca76c15ba9587
 - filename: backstage/yarn.lock
-  checksum: baf42c2750853bac99ff14a39f786f4c04fbcaabc61f9c69bca4af51d4008419
+  checksum: ed4bf1fd63afcd91469ab97aec55a11e3b204f42e2d1bc791ef4c0b6b403be15
 - filename: celery-sandbox/templates/ingress.yaml
   checksum: f446d262f38284ebf5364f2f30266fbe161185a73b2fc82b3d9d7ec430e7f644
 - filename: celery-sandbox/values.yaml

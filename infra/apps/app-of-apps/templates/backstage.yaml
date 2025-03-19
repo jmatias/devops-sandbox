@@ -34,7 +34,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.4.4
+            tag: 0.5.3
           extraEnvVarsSecrets:
             - backstage-secrets
             - github-auth
