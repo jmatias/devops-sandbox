@@ -15,9 +15,19 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: jmatias
+  owner: guests
   system: examples
   providesApis: [example-grpc-api]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: example-website-2
+spec:
+  type: website
+  lifecycle: experimental
+  owner: admin
+  system: examples
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1

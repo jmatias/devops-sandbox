@@ -47,6 +47,10 @@ fileignoreconfig:
   checksum: 5f157101a70a53df78efbffade2c082930c01bfdf2c6d54e7a1c497238d6abaa
 - filename: hack/bootstrap.sh
   checksum: 92c96da596131742d70d7390604acb611926c312c050343a772f61a130427a42
+- filename: infra/schema/backstage.json
+  checksum: b729bf7bdb603639593313daad393e1e9998f204553722a9dbfbb391e67635ae
+- filename: infra/schema/backstage.yaml
+  checksum: 567329435d944d522eae1d02386c12eaaf2d4973c353f45d198689188aea67b8
 - filename: plugins/nix/README.md
   checksum: 8bd9f7b87419fb8dc6a51feeaa33b5c996a7a763d251882bbfce8ab287161733
 - filename: schema/schema.json
