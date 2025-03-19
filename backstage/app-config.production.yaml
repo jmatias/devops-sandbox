@@ -11,7 +11,12 @@ backend:
   baseUrl: http://backstage-843100706.us-east-1.elb.amazonaws.com
   # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
-  listen: '80'
+  listen: ':7007'
+
+  cors:
+    origin: http://backstage-843100706.us-east-1.elb.amazonaws.com
+    methods: [ GET, HEAD, PATCH, POST, PUT, DELETE ]
+    credentials: true
 
   database:
     client: better-sqlite3

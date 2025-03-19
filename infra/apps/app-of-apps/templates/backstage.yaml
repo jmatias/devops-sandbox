@@ -22,7 +22,7 @@ spec:
           auth:
             username: backstage
         ingress:
-          enabled: true
+          enabled: false
           annotations:
             kubernetes.io/ingress.class: alb
             alb.ingress.kubernetes.io/scheme: internet-facing
@@ -34,7 +34,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.4.3
+            tag: 0.4.4
           extraEnvVarsSecrets:
             - backstage-secrets
             - github-auth
