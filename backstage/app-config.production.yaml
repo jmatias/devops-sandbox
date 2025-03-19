@@ -13,27 +13,31 @@ backend:
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
   listen: ':7007'
 
-  # config options: https://node-postgres.com/apis/client
   database:
-    client: pg
-    connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
-      # https://node-postgres.com/features/ssl
-      # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
-      # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
-      # ssl:
-      #   ca: # if you have a CA file and want to verify it you can uncomment this section
-      #     $file: <file-path>/ca/server.crt
+    client: better-sqlite3
+    connection: ':memory:'
+
+  # config options: https://node-postgres.com/apis/client
+#  database:
+#    client: pg
+#    connection:
+#      host: ${POSTGRES_HOST}
+#      port: ${POSTGRES_PORT}
+#      user: ${POSTGRES_USER}
+#      password: ${POSTGRES_PASSWORD}
+#      # https://node-postgres.com/features/ssl
+#      # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
+#      # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
+#      # ssl:
+#      #   ca: # if you have a CA file and want to verify it you can uncomment this section
+#      #     $file: <file-path>/ca/server.crt
 
 auth:
-  environment: production
+  # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
-    guest: {}
+    # See https://backstage.io/docs/auth/guest/provider
     github:
-      production:
+      development:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
         signIn:
@@ -42,11 +46,9 @@ auth:
             - resolver: usernameMatchingUserEntityName
 
 catalog:
-  import:
-    entityFilename: catalog-info.yaml
-    pullRequestBranchName: backstage-integration
-  rules:
-    - allow: [Component, System, API, Resource, Location]
+  # Overrides the default list locations from app-config.yaml as these contain example data.
+  # See https://backstage.io/docs/features/software-catalog/#adding-components-to-the-catalog for more details
+  # on how to get entities into the catalog.
   locations:
     # Local example data, replace this with your production config, these are intended for demo use only.
     # File locations are relative to the backend process, typically in a deployed context, such as in a Docker container, this will be the root
@@ -64,3 +66,7 @@ catalog:
       target: ./examples/org.yaml
       rules:
         - allow: [User, Group]
+
+permission:
+  # setting this to `false` will disable permissions
+  enabled: false
