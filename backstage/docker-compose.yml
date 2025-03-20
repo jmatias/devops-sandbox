@@ -14,10 +14,8 @@ services:
     restart: always
     env_file:
       - .env
-
     build:
         context: .
-        dockerfile: packages/backend/Dockerfile
         no_cache: false
     ports:
       - 7007:7007

@@ -6937,7 +6937,7 @@
                     },
                     "type": "object"
                 },
-                    "persistence": {
+                "persistence": {
                     "properties": {
                         "size": {
                             "form": true,

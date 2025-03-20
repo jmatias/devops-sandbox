@@ -111,10 +111,10 @@ backstage:
   image:
 
     # -- Backstage image registry
-    registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
+    registry: ghcr.io
 
     # -- Backstage image repository
-    repository: javier/backstage
+    repository: backstage/backstage
 
     # -- Backstage image tag (immutable tags are recommended)
     tag: latest
@@ -138,7 +138,7 @@ backstage:
     backend: 7007
 
   # -- Backstage container command
-#  command: ["node", "packages/backend"]
+  command: ["node", "packages/backend"]
 
   # -- Backstage container command arguments
   args: []
@@ -198,11 +198,11 @@ backstage:
   #   periodSeconds: 10
   #   successThreshold: 2
   #   timeoutSeconds: 2
-#  readinessProbe:
-#    httpGet:
-#      path: /.backstage/health/v1/readiness
-#      port: 7007
-#      scheme: HTTP
+  readinessProbe:
+    httpGet:
+      path: /.backstage/health/v1/readiness
+      port: 7007
+      scheme: HTTP
 
   # -- Liveness Probe
   # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
@@ -217,12 +217,11 @@ backstage:
   #   periodSeconds: 10
   #   successThreshold: 1
   #   timeoutSeconds: 2
-
-#  livenessProbe:
-#    httpGet:
-#      path: /.backstage/health/v1/liveness
-#      port: 7007
-#      scheme: HTTP
+  livenessProbe:
+    httpGet:
+      path: /.backstage/health/v1/liveness
+      port: 7007
+      scheme: HTTP
 
   # -- Startup Probe
   # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
@@ -237,12 +236,11 @@ backstage:
   #   periodSeconds: 10
   #   successThreshold: 1
   #   timeoutSeconds: 2
-
-#  startupProbe:
-#    httpGet:
-#      path: /.backstage/health/v1/liveness
-#      port: 7007
-#      scheme: HTTP
+  startupProbe:
+    httpGet:
+      path: /.backstage/health/v1/liveness
+      port: 7007
+      scheme: HTTP
 
   # -- Security settings for a Pod.
   #  The security settings that you specify for a Pod apply to all Containers in the Pod.
@@ -261,7 +259,7 @@ backstage:
   #   app:
   #     baseUrl: https://somedomain.tld
   # -- Generates ConfigMap and configures it in the Backstage pods
-
+  appConfig: {}
 
   # -- Affinity for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
@@ -406,11 +404,8 @@ networkPolicy:
 # @default -- See below
 postgresql:
 
-  persistence:
-    size: 8Gi
   # -- Switch to enable or disable the PostgreSQL helm chart
   enabled: false
-
 
   # -- The authentication details of the Postgres database
   auth:
@@ -422,19 +417,19 @@ postgresql:
     password: ""
 
     # -- Name of existing secret to use for PostgreSQL credentials
-    existingSecret: postgres-secrets
+    existingSecret: ""
 
     # -- The secret keys Postgres will look for to retrieve the relevant password
     secretKeys:
 
       # -- The key in which Postgres will look for, for the admin password, in the existing Secret
-      adminPasswordKey: password
+      adminPasswordKey: admin-password
 
       # -- The key in which Postgres will look for, for the user password, in the existing Secret
-      userPasswordKey: password
+      userPasswordKey: user-password
 
       # -- The key in which Postgres will look for, for the replication password, in the existing Secret
-      replicationPasswordKey: password
+      replicationPasswordKey: replication-password
 
   # -- PostgreSQL architecture (`standalone` or `replication`)
   architecture: standalone
