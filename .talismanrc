@@ -34,7 +34,9 @@ fileignoreconfig:
 - filename: apps/helm-guestbook/values.yaml
   checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
 - filename: backstage/app-config.production.yaml
-  checksum: a95b2a677535885d524b72918415722a429ab948d410f93b889209d15fdd2969
+  checksum: 09d6a010fdde81330aa35d5163590f6182890f2c1d122c980cf60701211c36f2
+- filename: backstage/app-config.yaml
+  checksum: 7696a16a947de3b03063316f8cf8cdb424cffb49f1bc745e65718de0ae3474ac
 - filename: backstage/docker-compose.yml
   checksum: abd9a92594647e03ab05894c8a696e0395b19f9477f3ebbb59cca76c15ba9587
 - filename: backstage/yarn.lock
