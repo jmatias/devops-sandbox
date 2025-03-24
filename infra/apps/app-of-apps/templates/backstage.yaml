@@ -45,9 +45,7 @@ spec:
             nginx.ingress.kubernetes.io/ssl-passthrough: "false"
             {{- end }}
 
-
-{{/*          command: ["node", "packages/backend"]*/}}
-{{/*          args: ["--config]*/}}
+        backstage:
           containerPorts:
             backend: 7007
           replicas: 1
