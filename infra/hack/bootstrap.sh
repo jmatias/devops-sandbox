@@ -7,8 +7,8 @@ install_argocd() {
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
-  kubectl -n argocd create secret generic argocd-secret \
-    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
+#  kubectl -n argocd create secret generic argocd-secret \
+#    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
 
   kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
