@@ -26,6 +26,11 @@ install_argocd() {
 add_ecr_repos() {
   local ecr_password
   ecr_password=$(aws ecr get-login-password --region us-east-1 --profile tw)
+
+  kubectl delete secret ecr-registry-secret -n celery-sandbox || true
+  kubectl delete secret ecr-registry-secret -n argocd || true
+  kubectl delete secret ecr-registry-secret -n backstage || true
+
   kubectl -n celery-sandbox create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
@@ -51,6 +56,7 @@ install_apps() {
     --sync-policy automated
 
   kubectl create namespace backstage || true
+
   # create secret for backstage postgres
   kubectl -n backstage create secret generic postgres-secrets \
     --from-literal=POSTGRES_USER="$POSTGRES_USER" \

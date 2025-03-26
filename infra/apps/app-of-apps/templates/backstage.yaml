@@ -40,8 +40,8 @@ spec:
             alb.ingress.kubernetes.io/load-balancer-name: backstage
             {{ else }}
             kubernetes.io/ingress.class: "nginx"
-            nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-            nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+            nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+            nginx.ingress.kubernetes.io/ssl-passthrough: "true"
             {{- end }}
 
         backstage:
@@ -51,7 +51,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.7.18
+            tag: 0.7.25
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
