@@ -31,7 +31,7 @@ spec:
             username: backstage
         ingress:
           enabled: true
-          path: /backstage
+          path: /
           annotations:
             {{- if eq (lower .Values.environment) "aws" }}
             kubernetes.io/ingress.class: alb
