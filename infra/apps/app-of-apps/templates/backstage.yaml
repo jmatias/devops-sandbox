@@ -30,7 +30,7 @@ spec:
           auth:
             username: backstage
         ingress:
-          enabled: false
+          enabled: true
           path: /
           annotations:
             {{- if eq (lower .Values.environment) "aws" }}
