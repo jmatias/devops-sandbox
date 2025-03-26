@@ -7,8 +7,8 @@ install_argocd() {
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
-#  kubectl -n argocd create secret generic argocd-secret \
-#    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
+  #  kubectl -n argocd create secret generic argocd-secret \
+  #    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
 
   kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
@@ -53,19 +53,22 @@ install_apps() {
   kubectl create namespace backstage || true
   # create secret for backstage postgres
   kubectl -n backstage create secret generic postgres-secrets \
-      --from-literal=POSTGRES_USER="$POSTGRES_USER" \
-      --from-literal=POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
-      --from-literal=password="$POSTGRES_PASSWORD" || true
+    --from-literal=POSTGRES_USER="$POSTGRES_USER" \
+    --from-literal=POSTGRES_PASSWORD="$POSTGRES_PASSWORD" \
+    --from-literal=password="$POSTGRES_PASSWORD" || true
 
   kubectl -n backstage create secret generic backstage-secrets \
     --from-literal=AUTH_GITHUB_CLIENT_ID="$AUTH_GITHUB_CLIENT_ID" \
-    --from-literal=AUTH_GITHUB_CLIENT_SECRET="$AUTH_GITHUB_CLIENT_SECRET" || true
+    --from-literal=AUTH_GITHUB_CLIENT_SECRET="$AUTH_GITHUB_CLIENT_SECRET" \
+    --from-literal=AUTH_GITHUB_TEST_CLIENT_ID="$AUTH_GITHUB_TEST_CLIENT_ID" \
+    --from-literal=AUTH_GITHUB_TEST_CLIENT_SECRET="$AUTH_GITHUB_TEST_CLIENT_SECRET" || true
 
   kubectl -n backstage create secret generic github-auth \
     --from-literal=AUTH_GITHUB_CLIENT_ID="$AUTH_GITHUB_CLIENT_ID" \
     --from-literal=AUTH_GITHUB_CLIENT_SECRET="$AUTH_GITHUB_CLIENT_SECRET" \
+    --from-literal=AUTH_GITHUB_TEST_CLIENT_ID="$AUTH_GITHUB_TEST_CLIENT_ID" \
+    --from-literal=AUTH_GITHUB_TEST_CLIENT_SECRET="$AUTH_GITHUB_TEST_CLIENT_SECRET" \
     --from-literal=GITHUB_TOKEN="$GITHUB_TOKEN" || true
-
 
   sleep 2
   argocd app wait backstage --timeout 300
