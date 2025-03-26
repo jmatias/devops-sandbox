@@ -163,7 +163,8 @@ backstage:
   extraEnvVarsCM: []
 
   # -- Backstage container environment variables from existing Secrets
-  extraEnvVarsSecrets: []
+  extraEnvVarsSecrets:
+    - backstage-secrets
 
   # -- Backstage container additional ports
   extraPorts: []
