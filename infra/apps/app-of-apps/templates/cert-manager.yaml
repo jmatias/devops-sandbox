@@ -1,0 +1,38 @@
+{{- if ne (lower .Values.environment) "aws" }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: cert-manager
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: v1.17.1
+    helm:
+      valuesObject:
+        crds:
+          enabled: true
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
+    automated:
+      prune: true
+      selfHeal: true
+
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 5
+{{- end }}
