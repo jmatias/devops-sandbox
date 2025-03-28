@@ -425,6 +425,6 @@ dist
 
 ### Application specific files
 
-!/infra/apps/argocd/overlays/local
+!/infra/apps/*/overlays/local
 /configmap.yaml
 /app-config.yml
