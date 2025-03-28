@@ -49,6 +49,10 @@ fileignoreconfig:
   checksum: 5f157101a70a53df78efbffade2c082930c01bfdf2c6d54e7a1c497238d6abaa
 - filename: hack/bootstrap.sh
   checksum: 92c96da596131742d70d7390604acb611926c312c050343a772f61a130427a42
+- filename: infra/apps/app-of-apps/templates/backstage.yaml
+  checksum: 18b7ea7a53d5976dc64b16c7a69ba887b96c75be93eececca1d9df5c6c73c48d
+- filename: infra/apps/backstage/values.local.yaml
+  checksum: 4705eb3978bd016168e4b296b56422b5968c027c4b116e6fc87fbc645340399f
 - filename: infra/schema/backstage.json
   checksum: b729bf7bdb603639593313daad393e1e9998f204553722a9dbfbb391e67635ae
 - filename: infra/schema/backstage.yaml
