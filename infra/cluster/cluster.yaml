@@ -9,7 +9,7 @@ metadata:
   version: "1.32"
 
 
-availabilityZones: [ "us-east-1a" ]
+availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
@@ -117,9 +117,12 @@ iam:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
 
 addons:
-  - name: amazon-cloudwatch-observability
+#  - name: amazon-cloudwatch-observability
+  - name: vpc-cni
+    version: latest
   - name: aws-ebs-csi-driver
-  - name: aws-efs-csi-driver
+    wellKnownPolicies: # add IAM and service account
+      ebsCSIController: true
   - name: aws-mountpoint-s3-csi-driver
   - name: eks-node-monitoring-agent
   - name: kube-state-metrics
