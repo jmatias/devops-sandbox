@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: certs
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -20,6 +20,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
 
     retry:
       backoff:
