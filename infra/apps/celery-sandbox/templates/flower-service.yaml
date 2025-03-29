@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: flower-ui
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: api.tw-eks-sandbox.work
+{{/*  annotations:*/}}
+{{/*    external-dns.alpha.kubernetes.io/hostname: api.tw-eks-sandbox.work*/}}
 spec:
   selector:
     app.kubernetes.io/name: flower-ui
