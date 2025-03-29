@@ -10,46 +10,32 @@ metadata:
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/load-balancer-name: celery-sandbox
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:590184073526:certificate/7cd935d0-21d0-4d38-bfcf-c1fd934ab204
-    alb.ingress.kubernetes.io/actions.redirect-to-flower: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTP", "Port": "80", "Host": "#{host}", "Path": "/flower/", "Query": "#{query}", "StatusCode": "HTTP_301"}}'
 
 
 spec:
   rules:
-    - http:
+    - host: flower.tw-eks-sandbox.work
+      http:
         paths:
-          - path: /flower
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: redirect-to-flower
-                port:
-                  name: use-annotation
-
-
-          - path: /flower*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: flower-ui
                 port:
                   number: 5555
-
-
+    - host: fast-api.tw-eks-sandbox.work
+      http:
+        paths:
           - path: /
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: fast-api
                 port:
                   number: 5000
 
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fast-api
-                port:
-                  number: 5000
+
 
 {{- else }}
 apiVersion: networking.k8s.io/v1
