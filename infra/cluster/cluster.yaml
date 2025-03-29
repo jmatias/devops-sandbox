@@ -128,3 +128,7 @@ addons:
   - name: kube-state-metrics
   - name: metrics-server
   - name: prometheus-node-exporter
+  - name: external-dns
+    wellKnownPolicies:
+        externalDNS: true
+    version: latest
