@@ -24,7 +24,7 @@ spec:
                 name: flower-ui
                 port:
                   number: 5555
-    - host: fast-api.tw-eks-sandbox.work
+    - host: api.tw-eks-sandbox.work
       http:
         paths:
           - path: /
