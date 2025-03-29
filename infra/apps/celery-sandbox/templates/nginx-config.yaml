@@ -6,6 +6,15 @@ data:
         server {
             listen 5555;
 
+            location /pong {
+
+                proxy_pass http://flower-ui:5554/pong; # Flower's port
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+            }
+
             location / {
                 set $api_key "none";
                 if ($http_x_api_key) {
@@ -14,7 +23,7 @@ data:
 
                 # Replace this with your actual API key
                 if ($api_key != "local") {
-                    return 403 "Forbidden: Incorrect API Key";
+                    return 401 "Forbidden: Incorrect API Key";
                 }
                 proxy_pass http://flower-ui:5554; # Flower's port
                 proxy_set_header Host $host;
