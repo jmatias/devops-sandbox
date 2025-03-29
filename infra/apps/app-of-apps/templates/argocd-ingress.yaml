@@ -25,7 +25,7 @@ spec:
                 port:
                   number: 443
             pathType: Prefix
-      host: argo.tw-eks-sandbox.work
+{{/*      host: argo.tw-eks-sandbox.work*/}}
 
 {{ else }}
 
@@ -50,7 +50,7 @@ spec:
                 port:
                   name: https
             pathType: Prefix
-      host: argo.tw-eks-sandbox.work
+{{/*      host: argo.tw-eks-sandbox.work*/}}
 
 {{- end }}
 

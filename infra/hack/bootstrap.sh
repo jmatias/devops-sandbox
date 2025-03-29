@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 install_argocd() {
 
   set -e
@@ -61,7 +62,7 @@ install_apps() {
     --dest-server https://kubernetes.default.svc \
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path infra/apps/app-of-apps \
-    --revision starting-over \
+    --revision aws-deploy \
     --sync-policy automated
 
   kubectl create namespace backstage || true
