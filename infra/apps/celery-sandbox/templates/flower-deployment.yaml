@@ -26,7 +26,17 @@ spec:
         - image: "mher/flower:2.0"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celeryflower
-          command: [ "celery", "flower", "--host=0.0.0.0",  "--logging=DEBUG","--purge_offline_workers=60","--port=5555","--tasks_columns=name,uuid,state,result,received,started,runtime,worker"]
+          command: [ "celery" ]
+          args:
+            - "flower"
+            - "--host=0.0.0.0"
+            - "--logging=DEBUG"
+            - "--purge_offline_workers=60"
+            - "--port=5555"
+            - "--tasks_columns=name,uuid,state,result,received,started,runtime,worker"
+          {{ if .Values.environment | eq "aws" }}
+            - "--basic_auth=flower:local"
+          {{- end}}
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
