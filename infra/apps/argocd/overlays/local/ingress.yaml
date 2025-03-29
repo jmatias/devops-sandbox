@@ -1,0 +1,18 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: colima.local
+
+- op: replace
+  path: /spec/rules/0/http/paths/0/path
+  value: /argo
+
+- op: add
+  path: /metadata/annotations
+  value:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+
+- op: add
+  path: /spec/ingressClassName
+  value: nginx

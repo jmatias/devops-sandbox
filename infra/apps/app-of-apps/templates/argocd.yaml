@@ -11,14 +11,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: infra/apps/argocd
+    path: infra/apps/argocd/overlays/{{ .Values.environment }}
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    kustomize:
-      patches:
-        - path: overlays/{{ .Values.environment }}/argocd-cm.yaml
-        - path: overlays/{{ .Values.environment }}/argocd-cmd-params-cm.yaml
-
 
   syncPolicy:
     automated:

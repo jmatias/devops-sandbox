@@ -51,6 +51,10 @@ fileignoreconfig:
   checksum: 92c96da596131742d70d7390604acb611926c312c050343a772f61a130427a42
 - filename: infra/apps/app-of-apps/templates/backstage.yaml
   checksum: 18b7ea7a53d5976dc64b16c7a69ba887b96c75be93eececca1d9df5c6c73c48d
+- filename: infra/apps/argocd/overlays/local/ingres.yaml
+  checksum: 8dd82f624cade1c4484f5ada81ef98fc9e0677a99548238021bd16ad482e90b3
+- filename: infra/apps/argocd/overlays/local/ingress.yaml
+  checksum: a4f4e258753fab6d02c42ccadcb7b6a0c30801c2b8d1f6c21b31ebb440956a92
 - filename: infra/apps/backstage/values.local.yaml
   checksum: 4705eb3978bd016168e4b296b56422b5968c027c4b116e6fc87fbc645340399f
 - filename: infra/schema/backstage.json
