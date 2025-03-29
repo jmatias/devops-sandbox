@@ -6,13 +6,10 @@ data:
         server {
             listen 5555;
 
-            location /pong {
+            location /ping {
 
-                proxy_pass http://flower-ui:5554/pong; # Flower's port
+                proxy_pass http://flower-ui:5554/; # Flower's port
                 proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
             }
 
             location / {
