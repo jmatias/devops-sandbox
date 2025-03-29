@@ -3,7 +3,6 @@
 install_argocd() {
 
   set -e
-  set -x
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
@@ -27,9 +26,15 @@ add_ecr_repos() {
   local ecr_password
   ecr_password=$(aws ecr get-login-password --region us-east-1 --profile tw)
 
+  kubectl create namespace backstage || true
+  kubectl create namespace celery-sandbox || true
+  kubectl create namespace argocd || true
+  kubectl create namespace cert-manager || true
+
   kubectl delete secret ecr-registry-secret -n celery-sandbox || true
   kubectl delete secret ecr-registry-secret -n argocd || true
   kubectl delete secret ecr-registry-secret -n backstage || true
+  kubectl delete secret ecr-registry-secret -n cert-manager || true
 
   kubectl -n celery-sandbox create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
@@ -40,6 +45,10 @@ add_ecr_repos() {
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
   kubectl -n backstage create secret docker-registry ecr-registry-secret \
+    --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-username=AWS \
+    --docker-password="$ecr_password" || true
+  kubectl -n cert-manager create secret docker-registry ecr-registry-secret \
     --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
@@ -83,6 +92,8 @@ install_apps() {
 }
 
 set -e
+
+aws ecr get-login-password | docker login -u AWS --password-stdin "590184073526.dkr.ecr.us-east-1.amazonaws.com"
 
 install_argocd
 install_apps

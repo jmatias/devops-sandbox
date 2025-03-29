@@ -3,10 +3,10 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: git@github.com:jmatias/eks-sandbox.git
-    targetRevision: starting-over
+    targetRevision: aws-deploy
 
 
-environment: "local"
+environment: "aws"
 
 backstage:
   enabled: true

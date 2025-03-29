@@ -7,6 +7,6 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.10/manifests/install.yaml
 #  - base/argocd-cm.yaml
 
-patches:
-  - path: overlays/local/argocd-cm.yaml
-  - path: overlays/local/argocd-cmd-params-cm.yaml
+#patches:
+#  - path: overlays/aws/argocd-cm.yaml
+#  - path: overlays/aws/argocd-cmd-params-cm.yaml

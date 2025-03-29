@@ -25,6 +25,7 @@ spec:
                 port:
                   number: 443
             pathType: Prefix
+      host: argo.tw-eks-sandbox.work
 
 {{ else }}
 
@@ -42,13 +43,14 @@ spec:
   rules:
     - http:
         paths:
-          - path: /argo
+          - path: /
             backend:
               service:
                 name: argocd-server
                 port:
                   name: https
             pathType: Prefix
+      host: argo.tw-eks-sandbox.work
 
 {{- end }}
 

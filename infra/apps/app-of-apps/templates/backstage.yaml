@@ -15,6 +15,11 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valuesObject:
+        global:
+          {{- if eq (lower .Values.environment) "aws" }}
+          defaultStorageClass: gp2
+          storageClass: gp2
+          {{- end }}
         service:
           type: LoadBalancer
           ports:

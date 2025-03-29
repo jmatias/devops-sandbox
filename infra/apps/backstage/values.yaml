@@ -408,8 +408,10 @@ postgresql:
 
   persistence:
     size: 8Gi
+
   # -- Switch to enable or disable the PostgreSQL helm chart
   enabled: false
+
 
 
   # -- The authentication details of the Postgres database
