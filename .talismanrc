@@ -57,6 +57,8 @@ fileignoreconfig:
   checksum: a4f4e258753fab6d02c42ccadcb7b6a0c30801c2b8d1f6c21b31ebb440956a92
 - filename: infra/apps/backstage/values.local.yaml
   checksum: 4705eb3978bd016168e4b296b56422b5968c027c4b116e6fc87fbc645340399f
+- filename: infra/apps/celery-sandbox/templates/nginx-config.yaml
+  checksum: cbd7b919d749c833b37b6560f7f3a1d40a1c3b73351bd3b7b7b18f6859d3c5bb
 - filename: infra/schema/backstage.json
   checksum: b729bf7bdb603639593313daad393e1e9998f204553722a9dbfbb391e67635ae
 - filename: infra/schema/backstage.yaml

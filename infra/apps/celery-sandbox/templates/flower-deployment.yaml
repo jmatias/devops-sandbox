@@ -25,18 +25,15 @@ spec:
       containers:
         - image: "mher/flower:2.0"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          name: celeryflower
+          name: celery-flower
           command: [ "celery" ]
           args:
             - "flower"
             - "--host=0.0.0.0"
             - "--logging=DEBUG"
             - "--purge_offline_workers=60"
-            - "--port=5555"
+            - "--port=5554"
             - "--tasks_columns=name,uuid,state,result,received,started,runtime,worker"
-          {{ if .Values.environment | eq "aws" }}
-            - "--basic_auth=flower:local"
-          {{- end}}
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
@@ -46,9 +43,22 @@ spec:
               value: {{ .Values.redis.url }}
 
           ports:
-            - containerPort: 5555
+            - containerPort: 5554
               protocol: TCP
 
           resources:
           {{- toYaml .Values.resources | nindent 14 }}
+        - name: nginx-proxy
+          image: nginx:alpine
+          ports:
+            - containerPort: 5555
+              protocol: TCP
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-config
 {{ end }}
