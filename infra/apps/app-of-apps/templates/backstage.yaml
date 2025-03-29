@@ -21,7 +21,7 @@ spec:
           storageClass: gp2
           {{- end }}
         service:
-          type: LoadBalancer
+          type: ClusterIP
           ports:
             backend: 7007
         postgresql:
