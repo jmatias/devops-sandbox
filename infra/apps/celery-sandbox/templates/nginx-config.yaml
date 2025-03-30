@@ -6,12 +6,6 @@ data:
         server {
             listen 5555;
 
-            location /ping {
-
-                proxy_pass http://flower-ui:5554/; # Flower's port
-                proxy_set_header Host $host;
-            }
-
             location / {
                 set $api_key "none";
                 if ($http_x_api_key) {
