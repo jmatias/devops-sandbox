@@ -61,6 +61,26 @@ spec:
             - name: nginx-config-volume
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 5554
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 5554
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /healthcheck
+              port: 5554
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 30
       volumes:
         - name: nginx-config-volume
           configMap:
