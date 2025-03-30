@@ -14,7 +14,7 @@ data:
 
                 # Replace this with your actual API key
                 if ($api_key != "local") {
-                    return 401 "Forbidden: Incorrect API Key";
+                    return 401 "Access denied";
                 }
                 proxy_pass http://flower-ui:5554; # Flower's port
                 proxy_set_header Host $host;
@@ -23,12 +23,9 @@ data:
                 proxy_set_header X-Forwarded-Proto $scheme;
             }
 
-            location /api/workers {
-
-              proxy_pass http://flower-ui:5554; # Flower's port
-              proxy_set_header Host $host;
-              proxy_set_header X-Real-IP $remote_addr;
-          }
+            location /healthcheck {
+                return 200 "OK";
+            }
         }
     }
 kind: ConfigMap

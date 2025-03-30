@@ -9,7 +9,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/load-balancer-name: celery-sandbox
-    alb.ingress.kubernetes.io/healthcheck-path: /ping
+    alb.ingress.kubernetes.io/healthcheck-path: /healthcheck
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:590184073526:certificate/7cd935d0-21d0-4d38-bfcf-c1fd934ab204
 
 
