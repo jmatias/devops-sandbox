@@ -41,6 +41,10 @@ spec:
               value: {{ .Values.redis.url }}
             - name: FLOWER_BROKER_API
               value: {{ .Values.redis.url }}
+            - name: FLOWER_PORT
+              value: "5554"
+            - name: FLOWER_UNAUTHENTICATED_API
+              value: "true"
 
           ports:
             - containerPort: 5554
