@@ -132,3 +132,5 @@ addons:
     wellKnownPolicies:
         externalDNS: true
     version: latest
+  - name: cert-manager
+    version: latest

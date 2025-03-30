@@ -1,9 +1,8 @@
 #!/bin/bash
 
-set -x
 install_argocd() {
 
-  set -e
+#  set -e
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
@@ -58,6 +57,7 @@ add_ecr_repos() {
 install_apps() {
   argocd login --core --insecure
   argocd app create app-of-apps \
+    --upsert \
     --dest-namespace argocd \
     --dest-server https://kubernetes.default.svc \
     --repo git@github.com:jmatias/eks-sandbox.git \
@@ -86,10 +86,8 @@ install_apps() {
     --from-literal=AUTH_GITHUB_TEST_CLIENT_SECRET="$AUTH_GITHUB_TEST_CLIENT_SECRET" \
     --from-literal=GITHUB_TOKEN="$GITHUB_TOKEN" || true
 
-  sleep 2
-  argocd app wait backstage --timeout 300
+  sleep 6
 
-  argocd app sync app-of-apps argocd
 }
 
 set -e

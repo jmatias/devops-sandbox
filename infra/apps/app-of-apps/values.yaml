@@ -9,7 +9,7 @@ spec:
 environment: "aws"
 
 backstage:
-  enabled: true
+  enabled: false
 argocd:
   ingress:
     enabled: true

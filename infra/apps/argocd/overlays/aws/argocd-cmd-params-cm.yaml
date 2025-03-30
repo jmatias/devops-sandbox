@@ -5,5 +5,5 @@ metadata:
   namespace: argocd
 
 data:
-  server.insecure: "false"
+  server.insecure: "true"
   server.rootpath: ""

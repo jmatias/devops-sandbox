@@ -1,1 +1,2868 @@
-{"auths":{"590184073526.dkr.ecr.us-east-1.amazonaws.com":{"username":"AWS","password":"eyJwYXlsb2FkIjoiRnpLZGlITjYySzdIazhlbUgwdHFPejdQZHNXZGxBL1MvT2M0UTIyR1NLMWxJNWNhVGZFUFJuNnhCR0dxWFZTM2JIQWRtNGZ0dU9zZTkzcDhZSkY5NUExWDE0d2k4d21VKzRTQ0dBaFppVThYK0dJMUVmMjZmNFRYUllJTzVQUFdCbVU2dHM5Yk9XdHdCL1BWZFB2S3BtYnBMRi9Ea0ZSUmR1eVdFd1pqczd3ZkVOYTk2SnFOWk8xMDhPQnNJU1JOV2xPSnpTSjNEN2VWWDBuYndiV1JuWjB0YnpEdTVDdHJHcjVxN3YrV3piV1RlS0RmYjdBR3p4UkJBY1hvTnltandhdlVoRGdBbHVMSEpGL1htZmswRGdNVjh1cnc3T3NxM2ZrNXNTWllVMmQwM2UvMzNmNDlRR1R0c0RTMU9JOFViaTNKOWM5OTJQNWlTSWw3WktlbHZDZFk5NWZrUDJhZkdPUmFnUVo1RlYyeHNmejFvUGh4VnM2bUV3TEtPUU16YVBROW9VQi9YdkRUNHVOVkdrOEgyOVRJWnJHcEJnbTdZbHk0QWV3SjVaNkR6MFpBUlhuRUkxS3l2SW0rendZTXJyOW9xaUMvSW1hRStORG5mdk4xMklybFZlNTFBbSsySy9pdlJsam1ZRlRsSFlHRTFGMnM3NnhYSTBnd21xUllPS2hrTzFrdkxNcVYwM3BLbTZaOUtlTjJzU1RHb3luTGtjWW1TaWhKSlhmS2hzSjRxM0FGN0lkVmVCbFdoR0hxV2JHTTB6dnE5d2hKWVdqZldQSDA4YkRhaU85eVBGTGRDZTdCd0JGS3ZudXZOQjgrbFVaVjN0aWR1bWt0WEtHNEpWYS95R1VUZlFpbU82TmhkSUN2U1A5QW1xR0ZYSi9ueTdCbXFWYkVpRXluZ1dWMS9kN3BDbC9WV0VyTTJybWpPb2dHWWZRdUs1ZU5qZkFUZEVTQSt5d2p6ckZ1QXkrS3pqUXpTLzhON0EyeWZXTjh0cHNFQmRYR2t4ZDBuOWozRVhKcEZDenJwd0NmWjZoelFJZFBvWDdRVkpDQWNyOGtuTWRWVWk4S1RGWjNQODA5SFFKdy9yYnAwYWhDU0ZaUm1hRDNyZFZmWTZiMWRpTkdlRnZSRkMvOFNMcDZ3dHJkQnRXaVdQaGsrdXczei9OVFhRalhhb01EQmFHZzg0eTBHL2xUckIyQnJBa01pdDJKS1NDYmY2ZGw0Qmk5TGF1Qk5hUUtvNVdpNUJ5aW12cWlSNjNkTlE1bTVLMmFUMFBUQklkNTNxQ01RQ3U3S3VSY2QzRGUwNHkvaWVNbEhXTjlUa1dFdnhzNTJxRjZwbXBoRytWRGlvVkhJVjRuaEY3bGZMVDh4am1iYWRTTUhzQStSdDhaSGhjaUcxeVdWZEU0TkYvMVN1d3Qyd0RDUldyNmFNc2VwaTBVZXF3Z3EzbUgzWWZaQnVMTzB3OGRXMUpwOXNIdVZQc3gvWmdrTmlZUldYUk9uc2o2SFFYZHlxbTlvd0lCVUJIU1p0V2k1Q3ZxQVM3bEtsamZVRm54QTFJVVpkZnByRmgrMDBVTG1tZmEveVBzUHhIUDJIbTJmMEJrNGwya3Z6ZFMxTnFOdDNjNEZGSm1RRDRzK3dVU1dxUkl0MFVqei9nZmZ6aUdXcHZFNjRIdHQybS8yeFpQMnZ4SmgwT29HNjhTcGJFWlprZzFxNERVbXJ1K29jaWxmUEFwd3NrTWVLM2VCSVNCLzRLWlkxempGeVBPWUxHeTF3QSs0ZTRybjhlWFNZS0lSaS9PWXI5bURFSCtxSUpWSHB3VnUvbVQ4STBCWGRGQktyTnJlazU4VXMyWXoxdG9CajdLOU9uWWVrUGI4TE9pSDF1OWhlL3c5OFJZV29ueiIsImRhdGFrZXkiOiJBUUVCQUhod20wWWFJU0plUnRKbTVuMUc2dXFlZWtYdW9YWFBlNVVGY2U5UnE4LzE0d0FBQUg0d2ZBWUpLb1pJaHZjTkFRY0dvRzh3YlFJQkFEQm9CZ2txaGtpRzl3MEJCd0V3SGdZSllJWklBV1VEQkFFdU1CRUVERzEzQlZPWkNSUk9VZTI0MWdJQkVJQTdwcTk3S1RHdU54YTlJRXE5bWxaTU9saVljdjArQ2VXMFk3VW0xd3o3NWprbjR5Q3U3bFQ5UHhoeFBrUk12Qy9yZUdpSy9LRTdiMitXNXVJPSIsInZlcnNpb24iOiIyIiwidHlwZSI6IkRBVEFfS0VZIiwiZXhwaXJhdGlvbiI6MTc0MjQ2ODM1Mn0=","auth":"QVdTOmV5SndZWGxzYjJGa0lqb2lSbnBMWkdsSVRqWXlTemRJYXpobGJVZ3dkSEZQZWpkUVpITlhaR3hCTDFNdlQyTTBVVEl5UjFOTE1XeEpOV05oVkdaRlVGSnVObmhDUjBkeFdGWlRNMkpJUVdSdE5HWjBkVTl6WlRremNEaFpTa1k1TlVFeFdERTBkMms0ZDIxVkt6UlRRMGRCYUZwcFZUaFlLMGRKTVVWbU1qWm1ORlJZVWxsSlR6VlFVRmRDYlZVMmRITTVZazlYZEhkQ0wxQldaRkIyUzNCdFluQk1SaTlFYTBaU1VtUjFlVmRGZDFwcWN6ZDNaa1ZPWVRrMlNuRk9Xazh4TURoUFFuTkpVMUpPVjJ4UFNucFRTak5FTjJWV1dEQnVZbmRpVjFKdVdqQjBZbnBFZFRWRGRISkhjalZ4TjNZclYzcGlWMVJsUzBSbVlqZEJSM3A0VWtKQlkxaHZUbmx0YW5kaGRsVm9SR2RCYkhWTVNFcEdMMWh0Wm1zd1JHZE5WamgxY25jM1QzTnhNMlpyTlhOVFdsbFZNbVF3TTJVdk16Tm1ORGxSUjFSMGMwUlRNVTlKT0ZWaWFUTktPV001T1RKUU5XbFRTV3czV2t0bGJIWkRaRms1TldaclVESmhaa2RQVW1GblVWbzFSbFl5ZUhObWVqRnZVR2g0Vm5NMmJVVjNURXRQVVUxNllWQlJPVzlWUWk5WWRrUlVOSFZPVmtkck9FZ3lPVlJKV25KSGNFSm5iVGRaYkhrMFFXVjNTalZhTmtSNk1GcEJVbGh1UlVreFMzbDJTVzByZW5kWlRYSnlPVzl4YVVNdlNXMWhSU3RPUkc1bWRrNHhNa2x5YkZabE5URkJiU3N5U3k5cGRsSnNhbTFaUmxSc1NGbEhSVEZHTW5NM05uaFlTVEJuZDIxeFVsbFBTMmhyVHpGcmRreE5jVll3TTNCTGJUWmFPVXRsVGpKelUxUkhiM2x1VEd0aldXMVRhV2hLU2xobVMyaHpTalJ4TTBGR04wbGtWbVZDYkZkb1IwaHhWMkpIVFRCNmRuRTVkMmhLV1ZkcVpsZFFTREE0WWtSaGFVODVlVkJHVEdSRFpUZENkMEpHUzNadWRYWk9RamdyYkZWYVZqTjBhV1IxYld0MFdFdEhORXBXWVM5NVIxVlVabEZwYlU4MlRtaGtTVU4yVTFBNVFXMXhSMFpZU2k5dWVUZENiWEZXWWtWcFJYbHVaMWRXTVM5a04zQkRiQzlXVjBWeVRUSnliV3BQYjJkSFdXWlJkVXMxWlU1cVprRlVaRVZUUVN0NWQycDZja1oxUVhrclMzcHFVWHBUTHpoT04wRXllV1pYVGpoMGNITkZRbVJZUjJ0NFpEQnVPV296UlZoS2NFWkRlbkp3ZDBObVdqWm9lbEZKWkZCdldEZFJWa3BEUVdOeU9HdHVUV1JXVldrNFMxUkdXak5RT0RBNVNGRktkeTl5WW5Bd1lXaERVMFphVW0xaFJETnlaRlptV1RaaU1XUnBUa2RsUm5aU1JrTXZPRk5NY0RaM2RISmtRblJYYVZkUWFHc3JkWGN6ZWk5T1ZGaFJhbGhoYjAxRVFtRkhaemcwZVRCSEwyeFVja0l5UW5KQmEwMXBkREpLUzFORFltWTJaR3cwUW1rNVRHRjFRazVoVVV0dk5WZHBOVUo1YVcxMmNXbFNOak5rVGxFMWJUVkxNbUZVTUZCVVFrbGtOVE54UTAxUlEzVTNTM1ZTWTJRelJHVXdOSGt2YVdWTmJFaFhUamxVYTFkRmRuaHpOVEp4Umpad2JYQm9SeXRXUkdsdlZraEpWalJ1YUVZM2JHWk1WRGg0YW0xaVlXUlRUVWh6UVN0U2REaGFTR2hqYVVjeGVWZFdaRVUwVGtZdk1WTjFkM1F5ZDBSRFVsZHlObUZOYzJWd2FUQlZaWEYzWjNFemJVZ3pXV1phUW5WTVR6QjNPR1JYTVVwd09YTklkVlpRYzNndldtZHJUbWxaVWxkWVVrOXVjMm8yU0ZGWVpIbHhiVGx2ZDBsQ1ZVSklVMXAwVjJrMVEzWnhRVk0zYkV0c2FtWlZSbTU0UVRGSlZWcGtabkJ5Um1nck1EQlZURzF0Wm1FdmVWQnpVSGhJVURKSWJUSm1NRUpyTkd3eWEzWjZaRk14VG5GT2RETmpORVpHU20xUlJEUnpLM2RWVTFkeFVrbDBNRlZxZWk5blptWjZhVWRYY0haRk5qUklkSFF5YlM4eWVGcFFNblo0U21nd1QyOUhOamhUY0dKRldscHJaekZ4TkVSVmJYSjFLMjlqYVd4bVVFRndkM05yVFdWTE0yVkNTVk5DTHpSTFdsa3hlbXBHZVZCUFdVeEhlVEYzUVNzMFpUUnliamhsV0ZOWlMwbFNhUzlQV1hJNWJVUkZTQ3R4U1VwV1NIQjNWblV2YlZRNFNUQkNXR1JHUWt0eVRuSmxhelU0VlhNeVdYb3hkRzlDYWpkTE9VOXVXV1ZyVUdJNFRFOXBTREYxT1dobEwzYzVPRkpaVjI5dWVpSXNJbVJoZEdGclpYa2lPaUpCVVVWQ1FVaG9kMjB3V1dGSlUwcGxVblJLYlRWdU1VYzJkWEZsWld0WWRXOVlXRkJsTlZWR1kyVTVVbkU0THpFMGQwRkJRVWcwZDJaQldVcExiMXBKYUhaalRrRlJZMGR2UnpoM1lsRkpRa0ZFUW05Q1oydHhhR3RwUnpsM01FSkNkMFYzU0dkWlNsbEpXa2xCVjFWRVFrRkZkVTFDUlVWRVJ6RXpRbFpQV2tOU1VrOVZaVEkwTVdkSlFrVkpRVGR3Y1RrM1MxUkhkVTU0WVRsSlJYRTViV3hhVFU5c2FWbGpkakFyUTJWWE1GazNWVzB4ZDNvM05XcHJialI1UTNVM2JGUTVVSGhvZUZCclVrMTJReTl5WlVkcFN5OUxSVGRpTWl0WE5YVkpQU0lzSW5abGNuTnBiMjRpT2lJeUlpd2lkSGx3WlNJNklrUkJWRUZmUzBWWklpd2laWGh3YVhKaGRHbHZiaUk2TVRjME1qUTJPRE0xTW4wPQ=="}}}
+{
+	"Addons": [
+		{
+			"AddonName": "aws-mountpoint-s3-csi-driver",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.13.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.12.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.11.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.10.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.9.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.8.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "s3",
+			"Type": "storage"
+		},
+		{
+			"AddonName": "aws-efs-csi-driver",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v2.1.6-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.1.4-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.1.3-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.1.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.1.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.1.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.9-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.8-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.7-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.6-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.6-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.5-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.4-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.3-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v2.0.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.7-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.6-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.6-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.5-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.5-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.4-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.3-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.7.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.5.9-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.5.8-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "storage"
+		},
+		{
+			"AddonName": "vpc-cni",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.19.3-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.19.2-eksbuild.5",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.19.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "networking"
+		},
+		{
+			"AddonName": "kube-state-metrics",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v2.15.0-eksbuild.3",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v2.14.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "community",
+			"Publisher": "eks",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "friendliai_friendli-container",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v0.2.0-eksbuild.1",
+					"Architecture": [
+						"amd64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "prod-r6jihyzwywblg",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp?sku=1y22veysorinv05ujeo1mdfzk"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "FriendliAI",
+			"Type": "kubernetes-management"
+		},
+		{
+			"AddonName": "splunk_splunk-otel-collector-chart",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v0.86.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "237169f6-b4c6-4a66-a8a5-d2b04ca17908",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-sjdb4tw5uy47k"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Splunk",
+			"Type": "monitoring"
+		},
+		{
+			"AddonName": "aws-guardduty-agent",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.9.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.9.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.8.1-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.8.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "security"
+		},
+		{
+			"AddonName": "aws-ebs-csi-driver",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.41.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.40.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.40.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.39.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.39.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.38.1-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.38.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.37.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.37.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.36.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.36.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.35.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.35.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.34.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.33.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.32.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.31.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.30.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.29.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "storage"
+		},
+		{
+			"AddonName": "amazon-sagemaker-hyperpod-taskgovernance",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.0.0-eksbuild.5",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"hyperpod"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.0.0-eksbuild.4",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"hyperpod"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "sagemaker",
+			"Type": "policy-management"
+		},
+		{
+			"AddonName": "cribl_cribledge",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v4.11.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v4.10.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "956e78a4-f121-4029-9908-9ad395a4cfb6",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-6bmpo32ebx6gg"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Cribl",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "eks-pod-identity-agent",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.3.5-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.3.4-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.3.2-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.3.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.2.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.1.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.0.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "security"
+		},
+		{
+			"AddonName": "stormforge_optimize-live",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v2.20.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "194587ab-711e-4eab-9a45-97b0ceaa62e4",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-ywoktkhczruhk"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "StormForge",
+			"Type": "cost-management"
+		},
+		{
+			"AddonName": "prometheus-node-exporter",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.9.0-eksbuild.3",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.8.2-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "community",
+			"Publisher": "eks",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "coredns",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.11.4-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"fargate",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "networking"
+		},
+		{
+			"AddonName": "metrics-server",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v0.7.2-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v0.7.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "community",
+			"Publisher": "eks",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "cert-manager",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.17.1-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.17.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "community",
+			"Publisher": "eks",
+			"Type": "security"
+		},
+		{
+			"AddonName": "solo-io_istio-distro",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.25.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "bc18df1e-655f-4469-a969-600c0ec256db",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-kvr2wqekzmuhi"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Solo.io",
+			"Type": "service-mesh"
+		},
+		{
+			"AddonName": "tetrate-io_istio-distro",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.25.10010-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "976bbc27-7f73-4fe7-afa5-bebbb369316d",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-rm6w3vwyibt46"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "tetrate-io",
+			"Type": "policy-management"
+		},
+		{
+			"AddonName": "grafana-labs_kubernetes-monitoring",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.6.30-eksbuild.1",
+					"Architecture": [
+						"amd64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.6.29-eksbuild.1",
+					"Architecture": [
+						"amd64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "32a4dbb7-2f6f-4494-aef0-b778fc333971",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-gfehaksuakph4"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Grafana Labs",
+			"Type": "monitoring"
+		},
+		{
+			"AddonName": "amazon-cloudwatch-observability",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v3.5.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.4.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.3.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.3.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.2.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.1.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v3.0.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "suse_observability-agent",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.0.26-eksbuild.1",
+					"Architecture": [
+						"amd64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "prod-dj3fn77caiq4o",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp?sku=dq7lm1vomow5w8cz0b1lgbps4"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "SUSE",
+			"Type": "monitoring"
+		},
+		{
+			"AddonName": "snapshot-controller",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v8.2.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v8.1.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid",
+						"auto",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v8.1.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v8.0.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v7.0.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v6.3.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v6.2.2-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "storage"
+		},
+		{
+			"AddonName": "eks-node-monitoring-agent",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.1.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.0.2-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.0.1-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "observability"
+		},
+		{
+			"AddonName": "external-dns",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v0.16.1-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v0.15.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"auto",
+						"ec2",
+						"fargate"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "community",
+			"Publisher": "eks",
+			"Type": "networking"
+		},
+		{
+			"AddonName": "kube-proxy",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.32.0-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.31.3-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.30.9-eksbuild.3",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.30.7-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.29.13-eksbuild.3",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				},
+				{
+					"AddonVersion": "v1.29.11-eksbuild.2",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"hybrid"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "networking"
+		},
+		{
+			"AddonName": "netapp_trident-operator",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v25.2.1-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "3dddaaf1-373c-40ce-91ce-26cec94088eb",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-mptzckr6mggia"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "NetApp Inc.",
+			"Type": "storage"
+		},
+		{
+			"AddonName": "snyk_runtime-sensor",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.90.0-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": true,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "prod-ddxlqvmqhdbd4",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-uvof3afhvlvea"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Snyk",
+			"Type": "security"
+		},
+		{
+			"AddonName": "datadog_operator",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v0.1.12-eksbuild.1",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": false
+				}
+			],
+			"MarketplaceInformation": {
+				"ProductId": "6e852b2a-ecbb-431c-9b63-7de0288f4d00",
+				"ProductUrl": "https://aws.amazon.com/marketplace/pp/prodview-wedp6r37fkufe"
+			},
+			"Owner": "aws-marketplace",
+			"Publisher": "Datadog",
+			"Type": "monitoring"
+		},
+		{
+			"AddonName": "aws-network-flow-monitoring-agent",
+			"AddonVersions": [
+				{
+					"AddonVersion": "v1.0.2-eksbuild.4",
+					"Architecture": [
+						"amd64",
+						"arm64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": true,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				},
+				{
+					"AddonVersion": "v1.0.1-eksbuild.2",
+					"Architecture": [
+						"amd64"
+					],
+					"Compatibilities": [
+						{
+							"ClusterVersion": "1.32",
+							"DefaultVersion": false,
+							"PlatformVersions": [
+								"*"
+							]
+						}
+					],
+					"ComputeTypes": [
+						"ec2",
+						"auto"
+					],
+					"RequiresConfiguration": false,
+					"RequiresIamPermissions": true
+				}
+			],
+			"MarketplaceInformation": null,
+			"Owner": "aws",
+			"Publisher": "eks",
+			"Type": "observability"
+		}
+	]
+}

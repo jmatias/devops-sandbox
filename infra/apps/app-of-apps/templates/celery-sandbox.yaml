@@ -20,7 +20,7 @@ spec:
         image:
           repository: 590184073526.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
           pullPolicy: IfNotPresent
-          tag: "0.5.13"
+          tag: "0.6.0"
 
   syncPolicy:
     retry:
