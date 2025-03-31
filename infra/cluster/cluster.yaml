@@ -4,7 +4,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: javier-sandbox
+  name: javier-sandbox-eks
   region: "us-east-1"
   version: "1.32"
 
@@ -127,7 +127,7 @@ addons:
   - name: eks-node-monitoring-agent
   - name: kube-state-metrics
   - name: metrics-server
-  - name: prometheus-node-exporter
+#  - name: prometheus-node-exporter
   - name: external-dns
     wellKnownPolicies:
         externalDNS: true

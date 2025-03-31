@@ -62,8 +62,8 @@ install_apps() {
     --dest-server https://kubernetes.default.svc \
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path infra/apps/app-of-apps \
-    --revision aws-deploy \
-    --sync-policy automated
+    --sync-policy automated \
+    --revision recover
 
   kubectl create namespace backstage || true
 

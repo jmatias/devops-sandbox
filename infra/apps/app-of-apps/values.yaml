@@ -3,7 +3,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: git@github.com:jmatias/eks-sandbox.git
-    targetRevision: aws-deploy
+    targetRevision: recover
 
 
 environment: "aws"
