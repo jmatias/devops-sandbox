@@ -17,6 +17,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: flower-ui
+        env: dev
     spec:
       restartPolicy: Always
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}

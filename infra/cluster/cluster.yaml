@@ -13,7 +13,7 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
-  - name: mng1-spot
+  - name: mng2-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 1
     desiredCapacity: 1
@@ -81,6 +81,39 @@ managedNodeGroups:
         # For dev only
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
+
+fargateProfiles:
+#  - name: fp-default
+#    selectors:
+#      # All workloads in the "default" Kubernetes namespace will be
+#      # scheduled onto Fargate:
+#      - namespace: default
+#      # All workloads in the "kube-system" Kubernetes namespace will be
+#      # scheduled onto Fargate:
+#      - namespace: kube-system
+  - name: fp
+    selectors:
+      # All workloads in the "dev" Kubernetes namespace matching the following
+      # label selectors will be scheduled onto Fargate:
+      - namespace: celery-sandbox
+        labels:
+          env: dev
+    tags:
+      env: dev
+      name: fp-dev
+
+
+  - name: fp-kube-system
+    selectors:
+      # All workloads in the "dev" Kubernetes namespace matching the following
+      # label selectors will be scheduled onto Fargate:
+      - namespace: kube-system
+    tags:
+      env: dev
+      name: fp-dev
+
+
+
 iam:
   withOIDC: true
   serviceAccounts:
@@ -117,20 +150,29 @@ iam:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
 
 addons:
-#  - name: amazon-cloudwatch-observability
+
+  #  - name: amazon-cloudwatch-observability
+  #  - name: prometheus-node-exporter
   - name: vpc-cni
     version: latest
+
   - name: aws-ebs-csi-driver
-    wellKnownPolicies: # add IAM and service account
-      ebsCSIController: true
+
   - name: aws-mountpoint-s3-csi-driver
+
   - name: eks-node-monitoring-agent
-  - name: kube-state-metrics
+
   - name: metrics-server
-#  - name: prometheus-node-exporter
+
   - name: external-dns
-    wellKnownPolicies:
-        externalDNS: true
     version: latest
+
   - name: cert-manager
     version: latest
+
+  - name: eks-pod-identity-agent
+    version: latest
+
+
+addonsConfig:
+  autoApplyPodIdentityAssociations: true
