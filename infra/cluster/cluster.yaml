@@ -48,7 +48,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   - name: mng1
-    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    instanceTypes: [ "m5.large" ] # At least one instance type should be specified
     minSize: 0
     desiredCapacity: 0
     maxSize: 2
@@ -83,34 +83,14 @@ managedNodeGroups:
 
 
 fargateProfiles:
-#  - name: fp-default
-#    selectors:
-#      # All workloads in the "default" Kubernetes namespace will be
-#      # scheduled onto Fargate:
-#      - namespace: default
-#      # All workloads in the "kube-system" Kubernetes namespace will be
-#      # scheduled onto Fargate:
-#      - namespace: kube-system
-  - name: fp
-    selectors:
-      # All workloads in the "dev" Kubernetes namespace matching the following
-      # label selectors will be scheduled onto Fargate:
-      - namespace: celery-sandbox
-        labels:
-          env: dev
-    tags:
-      env: dev
-      name: fp-dev
 
 
   - name: fp-kube-system
     selectors:
-      # All workloads in the "dev" Kubernetes namespace matching the following
-      # label selectors will be scheduled onto Fargate:
       - namespace: kube-system
     tags:
       env: dev
-      name: fp-dev
+      name: fp-kube-system
 
 
 
@@ -152,7 +132,9 @@ iam:
 addons:
 
   #  - name: amazon-cloudwatch-observability
-  #  - name: prometheus-node-exporter
+
+  - name: prometheus-node-exporter
+
   - name: vpc-cni
     version: latest
 
