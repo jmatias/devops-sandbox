@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: worker
+        env: dev
     spec:
       restartPolicy: Always
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
