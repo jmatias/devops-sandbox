@@ -13,11 +13,11 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
-  - name: mng2-spot
+  - name: mng1-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
-    minSize: 1
+    minSize: 0
     desiredCapacity: 1
-    maxSize: 5
+    maxSize: 2
     spot: true
     availabilityZones:
       - "us-east-1a"
@@ -48,7 +48,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   - name: mng1
-    instanceTypes: [ "m5.large" ] # At least one instance type should be specified
+    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 0
     desiredCapacity: 0
     maxSize: 2
@@ -134,6 +134,11 @@ addons:
   #  - name: amazon-cloudwatch-observability
 
   - name: prometheus-node-exporter
+    version: latest
+    
+  - name: eks-node-monitoring-agent
+
+  - name: metrics-server
 
   - name: vpc-cni
     version: latest
@@ -141,10 +146,6 @@ addons:
   - name: aws-ebs-csi-driver
 
   - name: aws-mountpoint-s3-csi-driver
-
-  - name: eks-node-monitoring-agent
-
-  - name: metrics-server
 
   - name: external-dns
     version: latest
