@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fast-api
 spec:
-  replicas: 1
+  replicas: {{ .Values.fastapi.replicas }}
   selector:
     matchLabels:
       app.kubernetes.io/name: fast-api

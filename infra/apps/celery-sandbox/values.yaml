@@ -25,8 +25,17 @@ redis:
 
 flower:
   enabled: true
+  replicas: 1
 
-environment: "local"
+api:
+    enabled: true
+    replicas: 1
+
+worker:
+    enabled: true
+    replicas: 2
+
+environment: "aws"
 
 ingress:
   enabled: true

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: worker
 spec:
-  replicas: 1
+  replicas: {{ .Values.worker.replicas }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
