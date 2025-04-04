@@ -5,12 +5,6 @@ install_argocd() {
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
-  #  kubectl -n argocd create secret generic argocd-secret \
-  #    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
-
-#  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
-
-#  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.9/manifests/install.yaml
   kubectl apply -n argocd -k ../apps/argocd/overlays/aws
 
   sleep 1
@@ -86,9 +80,6 @@ install_apps() {
     --from-literal=AUTH_GITHUB_TEST_CLIENT_ID="$AUTH_GITHUB_TEST_CLIENT_ID" \
     --from-literal=AUTH_GITHUB_TEST_CLIENT_SECRET="$AUTH_GITHUB_TEST_CLIENT_SECRET" \
     --from-literal=GITHUB_TOKEN="$GITHUB_TOKEN" || true
-
-  sleep 6
-
 }
 
 set -e

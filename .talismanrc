@@ -34,7 +34,7 @@ fileignoreconfig:
 - filename: apps/helm-guestbook/values.yaml
   checksum: 704860d575612d6d8ec5ddd951286afc2dd511dee8b12744dc0b07930c737be8
 - filename: backstage/app-config.production.yaml
-  checksum: 09d6a010fdde81330aa35d5163590f6182890f2c1d122c980cf60701211c36f2
+  checksum: 2c6cb62d7168d1ab3fec710b1ce1e8c01ec1937850ca283c052688866a3e98ac
 - filename: backstage/app-config.yaml
   checksum: 7696a16a947de3b03063316f8cf8cdb424cffb49f1bc745e65718de0ae3474ac
 - filename: backstage/docker-compose.yml
@@ -52,7 +52,7 @@ fileignoreconfig:
 - filename: infra/apps/app-of-apps/templates/backstage.yaml
   checksum: 18b7ea7a53d5976dc64b16c7a69ba887b96c75be93eececca1d9df5c6c73c48d
 - filename: infra/apps/app-of-apps/templates/prometheus.yaml
-  checksum: dfd1bc396862a5d1d754c4cc7cae26e89174ea083bb6df03cafca68d62b76273
+  checksum: 974778df3db669924af8d6f63514a678006a3a77370fceea25e3e72ca20f7313
 - filename: infra/apps/argocd/overlays/local/ingres.yaml
   checksum: 8dd82f624cade1c4484f5ada81ef98fc9e0677a99548238021bd16ad482e90b3
 - filename: infra/apps/argocd/overlays/local/ingress.yaml
