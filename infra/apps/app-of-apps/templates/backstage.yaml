@@ -77,6 +77,11 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - Prune=true
+    automated:
+      selfHeal: true
+      prune: true
+
     retry:
       backoff:
         duration: 5s

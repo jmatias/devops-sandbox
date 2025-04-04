@@ -64,7 +64,7 @@ install_apps() {
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path infra/apps/app-of-apps \
     --sync-policy automated \
-    --revision aws-deploy
+    --revision main
 
   kubectl create namespace backstage || true
 
