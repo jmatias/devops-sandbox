@@ -1,15 +1,15 @@
 #!/bin/bash
 
+set -x
 install_argocd() {
 
-#  set -e
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
   #  kubectl -n argocd create secret generic argocd-secret \
   #    --from-literal=admin.password="$ARGOCD_PASSWORD" || true
 
-  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
+#  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
   kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.10/manifests/install.yaml
   sleep 1
@@ -63,7 +63,7 @@ install_apps() {
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path infra/apps/app-of-apps \
     --sync-policy automated \
-    --revision recover
+    --revision deploy-aws
 
   kubectl create namespace backstage || true
 
