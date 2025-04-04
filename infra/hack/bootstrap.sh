@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 install_argocd() {
 
   kubectl create namespace argocd || true
@@ -11,11 +10,12 @@ install_argocd() {
 
 #  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
-  kubectl apply -n -k
+#  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.9/manifests/install.yaml
+  kubectl apply -n argocd -k ../apps/argocd/overlays/aws
 
   sleep 1
   kubectl wait --timeout=60s --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
-  argocd login --core --insecure
+  argocd login --core
 
   argocd repo add git@github.com:jmatias/eks-sandbox.git --ssh-private-key-path ~/.ssh/id_ed25519_personal --project default --name eks-sandbox
 
@@ -56,7 +56,7 @@ add_ecr_repos() {
 }
 
 install_apps() {
-  argocd login --core --insecure
+  argocd login --core
   argocd app create app-of-apps \
     --upsert \
     --dest-namespace argocd \
@@ -64,7 +64,7 @@ install_apps() {
     --repo git@github.com:jmatias/eks-sandbox.git \
     --path infra/apps/app-of-apps \
     --sync-policy automated \
-    --revision deploy-aws
+    --revision aws-deploy
 
   kubectl create namespace backstage || true
 
@@ -92,9 +92,10 @@ install_apps() {
 }
 
 set -e
+#set -x
 
 aws ecr get-login-password | docker login -u AWS --password-stdin "590184073526.dkr.ecr.us-east-1.amazonaws.com"
 
 install_argocd
-install_apps
 add_ecr_repos
+install_apps

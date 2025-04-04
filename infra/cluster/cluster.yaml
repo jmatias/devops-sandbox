@@ -82,15 +82,14 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 
-fargateProfiles:
-
-
-  - name: fp-kube-system
-    selectors:
-      - namespace: kube-system
-    tags:
-      env: dev
-      name: fp-kube-system
+fargateProfiles: [ ]
+#fargateProfiles:
+#  - name: fp-kube-system
+#    selectors:
+#      - namespace: kube-system
+#    tags:
+#      env: dev
+#      name: fp-kube-system
 
 
 
@@ -133,9 +132,9 @@ addons:
 
   #  - name: amazon-cloudwatch-observability
 
-  - name: prometheus-node-exporter
-    version: latest
-    
+  #  - name: prometheus-node-exporter
+  #    version: latest
+
   - name: eks-node-monitoring-agent
 
   - name: metrics-server
