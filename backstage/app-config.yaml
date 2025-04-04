@@ -1,6 +1,6 @@
 app:
   title: Scaffolded Backstage App
-  baseUrl: https://192.168.106.8:7007
+  baseUrl: https://backstage.tw-eks-sandbox.work
 
 organization:
   name: My Company
@@ -12,17 +12,17 @@ backend:
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
-  baseUrl: https://localhost:7007
+  baseUrl: https://backstage.tw-eks-sandbox.work
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
-  csp:
-    connect-src: ["'self'", 'http:', 'https:']
-    # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
-    # Default Helmet Content-Security-Policy values can be removed by setting the key to false
+#  csp:
+#    connect-src: ["'self'", 'http:', 'https:']
+#    # Content-Security-Policy directives follow the Helmet format: https://helmetjs.github.io/#reference
+#    # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   cors:
-    origin: https://192.168.106.8:7007
+    origin: https://backstage.tw-eks-sandbox.work
     methods: [ GET, HEAD, PATCH, POST, PUT, DELETE ]
     credentials: true
     Access-Control-Allow-Origin: '*'

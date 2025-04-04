@@ -14,7 +14,7 @@ backend:
   listen:
     port: 7007
 
-  https: true
+#  https: true
   # config options: https://node-postgres.com/apis/client
   database:
     client: better-sqlite3

@@ -51,6 +51,8 @@ fileignoreconfig:
   checksum: 92c96da596131742d70d7390604acb611926c312c050343a772f61a130427a42
 - filename: infra/apps/app-of-apps/templates/backstage.yaml
   checksum: 18b7ea7a53d5976dc64b16c7a69ba887b96c75be93eececca1d9df5c6c73c48d
+- filename: infra/apps/app-of-apps/templates/prometheus.yaml
+  checksum: dfd1bc396862a5d1d754c4cc7cae26e89174ea083bb6df03cafca68d62b76273
 - filename: infra/apps/argocd/overlays/local/ingres.yaml
   checksum: 8dd82f624cade1c4484f5ada81ef98fc9e0677a99548238021bd16ad482e90b3
 - filename: infra/apps/argocd/overlays/local/ingress.yaml

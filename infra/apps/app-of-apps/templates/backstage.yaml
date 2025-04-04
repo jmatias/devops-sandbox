@@ -67,7 +67,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.8.0
+            tag: 0.8.2
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
@@ -77,9 +77,6 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true
     retry:
       backoff:
         duration: 5s
