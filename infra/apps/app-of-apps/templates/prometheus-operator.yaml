@@ -1,3 +1,4 @@
+{{ if .Values.prometheus.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -20,10 +21,11 @@ spec:
       prune: true
       selfHeal: true
 
-
     retry:
       backoff:
         duration: 5s
         factor: 2
         maxDuration: 3m0s
       limit: 5
+
+{{- end }}

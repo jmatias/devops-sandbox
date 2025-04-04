@@ -3,7 +3,7 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: git@github.com:jmatias/eks-sandbox.git
-    targetRevision: origin/aws-deploy
+    targetRevision: aws-deploy
 
 
 environment: "aws"
@@ -14,3 +14,6 @@ backstage:
 argocd:
   ingress:
     enabled: true
+
+prometheus:
+  enabled: false

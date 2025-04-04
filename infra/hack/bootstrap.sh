@@ -11,7 +11,8 @@ install_argocd() {
 
 #  kubectl -n argocd apply -f ../apps/argocd/overlays/local/argocd-cmd-params-cm.yaml
 
-  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.12.10/manifests/install.yaml
+  kubectl apply -n -k
+
   sleep 1
   kubectl wait --timeout=60s --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
   argocd login --core --insecure
