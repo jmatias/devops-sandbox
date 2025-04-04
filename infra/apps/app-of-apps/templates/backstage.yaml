@@ -39,7 +39,7 @@ spec:
           path: /
           host: "backstage.tw-eks-sandbox.work"
           tls:
-            enabled: true
+            enabled: false
             secretName: "backstage-tls"
           annotations:
             {{- if eq (lower .Values.environment) "aws" }}
@@ -67,7 +67,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.7.26
+            tag: 0.8.0
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
