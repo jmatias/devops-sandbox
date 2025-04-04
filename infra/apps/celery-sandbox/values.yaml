@@ -27,7 +27,7 @@ flower:
   enabled: true
   replicas: 1
 
-api:
+fastapi:
     enabled: true
     replicas: 1
 
