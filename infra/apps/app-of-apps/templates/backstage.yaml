@@ -67,7 +67,7 @@ spec:
           image:
             registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
-            tag: 0.8.2
+            tag: 0.8.8
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
