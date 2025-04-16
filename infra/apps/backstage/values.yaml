@@ -111,7 +111,7 @@ backstage:
   image:
 
     # -- Backstage image registry
-    registry: 590184073526.dkr.ecr.us-east-1.amazonaws.com
+    registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
 
     # -- Backstage image repository
     repository: javier/backstage

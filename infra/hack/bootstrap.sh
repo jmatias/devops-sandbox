@@ -19,7 +19,7 @@ install_argocd() {
 
 add_ecr_repos() {
   local ecr_password
-  ecr_password=$(aws ecr get-login-password --region us-east-1 --profile tw)
+  ecr_password=$(aws ecr get-login-password --region us-east-1 --profile tw-abbvie)
 
   kubectl create namespace backstage || true
   kubectl create namespace celery-sandbox || true
@@ -32,19 +32,19 @@ add_ecr_repos() {
   kubectl delete secret ecr-registry-secret -n cert-manager || true
 
   kubectl -n celery-sandbox create secret docker-registry ecr-registry-secret \
-    --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
   kubectl -n argocd create secret docker-registry ecr-registry-secret \
-    --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
   kubectl -n backstage create secret docker-registry ecr-registry-secret \
-    --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
   kubectl -n cert-manager create secret docker-registry ecr-registry-secret \
-    --docker-server=590184073526.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
 }
@@ -85,7 +85,7 @@ install_apps() {
 set -e
 #set -x
 
-aws ecr get-login-password | docker login -u AWS --password-stdin "590184073526.dkr.ecr.us-east-1.amazonaws.com"
+aws ecr get-login-password | docker login -u AWS --password-stdin "386757133934.dkr.ecr.us-east-1.amazonaws.com"
 
 install_argocd
 add_ecr_repos

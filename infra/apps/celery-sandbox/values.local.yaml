@@ -1,5 +1,5 @@
 image:
-  repository: 590184073526.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
+  repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
