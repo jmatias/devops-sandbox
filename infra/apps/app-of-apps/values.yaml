@@ -24,7 +24,7 @@ argocd:
     enabled: true
 
 prometheus:
-  enabled: false
+  enabled: true
   autoSync: false
 
 celerySandbox:
