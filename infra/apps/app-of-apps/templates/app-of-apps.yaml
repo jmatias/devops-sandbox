@@ -20,9 +20,13 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+
+    {{ if .Values.appOfApps.autoSync   }}
     automated:
       prune: true
       selfHeal: true
+    {{ end }}
+
     retry:
       backoff:
         duration: 5s

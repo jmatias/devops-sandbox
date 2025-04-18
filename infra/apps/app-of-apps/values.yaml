@@ -8,12 +8,27 @@ spec:
 
 environment: "aws"
 
+appOfApps:
+  enabled: true
+  autoSync: false
+
 backstage:
   enabled: true
+  autoSync: false
 
 argocd:
+  autoSync: false
   ingress:
     enabled: true
 
 prometheus:
   enabled: true
+  autoSync: false
+
+celerySandbox:
+  enabled: true
+  autoSync: false
+
+
+albIngressController:
+  autoSync: false

@@ -27,9 +27,12 @@ spec:
       limit: 6
       backoff:
         duration: "30s"
+
+    {{ if .Values.celerySandbox.autoSync   }}
     automated:
-      selfHeal: true
       prune: true
+      selfHeal: true
+    {{ end }}
 
     syncOptions:
       - CreateNamespace=true

@@ -25,9 +25,13 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Prune=true
+
+    {{ if .Values.albIngressController.autoSync   }}
     automated:
       prune: true
       selfHeal: true
+    {{ end }}
+
     retry:
       backoff:
         duration: 5s

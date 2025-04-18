@@ -1353,21 +1353,17 @@ spec:
             annotations:
               external-dns.alpha.kubernetes.io/hostname: grafana.tw-javier.work
 
-
-
-
-
   syncPolicy:
-
-
     syncOptions:
-
       - CreateNamespace=true
       - PruneLast=true
       - ServerSideApply=true
+
+    {{ if .Values.prometheus.autoSync   }}
     automated:
       prune: true
       selfHeal: true
+    {{ end }}
 
     retry:
       backoff:

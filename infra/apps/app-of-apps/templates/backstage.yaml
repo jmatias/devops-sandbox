@@ -78,9 +78,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Prune=true
+
+    {{ if .Values.backstage.autoSync   }}
     automated:
-      selfHeal: true
       prune: true
+      selfHeal: true
+    {{ end }}
 
     retry:
       backoff:
