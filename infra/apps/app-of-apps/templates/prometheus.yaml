@@ -1199,7 +1199,7 @@ spec:
               alb.ingress.kubernetes.io/scheme: internet-facing
               alb.ingress.kubernetes.io/target-type: 'ip'
               alb.ingress.kubernetes.io/load-balancer-name: grafana
-              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/04534e8f-fed8-48b0-b1cc-b0ce43f4f969
+              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
               alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
               # kubernetes.io/ingress.class: nginx
             # kubernetes.io/tls-acme: "true"
@@ -1214,7 +1214,7 @@ spec:
             # hosts:
             #   - grafana.domain.com
             hosts:
-              - grafana.tw-eks-sandbox.work
+              - grafana.tw-javier.work
 
             ## Path for grafana ingress
             path: /
@@ -1351,7 +1351,7 @@ spec:
             ipFamilies: []
             ipFamilyPolicy: ""
             annotations:
-              external-dns.alpha.kubernetes.io/hostname: grafana.tw-eks-sandbox.work
+              external-dns.alpha.kubernetes.io/hostname: grafana.tw-javier.work
 
 
 
