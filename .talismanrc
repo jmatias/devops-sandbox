@@ -19,6 +19,8 @@ fileignoreconfig:
   checksum: 76fe58bdf7e33154da577a1651a427ca38148c148cc996b61e851883d5cc372e
 - filename: sdlc-trace/poetry.lock
   checksum: f3b4bc311197c0a37993f2dd35d90746c6b516c3a1d91d8be0594c1dc64cd2cb
+- filename: sdlc-trace/src/sdlc_trace/auth.py
+  checksum: 3e0531977206a77d3deeafb20868a0a8ba2a54697cd4db26c2afa377ed610ab1
 - filename: sdlc-trace/src/sdlc_trace/evidence_vault_mock_data_PLAT_2000_to_2006.zip
   checksum: 5db5833631688e01888d0b05fd6d619f09639110f0c7bbea14b0e0bf7f515cd1
 scopeconfig:

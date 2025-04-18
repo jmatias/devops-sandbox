@@ -4,8 +4,10 @@ from datetime import date, datetime
 from typing import Dict, List, Optional
 
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Security
 from pydantic import BaseModel
+
+from sdlc_trace.auth import get_api_key
 
 app = FastAPI(swagger_ui_parameters={"tryItOutEnabled": True})
 STORAGE_ROOT = "./data"
@@ -15,8 +17,9 @@ os.makedirs(STORAGE_ROOT, exist_ok=True)
 # Placeholder for updated endpoints based on markdown specs
 
 
+
 @app.get("/")
-def root():
+async def root(_=Security(get_api_key)):
     return {"message": "Evidence Vault API - Updated Version"}
 
 
