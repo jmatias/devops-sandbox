@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1500",
+  "pr_id": "PR-200",
+  "branch_from": "feature/PLAT-1500-enhancement",
+  "branch_to": "dev",
+  "reviewer": "dgilmore@barker.com",
+  "approved_at": "2025-04-16T03:51:01.239895Z",
+  "commit_sha": "3f9372fd"
+}

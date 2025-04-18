@@ -47,7 +47,6 @@ spec:
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: 'ip'
             alb.ingress.kubernetes.io/load-balancer-name: backstage
-            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/04534e8f-fed8-48b0-b1cc-b0ce43f4f969
             alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
             {{ else }}
             kubernetes.io/ingress.class: "nginx"

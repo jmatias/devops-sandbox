@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1505",
+  "pr_id": "PR-205",
+  "branch_from": "feature/PLAT-1505-enhancement",
+  "branch_to": "dev",
+  "reviewer": "pross@adams.com",
+  "approved_at": "2025-04-16T03:51:34.458698Z",
+  "commit_sha": "c1cc5081"
+}

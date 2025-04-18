@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3030",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWPROD1003",
+  "related_to": "PLAT-1503",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWPROD1003.txt",
+  "timestamp": "2025-04-16T05:51:34.442058Z",
+  "submitted_by": "dustinalexander@johnson.com",
+  "metadata": {
+    "cr_id": "SNOWPROD1003",
+    "status": "approved",
+    "approved_by": "dustinalexander@johnson.com",
+    "approved_at": "2025-04-16T05:51:34.442058Z"
+  }
+}

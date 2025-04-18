@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1501",
+  "pr_id": "PR-201",
+  "branch_from": "feature/PLAT-1501-enhancement",
+  "branch_to": "dev",
+  "reviewer": "ktaylor@ortiz.com",
+  "approved_at": "2025-04-16T03:51:34.414235Z",
+  "commit_sha": "a664d0e9"
+}

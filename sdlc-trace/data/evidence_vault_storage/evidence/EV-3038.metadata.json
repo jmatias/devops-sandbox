@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3038",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWPROD1004",
+  "related_to": "PLAT-1504",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWPROD1004.txt",
+  "timestamp": "2025-04-16T05:51:34.450643Z",
+  "submitted_by": "robert32@zavala-hill.org",
+  "metadata": {
+    "cr_id": "SNOWPROD1004",
+    "status": "approved",
+    "approved_by": "robert32@zavala-hill.org",
+    "approved_at": "2025-04-16T05:51:34.450643Z"
+  }
+}

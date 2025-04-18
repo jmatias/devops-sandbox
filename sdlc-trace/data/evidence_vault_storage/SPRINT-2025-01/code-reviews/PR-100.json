@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1378",
+  "pr_id": "PR-100",
+  "branch_from": "feature/PLAT-1378-feat",
+  "branch_to": "dev",
+  "reviewer": "kimpatrick@gmail.com",
+  "approved_at": "2025-04-16T04:33:00.248128Z",
+  "commit_sha": "e0f807d1"
+}

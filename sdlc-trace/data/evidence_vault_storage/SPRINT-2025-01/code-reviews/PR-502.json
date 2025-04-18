@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2002",
+  "pr_id": "PR-502",
+  "branch_from": "dev",
+  "branch_to": "main",
+  "reviewer": "jwilson@gmail.com",
+  "approved_at": "2025-04-16T04:01:59.667107Z",
+  "commit_sha": "c4b61362"
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3022",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWPROD1002",
+  "related_to": "PLAT-1502",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWPROD1002.txt",
+  "timestamp": "2025-04-16T05:51:34.433292Z",
+  "submitted_by": "john43@yahoo.com",
+  "metadata": {
+    "cr_id": "SNOWPROD1002",
+    "status": "approved",
+    "approved_by": "john43@yahoo.com",
+    "approved_at": "2025-04-16T05:51:34.433292Z"
+  }
+}

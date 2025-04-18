@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1381",
+  "pr_id": "PR-103",
+  "branch_from": "feature/PLAT-1381-feat",
+  "branch_to": "dev",
+  "reviewer": "michele41@gmail.com",
+  "approved_at": "2025-04-16T04:33:00.261980Z",
+  "commit_sha": "ba84671a"
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3006",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWPROD1000",
+  "related_to": "PLAT-1500",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWPROD1000.txt",
+  "timestamp": "2025-04-16T05:51:01.239895Z",
+  "submitted_by": "hcontreras@gmail.com",
+  "metadata": {
+    "cr_id": "SNOWPROD1000",
+    "status": "approved",
+    "approved_by": "hcontreras@gmail.com",
+    "approved_at": "2025-04-16T05:51:01.239895Z"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3018",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-2014",
+  "related_to": "PLAT-1502",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-2014.xml",
+  "timestamp": "2025-04-16T04:12:34.433292Z",
+  "submitted_by": "munozrebecca@hotmail.com",
+  "metadata": {
+    "test_id": "TEST-2014",
+    "coverage_percent": 98.29,
+    "passed": 184,
+    "failed": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-103-CR",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOW1203",
+  "related_to": "PLAT-1381",
+  "file_url": "s3://evidence-vault/raw/snow/SNOW1203.txt",
+  "timestamp": "2025-04-16T05:33:00.261980Z",
+  "submitted_by": "kurtmartin@mcdonald.org",
+  "metadata": {
+    "cr_id": "SNOW1203",
+    "status": "approved",
+    "approved_by": "kurtmartin@mcdonald.org",
+    "approved_at": "2025-04-16T05:33:00.261980Z"
+  }
+}

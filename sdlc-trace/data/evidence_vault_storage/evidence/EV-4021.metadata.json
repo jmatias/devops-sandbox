@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4021",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3021",
+  "related_to": "PLAT-2002",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3021.xml",
+  "timestamp": "2025-04-16T04:06:59.667107Z",
+  "submitted_by": "davidfrancis@fry.com",
+  "metadata": {
+    "test_id": "TEST-3021",
+    "coverage_percent": 97.11,
+    "passed": 138,
+    "failed": 2
+  }
+}

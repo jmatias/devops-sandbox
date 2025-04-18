@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1505",
+  "pr_id": "PR-305",
+  "branch_from": "dev",
+  "branch_to": "main",
+  "reviewer": "travissanchez@yahoo.com",
+  "approved_at": "2025-04-16T04:21:34.458698Z",
+  "commit_sha": "c1cc5081"
+}

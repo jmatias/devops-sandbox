@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4010",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3010",
+  "related_to": "PLAT-2001",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3010.xml",
+  "timestamp": "2025-04-16T04:01:59.659109Z",
+  "submitted_by": "paula23@wright.com",
+  "metadata": {
+    "test_id": "TEST-3010",
+    "coverage_percent": 83.74,
+    "passed": 91,
+    "failed": 1
+  }
+}

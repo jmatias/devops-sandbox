@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-104",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-104",
+  "related_to": "PLAT-1382",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-104.xml",
+  "timestamp": "2025-04-16T07:33:00.265565Z",
+  "submitted_by": "ucoleman@hotmail.com",
+  "metadata": {
+    "test_id": "TEST-104",
+    "coverage_percent": 86.88,
+    "passed": 172,
+    "failed": 1
+  }
+}

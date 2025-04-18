@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3035",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-2027",
+  "related_to": "PLAT-1504",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-2027.xml",
+  "timestamp": "2025-04-16T04:22:34.450643Z",
+  "submitted_by": "nbennett@burke.com",
+  "metadata": {
+    "test_id": "TEST-2027",
+    "coverage_percent": 84.44,
+    "passed": 130,
+    "failed": 0
+  }
+}

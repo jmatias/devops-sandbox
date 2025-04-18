@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3031",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWQA1003",
+  "related_to": "PLAT-1503",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWQA1003.txt",
+  "timestamp": "2025-04-16T04:51:34.442058Z",
+  "submitted_by": "sandrasnyder@yahoo.com",
+  "metadata": {
+    "cr_id": "SNOWQA1003",
+    "status": "approved",
+    "approved_by": "sandrasnyder@yahoo.com",
+    "approved_at": "2025-04-16T04:51:34.442058Z"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3012",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-2010",
+  "related_to": "PLAT-1501",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-2010.xml",
+  "timestamp": "2025-04-16T04:32:34.414235Z",
+  "submitted_by": "edwardskatrina@gmail.com",
+  "metadata": {
+    "test_id": "TEST-2010",
+    "coverage_percent": 80.45,
+    "passed": 185,
+    "failed": 1
+  }
+}

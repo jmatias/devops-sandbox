@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1502",
+  "pr_id": "PR-202",
+  "branch_from": "feature/PLAT-1502-enhancement",
+  "branch_to": "dev",
+  "reviewer": "thomasdennis@hotmail.com",
+  "approved_at": "2025-04-16T03:51:34.433292Z",
+  "commit_sha": "0219a5cb"
+}

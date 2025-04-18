@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3046",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWPROD1005",
+  "related_to": "PLAT-1505",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWPROD1005.txt",
+  "timestamp": "2025-04-16T05:51:34.458698Z",
+  "submitted_by": "michaelsmith@newman.com",
+  "metadata": {
+    "cr_id": "SNOWPROD1005",
+    "status": "approved",
+    "approved_by": "michaelsmith@newman.com",
+    "approved_at": "2025-04-16T05:51:34.458698Z"
+  }
+}

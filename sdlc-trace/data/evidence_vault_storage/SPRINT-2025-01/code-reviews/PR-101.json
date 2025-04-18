@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1379",
+  "pr_id": "PR-101",
+  "branch_from": "feature/PLAT-1379-feat",
+  "branch_to": "dev",
+  "reviewer": "yesenia49@levy-larson.com",
+  "approved_at": "2025-04-16T04:33:00.252959Z",
+  "commit_sha": "989471df"
+}

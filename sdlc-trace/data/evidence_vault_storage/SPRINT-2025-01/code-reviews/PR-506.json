@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2006",
+  "pr_id": "PR-506",
+  "branch_from": "dev",
+  "branch_to": "main",
+  "reviewer": "evansandrew@hotmail.com",
+  "approved_at": "2025-04-16T04:12:02.453913Z",
+  "commit_sha": "35c2569c"
+}

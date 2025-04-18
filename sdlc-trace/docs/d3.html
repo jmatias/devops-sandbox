@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 Visualization from Mermaid</title>
+    <style>
+        body { font-family: sans-serif; }
+        .tooltip {
+            position: absolute;
+            text-align: left;
+            padding: 8px;
+            font-size: 12px;
+            background: lightgray;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+        .node rect {
+            stroke: #333;
+            stroke-width: 1.5px;
+            rx: 6;
+            ry: 6;
+        }
+        .node text {
+            font-size: 10px;
+            fill: #fff;
+            pointer-events: none;
+        }
+        .icon {
+            font-family: sans-serif;
+            font-size: 16px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+    const graphData = {
+        nodes: [
+            { id: "US", label: "Jira User Story\nPLAT-5000",tooltip:"Sprint ID: PLAT-2025-02\nRelease ID: PLAT-V3", type: "story" },
+            { id: "TESTLOCAL", label: "Unit + Integration Tests\n(Local)", type: "test", tooltip: "This step occurs in local\nenvironment"  },
+            { id: "PRCRDEV", label: "Pull Request\nfeat/PLAT-5000 → dev", type: "review", tooltip: "ID: PR-123\nreviewer: dev.teammate@example.com\nGit SHA: abcd11f\nRepo: git@github.com:ocean/repo.git\napproved at: 2025-04-05T10:00:00Z" },
+            { id: "TESTDEV1", label: "Unit Tests in DEV\nID: TEST-0001", type: "test", tooltip: "test_id: TEST-0001\npassed: 100\ncoverage: 93%\nevidence: EV-1002\nurl: s3://.../EV-1002-TEST-0001-results.xml" },
+            { id: "DEVDEPLOY", label: "Deployment to DEV\nSNOW CR: N/A", type: "deploy", tooltip: "2025-04-11 10:07 UTC\ncommit: sha5000dev\npipeline: v7.0.0" },
+            { id: "TESTDEV2", label: "Integration Tests in DEV\nID: TEST-0002", type: "test", tooltip: "test_id: TEST-0002\npassed: 100\ncoverage: 94%\nevidence: EV-1003\nurl: s3://.../EV-1003-TEST-0002-results.xml" },
+            { id: "PRCRMAIN", label: "Pull Request\ndev → main", type: "review", tooltip: "ID: PR-124\nreviewer: dev.teammate@example.com\nGit SHA: f00d123\nRepo: git@github.com:ocean/repo.git\napproved at: 2025-04-13T09:00:00Z" },
+            { id: "PREQDEPLOY", label: "Deployment to PREQ\nSNOW CR: N/A", type: "deploy", tooltip: "env: PREQ\n2025-04-14 21:53 UTC" },
+            { id: "TESTPREQ", label: "PREQ Integration Tests\nID: TEST-0003", type: "test", tooltip: "test_id: TEST-0003\npassed: 100\ncoverage: 96%\nevidence: EV-1006\nurl: s3://.../EV-1006-TEST-0003-results.xml" },
+            { id: "QADEPLOY", label: "Deployment to QA\nSNOW CR: 1001", type: "deploy", tooltip: "status: approved\n2025-04-17 22:15 UTC\nmanager: qa.manager@example.com\nevidence: EV-1006\nurl: s3://.../EV-1006-SNOW-CR1001.txt" },
+            { id: "TESTQA", label: "QA Integration Tests\nID: TEST-0004", type: "test", tooltip: "test_id: TEST-0004\npassed: 100\ncoverage: 96%\nevidence: EV-1007\nurl: s3://.../EV-1007-test-results.xml" },
+            { id: "PRODDEPLOY", label: "Deployment to PROD\nSNOW CR: 1002", type: "deploy", tooltip: "status: approved\n2025-04-18 04:22 UTC\nmanager: prod.manager@example.com\nevidence: EV-1008\nurl: s3://.../EV-1008-SNOW-CR1002.txt" },
+            { id: "TESTPROD", label: "PROD Integration Test\nID: TEST-0005", type: "test", tooltip: "test_id: TEST-0005\npassed: 100\ncoverage: 97%\nevidence: EV-1009\nurl: s3://.../EV-1009-TEST-0005-results.xml" }
+        ],
+        links: [
+            { source: "US", target: "TESTLOCAL" },
+            { source: "TESTLOCAL", target: "PRCRDEV" },
+            { source: "PRCRDEV", target: "TESTDEV1" },
+            { source: "TESTDEV1", target: "DEVDEPLOY" },
+            { source: "DEVDEPLOY", target: "TESTDEV2" },
+            { source: "TESTDEV2", target: "PRCRMAIN" },
+            { source: "PRCRMAIN", target: "PREQDEPLOY" },
+            { source: "PREQDEPLOY", target: "TESTPREQ" },
+            { source: "TESTPREQ", target: "QADEPLOY" },
+            { source: "QADEPLOY", target: "TESTQA" },
+            { source: "TESTQA", target: "PRODDEPLOY" },
+            { source: "PRODDEPLOY", target: "TESTPROD" }
+        ]
+    };
+
+
+    const svg = d3.select("body")
+        .append("svg") // Prepend the SVG as the first child of the body
+        .attr("width", 1600)
+        .attr("height", 900);
+
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 3])
+        .on("zoom", (event) => g.attr("transform", event.transform));
+
+    svg.call(zoom);
+
+    const g = svg.append("g");
+
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+    const simulation = d3.forceSimulation(graphData.nodes)
+        .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(120))
+        .force("charge", d3.forceManyBody().strength(-800))
+        .force("x", d3.forceX((d, i) => 150 + i * 100).strength(0.5))
+        .force("y", d3.forceY(height / 2).strength(0.05))
+        .force("collide", d3.forceCollide(40));
+
+    const link = g.append("g")
+        .attr("stroke", "#999")
+        .attr("stroke-opacity", 0.6)
+        .selectAll("line")
+        .data(graphData.links)
+        .join("line")
+        .attr("stroke-width", 2);
+
+    const colorScale = {
+        story: "#4B8BBE",     // muted blue
+        test: "#9966CC",      // purple
+        review: "#D2691E",    // brown
+        deploy: "#708090"     // gray
+    };
+
+
+
+    const iconMap = {
+        story: "📘",
+        test: "✅",
+        review: "🔍",
+        deploy: "🚀"
+    };
+
+    const node = g.append("g")
+        .selectAll("g")
+        .data(graphData.nodes)
+        .join("g")
+        .attr("class", "node")
+        .call(drag(simulation))
+        .on("mouseover", function (event, d) {
+            d3.select(this).select("rect")
+                .transition().duration(200)
+                .attr("width", 160).attr("x", -80)
+                .attr("height", 60).attr("y", -30);
+        })
+        .on("mouseout", function (event, d) {
+            d3.select(this).select("rect")
+                .transition().duration(200)
+                .attr("width", 140).attr("x", -70)
+                .attr("height", 50).attr("y", -25);
+        });
+
+    node.append("rect")
+        .attr("width", 140)
+        .attr("height", 50)
+        .attr("x", -70)
+        .attr("y", -25)
+        .attr("fill", d => colorScale[d.type] || "#777")
+        .on("mouseover", (event, d) => {
+            tooltip.transition().duration(200).style("opacity", 0.9);
+            tooltip.html(`${(d.tooltip || '').replace(/\n/g, '<br>')}`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 20) + "px");
+        })
+        .on("mouseout", () => tooltip.transition().duration(500).style("opacity", 0));
+
+    node.append("text")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .style("font-size", "11px")
+        .style("font-weight", "500")
+        .selectAll("tspan")
+        .data(d => {
+            const icon = iconMap[d.type] || "❓";
+            const lines = [`${icon} ${d.label.split(/\n|\\n| \| /g)[0]}`, ...d.label.split(/\n|\\n| \| /g).slice(1)];
+            return lines.map((line, i) => ({ line, index: i }));
+        })
+        .join("tspan")
+        .attr("x", 0)
+        .attr("dy", (d, i) => i === 0 ? "-0.4em" : "1.2em")
+        .text(d => d.line);
+
+    simulation.on("tick", () => {
+        link.attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+        node.attr("transform", d => `translate(${d.x},${d.y})`);
+    });
+
+    function drag(simulation) {
+        return d3.drag()
+            .on("start", (event, d) => {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            })
+            .on("drag", (event, d) => {
+                d.fx = event.x;
+                d.fy = event.y;
+            })
+            .on("end", (event, d) => {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            });
+    }
+</script>
+</body>
+</html>

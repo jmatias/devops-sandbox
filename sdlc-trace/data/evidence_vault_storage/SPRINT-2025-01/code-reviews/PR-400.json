@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2000",
+  "pr_id": "PR-400",
+  "branch_from": "feature/PLAT-2000-feature",
+  "branch_to": "dev",
+  "reviewer": "savagejames@reed.com",
+  "approved_at": "2025-04-16T04:01:59.646685Z",
+  "commit_sha": "5a7ebc00"
+}

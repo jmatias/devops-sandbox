@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2002",
+  "pr_id": "PR-402",
+  "branch_from": "feature/PLAT-2002-feature",
+  "branch_to": "dev",
+  "reviewer": "omorales@yang.com",
+  "approved_at": "2025-04-16T04:01:59.667107Z",
+  "commit_sha": "c4b61362"
+}

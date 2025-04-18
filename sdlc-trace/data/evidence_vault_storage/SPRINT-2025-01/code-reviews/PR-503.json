@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2003",
+  "pr_id": "PR-503",
+  "branch_from": "dev",
+  "branch_to": "main",
+  "reviewer": "schaeferrobert@yahoo.com",
+  "approved_at": "2025-04-16T04:01:59.678013Z",
+  "commit_sha": "5fa86638"
+}

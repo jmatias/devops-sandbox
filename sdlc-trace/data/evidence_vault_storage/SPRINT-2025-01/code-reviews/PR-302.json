@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-1502",
+  "pr_id": "PR-302",
+  "branch_from": "dev",
+  "branch_to": "main",
+  "reviewer": "ogordon@gmail.com",
+  "approved_at": "2025-04-16T04:21:34.433292Z",
+  "commit_sha": "0219a5cb"
+}

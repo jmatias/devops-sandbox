@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-3044",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-2034",
+  "related_to": "PLAT-1505",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-2034.xml",
+  "timestamp": "2025-04-16T04:32:34.458698Z",
+  "submitted_by": "dflores@reed.com",
+  "metadata": {
+    "test_id": "TEST-2034",
+    "coverage_percent": 95.73,
+    "passed": 145,
+    "failed": 2
+  }
+}
