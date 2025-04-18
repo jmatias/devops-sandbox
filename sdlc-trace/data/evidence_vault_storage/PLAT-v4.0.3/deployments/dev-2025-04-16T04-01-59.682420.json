@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-2004",
-  "release_id": "PLAT-v4.0.3",
-  "env": "dev",
-  "commit_sha": "38b9f62b",
-  "timestamp": "2025-04-16T04:01:59.682420",
-  "pipeline_version": "v4.0.3",
-  "approval_id": ""
-}

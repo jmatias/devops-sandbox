@@ -1,9 +1,0 @@
-{
-  "story_id": "PLAT-1378",
-  "summary": "Add user login via OAuth2",
-  "sprint_id": "SPRINT-2025-01",
-  "release_id": "PLAT-v4.0.3",
-  "repo_refs": [
-    "git@example.com:myorg/my-repo.git"
-  ]
-}

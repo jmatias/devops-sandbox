@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2004",
+  "pr_id": "PR-404",
+  "branch_from": "feature/PLAT-2004-feature",
+  "branch_to": "dev",
+  "reviewer": "andrewfranklin@gmail.com",
+  "approved_at": "2025-04-18T06:41:37.681294Z",
+  "commit_sha": "91ee5e69"
+}

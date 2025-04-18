@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-2000",
-  "pr_id": "PR-500",
-  "branch_from": "dev",
-  "branch_to": "main",
-  "reviewer": "dlozano@gmail.com",
-  "approved_at": "2025-04-16T04:01:59.646685Z",
-  "commit_sha": "5a7ebc00"
-}

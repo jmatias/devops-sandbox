@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4063",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3063",
+  "related_to": "PLAT-2006",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3063.xml",
+  "timestamp": "2025-04-18T06:56:37.685236Z",
+  "submitted_by": "hannah86@gmail.com",
+  "metadata": {
+    "test_id": "TEST-3063",
+    "coverage_percent": 90.68,
+    "passed": 113,
+    "failed": 1
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-2003",
-  "pr_id": "PR-403",
-  "branch_from": "feature/PLAT-2003-feature",
-  "branch_to": "dev",
-  "reviewer": "matthew61@brown-dyer.org",
-  "approved_at": "2025-04-16T04:01:59.678013Z",
-  "commit_sha": "5fa86638"
-}

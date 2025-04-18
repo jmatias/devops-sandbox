@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4061",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3061",
+  "related_to": "PLAT-2006",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3061.xml",
+  "timestamp": "2025-04-18T06:46:37.685236Z",
+  "submitted_by": "moraleskatherine@aguirre.com",
+  "metadata": {
+    "test_id": "TEST-3061",
+    "coverage_percent": 86.83,
+    "passed": 91,
+    "failed": 0
+  }
+}

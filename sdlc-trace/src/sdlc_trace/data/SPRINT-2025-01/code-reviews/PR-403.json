@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2003",
+  "pr_id": "PR-403",
+  "branch_from": "feature/PLAT-2003-feature",
+  "branch_to": "dev",
+  "reviewer": "davidmueller@yahoo.com",
+  "approved_at": "2025-04-18T06:41:37.676654Z",
+  "commit_sha": "117502d3"
+}

@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-1501",
-  "pr_id": "PR-301",
-  "branch_from": "dev",
-  "branch_to": "main",
-  "reviewer": "pwright@yahoo.com",
-  "approved_at": "2025-04-16T04:21:34.414235Z",
-  "commit_sha": "a664d0e9"
-}

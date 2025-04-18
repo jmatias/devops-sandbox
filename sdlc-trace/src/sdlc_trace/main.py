@@ -1,12 +1,14 @@
-from fastapi import FastAPI, HTTPException, Query
-from pydantic import BaseModel
-from typing import List, Optional, Dict
-from datetime import datetime, date
-import os
 import json
+import os
+from datetime import date, datetime
+from typing import Dict, List, Optional
+
+import uvicorn
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
 app = FastAPI(swagger_ui_parameters={"tryItOutEnabled": True})
-STORAGE_ROOT = "./data/evidence_vault_storage"
+STORAGE_ROOT = "./data"
 os.makedirs(STORAGE_ROOT, exist_ok=True)
 
 
@@ -615,3 +617,7 @@ def traceability_story(story_id: str):
         "test_results": test_results,
         "evidence": relevant_evidence,
     }
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

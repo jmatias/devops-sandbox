@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4006",
+  "type": "change_request",
+  "subject_type": "approval",
+  "subject_id": "SNOWQA2000",
+  "related_to": "PLAT-2000",
+  "file_url": "s3://evidence-vault/raw/snow/SNOWQA2000.txt",
+  "timestamp": "2025-04-18T07:41:37.652049Z",
+  "submitted_by": "cynthiaanderson@hotmail.com",
+  "metadata": {
+    "cr_id": "SNOWQA2000",
+    "status": "approved",
+    "approved_by": "cynthiaanderson@hotmail.com",
+    "approved_at": "2025-04-18T07:41:37.652049Z"
+  }
+}

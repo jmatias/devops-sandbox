@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4004",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3004",
+  "related_to": "PLAT-2000",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3004.xml",
+  "timestamp": "2025-04-18T07:01:37.652049Z",
+  "submitted_by": "paulapoole@yahoo.com",
+  "metadata": {
+    "test_id": "TEST-3004",
+    "coverage_percent": 85.32,
+    "passed": 138,
+    "failed": 1
+  }
+}

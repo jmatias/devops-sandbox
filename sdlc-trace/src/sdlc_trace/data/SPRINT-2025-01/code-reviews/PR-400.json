@@ -1,0 +1,9 @@
+{
+  "user_story_id": "PLAT-2000",
+  "pr_id": "PR-400",
+  "branch_from": "feature/PLAT-2000-feature",
+  "branch_to": "dev",
+  "reviewer": "harrissherry@harrison-trujillo.com",
+  "approved_at": "2025-04-18T06:41:37.652049Z",
+  "commit_sha": "900de484"
+}

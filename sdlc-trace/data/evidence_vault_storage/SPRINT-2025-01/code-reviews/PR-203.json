@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-1503",
-  "pr_id": "PR-203",
-  "branch_from": "feature/PLAT-1503-enhancement",
-  "branch_to": "dev",
-  "reviewer": "uwang@perez.net",
-  "approved_at": "2025-04-16T03:51:34.442058Z",
-  "commit_sha": "8efb1532"
-}

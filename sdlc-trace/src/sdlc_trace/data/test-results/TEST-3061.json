@@ -1,0 +1,13 @@
+{
+  "test_id": "TEST-3061",
+  "story_id": "PLAT-2006",
+  "deployment_id": "dev-2025-04-18T06-41-37.685236",
+  "env": "dev",
+  "sprint_id": "SPRINT-2025-01",
+  "type": "integration_test",
+  "passed": 91,
+  "failed": 0,
+  "coverage_percent": 86.83,
+  "submitted_by": "moraleskatherine@aguirre.com",
+  "timestamp": "2025-04-18T06:46:37.685236Z"
+}

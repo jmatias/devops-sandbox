@@ -1,0 +1,16 @@
+{
+  "evidence_id": "EV-4021",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-3021",
+  "related_to": "PLAT-2002",
+  "file_url": "s3://evidence-vault/raw/unit/TEST-3021.xml",
+  "timestamp": "2025-04-18T06:46:37.670305Z",
+  "submitted_by": "james70@burton-bush.com",
+  "metadata": {
+    "test_id": "TEST-3021",
+    "coverage_percent": 93.6,
+    "passed": 123,
+    "failed": 2
+  }
+}
