@@ -95,4 +95,4 @@ The Evidence Vault captures artifacts at each stage of the software development 
 This section outlines the data models used in the Evidence Vault system.
 
 <img src="docs/PLAT-2000-top-bottom.png" width="350" alt="Evidence Vault Domain Model"/>
-<img src="docs/evidence_vault_uml.png" width="500" alt="Evidence Vault UML Diagram">
+<img src="docs/evidence_vault_domain_model.png" width="500" alt="Evidence Vault UML Diagram">

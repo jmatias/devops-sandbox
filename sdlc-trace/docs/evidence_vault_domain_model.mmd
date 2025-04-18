@@ -1,0 +1,85 @@
+classDiagram
+    class UserStory {
+        string story_id
+        string summary
+        string sprint_id
+        string release_id
+        list~string~ repo_refs
+    }
+
+    class CodeReview {
+        string user_story_id
+        string pr_id
+        string branch_from
+        string branch_to
+        string reviewer
+        string approved_at
+        string commit_sha
+    }
+
+    class Deployment {
+        string user_story_id
+        string release_id
+        string env
+        string commit_sha
+        datetime timestamp
+        string pipeline_version
+        string approval_id
+    }
+
+    class Approval {
+        string user_story_id
+        string cr_id
+        string env
+        string status
+        string approved_by
+        string approved_at
+    }
+
+    class TestResult {
+        string test_id
+        string story_id
+        string deployment_id
+        string env
+        int passed
+        int failed
+        float coverage_percent
+        datetime tismestamp
+        list~string~ evidence_ids
+    }
+
+    class EvidenceBlob {
+        string evidence_id
+        string type
+        string subject_type
+        string subject_id
+        string related_to
+        string blob_url
+        datetime timestamp
+        dict metadata
+    }
+
+    class Release {
+        string release_id
+        string semver
+        string business_application_id
+    }
+
+    class Sprint {
+        string sprint_id
+        string release_id
+        date start_date
+        date end_date
+    }
+
+    UserStory "1" --> "*" CodeReview : creates
+    UserStory "1" --> "*" Deployment : triggers
+    UserStory "1" --> "*" TestResult : verified by
+    UserStory "1" --> "*" Approval : associated
+
+    TestResult --> EvidenceBlob : test evidence
+    Approval --> EvidenceBlob : approval evidence
+    TestResult --> Deployment : executed during
+    Deployment --> Approval : requires
+    Release --> Sprint : contains
+    Sprint --> UserStory : contains
