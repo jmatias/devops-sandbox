@@ -94,5 +94,115 @@ The Evidence Vault captures artifacts at each stage of the software development 
 
 This section outlines the data models used in the Evidence Vault system.
 
-<img src="docs/PLAT-2000-top-bottom.png" width="350" alt="Evidence Vault Domain Model"/>
-<img src="docs/evidence_vault_uml.png" width="500" alt="Evidence Vault UML Diagram">
+<img src="PLAT-2000-top-bottom.png" width="350" alt="Evidence Vault Domain Model"/>
+<img src="evidence_vault_uml.png" width="500" alt="Evidence Vault UML Diagram">
+
+
+### `UserStory`
+```json
+{
+  "story_id": "PLAT-1378",
+  "summary": "Add user login via OAuth2",
+  "sprint_id": "SPRINT-2025-01",
+  "release_id": "PLAT-v4.0.3",
+  "repo_refs": ["git@example.com:myorg/my-repo.git"]
+}
+```
+
+### `CodeReview`
+```json
+{
+  "user_story_id": "PLAT-1378",
+  "pr_id": "PR-101",
+  "branch_from": "feature/PLAT-1378-oauth-login",
+  "branch_to": "dev",
+  "reviewer": "alice@example.com",
+  "approved_at": "2025-01-12T15:32:00Z",
+  "commit_sha": "abc123sha"
+}
+```
+
+### `Deployment`
+```json
+{
+  "user_story_id": "PLAT-1378",
+  "release_id": "PLAT-v4.0.3",
+  "env": "qa",
+  "commit_sha": "abc123sha",
+  "timestamp": "2025-01-13T09:45:00Z",
+  "pipeline_version": "v4.0.3",
+  "approval_id": "SNOW12345"
+}
+```
+
+### `Approval`
+```json
+{
+  "user_story_id": "PLAT-1378",
+  "cr_id": "SNOW12345",
+  "env": "qa",
+  "status": "approved",
+  "approved_by": "release.manager@example.com",
+  "approved_at": "2025-01-13T10:15:00Z"
+}
+```
+
+### `TestResult`
+```json
+{
+  "test_id": "TEST-001",
+  "story_id": "PLAT-1378",
+  "deployment_id": "qa-2025-01-13T09-45-00",
+  "env": "qa",
+  "sprint_id": "SPRINT-2025-01",
+  "type": "unit_test",
+  "passed": 120,
+  "failed": 0,
+  "coverage_percent": 92.5,
+  "submitted_by": "qa@example.com",
+  "timestamp": "2025-01-13T10:00:00Z",
+  "evidence_ids": ["EV-001", "EV-002"]
+}
+```
+
+### `EvidenceBlob`
+```json
+{
+  "evidence_id": "EV-001",
+  "type": "test_report",
+  "subject_type": "test_result",
+  "subject_id": "TEST-001",
+  "related_to": "PLAT-1378",
+  "file_url": "s3://evidence-vault/PLAT-v4.0.3/SPRINT-2025-01/evidence/EV-001.test_report.json",
+  "timestamp": "2025-01-13T09:46:00Z",
+  "submitted_by": "jmatias@example.com",
+  "metadata": {
+    "test_id": "TST-123",
+    "coverage_percent": 85.2,
+    "passed": 154,
+    "failed": 0
+  }
+}
+```
+
+### `Release`
+```json
+{
+  "release_id": "PLAT-v4.0.3",
+  "semver": "4.0.3",
+  "business_application_id": "APP-1234",
+  "jira_ticket": "https://jira.example.com/browse/PLAT-v4.0.3",
+  "pipeline_version": "v7.0.3"
+}
+```
+
+### `Sprint`
+```json
+{
+  "sprint_id": "SPRINT-2025-01",
+  "release_id": "PLAT-v4.0.3",
+  "start_date": "2025-01-01",
+  "end_date": "2025-01-14",
+  "quality_designation": "Compliant"
+}
+```

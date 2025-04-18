@@ -6,9 +6,9 @@ fileignoreconfig:
 - filename: sdlc-trace/docs/PLAT-2000-left-right.png
   checksum: 3087b008cb6728d72f672f2140c479b21f32f59d61d05780e8a508e457ca0092
 - filename: sdlc-trace/docs/PLAT-2000-top-bottom.png
-  checksum: 118dd6ff080f1b8cdb50dcdde02adcdfb5d043cd8d67a78ba6fe8f4c54368ff2
+  checksum: 43b5efcde25918f075b2f0c0b12b96a1fa5a2145ed8f53df183738cb0391f0b4
 - filename: sdlc-trace/docs/PLAT-2000.mmd
-  checksum: 39df6c87bb7a48e59688bd18c7750952076548b6aed53d7c74261a4c8f85b92a
+  checksum: 50e4aff1dd53481ee96493e38c68efe5803eec7955273a1fc9fd88426b83658a
 - filename: sdlc-trace/docs/traceability_PLAT_2000_to_2006.md
   checksum: d9b7a81b5bcc7f7b73821ce0d4a22fbfcdce33bde656bba4c0aaa7f9f58648ec
 - filename: sdlc-trace/docs/traceability_detailed_PLAT_2000_to_2006.md
