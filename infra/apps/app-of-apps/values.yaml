@@ -8,6 +8,12 @@ spec:
 
 environment: "aws"
 
+sdlcTrace:
+    enabled: true
+    autoSync: true
+    image:
+        tag: 0.1.0
+
 appOfApps:
   enabled: true
   autoSync: true

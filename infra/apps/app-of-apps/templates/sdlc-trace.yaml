@@ -1,0 +1,42 @@
+{{ if .Values.sdlcTrace.enabled   }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sdlc-trace
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: sdlc-trace
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: infra/apps/sdlc-trace
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      valuesObject:
+        environment: {{ .Values.environment }}
+        image:
+          repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/sdlc-trace
+          pullPolicy: IfNotPresent
+          tag: {{ .Values.sdlcTrace.image.tag }}
+
+  syncPolicy:
+    retry:
+      limit: 6
+      backoff:
+        duration: "30s"
+
+    {{ if .Values.celerySandbox.autoSync   }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    syncOptions:
+      - CreateNamespace=true
+
+{{ end }}

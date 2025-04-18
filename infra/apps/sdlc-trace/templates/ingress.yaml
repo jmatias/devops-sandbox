@@ -1,0 +1,33 @@
+{{- if .Values.ingress.enabled -}}
+{{- if eq (lower .Values.environment) "aws" }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sdlc-trace-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: 'ip'
+    alb.ingress.kubernetes.io/load-balancer-name: sdlc-trace
+    alb.ingress.kubernetes.io/healthcheck-path: /docs
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+
+
+spec:
+  rules:
+    - host: sdlc-trace.tw-javier.work
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sdlc-trace
+                port:
+                  number: 8000
+
+
+
+{{- end }}
+{{- end }}
