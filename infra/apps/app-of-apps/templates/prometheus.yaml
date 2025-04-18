@@ -14,7 +14,7 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: v70.4.1
+    targetRevision: v70.7.0
     helm:
       valuesObject:
         # Default values for kube-prometheus-stack.
@@ -50,7 +50,7 @@ spec:
         ## Install Prometheus Operator CRDs
         ##
         crds:
-          enabled: false
+          enabled: true
           ## The CRD upgrade job mitigates the limitation of helm not being able to upgrade CRDs.
           ## The job will apply the CRDs to the cluster before the operator is deployed, using helm hooks.
           ## It deploy a corresponding clusterrole, clusterrolebinding and serviceaccount to apply the CRDs.

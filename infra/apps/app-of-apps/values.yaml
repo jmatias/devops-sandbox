@@ -10,11 +10,13 @@ environment: "aws"
 
 appOfApps:
   enabled: true
-  autoSync: false
+  autoSync: true
 
 backstage:
   enabled: true
   autoSync: false
+  image:
+    tag: 0.9.1
 
 argocd:
   autoSync: false
