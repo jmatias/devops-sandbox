@@ -1175,7 +1175,7 @@ spec:
           defaultDashboardsInterval: 1m
 
           adminUser: admin
-          adminPassword: {{ randAlphaNum 20 | quote }}
+{{/*          adminPassword: {{ randAlphaNum 20 | quote }}*/}}
 
           rbac:
             ## If true, Grafana PSPs will be created

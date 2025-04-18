@@ -19,7 +19,7 @@ backstage:
     tag: 0.9.1
 
 argocd:
-  autoSync: false
+  autoSync: true
   ingress:
     enabled: true
 
@@ -29,8 +29,8 @@ prometheus:
 
 celerySandbox:
   enabled: false
-  autoSync: false
+  autoSync: true
 
 
 albIngressController:
-  autoSync: false
+  autoSync: true
