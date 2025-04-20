@@ -15,6 +15,7 @@ metadata:
 
 
 spec:
+  ingressClassName: alb
   rules:
     - host: flower.tw-javier.work
       http:

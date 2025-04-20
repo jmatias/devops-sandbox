@@ -31,7 +31,7 @@ argocd:
 
 prometheus:
   enabled: true
-  autoSync: false
+  autoSync: true
 
 celerySandbox:
   enabled: true
