@@ -22,13 +22,13 @@ spec:
       initContainers:
         - name: init-mydata
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command: [ "sh", "-c", "mkdir -p /code/data; cp -rfv /code/sdlc_trace/data/* /code/data/" ]
+          command: [ "sh", "-c", "mkdir -p /code/data; cp -rfv /code/src/sdlc_trace/data/* /code/data/" ]
           volumeMounts:
             - name: data-volume
               mountPath: /code/data
       containers:
         - name: {{ .Chart.Name }}
-          command: [ "poetry","run","fastapi", "run", "sdlc_trace/main.py", "--port", "8000", "--host","0.0.0.0" ]
+          command: [ "poetry","run","fastapi", "run", "src/sdlc_trace/main.py", "--port", "8000", "--host","0.0.0.0" ]
 
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
