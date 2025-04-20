@@ -19,8 +19,8 @@ appOfApps:
   autoSync: true
 
 backstage:
-  enabled: false
-  autoSync: false
+  enabled: true
+  autoSync: true
   image:
     tag: 0.9.1
 
@@ -34,7 +34,7 @@ prometheus:
   autoSync: false
 
 celerySandbox:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "0.3.0"

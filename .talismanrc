@@ -2,7 +2,7 @@ fileignoreconfig:
 - filename: infra/apps/app-of-apps/templates/prometheus.yaml
   checksum: 6de3d479a0ba08ce00e45f75770b0d44be6be08b8f6bd3c59f2cd6a83f5d569a
 - filename: infra/hack/bootstrap.sh
-  checksum: 890ae3939cc80a6383fadd7aa3b9353a397d409d5189f2c3844bba7777f28a5a
+  checksum: 655f3cb588325134737bc9e04ae5fb67fb2831fdec341e2717d2efab39e9448f
 - filename: infra/schema/mermaid.json
   checksum: d582996626233626479783b84cbcc85e6eaf5757beddf1670bba19a8b5140d6e
 - filename: sdlc-trace/docs/Evidence_Vault_API_Documentation_ImagePage.pdf
