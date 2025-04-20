@@ -1,9 +1,0 @@
-{
-  "user_story_id": "PLAT-2006",
-  "release_id": "PLAT-v4.0.3",
-  "env": "qa",
-  "commit_sha": "1a6092bf",
-  "timestamp": "2025-04-18T06:41:37.685236",
-  "pipeline_version": "v4.0.3",
-  "approval_id": "SNOWQA2006"
-}

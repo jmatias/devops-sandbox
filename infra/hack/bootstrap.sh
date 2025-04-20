@@ -47,6 +47,10 @@ add_ecr_repos() {
     --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
     --docker-username=AWS \
     --docker-password="$ecr_password" || true
+  kubectl -n sdlc-trace create secret docker-registry ecr-registry-secret \
+    --docker-server=386757133934.dkr.ecr.us-east-1.amazonaws.com \
+    --docker-username=AWS \
+    --docker-password="$ecr_password" || true
 }
 
 install_apps() {

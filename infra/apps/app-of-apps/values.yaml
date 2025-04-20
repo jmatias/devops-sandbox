@@ -12,7 +12,7 @@ sdlcTrace:
     enabled: true
     autoSync: true
     image:
-        tag: 0.1.1
+        tag: 0.1.8
 
 appOfApps:
   enabled: true

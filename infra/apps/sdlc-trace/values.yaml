@@ -3,7 +3,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.1.0"
+  tag: "0.1.6"
 
 # This is to override the chart name.
 nameOverride: ""
@@ -26,3 +26,10 @@ environment: "aws"
 
 ingress:
   enabled: true
+
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+  storageClass: standard

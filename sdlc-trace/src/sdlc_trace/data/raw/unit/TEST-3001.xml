@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TEST-3001" tests="103" failures="2" errors="0" skipped="0">
-    <testcase classname="test.module" name="test_case_1" time="0.001"/>
-</testsuite>
