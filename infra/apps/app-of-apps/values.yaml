@@ -12,7 +12,7 @@ sdlcTrace:
     enabled: true
     autoSync: true
     image:
-        tag: 0.1.8
+        tag: 0.3.1
 
 appOfApps:
   enabled: true
@@ -36,6 +36,8 @@ prometheus:
 celerySandbox:
   enabled: false
   autoSync: true
+  image:
+    tag: "0.3.0"
 
 
 albIngressController:
