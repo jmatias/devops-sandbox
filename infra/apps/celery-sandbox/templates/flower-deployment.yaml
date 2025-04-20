@@ -33,8 +33,15 @@ spec:
             - "--host=0.0.0.0"
             - "--logging=DEBUG"
             - "--purge_offline_workers=60"
-            - "--port=5554"
+            - "--port=5555"
             - "--tasks_columns=name,uuid,state,result,received,started,runtime,worker"
+            {{ if .Values.flower.githubOAuth.enabled }}
+            - "--auth_provider=flower.views.auth.GithubLoginHandler"
+            - "--auth=javier@javiermatias.com"
+            - "--oauth2_key={{ .Values.flower.githubOAuth.auth }}"
+            - "--oauth2_secret={{ .Values.flower.githubOAuth.oauth2Key }}"
+            - "--oauth2_redirect_uri={{ .Values.flower.githubOAuth.oauth2RedirectUri }}"
+            {{ end }}
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
@@ -42,48 +49,21 @@ spec:
               value: {{ .Values.redis.url }}
             - name: FLOWER_BROKER_API
               value: {{ .Values.redis.url }}
-            - name: FLOWER_PORT
-              value: "5554"
-            - name: FLOWER_UNAUTHENTICATED_API
-              value: "true"
 
           ports:
             - containerPort: 5554
               protocol: TCP
 
+          volumeMounts:
+            - name: flower-config-volume
+              mountPath: /code/conf/flowerconfig.py
+              subPath: flowerconfig.py
+
           resources:
           {{- toYaml .Values.resources | nindent 14 }}
-        - name: nginx-proxy
-          image: nginx:alpine
-          ports:
-            - containerPort: 5555
-              protocol: TCP
-          volumeMounts:
-            - name: nginx-config-volume
-              mountPath: /etc/nginx/nginx.conf
-              subPath: nginx.conf
 
-          livenessProbe:
-            httpGet:
-              path: /healthcheck
-              port: 5554
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /healthcheck
-              port: 5554
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          startupProbe:
-            httpGet:
-              path: /healthcheck
-              port: 5554
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            failureThreshold: 30
       volumes:
-        - name: nginx-config-volume
-          configMap:
-            name: nginx-config
+        - name: flower-config-volume
+          secret:
+            secretName: flower-config
 {{ end }}

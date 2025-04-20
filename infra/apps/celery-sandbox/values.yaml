@@ -26,6 +26,13 @@ redis:
 flower:
   enabled: true
   replicas: 1
+  githubOAuth:
+    enabled: true
+    authProvider: "flower.views.auth.GithubLoginHandler"
+    auth: "javier@javiermatias.com"
+    oauth2Key: ""
+    oauth2Secret: ""
+    oauth2RedirectUri: "http://localhost:5555/login"
 
 fastapi:
     enabled: true

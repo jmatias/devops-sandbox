@@ -3,7 +3,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.2.6"
+  tag: "0.3.0"
 
 # This is to override the chart name.
 nameOverride: ""
@@ -25,6 +25,22 @@ redis:
 
 flower:
   enabled: true
+  replicas: 1
+  githubOAuth:
+    enabled: true
+    authProvider: "flower.views.auth.GithubLoginHandler"
+    auth: "javier@javiermatias.com"
+    oauth2Key: ""
+    oauth2Secret: ""
+    oauth2RedirectUri: "http://localhost:5555/login"
+
+fastapi:
+  enabled: true
+  replicas: 1
+
+worker:
+  enabled: true
+  replicas: 2
 
 environment: "local"
 
