@@ -33,11 +33,6 @@ spec:
             - "--purge_offline_workers=60"
             - "--port=5555"
             - "--tasks_columns=name,uuid,state,result,received,started,runtime,worker"
-            {{ if .Values.flower.githubOAuth.enabled }}
-            - "--auth_provider=flower.views.auth.GithubLoginHandler"
-            - "--auth=javier@javiermatias.com"
-            - "--oauth2_redirect_uri={{ .Values.flower.githubOAuth.oauth2RedirectUri }}"
-            {{ end }}
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
@@ -45,6 +40,15 @@ spec:
               value: {{ .Values.redis.url }}
             - name: FLOWER_BROKER_API
               value: {{ .Values.redis.url }}
+
+            {{ if .Values.flower.githubOAuth.enabled }}
+            - name: FLOWER_AUTH_PROVIDER
+              value: flower.views.auth.GithubLoginHandler
+            - name: FLOWER_AUTH
+              value: "javier@javiermatias.com"
+            - name: FLOWER_OAUTH2_REDIRECT_URI
+              value: {{ .Values.flower.githubOAuth.oauth2RedirectUri }}
+
             - name: FLOWER_OAUTH2_KEY
               valueFrom:
                 secretKeyRef:
@@ -55,12 +59,11 @@ spec:
                 secretKeyRef:
                   name: github-oauth
                   key: AUTH_GITHUB_CLIENT_SECRET
+            {{ end }}
 
           ports:
-            - containerPort: 5554
+            - containerPort: 5555
               protocol: TCP
-
-
 
           resources:
           {{- toYaml .Values.resources | nindent 14 }}
