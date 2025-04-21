@@ -36,8 +36,6 @@ spec:
             {{ if .Values.flower.githubOAuth.enabled }}
             - "--auth_provider=flower.views.auth.GithubLoginHandler"
             - "--auth=javier@javiermatias.com"
-            - "--oauth2_key={{ .Values.flower.githubOAuth.auth }}"
-            - "--oauth2_secret={{ .Values.flower.githubOAuth.oauth2Key }}"
             - "--oauth2_redirect_uri={{ .Values.flower.githubOAuth.oauth2RedirectUri }}"
             {{ end }}
           env:
@@ -47,21 +45,25 @@ spec:
               value: {{ .Values.redis.url }}
             - name: FLOWER_BROKER_API
               value: {{ .Values.redis.url }}
+            - name: FLOWER_OAUTH2_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: github-oauth
+                  key: AUTH_GITHUB_CLIENT_ID
+            - name: FLOWER_OAUTH2_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: github-oauth
+                  key: AUTH_GITHUB_CLIENT_SECRET
 
           ports:
             - containerPort: 5554
               protocol: TCP
 
-          volumeMounts:
-            - name: flower-config-volume
-              mountPath: /code/conf/flowerconfig.py
-              subPath: flowerconfig.py
+
 
           resources:
           {{- toYaml .Values.resources | nindent 14 }}
 
-      volumes:
-        - name: flower-config-volume
-          secret:
-            secretName: flower-config
+
 {{ end }}

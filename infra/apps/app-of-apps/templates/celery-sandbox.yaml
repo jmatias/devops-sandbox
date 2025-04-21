@@ -23,6 +23,11 @@ spec:
           repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
           pullPolicy: IfNotPresent
           tag: "0.6.0"
+        flower:
+          enabled: true
+          githubOAuth:
+            enabled: true
+            oauth2RedirectUri: "https://flower.tw-javier.work/login"
 
   syncPolicy:
     retry:
