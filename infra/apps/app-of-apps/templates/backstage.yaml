@@ -76,7 +76,7 @@ spec:
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
-            - backstage-secrets
+            - postgres-secrets
             - github-oauth
 
           readinessProbe:

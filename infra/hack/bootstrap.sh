@@ -5,6 +5,8 @@ install_argocd() {
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
+  kubectl apply -f "https://raw.githubusercontent.com/external-secrets/external-secrets/v0.16.1/deploy/crds/bundle.yaml"
+
   kubectl apply -n argocd -k ../apps/argocd/overlays/aws
 
   sleep 1
