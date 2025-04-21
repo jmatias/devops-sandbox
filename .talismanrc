@@ -10,7 +10,7 @@ fileignoreconfig:
 - filename: infra/apps/backstage/templates/github-oauth-secret.yaml
   checksum: df5415b4641a4aa9525a6ec7e94f95552f53a4e8187074fcc11e5bcfeaf746d1
 - filename: infra/apps/backstage/templates/postgres-secret.yaml
-  checksum: cc0c0c959d71cdd6481feaefa637b1d6409cea0af9e9f894d6f64bf7a1f629f9
+  checksum: 58ea9510df436d353895179f5923df514083a29763881a5a67c792922ac646a7
 - filename: infra/apps/celery-sandbox/templates/flower-deployment.yaml
   checksum: 9205f0cb02d7d4e0c77a074804fb02eead0a0e296557354e57bc899b18b5f443
 - filename: infra/apps/celery-sandbox/templates/github-oauth-secret.yaml
