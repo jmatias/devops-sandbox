@@ -67,8 +67,7 @@ spec:
 
         backstage:
           annotations:
-            annotations:
-              reloader.stakater.com/auto: "true"
+            reloader.stakater.com/auto: "true"
           containerPorts:
             backend: 7007
           replicas: 1

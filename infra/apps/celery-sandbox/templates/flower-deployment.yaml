@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flower-ui
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: {{ .Values.flower.replicas }}
   strategy:
