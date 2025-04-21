@@ -130,11 +130,6 @@ iam:
 
 addons:
 
-  #  - name: amazon-cloudwatch-observability
-
-  #  - name: prometheus-node-exporter
-  #    version: latest
-
   - name: eks-node-monitoring-agent
 
   - name: metrics-server
