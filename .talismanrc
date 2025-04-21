@@ -6,11 +6,13 @@ fileignoreconfig:
 - filename: infra/apps/argocd/overlays/aws/github-oauth-secret.yaml
   checksum: 8fa6431c337933f7412400475d35c696e9bb4ea108f67d3ec5d385b324ac3dd3
 - filename: infra/apps/backstage/templates/github-oauth-secret.yaml
-  checksum: c9e4ce37604d237f3a3fc2358feaf0b23414e6f4df4b1061d62ecf0ad5f9142a
+  checksum: df5415b4641a4aa9525a6ec7e94f95552f53a4e8187074fcc11e5bcfeaf746d1
 - filename: infra/apps/backstage/templates/postgres-secret.yaml
   checksum: cc0c0c959d71cdd6481feaefa637b1d6409cea0af9e9f894d6f64bf7a1f629f9
 - filename: infra/apps/celery-sandbox/templates/flower-deployment.yaml
   checksum: 9205f0cb02d7d4e0c77a074804fb02eead0a0e296557354e57bc899b18b5f443
+- filename: infra/apps/celery-sandbox/templates/github-oauth-secret.yaml
+  checksum: f1c6c83963ba89712046f4c9b814083b2bd4d61a6b17f007a7ab68aa3e4bc1e9
 - filename: infra/hack/bootstrap.sh
   checksum: 655f3cb588325134737bc9e04ae5fb67fb2831fdec341e2717d2efab39e9448f
 - filename: infra/schema/mermaid.json
