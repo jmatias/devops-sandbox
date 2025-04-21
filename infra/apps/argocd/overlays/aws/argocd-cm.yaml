@@ -5,9 +5,3 @@ metadata:
   namespace: argocd
 data:
   timeout.reconciliation: "20s"
-  oidc.config: |
-    name: GitHub
-    issuer: https://github.com
-    clientID: $github-oauth:AUTH_GITHUB_CLIENT_ID
-    clientSecret: $github-oauth:AUTH_GITHUB_CLIENT_SECRET
-    requestedScopes: ["read:user", "user:email"]
