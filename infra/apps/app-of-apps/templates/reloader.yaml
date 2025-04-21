@@ -19,9 +19,9 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Prune=true
-    automated:
-      prune: false
-      selfHeal: false
+{{/*    automated:*/}}
+{{/*      prune: true*/}}
+{{/*      selfHeal: true*/}}
 
     retry:
       backoff:
