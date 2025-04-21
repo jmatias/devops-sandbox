@@ -77,7 +77,7 @@ spec:
               - ecr-registry-secret
           extraEnvVarsSecrets:
             - backstage-secrets
-            - github-auth
+            - github-oauth
 
   syncPolicy:
     syncOptions:

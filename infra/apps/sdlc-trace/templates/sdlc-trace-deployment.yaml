@@ -13,8 +13,6 @@ spec:
         app.kubernetes.io/name: sdlc-trace
     spec:
       serviceAccountName: {{ include "sdlc-trace.serviceAccountName" . }}
-      imagePullSecrets:
-        - name: ecr-registry-secret
       volumes:
         - name: data-volume
           persistentVolumeClaim:

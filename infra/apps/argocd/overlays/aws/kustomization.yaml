@@ -5,6 +5,7 @@ namespace: argocd
 
 resources:
   - ../../base
+  - github-oauth-secret.yaml
 
 patches:
   - path: argocd-cmd-params-cm.yaml

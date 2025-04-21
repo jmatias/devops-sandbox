@@ -3,6 +3,10 @@ fileignoreconfig:
   checksum: 6de3d479a0ba08ce00e45f75770b0d44be6be08b8f6bd3c59f2cd6a83f5d569a
 - filename: infra/apps/app-of-apps/templates/secretstore-sample.yaml
   checksum: c8595c645ddbbcb937db223911a512ab88d7e669eef37aabb9c98d0c72a03bcc
+- filename: infra/apps/argocd/overlays/aws/github-oauth-secret.yaml
+  checksum: 8fa6431c337933f7412400475d35c696e9bb4ea108f67d3ec5d385b324ac3dd3
+- filename: infra/apps/backstage/templates/github-oauth-secret.yaml
+  checksum: c9e4ce37604d237f3a3fc2358feaf0b23414e6f4df4b1061d62ecf0ad5f9142a
 - filename: infra/hack/bootstrap.sh
   checksum: 655f3cb588325134737bc9e04ae5fb67fb2831fdec341e2717d2efab39e9448f
 - filename: infra/schema/mermaid.json

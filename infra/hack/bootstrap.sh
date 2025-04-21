@@ -87,17 +87,17 @@ install_apps() {
     --from-literal=AUTH_GITHUB_TEST_CLIENT_ID="$AUTH_GITHUB_TEST_CLIENT_ID" \
     --from-literal=AUTH_GITHUB_TEST_CLIENT_SECRET="$AUTH_GITHUB_TEST_CLIENT_SECRET" || true
 
-  create_github_oauth_secrets "backstage"
-  create_github_oauth_secrets "celery-sandbox"
-  create_github_oauth_secrets "argocd"
+#   create_github_oauth_secrets "backstage"
+#   create_github_oauth_secrets "celery-sandbox"
+#   create_github_oauth_secrets "argocd"
 
 }
 
 set -e
 #set -x
 
-aws ecr get-login-password | docker login -u AWS --password-stdin "386757133934.dkr.ecr.us-east-1.amazonaws.com"
+# aws ecr get-login-password | docker login -u AWS --password-stdin "386757133934.dkr.ecr.us-east-1.amazonaws.com"
 
 install_argocd
-add_ecr_repos
+# add_ecr_repos
 install_apps

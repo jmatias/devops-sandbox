@@ -17,8 +17,6 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      imagePullSecrets:
-        - name: ecr-registry-secret
       containers:
         - name: {{ .Chart.Name }}
           command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port=5000" ]

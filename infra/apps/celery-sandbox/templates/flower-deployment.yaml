@@ -21,8 +21,6 @@ spec:
     spec:
       restartPolicy: Always
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
-      imagePullSecrets:
-        - name: ecr-registry-secret
       containers:
         - image: "mher/flower:2.0"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
