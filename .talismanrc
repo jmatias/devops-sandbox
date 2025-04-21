@@ -4,7 +4,7 @@ fileignoreconfig:
 - filename: infra/apps/app-of-apps/templates/secretstore-sample.yaml
   checksum: c8595c645ddbbcb937db223911a512ab88d7e669eef37aabb9c98d0c72a03bcc
 - filename: infra/apps/argocd/overlays/aws/github-oauth-secret.yaml
-  checksum: 8fa6431c337933f7412400475d35c696e9bb4ea108f67d3ec5d385b324ac3dd3
+  checksum: f44f4106a6a4c18ad721a2bdfb1ee58bb157b22b1072e2aa3e99e76b4251bc90
 - filename: infra/apps/backstage/templates/github-oauth-secret.yaml
   checksum: df5415b4641a4aa9525a6ec7e94f95552f53a4e8187074fcc11e5bcfeaf746d1
 - filename: infra/apps/backstage/templates/postgres-secret.yaml
