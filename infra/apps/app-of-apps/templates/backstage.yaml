@@ -66,6 +66,9 @@ spec:
             external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
 
         backstage:
+          annotations:
+            annotations:
+              reloader.stakater.com/auto: "true"
           containerPorts:
             backend: 7007
           replicas: 1
