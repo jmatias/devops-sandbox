@@ -23,3 +23,8 @@ patches:
   - path: service.yaml
     target:
       name: argocd-server
+
+  - path: deployment.yaml
+    target:
+      name: argocd-server
+      kind: Deployment
