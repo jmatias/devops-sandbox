@@ -52,7 +52,7 @@ spec:
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: 'ip'
             alb.ingress.kubernetes.io/group.name: "prod-external"
-            alb.ingress.kubernetes.io/inbound-cidrs: "50.217.105.18/32"
+            alb.ingress.kubernetes.io/inbound-cidrs: "50.217.105.18/32,2600:1008:b1ce:40c4:649e:574:5d50:ab24/128"
             alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
             alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
             {{ else }}
