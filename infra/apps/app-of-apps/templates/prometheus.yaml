@@ -1243,6 +1243,8 @@ spec:
           ##
           defaultDashboardsInterval: 1m
 
+          adminUser:
+
           admin:
             ## Name of the secret. Can be templated.
             existingSecret: "grafana-secret"
