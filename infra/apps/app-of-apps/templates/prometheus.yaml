@@ -1202,6 +1202,10 @@ spec:
           enabled: true
           namespaceOverride: ""
 
+          grafana.ini:
+            server:
+              root_url: "https://grafana.tw-javier.work"
+
           annotations:
             reloader.stakater.com/auto: "true"
 
