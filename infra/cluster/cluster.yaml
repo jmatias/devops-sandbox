@@ -81,6 +81,40 @@ managedNodeGroups:
         # For dev only
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
+  - name: mng2-spot
+    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    minSize: 0
+    desiredCapacity: 0
+    maxSize: 2
+    spot: true
+    availabilityZones:
+      - "us-east-1a"
+    nodeRepairConfig:
+      enabled: true
+    privateNetworking: false
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        xRay: false
+        cloudWatch: true
+
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
+        # For dev only
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+
 
 fargateProfiles: [ ]
 #fargateProfiles:
