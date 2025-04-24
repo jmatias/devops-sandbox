@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: infra/apps/argocd/overlays/aws/github-oauth-secret.yaml
   checksum: f44f4106a6a4c18ad721a2bdfb1ee58bb157b22b1072e2aa3e99e76b4251bc90
 - filename: infra/apps/backstage/templates/github-oauth-secret.yaml
-  checksum: df5415b4641a4aa9525a6ec7e94f95552f53a4e8187074fcc11e5bcfeaf746d1
+  checksum: 8c1d32c265b926ed5167404254e9dafd1b6f98e3a30e76f8d283b10eb83b7d57
 - filename: infra/apps/backstage/templates/postgres-secret.yaml
   checksum: 58ea9510df436d353895179f5923df514083a29763881a5a67c792922ac646a7
 - filename: infra/apps/celery-sandbox/templates/flower-deployment.yaml
