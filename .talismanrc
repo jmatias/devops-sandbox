@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: infra/apps/app-of-apps/templates/prometheus.yaml
-  checksum: 6de3d479a0ba08ce00e45f75770b0d44be6be08b8f6bd3c59f2cd6a83f5d569a
+  checksum: feb0faab58d77e79ff11256d25c6ef293a36393c108e1d9730d6b7cc4f4d6d3e
 - filename: infra/apps/app-of-apps/templates/secretstore-sample.yaml
   checksum: c8595c645ddbbcb937db223911a512ab88d7e669eef37aabb9c98d0c72a03bcc
 - filename: infra/apps/argocd/overlays/aws/argocd-cm.yaml

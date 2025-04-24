@@ -1,3 +1,56 @@
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: github-oauth
+  namespace: monitoring
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: github-oauth
+    creationPolicy: Owner
+  data:
+    - secretKey: GF_AUTH_GITHUB_CLIENT_ID
+      remoteRef:
+        key: javier/grafana/github-oauth
+        property: AUTH_GITHUB_CLIENT_ID
+
+    - secretKey: GF_AUTH_GITHUB_CLIENT_SECRET
+      remoteRef:
+        key: javier/grafana/github-oauth
+        property: AUTH_GITHUB_CLIENT_SECRET
+
+
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: grafana-secret
+  namespace: monitoring
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: grafana-secret
+    creationPolicy: Owner
+  data:
+    - secretKey: admin-password
+      remoteRef:
+        key: javier/grafana/admin
+        property: admin-password
+    - secretKey: admin-user
+      remoteRef:
+        key: javier/grafana/admin
+        property: admin-password
+
+
+---
+
 {{ if .Values.prometheus.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -43,7 +96,7 @@ spec:
 
         ## Labels to apply to all resources
         ##
-        commonLabels: {}
+        commonLabels: { }
         # scmhash: abc123
         # myLabel: aakkmd
 
@@ -72,29 +125,29 @@ spec:
                 sha: ""
                 pullPolicy: IfNotPresent
 
-            env: {}
+            env: { }
             ## Define resources requests and limits for single Pods.
             ## ref: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
             ##
-            resources: {}
+            resources: { }
 
             ## Additional volumes
             ##
-            extraVolumes: []
+            extraVolumes: [ ]
 
             ## Additional volume mounts
             ##
-            extraVolumeMounts: []
+            extraVolumeMounts: [ ]
 
             ## Define which Nodes the Pods are scheduled on.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
             ##
-            nodeSelector: {}
+            nodeSelector: { }
 
             ## Assign custom affinity rules to the upgrade-crd job
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
             ##
-            affinity: {}
+            affinity: { }
             # nodeAffinity:
             #   requiredDuringSchedulingIgnoredDuringExecution:
             #     nodeSelectorTerms:
@@ -108,7 +161,7 @@ spec:
             ## If specified, the pod's tolerations.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
             ##
-            tolerations: []
+            tolerations: [ ]
             # - key: "key"
             #   operator: "Equal"
             #   value: "value"
@@ -117,7 +170,7 @@ spec:
             ## If specified, the pod's topology spread constraints.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
             ##
-            topologySpreadConstraints: []
+            topologySpreadConstraints: [ ]
             # - maxSkew: 1
             #   topologyKey: topology.kubernetes.io/zone
             #   whenUnsatisfiable: DoNotSchedule
@@ -127,19 +180,19 @@ spec:
 
             # ## Labels to add to the upgrade-crd job
             # ##
-            labels: {}
+            labels: { }
 
             ## Annotations to add to the upgrade-crd job
             ##
-            annotations: {}
+            annotations: { }
 
             ## Labels to add to the upgrade-crd pod
             ##
-            podLabels: {}
+            podLabels: { }
 
             ## Annotations to add to the upgrade-crd pod
             ##
-            podAnnotations: {}
+            podAnnotations: { }
 
             ## Service account for upgrade crd job to use.
             ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
@@ -147,8 +200,8 @@ spec:
             serviceAccount:
               create: true
               name: ""
-              annotations: {}
-              labels: {}
+              annotations: { }
+              labels: { }
               automountServiceAccountToken: true
 
             ## Container-specific security context configuration
@@ -175,11 +228,11 @@ spec:
 
         ## custom Rules to override "for" and "severity" in defaultRules
         ##
-        customRules: {}
+        customRules: { }
           # AlertmanagerFailedReload:
           #   for: 3m
           # AlertmanagerMembersInconsistent:
-          #   for: 5m
+        #   for: 5m
         #   severity: "warning"
 
         ## Create default rules for monitoring the cluster
@@ -229,87 +282,87 @@ spec:
           keepFiringFor: ""
 
           ## Labels for default rules
-          labels: {}
+          labels: { }
           ## Annotations for default rules
-          annotations: {}
+          annotations: { }
 
           ## Additional labels for PrometheusRule alerts
-          additionalRuleLabels: {}
+          additionalRuleLabels: { }
 
           ## Additional annotations for PrometheusRule alerts
-          additionalRuleAnnotations: {}
+          additionalRuleAnnotations: { }
 
           ## Additional labels for specific PrometheusRule alert groups
           additionalRuleGroupLabels:
-            alertmanager: {}
-            etcd: {}
-            configReloaders: {}
-            general: {}
-            k8sContainerCpuUsageSecondsTotal: {}
-            k8sContainerMemoryCache: {}
-            k8sContainerMemoryRss: {}
-            k8sContainerMemorySwap: {}
-            k8sContainerResource: {}
-            k8sPodOwner: {}
-            kubeApiserverAvailability: {}
-            kubeApiserverBurnrate: {}
-            kubeApiserverHistogram: {}
-            kubeApiserverSlos: {}
-            kubeControllerManager: {}
-            kubelet: {}
-            kubeProxy: {}
-            kubePrometheusGeneral: {}
-            kubePrometheusNodeRecording: {}
-            kubernetesApps: {}
-            kubernetesResources: {}
-            kubernetesStorage: {}
-            kubernetesSystem: {}
-            kubeSchedulerAlerting: {}
-            kubeSchedulerRecording: {}
-            kubeStateMetrics: {}
-            network: {}
-            node: {}
-            nodeExporterAlerting: {}
-            nodeExporterRecording: {}
-            prometheus: {}
-            prometheusOperator: {}
+            alertmanager: { }
+            etcd: { }
+            configReloaders: { }
+            general: { }
+            k8sContainerCpuUsageSecondsTotal: { }
+            k8sContainerMemoryCache: { }
+            k8sContainerMemoryRss: { }
+            k8sContainerMemorySwap: { }
+            k8sContainerResource: { }
+            k8sPodOwner: { }
+            kubeApiserverAvailability: { }
+            kubeApiserverBurnrate: { }
+            kubeApiserverHistogram: { }
+            kubeApiserverSlos: { }
+            kubeControllerManager: { }
+            kubelet: { }
+            kubeProxy: { }
+            kubePrometheusGeneral: { }
+            kubePrometheusNodeRecording: { }
+            kubernetesApps: { }
+            kubernetesResources: { }
+            kubernetesStorage: { }
+            kubernetesSystem: { }
+            kubeSchedulerAlerting: { }
+            kubeSchedulerRecording: { }
+            kubeStateMetrics: { }
+            network: { }
+            node: { }
+            nodeExporterAlerting: { }
+            nodeExporterRecording: { }
+            prometheus: { }
+            prometheusOperator: { }
 
           ## Additional annotations for specific PrometheusRule alerts groups
           additionalRuleGroupAnnotations:
-            alertmanager: {}
-            etcd: {}
-            configReloaders: {}
-            general: {}
-            k8sContainerCpuUsageSecondsTotal: {}
-            k8sContainerMemoryCache: {}
-            k8sContainerMemoryRss: {}
-            k8sContainerMemorySwap: {}
-            k8sContainerResource: {}
-            k8sPodOwner: {}
-            kubeApiserverAvailability: {}
-            kubeApiserverBurnrate: {}
-            kubeApiserverHistogram: {}
-            kubeApiserverSlos: {}
-            kubeControllerManager: {}
-            kubelet: {}
-            kubeProxy: {}
-            kubePrometheusGeneral: {}
-            kubePrometheusNodeRecording: {}
-            kubernetesApps: {}
-            kubernetesResources: {}
-            kubernetesStorage: {}
-            kubernetesSystem: {}
-            kubeSchedulerAlerting: {}
-            kubeSchedulerRecording: {}
-            kubeStateMetrics: {}
-            network: {}
-            node: {}
-            nodeExporterAlerting: {}
-            nodeExporterRecording: {}
-            prometheus: {}
-            prometheusOperator: {}
+            alertmanager: { }
+            etcd: { }
+            configReloaders: { }
+            general: { }
+            k8sContainerCpuUsageSecondsTotal: { }
+            k8sContainerMemoryCache: { }
+            k8sContainerMemoryRss: { }
+            k8sContainerMemorySwap: { }
+            k8sContainerResource: { }
+            k8sPodOwner: { }
+            kubeApiserverAvailability: { }
+            kubeApiserverBurnrate: { }
+            kubeApiserverHistogram: { }
+            kubeApiserverSlos: { }
+            kubeControllerManager: { }
+            kubelet: { }
+            kubeProxy: { }
+            kubePrometheusGeneral: { }
+            kubePrometheusNodeRecording: { }
+            kubernetesApps: { }
+            kubernetesResources: { }
+            kubernetesStorage: { }
+            kubernetesSystem: { }
+            kubeSchedulerAlerting: { }
+            kubeSchedulerRecording: { }
+            kubeStateMetrics: { }
+            network: { }
+            node: { }
+            nodeExporterAlerting: { }
+            nodeExporterRecording: { }
+            prometheus: { }
+            prometheusOperator: { }
 
-          additionalAggregationLabels: []
+          additionalAggregationLabels: [ ]
 
           ## Prefix for runbook URLs. Use this to override the first part of the runbookURLs that is common to all rules.
           runbookUrl: "https://runbooks.prometheus-operator.dev/runbooks"
@@ -319,7 +372,7 @@ spec:
             # fsSelector: 'fstype=~"ext[234]|btrfs|xfs|zfs"'
 
           ## Disabled PrometheusRule alerts
-          disabled: {}
+          disabled: { }
           # KubeAPIDown: true
           # NodeRAIDDegraded: true
 
@@ -335,7 +388,7 @@ spec:
 
         ## Provide custom recording or alerting rules to be deployed into the cluster.
         ##
-        additionalPrometheusRulesMap: {}
+        additionalPrometheusRulesMap: { }
         #  rule-name:
         #    groups:
         #    - name: my_group
@@ -352,14 +405,14 @@ spec:
             ## Ref: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles
             createAggregateClusterRoles: false
             pspEnabled: false
-            pspAnnotations: {}
+            pspAnnotations: { }
               ## Specify pod annotations
               ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#apparmor
               ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
               ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#sysctl
               ##
               # seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
-              # seccomp.security.alpha.kubernetes.io/defaultProfileName: 'docker/default'
+            # seccomp.security.alpha.kubernetes.io/defaultProfileName: 'docker/default'
             # apparmor.security.beta.kubernetes.io/defaultProfileName: 'runtime/default'
 
           ## Global image registry to use if it needs to be overridden for some specific use cases (e.g local registries, custom images, ...)
@@ -369,7 +422,7 @@ spec:
           ## Reference to one or more secrets to be used when pulling images
           ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
           ##
-          imagePullSecrets: []
+          imagePullSecrets: [ ]
           # - name: "image-pull-secret"
           # or
           # - "image-pull-secret"
@@ -413,7 +466,7 @@ spec:
 
           ## Annotations for Alertmanager
           ##
-          annotations: {}
+          annotations: { }
 
           ## Api that prometheus will use to communicate with alertmanager. Possible values are v1, v2
           ##
@@ -421,7 +474,7 @@ spec:
 
           ## @param alertmanager.enableFeatures Enable access to Alertmanager disabled features.
           ##
-          enableFeatures: []
+          enableFeatures: [ ]
 
           ## Create dashboard configmap even if alertmanager deployment has been disabled
           ##
@@ -447,12 +500,12 @@ spec:
               namespace: ""
               # -- Gateway pod labels
               ##
-              podLabels: {}
+              podLabels: { }
               # app.kubernetes.io/name: ingress-nginx
 
             # -- Additional custom ingress rules
             ##
-            additionalIngress: []
+            additionalIngress: [ ]
             # - from:
             #   - namespaceSelector:
             #       matchLabels:
@@ -476,7 +529,7 @@ spec:
               enabled: false
               # -- Custom egress rules
               ##
-              rules: []
+              rules: [ ]
               # - to:
               #   - namespaceSelector: {}
               #     podSelector:
@@ -506,7 +559,7 @@ spec:
           serviceAccount:
             create: true
             name: ""
-            annotations: {}
+            annotations: { }
             automountServiceAccountToken: true
 
           ## Configure pod disruption budgets for Alertmanager
@@ -548,7 +601,7 @@ spec:
               - target_matchers:
                   - 'alertname = InfoInhibitor'
             route:
-              group_by: ['namespace']
+              group_by: [ 'namespace' ]
               group_wait: 30s
               group_interval: 5m
               repeat_interval: 12h
@@ -569,9 +622,9 @@ spec:
             # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
             # ingressClassName: nginx
 
-            annotations: {}
+            annotations: { }
 
-            labels: {}
+            labels: { }
 
             ## Override ingress to a different defined port on the service
             # servicePort: 8081
@@ -581,12 +634,12 @@ spec:
 
             ## Hosts must be provided if Ingress is enabled.
             ##
-            hosts: []
+            hosts: [ ]
             # - alertmanager.domain.com
 
             ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
             ##
-            paths: []
+            paths: [ ]
             # - /
 
             ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
@@ -596,7 +649,7 @@ spec:
             ## TLS configuration for Alertmanager Ingress
             ## Secret must be manually created in the namespace
             ##
-            tls: []
+            tls: [ ]
             # - secretName: alertmanager-general-tls
             #   hosts:
             #   - alertmanager.example.com
@@ -618,12 +671,12 @@ spec:
               # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
               kind: HTTPRoute
 
-              annotations: {}
-              labels: {}
+              annotations: { }
+              labels: { }
 
-              hostnames: []
+              hostnames: [ ]
               # - my-filter.example.com
-              parentRefs: []
+              parentRefs: [ ]
               # - name: acme-gw
 
               # -- create http route for redirect (https://gateway-api.sigs.k8s.io/guides/http-redirect-rewrite/#http-to-https-redirects)
@@ -637,15 +690,15 @@ spec:
                     value: /
 
               ## Filters define the filters that are applied to requests that match this rule.
-              filters: []
+              filters: [ ]
 
               ## Additional custom rules that can be added to the route
-              additionalRules: []
+              additionalRules: [ ]
 
           ## Configuration for Alertmanager secret
           ##
           secret:
-            annotations: {}
+            annotations: { }
 
           ## Configuration for creating an Ingress that will map to each Alertmanager replica service
           ## alertmanager.servicePerReplica must be enabled
@@ -655,12 +708,12 @@ spec:
           ##
           service:
             enabled: true
-            annotations: {}
-            labels: {}
+            annotations: { }
+            labels: { }
             clusterIP: ""
             ipDualStack:
               enabled: false
-              ipFamilies: ["IPv6", "IPv4"]
+              ipFamilies: [ "IPv6", "IPv4" ]
               ipFamilyPolicy: "PreferDualStack"
 
             ## Port for Alertmanager Service to listen on
@@ -682,7 +735,7 @@ spec:
 
             ## Additional ports to open for Alertmanager service
             ##
-            additionalPorts: []
+            additionalPorts: [ ]
             # - name: oauth-proxy
             #   port: 8081
             #   targetPort: 8081
@@ -690,9 +743,9 @@ spec:
             #   port: 8082
             #   targetPort: 8082
 
-            externalIPs: []
+            externalIPs: [ ]
             loadBalancerIP: ""
-            loadBalancerSourceRanges: []
+            loadBalancerSourceRanges: [ ]
 
             ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
             ##
@@ -718,7 +771,7 @@ spec:
           ##
           servicePerReplica:
             enabled: false
-            annotations: {}
+            annotations: { }
 
             ## Port for Alertmanager Service per replica to listen on
             ##
@@ -734,7 +787,7 @@ spec:
 
             ## Loadbalancer source IP ranges
             ## Only used if servicePerReplica.type is "LoadBalancer"
-            loadBalancerSourceRanges: []
+            loadBalancerSourceRanges: [ ]
 
             ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
             ##
@@ -757,7 +810,7 @@ spec:
 
             ## Additional labels
             ##
-            additionalLabels: {}
+            additionalLabels: { }
 
             ## SampleLimit defines per-scrape limit on number of scraped samples that will be accepted.
             ##
@@ -792,14 +845,14 @@ spec:
 
             ## tlsConfig: TLS configuration to use when scraping the endpoint. For example if using istio mTLS.
             ## Of type: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#tlsconfig
-            tlsConfig: {}
+            tlsConfig: { }
 
             bearerTokenFile:
 
             ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
             ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#relabelconfig
             ##
-            metricRelabelings: []
+            metricRelabelings: [ ]
             # - action: keep
             #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
             #   sourceLabels: [__name__]
@@ -807,7 +860,7 @@ spec:
             ## RelabelConfigs to apply to samples before scraping
             ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#relabelconfig
             ##
-            relabelings: []
+            relabelings: [ ]
             # - sourceLabels: [__meta_kubernetes_pod_node_name]
             #   separator: ;
             #   regex: ^(.*)$
@@ -817,7 +870,7 @@ spec:
 
             ## Additional Endpoints
             ##
-            additionalEndpoints: []
+            additionalEndpoints: [ ]
             # - port: oauth-metrics
             #   path: /metrics
 
@@ -831,14 +884,14 @@ spec:
             ## on scaling down and deleting statefulset, respectively.
             ## Requires Kubernetes version 1.27.0+.
             ## Ref: https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#persistentvolumeclaim-retention
-            persistentVolumeClaimRetentionPolicy: {}
+            persistentVolumeClaimRetentionPolicy: { }
             #  whenDeleted: Retain
             #  whenScaled: Retain
 
             ## Standard object's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
             ## Metadata Labels and Annotations gets propagated to the Alertmanager pods.
             ##
-            podMetadata: {}
+            podMetadata: { }
 
             ##
             serviceName:
@@ -859,7 +912,7 @@ spec:
             ## Secrets is a list of Secrets in the same namespace as the Alertmanager object, which shall be mounted into the
             ## Alertmanager Pods. The Secrets are mounted into /etc/alertmanager/secrets/.
             ##
-            secrets: []
+            secrets: [ ]
 
             ## If false then the user will opt out of automounting API credentials.
             ##
@@ -868,7 +921,7 @@ spec:
             ## ConfigMaps is a list of ConfigMaps in the same namespace as the Alertmanager object, which shall be mounted into the Alertmanager Pods.
             ## The ConfigMaps are mounted into /etc/alertmanager/configmaps/.
             ##
-            configMaps: []
+            configMaps: [ ]
 
             ## ConfigSecret is the name of a Kubernetes Secret in the same namespace as the Alertmanager object, which contains configuration for
             ## this Alertmanager instance. Defaults to 'alertmanager-' The secret is mounted into /etc/alertmanager/config.
@@ -877,11 +930,11 @@ spec:
 
             ## WebTLSConfig defines the TLS parameters for HTTPS
             ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#alertmanagerwebspec
-            web: {}
+            web: { }
 
             ## AlertmanagerConfigs to be selected to merge and configure Alertmanager with.
             ##
-            alertmanagerConfigSelector: {}
+            alertmanagerConfigSelector: { }
             ## Example which selects all alertmanagerConfig resources
             ## with label "alertconfig" with values any of "example-config" or "example-config-2"
             # alertmanagerConfigSelector:
@@ -899,7 +952,7 @@ spec:
 
             ## Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace.
             ##
-            alertmanagerConfigNamespaceSelector: {}
+            alertmanagerConfigNamespaceSelector: { }
             ## Example which selects all namespaces
             ## with label "alertmanagerconfig" with values any of "example-namespace" or "example-namespace-2"
             # alertmanagerConfigNamespaceSelector:
@@ -917,14 +970,14 @@ spec:
 
             ## AlermanagerConfig to be used as top level configuration
             ##
-            alertmanagerConfiguration: {}
+            alertmanagerConfiguration: { }
             ## Example with select a global alertmanagerconfig
             # alertmanagerConfiguration:
             #   name: global-alertmanager-Configuration
 
             ## Defines the strategy used by AlertmanagerConfig objects to match alerts. eg:
             ##
-            alertmanagerConfigMatcherStrategy: {}
+            alertmanagerConfigMatcherStrategy: { }
             ## Example with use OnNamespace strategy
             # alertmanagerConfigMatcherStrategy:
             #   type: OnNamespace
@@ -949,7 +1002,7 @@ spec:
             ## Storage is the definition of how storage will be used by the Alertmanager instances.
             ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
             ##
-            storage: {}
+            storage: { }
             # volumeClaimTemplate:
             #   spec:
             #     storageClassName: gluster
@@ -974,7 +1027,7 @@ spec:
 
             ## tlsConfig: TLS configuration to use when connect to the endpoint. For example if using istio mTLS.
             ## Of type: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#tlsconfig
-            tlsConfig: {}
+            tlsConfig: { }
 
             ## If set to true all actions on the underlying managed objects are not going to be performed, except for delete actions.
             ##
@@ -983,12 +1036,12 @@ spec:
             ## Define which Nodes the Pods are scheduled on.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
             ##
-            nodeSelector: {}
+            nodeSelector: { }
 
             ## Define resources requests and limits for single Pods.
             ## ref: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
             ##
-            resources: {}
+            resources: { }
             # requests:
             #   memory: 400Mi
 
@@ -1007,7 +1060,7 @@ spec:
             ## Assign custom affinity rules to the alertmanager instance
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
             ##
-            affinity: {}
+            affinity: { }
             # nodeAffinity:
             #   requiredDuringSchedulingIgnoredDuringExecution:
             #     nodeSelectorTerms:
@@ -1021,7 +1074,7 @@ spec:
             ## If specified, the pod's tolerations.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
             ##
-            tolerations: []
+            tolerations: [ ]
             # - key: "key"
             #   operator: "Equal"
             #   value: "value"
@@ -1030,7 +1083,7 @@ spec:
             ## If specified, the pod's topology spread constraints.
             ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
             ##
-            topologySpreadConstraints: []
+            topologySpreadConstraints: [ ]
             # - maxSkew: 1
             #   topologyKey: topology.kubernetes.io/zone
             #   whenUnsatisfiable: DoNotSchedule
@@ -1057,7 +1110,7 @@ spec:
 
             ## Containers allows injecting additional containers. This is meant to allow adding an authentication proxy to an Alertmanager pod.
             ##
-            containers: []
+            containers: [ ]
             # containers:
             # - name: oauth-proxy
             #   image: quay.io/oauth2-proxy/oauth2-proxy:v7.8.2
@@ -1076,14 +1129,14 @@ spec:
             #   resources: {}
 
             # Additional volumes on the output StatefulSet definition.
-            volumes: []
+            volumes: [ ]
 
             # Additional VolumeMounts on the output StatefulSet definition.
-            volumeMounts: []
+            volumeMounts: [ ]
 
             ## InitContainers allows injecting additional initContainers. This is meant to allow doing some changes
             ## (permissions, dir tree) on mounted volumes before starting prometheus
-            initContainers: []
+            initContainers: [ ]
 
             ## Priority class assigned to the Pods
             ##
@@ -1091,7 +1144,7 @@ spec:
 
             ## AdditionalPeers allows injecting a set of additional Alertmanagers to peer with to form a highly available cluster.
             ##
-            additionalPeers: []
+            additionalPeers: [ ]
 
             ## PortName to use for Alert Manager.
             ##
@@ -1125,7 +1178,7 @@ spec:
             minReadySeconds: 0
 
             ## Additional configuration which is not covered by the properties above. (passed through tpl)
-            additionalConfig: {}
+            additionalConfig: { }
 
             ## Additional configuration which is not covered by the properties above.
             ## Useful, if you need advanced templating inside alertmanagerSpec.
@@ -1137,8 +1190,8 @@ spec:
           extraSecret:
             ## if not set, name will be auto generated
             # name: ""
-            annotations: {}
-            data: {}
+            annotations: { }
+            data: { }
           #   auth: |
           #     foo:$apr1$OFG3Xybp$ckL0FHDAkoXYIlH9.cysT0
           #     someoneelse:$apr1$DMZX2Z4q$6SbQIfyuLQd.xmo/P0m2c.
@@ -1148,6 +1201,18 @@ spec:
         grafana:
           enabled: true
           namespaceOverride: ""
+
+          annotations:
+            reloader.stakater.com/auto: "true"
+
+          envFromSecret: github-oauth
+          env:
+            GF_AUTH_GITHUB_ENABLED: "true"
+            GF_AUTH_GITHUB_SCOPES: "user:email,read:org"
+            GF_AUTH_GITHUB_AUTH_URL: "https://github.com/login/oauth/authorize"
+            GF_AUTH_GITHUB_TOKEN_URL: "https://github.com/login/oauth/access_token"
+            GF_AUTH_GITHUB_API_URL: "https://api.github.com/user"
+            GF_AUTH_SIGNOUT_REDIRECT_URL: "https://grafana.tw-javier.work"
 
           ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
           ##
@@ -1174,8 +1239,12 @@ spec:
           ##
           defaultDashboardsInterval: 1m
 
-          adminUser: admin
-{{/*          adminPassword: {{ randAlphaNum 20 | quote }}*/}}
+          admin:
+            ## Name of the secret. Can be templated.
+            existingSecret: "grafana-secret"
+            userKey: admin-user
+            passwordKey: admin-password
+
 
           rbac:
             ## If true, Grafana PSPs will be created
@@ -1208,7 +1277,7 @@ spec:
 
             ## Labels to be added to the Ingress
             ##
-            labels: {}
+            labels: { }
 
             ## Hostnames.
             ## Must be provided if Ingress is enable.
@@ -1224,7 +1293,7 @@ spec:
             ## TLS configuration for grafana Ingress
             ## Secret must be manually created in the namespace
             ##
-            tls: []
+            tls: [ ]
             # - secretName: grafana-general-tls
             #   hosts:
             #   - grafana.example.com
@@ -1258,7 +1327,7 @@ spec:
 
               ## Annotations for Grafana dashboard configmaps
               ##
-              annotations: {}
+              annotations: { }
               multicluster:
                 global:
                   enabled: false
@@ -1286,7 +1355,7 @@ spec:
 
               ## Annotations for Grafana datasource configmaps
               ##
-              annotations: {}
+              annotations: { }
 
               ## Set method for HTTP to send query to datasource
               httpMethod: POST
@@ -1303,9 +1372,9 @@ spec:
 
               ## Field with internal link pointing to existing data source in Grafana.
               ## Can be provisioned via additionalDataSources
-              exemplarTraceIdDestinations: {}
+              exemplarTraceIdDestinations: { }
                 # datasourceUid: Jaeger
-                # traceIdLabelName: trace_id
+              # traceIdLabelName: trace_id
               # urlDisplayLabel: View traces
               alertmanager:
                 enabled: true
@@ -1314,19 +1383,19 @@ spec:
                 handleGrafanaManagedAlerts: false
                 implementation: prometheus
 
-          extraConfigmapMounts: []
+          extraConfigmapMounts: [ ]
           # - name: certs-configmap
           #   mountPath: /etc/grafana/ssl/
           #   configMap: certs-configmap
           #   readOnly: true
 
-          deleteDatasources: []
+          deleteDatasources: [ ]
           # - name: example-datasource
           #   orgId: 1
 
           ## Configure additional grafana datasources (passed through tpl)
           ## ref: https://grafana.com/docs/grafana/latest/administration/provisioning/#datasources
-          additionalDataSources: []
+          additionalDataSources: [ ]
           # - name: prometheus-sample
           #   access: proxy
           #   basicAuth: true
@@ -1350,10 +1419,12 @@ spec:
           ##
           service:
             portName: http-web
-            ipFamilies: []
+            ipFamilies: [ ]
             ipFamilyPolicy: ""
             annotations:
               external-dns.alpha.kubernetes.io/hostname: grafana.tw-javier.work
+
+
 
   syncPolicy:
     syncOptions:
