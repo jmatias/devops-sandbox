@@ -1,0 +1,65 @@
+{{ if .Values.daysSince.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: days-since
+  namespace: argocd
+spec:
+  destination:
+    namespace: days-since
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: infra/apps/days-since
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      valuesObject:
+        replicaCount: 1
+
+        image:
+          repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/days-since
+          tag: {{ .Values.daysSince.image.tag }}
+          pullPolicy: IfNotPresent
+
+        service:
+          type: ClusterIP
+          port: 80
+
+        ingress:
+          enabled: true
+          className: "alb"
+          annotations:
+            kubernetes.io/ingress.class: alb
+            alb.ingress.kubernetes.io/scheme: internet-facing
+            alb.ingress.kubernetes.io/target-type: 'ip'
+            alb.ingress.kubernetes.io/group.name: "prod-external"
+            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+            alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+          hosts:
+            - host: ashley.tw-javier.work
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls: [ ]
+
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
+
+    {{ if .Values.daysSince.autoSync   }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 5
+
+{{- end}}

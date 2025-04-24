@@ -1,0 +1,5 @@
+apiVersion: v2
+name: days-since-ashley
+description: A Vite-powered webapp that tracks when Ashley last started a script
+version: 0.1.0
+appVersion: "1.0.0"

@@ -9,10 +9,10 @@ spec:
 environment: "aws"
 
 sdlcTrace:
-    enabled: true
-    autoSync: true
-    image:
-        tag: 0.3.6
+  enabled: true
+  autoSync: true
+  image:
+    tag: 0.3.6
 
 appOfApps:
   enabled: true
@@ -38,6 +38,13 @@ celerySandbox:
   autoSync: true
   image:
     tag: "0.3.0"
+
+
+daysSince:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "0.1.0"
 
 
 albIngressController:

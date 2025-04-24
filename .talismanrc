@@ -15,6 +15,10 @@ fileignoreconfig:
   checksum: 9205f0cb02d7d4e0c77a074804fb02eead0a0e296557354e57bc899b18b5f443
 - filename: infra/apps/celery-sandbox/templates/github-oauth-secret.yaml
   checksum: f1c6c83963ba89712046f4c9b814083b2bd4d61a6b17f007a7ab68aa3e4bc1e9
+- filename: infra/apps/days-since/templates/baisc-auth-secret.yaml
+  checksum: 61f86a5e82f00f05a988a427957aaba1a89ff340265f80e790bb2c7cb3c8fc02
+- filename: infra/apps/days-since/templates/deployment.yaml
+  checksum: 9cd4ac97089b53eb406cfc747148cf674b4f6f9f260795a24d4538aa09160711
 - filename: infra/hack/bootstrap.sh
   checksum: 655f3cb588325134737bc9e04ae5fb67fb2831fdec341e2717d2efab39e9448f
 - filename: infra/schema/mermaid.json
