@@ -9,8 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,flower=docker.io/mher/flower
-    argocd-image-updater.argoproj.io/flower.helm.image-tag: flower.image.tag
+    argocd-image-updater.argoproj.io/image-list: fastapi=386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,worker=386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,flower=docker.io/mher/flower
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
@@ -24,10 +23,17 @@ spec:
     helm:
       valuesObject:
         environment: {{ .Values.environment }}
-        image:
-          repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
-          pullPolicy: IfNotPresent
-          tag: "0.6.0"
+
+        fastapi:
+          image:
+            repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
+            pullPolicy: IfNotPresent
+            tag: "0.6.0"
+        worker:
+          image:
+            repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
+            pullPolicy: IfNotPresent
+            tag: "0.6.0"
         flower:
           enabled: true
           githubOAuth:
