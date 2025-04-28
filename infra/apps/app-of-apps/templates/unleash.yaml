@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    chart: unleash/unleash
+    chart: unleash
     repoURL: https://docs.getunleash.io/helm-charts
     targetRevision: 5.4.3
 
