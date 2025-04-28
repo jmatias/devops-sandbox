@@ -12,7 +12,8 @@ sdlcTrace:
   enabled: true
   autoSync: true
   image:
-    tag: 0.4.2
+    pullPolicy: Always
+    tag: latest
 
 appOfApps:
   enabled: true

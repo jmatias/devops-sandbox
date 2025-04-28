@@ -21,7 +21,7 @@ spec:
         environment: {{ .Values.environment }}
         image:
           repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/sdlc-trace
-          pullPolicy: IfNotPresent
+          pullPolicy: {{ .Values.sdlcTrace.image.pullPolicy }}
           tag: {{ .Values.sdlcTrace.image.tag }}
 
   syncPolicy:
