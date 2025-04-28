@@ -1,0 +1,6 @@
+dependencies:
+- name: unleash
+  repository: https://docs.getunleash.io/helm-charts
+  version: 5.4.3
+digest: sha256:68e3514cd04d9f81dc4cfcec2b1ed79cae5fd9c70645f70b5b1e3ca55441e57b
+generated: "2025-04-28T12:34:49.26982-04:00"
