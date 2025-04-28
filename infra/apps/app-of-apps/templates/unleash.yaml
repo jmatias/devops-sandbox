@@ -4,6 +4,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: unleash-postgresql
+  namespace: unleash
 spec:
   refreshInterval: 1h
   secretStoreRef:
@@ -29,6 +30,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: unleash-admin
+  namespace: unleash
 spec:
   refreshInterval: 1h
   secretStoreRef:
