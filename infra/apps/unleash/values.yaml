@@ -44,3 +44,7 @@ dbConfig:
 
 postgresql:
   auth:
+    existingSecret: "unleash-postgresql"
+    secretKeys:
+      adminPasswordKey: postgres-password
+      userPasswordKey: password
