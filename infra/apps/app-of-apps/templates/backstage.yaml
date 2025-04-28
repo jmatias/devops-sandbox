@@ -130,7 +130,7 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{ if .Values.backstage.autoSync   }}
+    {{ if .Values.backstage.autoSync }}
     automated:
       prune: true
       selfHeal: true
