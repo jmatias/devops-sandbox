@@ -16,7 +16,7 @@ livenessProbe: { }
 redis:
   url : "redis://redis:6379/0"
   image:
-    repository: library/redis
+    repository: redis
     tag: 6.2-alpine
     pullPolicy: IfNotPresent
 
