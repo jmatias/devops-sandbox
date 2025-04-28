@@ -1,0 +1,36 @@
+{{ if .Values.unleash.enabled   }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: unleash
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: unleash
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: unleash/unleash
+    repoURL: https://artifacthub.io/packages/helm/unleash/unleash
+    targetRevision: v5.4.3
+
+
+  syncPolicy:
+    retry:
+      limit: 6
+      backoff:
+        duration: "30s"
+
+    {{ if .Values.unleash.autoSync   }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    syncOptions:
+      - CreateNamespace=true
+
+{{ end }}

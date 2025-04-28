@@ -48,5 +48,12 @@ daysSince:
     tag: "0.1.3"
 
 
+unleash:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "latest"
+
+
 albIngressController:
   autoSync: true
