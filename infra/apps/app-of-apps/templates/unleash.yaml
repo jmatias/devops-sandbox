@@ -15,7 +15,7 @@ spec:
   source:
     chart: unleash/unleash
     repoURL: https://artifacthub.io/packages/helm/unleash/unleash
-    targetRevision: v5.4.3
+    targetRevision: 5.4.3
 
 
   syncPolicy:
