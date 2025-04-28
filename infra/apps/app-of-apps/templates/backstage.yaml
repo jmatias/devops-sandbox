@@ -83,9 +83,6 @@ spec:
             registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
             tag: {{ .Values.backstage.image.tag }}
-            pullPolicy: {{ .Values.backstage.image.pullPolicy }}
-            pullSecrets:
-              - ecr-registry-secret
           extraEnvVarsSecrets:
             - postgres-secrets
             - github-oauth

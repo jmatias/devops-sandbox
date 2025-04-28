@@ -24,7 +24,6 @@ backstage:
   autoSync: true
   image:
     tag: 0.9.1
-  pullPolicy: Always
 
 argocd:
   autoSync: true
