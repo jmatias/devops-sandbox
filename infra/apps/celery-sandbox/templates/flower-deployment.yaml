@@ -24,7 +24,7 @@ spec:
       restartPolicy: Always
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
       containers:
-        - image: "mher/flower:2.0"
+        - image: {{ .Values.flower.image.repository }}:{{ .Values.flower.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           name: celery-flower
           command: [ "celery" ]
