@@ -44,7 +44,7 @@ daysSince:
   enabled: true
   autoSync: true
   image:
-    tag: "0.1.0"
+    tag: "latest"
 
 
 albIngressController:

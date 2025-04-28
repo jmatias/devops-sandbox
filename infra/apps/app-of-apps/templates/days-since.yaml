@@ -20,7 +20,7 @@ spec:
         image:
           repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/days-since
           tag: {{ .Values.daysSince.image.tag }}
-          pullPolicy: IfNotPresent
+          pullPolicy: Always
 
         service:
           type: ClusterIP
