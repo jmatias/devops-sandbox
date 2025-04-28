@@ -11,7 +11,7 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: fastapi=386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,
       worker=386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,
-      flower=docker.io/mher/flower,redis=docker.io/redis
+      flower=docker.io/mher/flower,redis=docker.io/library/redis
     argocd-image-updater.argoproj.io/fastapi.helm.image-tag: fastapi.image.tag
     argocd-image-updater.argoproj.io/fastapi.helm.image-name: fastapi.image.name
     argocd-image-updater.argoproj.io/flower.helm.image-tag: flower.image.tag
