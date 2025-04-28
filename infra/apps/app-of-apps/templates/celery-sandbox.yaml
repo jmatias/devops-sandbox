@@ -9,7 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox, flower=docker.io/mher/flower
+    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox,flower=docker.io/mher/flower
     argocd-image-updater.argoproj.io/flower.helm.image-tag: flower.image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
@@ -33,6 +33,10 @@ spec:
           githubOAuth:
             enabled: true
             oauth2RedirectUri: "https://flower.tw-javier.work/login"
+          image:
+            repository: docker.io/mher/flower
+            pullPolicy: IfNotPresent
+            tag: "2.0"
 
   syncPolicy:
     retry:
