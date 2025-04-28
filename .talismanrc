@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: infra/apps/unleash/Chart.lock
   checksum: 4ea843dede0b4b851cbee5aeb2a66953ea0e15bc203f0428655aa4c6d4245c8b
 - filename: infra/apps/unleash/secrets.yaml
-  checksum: d5c62f354542f66500f7521e1cc8a4c4857b98f0a6db413f2139984ab83e6391
+  checksum: c9af216a950677288e4a3b3fb007d68310bb226471795dc02ec9825073c80658
 - filename: infra/apps/unleash/templates/secrets.yaml
   checksum: 28ea4d201cf716b78099785988ddd1406a04e3251e19d497f9ed97c1fa13ae57
 - filename: infra/apps/unleash/values.yaml
