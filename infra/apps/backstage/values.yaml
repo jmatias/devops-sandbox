@@ -13,7 +13,7 @@ global:
 
   # -- Global Docker registry secret names as an array
   # </br> E.g. `imagePullSecrets: [myRegistryKeySecretName]`
-  imagePullSecrets: []
+  imagePullSecrets: [ ]
 
 # -- Common parameters
 
@@ -30,13 +30,13 @@ fullnameOverride: ""
 clusterDomain: cluster.local
 
 # -- Labels to add to all deployed objects
-commonLabels: {}
+commonLabels: { }
 
 # -- Annotations to add to all deployed objects
-commonAnnotations: {}
+commonAnnotations: { }
 
 # -- Array of extra objects to deploy with the release
-extraDeploy: []
+extraDeploy: [ ]
 
 # -- Enable diagnostic mode in the Deployment
 diagnosticMode:
@@ -62,7 +62,7 @@ ingress:
   className: ""
 
   # -- Additional annotations for the Ingress resource
-  annotations: {}
+  annotations: { }
 
   # -- Hostname to be used to expose the route to access the backstage application (e.g: backstage.IP.nip.io)
   host: ""
@@ -74,7 +74,7 @@ ingress:
   #     path: / (Optional)
   #     pathType: Prefix (Optional)
   #     port: 7007 (Optional) -->
-  extraHosts: []
+  extraHosts: [ ]
 
   # -- Path to be used to expose the full route to access the backstage application (e.g: IP.nip.io/backstage)
   path: "/"
@@ -95,7 +95,7 @@ ingress:
   #   - hosts:
   #     - backstage.env.example.com
   #     secretName: backstage-env -->
-  extraTls: []
+  extraTls: [ ]
 
 # -- Backstage parameters
 # @default -- See below
@@ -131,7 +131,7 @@ backstage:
     #  Secrets must be manually created in the namespace.
     # <br /> Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
     # <br /> E.g: `pullSecrets: [myRegistryKeySecretName]`
-    pullSecrets: []
+    pullSecrets: [ ]
 
   # -- Container ports on the Deployment
   containerPorts:
@@ -141,34 +141,34 @@ backstage:
   #  command: ["node", "packages/backend"]
 
   # -- Backstage container command arguments
-  args: []
+  args: [ ]
 
   # -- Extra app configuration files to inline into command arguments
-  extraAppConfig: []
+  extraAppConfig: [ ]
 
   # -- Deployment sidecars
-  extraContainers: []
+  extraContainers: [ ]
 
   # -- Backstage container environment variables
-  extraEnvVars: []
+  extraEnvVars: [ ]
 
   # -- Backstage container environment variables from existing ConfigMaps
-  extraEnvVarsCM: []
+  extraEnvVarsCM: [ ]
 
   # -- Backstage container environment variables from existing Secrets
-  extraEnvVarsSecrets: []
+  extraEnvVarsSecrets: [ ]
 
   # -- Backstage container additional ports
-  extraPorts: []
+  extraPorts: [ ]
 
   # -- Backstage container additional volume mounts
-  extraVolumeMounts: []
+  extraVolumeMounts: [ ]
 
   # -- Backstage container additional volumes
-  extraVolumes: []
+  extraVolumes: [ ]
 
   # -- Backstage container init containers
-  initContainers: []
+  initContainers: [ ]
 
   # -- Directory containing the backstage installation
   installDir: /app
@@ -183,75 +183,50 @@ backstage:
   #   requests:
   #     memory: 250Mi
   #     cpu: 100m -->
-  resources: {}
+  resources: { }
 
-  # -- Readiness Probe
-  # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
-  # <!-- E.g.
-  # readinessProbe:
-  #   failureThreshold: 3
-  #   httpGet:
-  #     path: /.backstage/health/v1/readiness
-  #     port: 7007
-  #     scheme: HTTP
-  #   initialDelaySeconds: 30
-  #   periodSeconds: 10
-  #   successThreshold: 2
-  #   timeoutSeconds: 2
-  #  readinessProbe:
-  #    httpGet:
-  #      path: /.backstage/health/v1/readiness
-  #      port: 7007
-  #      scheme: HTTP
+  readinessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /.backstage/health/v1/readiness
+      port: 7007
+      scheme: HTTP
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 2
+    timeoutSeconds: 2
+    readinessProbe:
 
-  # -- Liveness Probe
-  # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
-  # <!-- E.g.
-  # livenessProbe:
-  #   failureThreshold: 3
-  #   httpGet:
-  #     path: /.backstage/health/v1/liveness
-  #     port: 7007
-  #     scheme: HTTP
-  #   initialDelaySeconds: 60
-  #   periodSeconds: 10
-  #   successThreshold: 1
-  #   timeoutSeconds: 2
+  livenessProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /.backstage/health/v1/liveness
+      port: 7007
+      scheme: HTTP
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 2
 
-  #  livenessProbe:
-  #    httpGet:
-  #      path: /.backstage/health/v1/liveness
-  #      port: 7007
-  #      scheme: HTTP
-
-  # -- Startup Probe
-  # Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes
-  # <!-- E.g.
-  # startupProbe:
-  #   failureThreshold: 3
-  #   httpGet:
-  #     path: /.backstage/health/v1/liveness
-  #     port: 7007
-  #     scheme: HTTP
-  #   initialDelaySeconds: 60
-  #   periodSeconds: 10
-  #   successThreshold: 1
-  #   timeoutSeconds: 2
-
-  #  startupProbe:
-  #    httpGet:
-  #      path: /.backstage/health/v1/liveness
-  #      port: 7007
-  #      scheme: HTTP
+  startupProbe:
+    failureThreshold: 3
+    httpGet:
+      path: /.backstage/health/v1/liveness
+      port: 7007
+      scheme: HTTP
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 2
 
   # -- Security settings for a Pod.
   #  The security settings that you specify for a Pod apply to all Containers in the Pod.
   # <br /> Ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
-  podSecurityContext: {}
+  podSecurityContext: { }
 
   # -- Security settings for a Container.
   # <br /> Ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
-  containerSecurityContext: {}
+  containerSecurityContext: { }
 
   # Allows to define the appConfig as a multiline string that generates a ConfigMap
   # automatically, not requiring to have it pre provisioned as with the extraAppConfig key.
@@ -265,19 +240,19 @@ backstage:
 
   # -- Affinity for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-  affinity: {}
+  affinity: { }
 
   # -- Topology Spread Constraints for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#pod-topology-spread-constraints
-  topologySpreadConstraints: []
+  topologySpreadConstraints: [ ]
 
   # -- Node labels for pod assignment
   # <br /> Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
-  nodeSelector: {}
+  nodeSelector: { }
 
   # -- Node tolerations for server scheduling to nodes with taints
   # <br /> Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
-  tolerations: []
+  tolerations: [ ]
   #  - key: "key"
   #    operator: "Equal|Exists"
   #    value: "value"
@@ -285,16 +260,16 @@ backstage:
 
   # -- Host Aliases for the pod
   # <br /> Ref: https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
-  hostAliases: []
+  hostAliases: [ ]
 
   # -- Annotations to add to the backend deployment pods
-  podAnnotations: {}
+  podAnnotations: { }
 
   # -- Labels to add to the backend deployment pods
-  podLabels: {}
+  podLabels: { }
 
   # -- Additional custom annotations for the `Deployment` resource
-  annotations: {}
+  annotations: { }
 
 ## @section Traffic Exposure parameters
 
@@ -341,7 +316,7 @@ service:
   #
   # <br /> Ref: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
   # <br /> E.g `loadBalancerSourceRanges: [10.10.10.0/24]`
-  loadBalancerSourceRanges: []
+  loadBalancerSourceRanges: [ ]
 
   # -- Backstage service external traffic policy
   #
@@ -349,10 +324,10 @@ service:
   externalTrafficPolicy: Cluster
 
   # -- Additional custom annotations for Backstage service
-  annotations: {}
+  annotations: { }
 
   # -- Extra ports to expose in the Backstage service (normally used with the `sidecar` value)
-  extraPorts: []
+  extraPorts: [ ]
 
   # -- IP Family Policy
   #
@@ -362,7 +337,7 @@ service:
   # -- IP Families
   #
   # <br /> Ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack
-  ipFamilies: []
+  ipFamilies: [ ]
 
 ## @section NetworkPolicy parameters
 ##
@@ -375,13 +350,13 @@ networkPolicy:
   ingressRules:
 
     # -- Namespace selector label allowed to access the Backstage instance
-    namespaceSelector: {}
+    namespaceSelector: { }
 
     # -- Pod selector label allowed to access the Backstage instance
-    podSelector: {}
+    podSelector: { }
 
     # -- Additional custom ingress rules
-    customRules: []
+    customRules: [ ]
     #   - to:
     #       - namespaceSelector:
     #           matchLabels:
@@ -395,7 +370,7 @@ networkPolicy:
     denyConnectionsToExternal: false
 
     # -- Additional custom egress rules
-    customRules: []
+    customRules: [ ]
     #   - to:
     #       - namespaceSelector:
     #           matchLabels:
@@ -453,10 +428,10 @@ serviceAccount:
   name: ""
 
   # -- Additional custom labels to the service ServiceAccount.
-  labels: {}
+  labels: { }
 
   # -- Additional custom annotations for the ServiceAccount.
-  annotations: {}
+  annotations: { }
 
   # -- Auto-mount the service account token in the pod
   automountServiceAccountToken: true
@@ -473,10 +448,10 @@ metrics:
     enabled: false
 
     # -- ServiceMonitor annotations
-    annotations: {}
+    annotations: { }
 
     # -- Additional ServiceMonitor labels
-    labels: {}
+    labels: { }
 
     # -- ServiceMonitor scrape interval
     interval: null

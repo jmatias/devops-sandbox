@@ -17,7 +17,7 @@ spec:
 
         extraArgs:
           - --interval
-          - 2m
+          - 1m
 
         config:
           registries:
