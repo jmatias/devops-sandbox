@@ -7,8 +7,12 @@ fileignoreconfig:
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
 - filename: infra/apps/unleash/Chart.lock
   checksum: 4ea843dede0b4b851cbee5aeb2a66953ea0e15bc203f0428655aa4c6d4245c8b
+- filename: infra/apps/unleash/secrets.yaml
+  checksum: d5c62f354542f66500f7521e1cc8a4c4857b98f0a6db413f2139984ab83e6391
 - filename: infra/apps/unleash/templates/secrets.yaml
   checksum: 28ea4d201cf716b78099785988ddd1406a04e3251e19d497f9ed97c1fa13ae57
+- filename: infra/apps/unleash/values.yaml
+  checksum: 3998296e377901782ded9965737b87034c20a5acff4ea2220098a02f83ed6a22
 scopeconfig:
 - scope: python
 - scope: node
