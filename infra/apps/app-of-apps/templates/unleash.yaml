@@ -95,14 +95,14 @@ spec:
         existingSecrets:
           - name: UNLEASH_DEFAULT_ADMIN_PASSWORD
             valueFrom:
-            secretKeyRef:
-              name: unleash-admin
-              key: UNLEASH_DEFAULT_ADMIN_PASSWORD
+              secretKeyRef:
+                name: unleash-admin
+                key: UNLEASH_DEFAULT_ADMIN_PASSWORD
           - name: UNLEASH_DEFAULT_ADMIN_USERNAME
             valueFrom:
-            secretKeyRef:
-              name: unleash-admin
-              key: UNLEASH_DEFAULT_ADMIN_USERNAME
+              secretKeyRef:
+                name: unleash-admin
+                key: UNLEASH_DEFAULT_ADMIN_USERNAME
 
         service:
           type: ClusterIP
