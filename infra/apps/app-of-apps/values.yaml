@@ -49,7 +49,7 @@ daysSince:
 
 
 unleash:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "latest"
