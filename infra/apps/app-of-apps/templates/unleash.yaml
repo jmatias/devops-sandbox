@@ -74,7 +74,7 @@ spec:
           storageClass: gp2
 
         ingress:
-          enabled: false
+          enabled: true
           className: "alb"
           annotations:
             kubernetes.io/ingress.class: alb
@@ -105,8 +105,8 @@ spec:
 
     {{ if .Values.unleash.autoSync   }}
     automated:
-      prune: true
-      selfHeal: true
+      prune: false
+      selfHeal: false
     {{ end }}
 
     syncOptions:
