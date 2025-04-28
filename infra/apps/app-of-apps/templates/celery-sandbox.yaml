@@ -9,7 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox, flower=mher/flower, redis=redis
+    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox, flower=mher/flower
     argocd-image-updater.argoproj.io/flower.helm.image-tag: flower.image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
