@@ -25,7 +25,7 @@ spec:
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
       containers:
         - image: {{ .Values.flower.image.repository }}:{{ .Values.flower.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.flower.image.pullPolicy }}
           name: celery-flower
           command: [ "celery" ]
           args:

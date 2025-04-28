@@ -22,7 +22,7 @@ spec:
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
       containers:
         - image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.worker.image.pullPolicy }}
           name: worker
           command: [ "poetry", "run", "celery","-A", "celery_sandbox.worker.celery", "worker", "--loglevel=info" ]
           env:

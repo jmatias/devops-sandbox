@@ -19,7 +19,7 @@ spec:
 
 
           image: "{{ .Values.fastapi.image.repository }}:{{ .Values.fastapi.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.fastapi.image.pullPolicy }}
           env:
             - name: CELERY_BROKER_URL
               value: {{ .Values.redis.url }}
