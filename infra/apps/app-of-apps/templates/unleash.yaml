@@ -47,6 +47,29 @@ spec:
           defaultStorageClass: gp2
           storageClass: gp2
 
+        ingress:
+          enabled: true
+          className: "alb"
+          annotations:
+            kubernetes.io/ingress.class: alb
+            alb.ingress.kubernetes.io/scheme: internet-facing
+            alb.ingress.kubernetes.io/target-type: 'ip'
+            alb.ingress.kubernetes.io/group.name: "prod-external"
+            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+            alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+          hosts:
+            - host: "unleash.tw-javier.work"
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls: [ ]
+
+        service:
+          type: ClusterIP
+          port: 4242
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: unleash.tw-javier.work
+
 
   syncPolicy:
     retry:
