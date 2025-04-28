@@ -18,8 +18,8 @@ metadata:
     argocd-image-updater.argoproj.io/flower.helm.image-name: flower.image.name
     argocd-image-updater.argoproj.io/worker.helm.image-tag: worker.image.tag
     argocd-image-updater.argoproj.io/worker.helm.image-name: worker.image.name
-    argocd-image-updater.argoproj.io/redit.helm.image-tag: redis.image.tag
-    argocd-image-updater.argoproj.io/redit.helm.image-name: redis.image.name
+    argocd-image-updater.argoproj.io/redis.helm.image-tag: redis.image.tag
+    argocd-image-updater.argoproj.io/redis.helm.image-name: redis.image.name
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
