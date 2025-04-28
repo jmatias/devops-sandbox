@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
+- filename: infra/apps/app-of-apps/templates/unleash.yaml
+  checksum: 0bc72df0d3bed219ac763ca9bf94654b1e495973711cdd3bea2d754af18ebbd7
 scopeconfig:
 - scope: python
 - scope: node
