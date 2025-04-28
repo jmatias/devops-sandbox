@@ -1,10 +1,10 @@
 helm:
   parameters:
   - name: image.name
-    value: docker.io/mher/flower
+    value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
   - name: image.tag
-    value: 2.0.1
+    value: 0.6.2
     forcestring: true
   - name: flower.image.tag
     value: 2.0.1
@@ -14,4 +14,7 @@ helm:
     forcestring: true
   - name: fastapi.image.tag
     value: 0.6.2
+    forcestring: true
+  - name: flower.image.name
+    value: docker.io/mher/flower
     forcestring: true
