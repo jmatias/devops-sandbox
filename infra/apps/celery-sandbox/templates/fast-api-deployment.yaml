@@ -18,7 +18,7 @@ spec:
           command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port=5000" ]
 
 
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.fastapi.image.repository }}:{{ .Values.fastapi.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: CELERY_BROKER_URL
