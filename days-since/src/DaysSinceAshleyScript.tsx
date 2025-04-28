@@ -4,7 +4,7 @@ const LOCAL_STORAGE_KEY = "lastScriptStartDate";
 
 function getStoredDate() {
   const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-  return stored ? new Date(stored) : new Date("2025-04-20");
+  return stored ? new Date(stored) : new Date("2025-04-26");
 }
 
 function setStoredDate(date: Date) {
