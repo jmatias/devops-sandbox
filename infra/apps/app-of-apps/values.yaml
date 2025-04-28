@@ -13,7 +13,7 @@ sdlcTrace:
   autoSync: true
   image:
     pullPolicy: Always
-    tag: latest
+    tag: 0.6.0
 
 appOfApps:
   enabled: true
@@ -50,7 +50,13 @@ daysSince:
 
 unleash:
   enabled: true
-  autoSync: false
+  autoSync: true
+  image:
+    tag: "latest"
+
+externalSecrets:
+  enabled: true
+  autoSync: true
   image:
     tag: "latest"
 
