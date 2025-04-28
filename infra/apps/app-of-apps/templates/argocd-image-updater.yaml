@@ -28,7 +28,7 @@ spec:
               default: true
               insecure: false
               credentials: ext:/scripts/ecr-login.sh
-              credsexpire: 12h
+              credsexpire: 4h
 
         authScripts:
           enabled: true
