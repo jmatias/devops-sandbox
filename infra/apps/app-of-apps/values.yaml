@@ -21,7 +21,7 @@ appOfApps:
 
 backstage:
   enabled: true
-  autoSync: false
+  autoSync: true
   image:
     tag: 0.9.3
 
