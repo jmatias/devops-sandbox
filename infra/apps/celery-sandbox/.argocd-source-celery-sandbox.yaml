@@ -12,12 +12,6 @@ helm:
   - name: flower.image.name
     value: docker.io/mher/flower
     forcestring: true
-  - name: image.name
-    value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
-    forcestring: true
-  - name: image.tag
-    value: 0.6.1
-    forcestring: true
   - name: worker.image.name
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
