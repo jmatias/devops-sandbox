@@ -6,14 +6,12 @@ helm:
   - name: flower.image.name
     value: docker.io/mher/flower
     forcestring: true
-
   - name: fastapi.image.name
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
   - name: fastapi.image.tag
     value: 0.6.4
     forcestring: true
-
   - name: worker.image.name
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
