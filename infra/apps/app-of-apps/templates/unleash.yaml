@@ -41,6 +41,11 @@ spec:
     chart: unleash
     repoURL: https://docs.getunleash.io/helm-charts
     targetRevision: 5.4.3
+    helm:
+      valuesObject:
+        global:
+          defaultStorageClass: gp2
+          storageClass: gp2
 
 
   syncPolicy:
