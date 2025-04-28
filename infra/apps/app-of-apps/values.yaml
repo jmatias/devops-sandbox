@@ -23,7 +23,7 @@ backstage:
   enabled: true
   autoSync: true
   image:
-    tag: 0.9.1
+    tag: 0.9.2
 
 argocd:
   autoSync: true
