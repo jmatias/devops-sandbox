@@ -24,6 +24,7 @@ backstage:
   autoSync: true
   image:
     tag: 0.9.1
+  pullPolicy: Always
 
 argocd:
   autoSync: true
@@ -45,7 +46,7 @@ daysSince:
   enabled: true
   autoSync: true
   image:
-    tag: "latest"
+    tag: "0.1.3"
 
 
 albIngressController:

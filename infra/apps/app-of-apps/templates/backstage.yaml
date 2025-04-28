@@ -4,6 +4,13 @@ kind: Application
 metadata:
   name: backstage
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/backstage
+    argocd-image-updater.argoproj.io/update-strategy: semver
+
 spec:
   destination:
     namespace: backstage
@@ -76,6 +83,7 @@ spec:
             registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
             repository: javier/backstage
             tag: {{ .Values.backstage.image.tag }}
+            pullPolicy: {{ .Values.backstage.image.pullPolicy }}
             pullSecrets:
               - ecr-registry-secret
           extraEnvVarsSecrets:
