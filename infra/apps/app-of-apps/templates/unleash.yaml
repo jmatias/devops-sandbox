@@ -25,6 +25,32 @@ spec:
 
 
 ---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: unleash-admin
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: cluster-secretstore
+    kind: ClusterSecretStore
+  target:
+    name: unleash-admin
+    creationPolicy: Owner
+  data:
+    - secretKey: UNLEASH_DEFAULT_ADMIN_PASSWORD
+      remoteRef:
+        key: javier/unleash/admin
+        property: UNLEASH_DEFAULT_ADMIN_PASSWORD
+
+    - secretKey: UNLEASH_DEFAULT_ADMIN_USERNAME
+      remoteRef:
+        key: javier/unleash/admin
+        property: UNLEASH_DEFAULT_ADMIN_USERNAME
+
+---
+
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
