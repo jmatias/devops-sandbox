@@ -16,7 +16,7 @@ livenessProbe: { }
 redis:
   url : "redis://redis:6379/0"
   image:
-    repository: redis
+    repository: library/redis
     tag: 6.2-alpine
     pullPolicy: IfNotPresent
 
@@ -40,6 +40,7 @@ fastapi:
       repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
       pullPolicy: IfNotPresent
       tag: "0.6.0"
+
 
 worker:
     enabled: true
