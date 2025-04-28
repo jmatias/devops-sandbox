@@ -117,7 +117,7 @@ spec:
       backoff:
         duration: "30s"
 
-    {{ if .Values.unleash.autoSync   }}
+    {{ if .Values.unleash.autoSync }}
     automated:
       prune: false
       selfHeal: false

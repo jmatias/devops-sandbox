@@ -21,7 +21,7 @@ spec:
     syncOptions:
       - CreateNamespace=true
 
-    {{ if .Values.appOfApps.autoSync   }}
+    {{ if .Values.appOfApps.autoSync }}
     automated:
       prune: true
       selfHeal: true
