@@ -15,7 +15,7 @@ spec:
   source:
     chart: unleash/unleash
     repoURL: https://docs.getunleash.io/helm-charts
-    targetRevision: 5.4.3
+    targetRevision: v5.4.3
 
 
   syncPolicy:
