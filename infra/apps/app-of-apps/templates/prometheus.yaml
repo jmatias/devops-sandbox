@@ -35,12 +35,4 @@ spec:
         maxDuration: 3m0s
       limit: 5
 
-  ignoreDifferences:
-    - group: ""
-      jsonPointers:
-        - /data/admin-password
-      kind: Secret
-      name: prometheus-grafana
-      namespace: monitoring
-
 {{- end }}
