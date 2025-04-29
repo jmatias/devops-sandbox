@@ -32,7 +32,7 @@ argocd:
 
 prometheus:
   enabled: true
-  autoSync: true
+  autoSync: false
 
 celerySandbox:
   enabled: true
@@ -63,3 +63,10 @@ externalSecrets:
 
 albIngressController:
   autoSync: true
+
+
+argocdImageUpdater:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "latest"
