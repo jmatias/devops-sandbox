@@ -45,7 +45,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
         # For dev only
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   - name: mng1
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
@@ -79,7 +79,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
         # For dev only
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   - name: mng2-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
@@ -113,7 +113,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
         # For dev only
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 
 fargateProfiles: [ ]
