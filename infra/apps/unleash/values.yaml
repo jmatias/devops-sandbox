@@ -48,3 +48,10 @@ postgresql:
     secretKeys:
       adminPasswordKey: postgres-password
       userPasswordKey: password
+
+
+env:
+  - name: CHECK_VERSION
+    value: "false"
+  - name: SEND_TELEMETRY
+    value: "false"
