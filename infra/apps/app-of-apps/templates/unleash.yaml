@@ -26,8 +26,8 @@ spec:
 
     {{ if .Values.unleash.autoSync }}
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
     {{ end }}
 
     syncOptions:
