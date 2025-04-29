@@ -15,7 +15,7 @@ spec:
   source:
     chart: nginx-ingress-controller
     repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 11.6.15
+    targetRevision: 11.6.*
 
   syncPolicy:
     syncOptions:

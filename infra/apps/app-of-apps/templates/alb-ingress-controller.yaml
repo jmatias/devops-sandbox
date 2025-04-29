@@ -26,7 +26,7 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{ if .Values.albIngressController.autoSync   }}
+    {{ if .Values.albIngressController.autoSync }}
     automated:
       prune: true
       selfHeal: true

@@ -17,7 +17,7 @@ spec:
 
   syncPolicy:
 
-    {{ if .Values.argocd.autoSync   }}
+    {{ if .Values.argocd.autoSync }}
     automated:
       prune: true
       selfHeal: true

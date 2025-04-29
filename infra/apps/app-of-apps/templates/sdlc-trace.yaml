@@ -34,7 +34,7 @@ spec:
       backoff:
         duration: "30s"
 
-    {{ if .Values.sdlcTrace.autoSync  }}
+    {{ if .Values.sdlcTrace.autoSync }}
     automated:
       prune: true
       selfHeal: true

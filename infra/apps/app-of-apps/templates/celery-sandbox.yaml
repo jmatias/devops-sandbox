@@ -38,7 +38,7 @@ spec:
       backoff:
         duration: "30s"
 
-    {{ if .Values.celerySandbox.autoSync   }}
+    {{ if .Values.celerySandbox.autoSync }}
     automated:
       prune: true
       selfHeal: true

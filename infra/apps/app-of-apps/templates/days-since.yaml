@@ -55,7 +55,7 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{ if .Values.daysSince.autoSync   }}
+    {{ if .Values.daysSince.autoSync }}
     automated:
       prune: true
       selfHeal: true

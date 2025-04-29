@@ -5,6 +5,10 @@ fileignoreconfig:
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
+- filename: infra/apps/prometheus/secrets.yaml
+  checksum: 74a6bcf4038053f2f38e4a931efffc28bea6870ec9d7b913eeb95aae8c21e97c
+- filename: infra/apps/prometheus/values.yaml
+  checksum: 06d23530ac0d906cb60fb26fc6faff6694e6e51181e5c0857e310f239bb8279a
 - filename: infra/apps/unleash/Chart.lock
   checksum: 4ea843dede0b4b851cbee5aeb2a66953ea0e15bc203f0428655aa4c6d4245c8b
 - filename: infra/apps/unleash/secrets.yaml
