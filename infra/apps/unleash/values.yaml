@@ -49,9 +49,13 @@ postgresql:
       adminPasswordKey: postgres-password
       userPasswordKey: password
 
+deploymentAnnotations:
+  reloader.stakater.com/auto: "true"
 
 env:
   - name: CHECK_VERSION
     value: "false"
   - name: SEND_TELEMETRY
     value: "false"
+  - name: UNLEASH_URL
+    value: "https://unleash.tw-javier.work"
