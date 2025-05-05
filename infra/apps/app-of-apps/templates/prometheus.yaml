@@ -20,7 +20,7 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=false
-      - ServerSideApply=true
+      - ServerSideApply=false
 
     {{ if .Values.prometheus.autoSync }}
     automated:
