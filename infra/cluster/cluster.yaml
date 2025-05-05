@@ -16,7 +16,7 @@ managedNodeGroups:
   - name: mng1-spot
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 0
-    desiredCapacity: 1
+    desiredCapacity: 0
     maxSize: 2
     spot: true
     availabilityZones:
@@ -50,7 +50,7 @@ managedNodeGroups:
   - name: mng1
     instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
     minSize: 0
-    desiredCapacity: 0
+    desiredCapacity: 1
     maxSize: 2
     spot: false
     availabilityZones:
