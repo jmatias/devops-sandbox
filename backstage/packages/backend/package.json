@@ -44,7 +44,8 @@
     "better-sqlite3": "^11.10.0",
     "jsonpath-plus": "~10.3.0",
     "node-gyp": "^11.2.0",
-    "pg": "^8.16.0"
+    "pg": "^8.16.0",
+    "prismjs": "~1.30.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.32.0"
