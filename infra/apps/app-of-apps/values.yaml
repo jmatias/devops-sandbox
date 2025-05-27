@@ -13,7 +13,7 @@ sdlcTrace:
   autoSync: true
   image:
     pullPolicy: Always
-    tag: "latest"
+    tag: "0.*"
 
 appOfApps:
   enabled: true
