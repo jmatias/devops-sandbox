@@ -1,0 +1,39 @@
+{{ if .Values.datahub.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datahub
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: datahub
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: infra/apps/datahub
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: main
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=false
+      - ServerSideApply=false
+
+    {{ if .Values.datahub.autoSync }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    retry:
+      limit: -1
+      backoff:
+        duration: 30s
+        factor: 2
+        maxDuration: 3m0s
+
+
+{{- end }}

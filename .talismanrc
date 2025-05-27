@@ -5,6 +5,8 @@ fileignoreconfig:
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
+- filename: infra/apps/datahub/secrets.yaml
+  checksum: 76c335e5b6786ae0063a3d25aa68c63830d98d84080866e0392530e9ff8a0819
 - filename: infra/apps/prometheus/secrets.yaml
   checksum: 74a6bcf4038053f2f38e4a931efffc28bea6870ec9d7b913eeb95aae8c21e97c
 - filename: infra/apps/prometheus/values.yaml

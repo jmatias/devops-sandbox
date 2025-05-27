@@ -34,6 +34,10 @@ prometheus:
   enabled: true
   autoSync: true
 
+datahub:
+  enabled: true
+  autoSync: true
+
 celerySandbox:
   enabled: true
   autoSync: true
