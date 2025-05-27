@@ -17,13 +17,13 @@ spec:
         - name: data-volume
           persistentVolumeClaim:
             claimName: sdlc-trace-pvc
-      initContainers:
-        - name: init-mydata
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          command: [ "sh", "-c", "mkdir -p /code/data; cp -rfv /code/src/sdlc_trace/src/data/* /code/data/" ]
-          volumeMounts:
-            - name: data-volume
-              mountPath: /code/data
+{{/*      initContainers:*/}}
+{{/*        - name: init-mydata*/}}
+{{/*          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"*/}}
+{{/*          command: [ "sh", "-c", "mkdir -p /code/data; cp -rfv /code/src/sdlc_trace/src/data/* /code/data/" ]*/}}
+{{/*          volumeMounts:*/}}
+{{/*            - name: data-volume*/}}
+{{/*              mountPath: /code/data*/}}
       containers:
         - name: {{ .Chart.Name }}
           command: [ "poetry","run","fastapi", "run", "src/sdlc_trace/main.py", "--port", "8000", "--host","0.0.0.0" ]
