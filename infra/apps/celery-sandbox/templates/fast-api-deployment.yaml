@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: fast-api
+        env: fargate
     spec:
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
       containers:

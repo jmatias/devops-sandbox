@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: redis
-        env: dev
+        env: fargate
     spec:
       containers:
       - name: master
