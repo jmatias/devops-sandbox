@@ -118,11 +118,9 @@ managedNodeGroups:
 
 #fargateProfiles: [ ]
 fargateProfiles:
-  - name: fp2
+  - name: fp1
     selectors:
       - namespace: kube-system
-        labels:
-          env: fargate
       - namespace: monitoring
         labels:
           env: fargate
@@ -134,8 +132,15 @@ fargateProfiles:
           env: fargate
     tags:
       env: fargate
-      name: fp2
+      name: fp1
 
+  - name: fp2
+    selectors:
+      - namespace: cert-manager
+      - namespace: external-secrets
+    tags:
+      env: fargate
+      name: fp2
 
 
 iam:
