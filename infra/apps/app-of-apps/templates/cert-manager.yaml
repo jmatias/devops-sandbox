@@ -20,6 +20,8 @@ spec:
       valuesObject:
         crds:
           enabled: true
+        global:
+          replicaCount: 1
 
   syncPolicy:
     syncOptions:

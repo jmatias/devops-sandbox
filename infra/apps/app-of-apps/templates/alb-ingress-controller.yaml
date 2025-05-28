@@ -18,7 +18,7 @@ spec:
       releaseName: alb-ingress-controller
       valuesObject:
         clusterName: javier-sandbox
-        replicaCount: 2
+        replicaCount: 1
 
 
   syncPolicy:
