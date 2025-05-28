@@ -5,7 +5,7 @@ metadata:
   name: datahub
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -13,12 +13,19 @@ spec:
     namespace: datahub
     server: {{ .Values.spec.destination.server }}
   project: default
+{{/*  source:*/}}
+{{/*    path: infra/apps/datahub*/}}
+{{/*    repoURL: {{ .Values.spec.source.repoURL }}*/}}
+{{/*    targetRevision: main*/}}
+{{/*    kustomize:*/}}
+{{/*      namespace: datahub*/}}
+
   source:
-    path: infra/apps/datahub
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: main
-    kustomize:
-      namespace: datahub
+    chart: datahub
+    repoURL: https://helm.datahubproject.io/
+    targetRevision: 0.*
+    helm:
+      releaseName: datahub
 
   syncPolicy:
     syncOptions:

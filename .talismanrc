@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
+- filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
+  checksum: 67e98eed1e8a3b3a1570edb768b63c6ce38c98fa8f687cc09e181044c86981ef
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
 - filename: infra/apps/datahub/secrets.yaml
