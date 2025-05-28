@@ -9,7 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: summerwind/actions-runner-controller
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/gha-runner-scale-set-controller
     argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
