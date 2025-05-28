@@ -8,15 +8,15 @@ fileignoreconfig:
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
 - filename: infra/apps/argocd-image-updater/secrets.yaml
-  checksum: 021dc18a754bec0b6f1a7cc8294ce69213509e8ba8157ec48a7e84564fd8e8e1
+  checksum: 4b953659150a85174f164f6c98295053e1fa2a541dc57599dbf43318358c9df6
 - filename: infra/apps/argocd-image-updater/values.yaml
-  checksum: 54d190b97fc6f3cc9232f2f3ec0d78716e9c502a92211103a9ad414f15e7ba94
+  checksum: 78a3c9e226f5f6e67891331a9138fe27a418e7d6ac7dd10a9ba9c116d96471fc
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
   checksum: 42446bf954c271a97b071bc654a2ec30440b928e14868163dde0e3045cfea3d1
 - filename: infra/apps/datahub-prerequisites/secrets.yaml
   checksum: a5d091fcfa1b1a290f78de68ec48b43365a3b5fb839c6ce24caa102c3d4dcf5b
 - filename: infra/apps/datahub/secrets.yaml
-  checksum: 76c335e5b6786ae0063a3d25aa68c63830d98d84080866e0392530e9ff8a0819
+  checksum: c5e0cac52ea990193dffe38326ab74351d89ecaf0e757ab8404023f014524ff4
 - filename: infra/apps/datahub/values-prerequisites.yaml
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml

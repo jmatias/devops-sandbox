@@ -1,4 +1,6 @@
 datahub-frontend:
+  imagePullSecrets:
+    - name: dockerhub-secret
   extraVolumes:
     - name: datahub-users
       secret:
@@ -32,7 +34,11 @@ datahub-frontend:
           - /
     pathType: Prefix
 
+imagePullSecrets:
+    - name: dockerhub-secret
 mysqlSetupJob:
+  imagePullSecrets:
+    - name: dockerhub-secret
   enabled: true
   resources:
     limits:
@@ -43,6 +49,8 @@ mysqlSetupJob:
       memory: 256Mi
 
 datahubUpgrade:
+  imagePullSecrets:
+    - name: dockerhub-secret
   enabled: true
   restoreIndices:
     resources:
@@ -54,6 +62,8 @@ datahubUpgrade:
         memory: 256Mi
 
 datahubSystemUpdate:
+  imagePullSecrets:
+    - name: dockerhub-secret
   resources:
     limits:
       cpu: 2000m
@@ -63,6 +73,8 @@ datahubSystemUpdate:
       memory: 2Gi
 
 elasticsearchSetupJob:
+  imagePullSecrets:
+    - name: dockerhub-secret
   enabled: true
   resources:
     limits:
@@ -73,6 +85,8 @@ elasticsearchSetupJob:
       memory: 256Mi
 
 kafkaSetupJob:
+  imagePullSecrets:
+    - name: dockerhub-secret
   enabled: true
   resources:
     limits:

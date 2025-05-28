@@ -21,7 +21,6 @@ spec:
         app.kubernetes.io/name: flower-ui
         env: fargate
     spec:
-      restartPolicy: {{ .Values.flower.image.pullPolicy }}
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
       containers:
         - image: {{ .Values.flower.image.repository }}:{{ .Values.flower.image.tag }}
