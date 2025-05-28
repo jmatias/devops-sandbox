@@ -154,7 +154,7 @@ fargateProfiles:
 
     tags:
       env: fargate
-      name: fp2
+      name: fp3
 
 
 
