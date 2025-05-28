@@ -14,13 +14,12 @@ config:
       credsexpire: 4h
 
     - name: DockerHub
-      api_url: https://386757133934.dkr.ecr.us-east-1.amazonaws.com
-      prefix: "386757133934.dkr.ecr.us-east-1.amazonaws.com"
-      ping: yes
-      default: true
-      insecure: false
-      credentials: pullsecret:datahub/dockerhub-secret
+      api_url: https://registry-1.docker.io
+      prefix: docker.io
+      defaultns: library
+      credentials: pullsecret:argocd/dockerhub-secret
       credsexpire: 4h
+      limit: 1
 
 
 

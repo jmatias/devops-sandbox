@@ -36,7 +36,7 @@ spec:
   ignoreDifferences:
     - group: ""
       kind: Secret
-      name: datahub-encryption-secrets
+      name: datahub-auth-secrets
       namespace: datahub
       jsonPointers:
         - /data/system_client_secret
@@ -44,7 +44,7 @@ spec:
         - /data/token_service_signing_key
     - group: ""
       kind: Secret
-      name: datahub-gms-secret
+      name: datahub-encryption-secrets
       namespace: datahub
       jsonPointers:
         - /data/encryption_key_secret
@@ -54,7 +54,6 @@ spec:
       namespace: datahub
       jsonPointers:
         - /data/datahub.gms.secret
-        -
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

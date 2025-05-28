@@ -3,6 +3,10 @@ fileignoreconfig:
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
+- filename: infra/apps/actions-runner-controller/external-secrets/secrets.yaml
+  checksum: 15d2f93634a40a4589458d5e404902077e64552a12527cc289bf4f6592dc65b7
+- filename: infra/apps/actions-runner-controller/secrets.yaml
+  checksum: 6d7fc29d105b22557f1f363c54ee72561b45ae7ccb074906de24802d31bab6c8
 - filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
   checksum: b4a82f7f704a9c7307f4e464634b2d867a9339fce288c9c4e3b632eab0940516
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
@@ -10,9 +14,11 @@ fileignoreconfig:
 - filename: infra/apps/argocd-image-updater/secrets.yaml
   checksum: 4b953659150a85174f164f6c98295053e1fa2a541dc57599dbf43318358c9df6
 - filename: infra/apps/argocd-image-updater/values.yaml
-  checksum: 78a3c9e226f5f6e67891331a9138fe27a418e7d6ac7dd10a9ba9c116d96471fc
+  checksum: ebc3d569dc8dd85bef7333d494a04881907fa7aff1c08e0d0c878b9c66d812ea
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
   checksum: 42446bf954c271a97b071bc654a2ec30440b928e14868163dde0e3045cfea3d1
+- filename: infra/apps/backstage/templates/secrets.yaml
+  checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
 - filename: infra/apps/datahub-prerequisites/secrets.yaml
   checksum: 46e1c90ee2a2903ac79857aee9254f1f768860aaccafab7be9332eeb35dd5a4f
 - filename: infra/apps/datahub/secrets.yaml
@@ -21,14 +27,16 @@ fileignoreconfig:
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml
   checksum: 21313e1f562369b0570ad8c72451bf7a6c9cef379b018de4055e59cedb5ce8df
+- filename: infra/apps/external-secrets/secrets.yaml
+  checksum: 3aad590c2dfef200f7b415064b05a36024f0a2b3d325e1e677c5f7e934ef8bca
 - filename: infra/apps/prometheus/secrets.yaml
-  checksum: 74a6bcf4038053f2f38e4a931efffc28bea6870ec9d7b913eeb95aae8c21e97c
+  checksum: b1607556fffa91fbf3ef20a5132f1a546a4751f3ed5b8138ebe8b54c2d825bdb
 - filename: infra/apps/prometheus/values.yaml
   checksum: 06d23530ac0d906cb60fb26fc6faff6694e6e51181e5c0857e310f239bb8279a
 - filename: infra/apps/unleash/Chart.lock
   checksum: 4ea843dede0b4b851cbee5aeb2a66953ea0e15bc203f0428655aa4c6d4245c8b
 - filename: infra/apps/unleash/secrets.yaml
-  checksum: 962737db16a3f622842aada42c72a7a31c632ff8e4d666a71e93a5ecb87e4481
+  checksum: c853af80b67208f455c8fa656de68c7ce694b233875cf9d3d5661c5822945c0d
 - filename: infra/apps/unleash/templates/secrets.yaml
   checksum: 28ea4d201cf716b78099785988ddd1406a04e3251e19d497f9ed97c1fa13ae57
 - filename: infra/apps/unleash/values.yaml

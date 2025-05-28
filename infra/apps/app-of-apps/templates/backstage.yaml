@@ -26,6 +26,8 @@ spec:
         global:
           defaultStorageClass: gp2
           storageClass: gp2
+          imagePullSecrets:
+            - dockerhub-secret
 
         postgresql:
           global:

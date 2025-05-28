@@ -1,1 +1,4 @@
 installCRDs: true
+
+imagePullSecrets:
+  - name: dockerhub-secret
