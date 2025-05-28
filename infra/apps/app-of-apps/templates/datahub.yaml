@@ -6,6 +6,11 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: datahub-frontend=acryldata/datahub-frontend-react
+    argocd-image-updater.argoproj.io/datahub-frontend.helm.image-tag: datahub-frontend.image.tag
+    argocd-image-updater.argoproj.io/datahub-frontend.helm.image-name: datahub-frontend.image.name
+    argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
