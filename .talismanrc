@@ -7,6 +7,8 @@ fileignoreconfig:
   checksum: 67e98eed1e8a3b3a1570edb768b63c6ce38c98fa8f687cc09e181044c86981ef
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
   checksum: 495fd72522a03f984b984b8c0e8a6137d466ed2fe91423f0cd6a1065306ed83c
+- filename: infra/apps/argocd/overlays/aws/controller.yaml
+  checksum: 42446bf954c271a97b071bc654a2ec30440b928e14868163dde0e3045cfea3d1
 - filename: infra/apps/datahub/secrets.yaml
   checksum: 76c335e5b6786ae0063a3d25aa68c63830d98d84080866e0392530e9ff8a0819
 - filename: infra/apps/datahub/values-prerequisites.yaml

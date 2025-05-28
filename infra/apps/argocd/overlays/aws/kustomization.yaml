@@ -8,6 +8,11 @@ resources:
   - github-oauth-secret.yaml
 
 patches:
+  - path: controller.yaml
+    target:
+      name: argocd-application-controller
+      kind: StatefulSet
+
   - path: argocd-cmd-params-cm.yaml
     target:
       name: argocd-cmd-params-cm
