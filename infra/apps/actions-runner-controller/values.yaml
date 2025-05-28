@@ -1,9 +1,0 @@
-installCRDs: true
-
-imagePullSecrets:
-  - name: dockerhub-secret
-
-authSecret:
-  enabled: true
-  create: true
-  name: "github-auth"

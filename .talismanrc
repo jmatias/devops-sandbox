@@ -7,6 +7,8 @@ fileignoreconfig:
   checksum: 15d2f93634a40a4589458d5e404902077e64552a12527cc289bf4f6592dc65b7
 - filename: infra/apps/actions-runner-controller/secrets.yaml
   checksum: 6d7fc29d105b22557f1f363c54ee72561b45ae7ccb074906de24802d31bab6c8
+- filename: infra/apps/actions-runner-controller/values-scale-set.yaml
+  checksum: 8236f9603bbf6b6fea33ff0469a0239fa08d5252b676e102f073ca21a90b79c3
 - filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
   checksum: b4a82f7f704a9c7307f4e464634b2d867a9339fce288c9c4e3b632eab0940516
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
