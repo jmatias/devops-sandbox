@@ -116,14 +116,25 @@ managedNodeGroups:
 #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 
-fargateProfiles: [ ]
-#fargateProfiles:
-#  - name: fp-kube-system
-#    selectors:
-#      - namespace: kube-system
-#    tags:
-#      env: dev
-#      name: fp-kube-system
+#fargateProfiles: [ ]
+fargateProfiles:
+  - name: fp2
+    selectors:
+      - namespace: kube-system
+        labels:
+          env: fargate
+      - namespace: monitoring
+        labels:
+          env: fargate
+      - namespace: unleash
+        labels:
+          env: fargate
+      - namespace: celery-sandbox
+        labels:
+          env: fargate
+    tags:
+      env: fargate
+      name: fp2
 
 
 

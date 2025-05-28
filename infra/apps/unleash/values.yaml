@@ -60,3 +60,6 @@ env:
     value: "false"
   - name: UNLEASH_URL
     value: "https://feature-toggles.tw-javier.work"
+
+podLabels:
+    env: fargate
