@@ -35,43 +35,6 @@ elasticsearch:
       requests:
         storage: 100M
 
-opensearch:
-  enabled: false
-
-  # If you're running in production, set this to false, replicas to 3 and uncomment antiAffinity below
-  # Or alternatively if you're running production, bring your own OpenSearch
-  singleNode: true
-  # replicas: 3
-  # antiAffinity: "hard"
-
-  # By default security is enabled for OpenSearch, disable it here.
-  config:
-    opensearch.yml: |
-      plugins:
-        security:
-          disabled: true
-
-  extraEnvs:
-    - name: DISABLE_INSTALL_DEMO_CONFIG
-      value: "true"
-
-  image:
-    tag: "2.11.0"
-
-  # opensearchJavaOpts: "-Xmx512M -Xms512M"
-
-  # resources:
-  #   requests:
-  #     cpu: "1000m"
-  #     memory: "100Mi"
-
-  # Request smaller persistent volumes.
-  persistence:
-    storageClass: "gp2"
-    accessModes:
-      - ReadWriteOnce
-    size: 100M
-
 # Official neo4j chart, supports both community and enterprise editions
 # see https://neo4j.com/docs/operations-manual/current/kubernetes/ for more information
 # source: https://github.com/neo4j/helm-charts
@@ -103,8 +66,10 @@ neo4j:
   # Create a volume for neo4j, SSD storage is recommended
   volumes:
     data:
-      mode: "gp2"
+      mode: "defaultStorageClass"
 
+      defaultStorageClass:
+        storageClassName: "gp2"
       # mode: "dynamic"
       # dynamic:
       #   storageClassName: managed-csi-premium
@@ -114,6 +79,9 @@ neo4j:
 
 mysql:
   enabled: true
+  global:
+    storageClass: "gp2"
+    defaultStorageClass: "gp2"
   image:
     tag: 8.0.32-debian-11-r26
   auth:
@@ -122,62 +90,13 @@ mysql:
   primary:
     extraFlags: "--character-set-server=utf8mb4 --collation-server=utf8mb4_bin"
 
-postgresql:
-  enabled: false
-  auth:
-    # For better security, add postgresql-secrets k8s secret with postgres-password, replication-password and password
-    existingSecret: postgresql-secrets
-
-# Using gcloud-proxy requires the node in a GKE cluster to have Cloud SQL Admin scope,
-# you will need to create a new node and migrate the workload if your current node does not have this scope
-gcloud-sqlproxy:
-  enabled: false
-  # Specify an existing secret holding the cloud-sql service account credentials, if not specify,
-  # the default compute engine service account will be used and it needs to have Cloud SQL Client role
-  existingSecret: ""
-  # The key in the existing secret that stores the credentials
-  existingSecretKey: ""
-  ## the name of the ServiceAccount to be used
-  serviceAccountName: ""
-  # SQL connection settings
-  cloudsql:
-    # MySQL instances:
-    # update with your GCP project, the region of your Cloud SQL instance and the id of your Cloud SQL instance
-    # use port 3306 for MySQL, or other port you set for your SQL instance.
-    instances:
-      # GCP Cloud SQL instance id
-      - instance: ""
-        # GCP project where the instance exists.
-        project: ""
-        # GCP region where the instance exists.
-        region: ""
-        # Port number for the proxy to expose for this instance.
-        port: 3306
-
-cp-helm-charts:
-  enabled: false
-  # Schema registry is under the community license
-  cp-schema-registry:
-    enabled: false
-    kafka:
-      # <<release-name>>-kafka:9092
-      bootstrapServers: "prerequisites-kafka:9092"
-  cp-kafka:
-    enabled: false
-  cp-zookeeper:
-    enabled: false
-  cp-kafka-rest:
-    enabled: false
-  cp-kafka-connect:
-    enabled: false
-  cp-ksql-server:
-    enabled: false
-  cp-control-center:
-    enabled: false
 
 # Bitnami version of Kafka that deploys open source Kafka https://artifacthub.io/packages/helm/bitnami/kafka
 kafka:
   enabled: true
+  global:
+    storageClass: "gp2"
+    defaultStorageClass: "gp2"
   listeners:
     client:
       protocol: PLAINTEXT
@@ -185,7 +104,11 @@ kafka:
       protocol: PLAINTEXT
   controller:
     replicaCount: 0
+    logPersistence:
+      storageClass: gp2
   broker:
+    persistence:
+      storageClass: gp2
     replicaCount: 1
     # The new minId for broker is 100. If we don't override this, the broker will have id 100
     # and cannot load the partitions. So we set minId to 0 to be backwards compatible
@@ -202,3 +125,5 @@ kafka:
     enabled: false
   zookeeper:
     enabled: true
+    persistence:
+      storageClass: "gp2"

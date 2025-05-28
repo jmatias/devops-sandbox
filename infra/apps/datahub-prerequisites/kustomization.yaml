@@ -1,10 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+resources:
+  - secrets.yaml
+
 helmCharts:
-  - name: datahub
+  - name: datahub-prerequisites
     repo: https://helm.datahubproject.io/
-    releaseName: datahub
+    releaseName: datahub-prerequisites
     namespace: datahub
     version: 0.*
     valuesFile: values.yaml
