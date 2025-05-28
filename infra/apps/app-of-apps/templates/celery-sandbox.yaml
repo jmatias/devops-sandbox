@@ -30,7 +30,17 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valuesObject:
-        environment: {{ .Values.environment }}
+        flower:
+          enabled: true
+          replicas: 1
+
+        fastapi:
+          enabled: true
+          replicas: 1
+
+        worker:
+          enabled: true
+          replicas: 1
 
   syncPolicy:
     retry:
