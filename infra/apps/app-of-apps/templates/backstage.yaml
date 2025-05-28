@@ -59,6 +59,13 @@ spec:
             external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
 
         backstage:
+          resources:
+            limits:
+              memory: 2Gi
+              cpu: 1500m
+            requests:
+              memory: 512Mi
+              cpu: 500m
           podLabels:
             env: fargate
           annotations:
