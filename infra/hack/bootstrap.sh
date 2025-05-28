@@ -29,8 +29,6 @@ install_apps() {
     --path infra/apps/app-of-apps \
     --sync-policy automated \
     --revision main
-
-
 }
 
 set -e

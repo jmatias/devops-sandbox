@@ -9,34 +9,11 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: argocd-image-updater
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 0.*
-    helm:
-      valuesObject:
-
-        extraArgs:
-          - --interval
-          - 1m
-
-        config:
-          registries:
-            - name: ECR
-              api_url: https://386757133934.dkr.ecr.us-east-1.amazonaws.com
-              prefix: "386757133934.dkr.ecr.us-east-1.amazonaws.com"
-              ping: yes
-              default: true
-              insecure: false
-              credentials: ext:/scripts/ecr-login.sh
-              credsexpire: 4h
-
-        authScripts:
-          enabled: true
-          scripts:
-            ecr-login.sh: |
-              #!/bin/sh
-              aws ecr --region "us-east-1" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
-
+    path: infra/apps/argocd-image-updater
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: main
+    kustomize:
+      namespace: argocd
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
