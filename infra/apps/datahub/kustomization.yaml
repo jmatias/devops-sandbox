@@ -11,10 +11,3 @@ helmCharts:
     namespace: datahub
     version: 0.*
     valuesFile: values.yaml
-
-  - name: datahub
-    repo: https://helm.datahubproject.io/
-    releaseName: datahub
-    namespace: datahub
-    version: 0.*
-    valuesFile: values.yaml
