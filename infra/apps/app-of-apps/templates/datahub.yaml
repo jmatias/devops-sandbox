@@ -40,9 +40,9 @@ spec:
     {{ end }}
 
     retry:
-      limit: -1
+      limit: 10
       backoff:
-        duration: 30s
+        duration: 15s
         factor: 2
         maxDuration: 3m0s
 
