@@ -20,12 +20,12 @@ spec:
     kustomize:
       namespace: datahub
 
-  source:
-    chart: datahub
-    repoURL: https://helm.datahubproject.io/
-    targetRevision: 0.*
-    helm:
-      releaseName: datahub
+{{/*  source:*/}}
+{{/*    chart: datahub*/}}
+{{/*    repoURL: https://helm.datahubproject.io/*/}}
+{{/*    targetRevision: 0.**/}}
+{{/*    helm:*/}}
+{{/*      releaseName: datahub*/}}
 
   syncPolicy:
     syncOptions:
