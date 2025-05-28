@@ -4,6 +4,7 @@ datahub-frontend:
     annotations:
       external-dns.alpha.kubernetes.io/hostname: datahub.tw-javier.work
   ingress:
+    enabled: true
     annotations:
       kubernetes.io/ingress.class: alb
       alb.ingress.kubernetes.io/scheme: internet-facing
