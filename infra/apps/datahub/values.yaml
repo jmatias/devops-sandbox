@@ -1,4 +1,6 @@
 datahub-frontend:
+  podAnnotations:
+    reloader.stakater.com/auto: "true"
   service:
     type: ClusterIP
     annotations:
