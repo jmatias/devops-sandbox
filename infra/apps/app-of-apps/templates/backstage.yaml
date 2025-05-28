@@ -59,6 +59,8 @@ spec:
             external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
 
         backstage:
+          podLabels:
+            env: fargate
           annotations:
             reloader.stakater.com/auto: "true"
           containerPorts:

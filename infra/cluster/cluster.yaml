@@ -142,6 +142,21 @@ fargateProfiles:
       env: fargate
       name: fp2
 
+  - name: fp3
+    selectors:
+      - namespace: sdlc-trace
+        labels:
+          env: fargate
+      - namespace: datahub
+      - namespace: backstage
+        labels:
+          env: fargate
+
+    tags:
+      env: fargate
+      name: fp2
+
+
 
 iam:
   withOIDC: true
