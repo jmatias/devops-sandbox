@@ -36,7 +36,7 @@ prometheus:
 
 datahub:
   enabled: true
-  autoSync: true
+  autoSync: false
 
 celerySandbox:
   enabled: true
