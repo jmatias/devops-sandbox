@@ -32,6 +32,41 @@ datahub-frontend:
           - /
     pathType: Prefix
 
+mysqlSetupJob:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+
+datahubUpgrade:
+  enabled: true
+  restoreIndices:
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 512Mi
+
+datahubSystemUpdate:
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+
+elasticsearchSetupJob:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+
+kafkaSetupJob:
+  enabled: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+
 datahub-gms:
   enabled: true
   service:
