@@ -12,7 +12,7 @@ sdlcTrace:
   enabled: true
   autoSync: true
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     tag: "0.*"
 
 appOfApps:
