@@ -31,3 +31,10 @@ datahub-frontend:
         paths:
           - /
     pathType: Prefix
+
+datahub-gms:
+  enabled: true
+  service:
+    type: ClusterIP
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: datahub-gms.tw-javier.work
