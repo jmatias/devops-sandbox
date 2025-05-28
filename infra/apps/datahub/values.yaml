@@ -38,6 +38,9 @@ mysqlSetupJob:
     limits:
       cpu: 1000m
       memory: 512Mi
+    requests:
+      cpu: 300m
+      memory: 256Mi
 
 datahubUpgrade:
   enabled: true
@@ -46,12 +49,18 @@ datahubUpgrade:
       limits:
         cpu: 1000m
         memory: 512Mi
+      requests:
+        cpu: 300m
+        memory: 256Mi
 
 datahubSystemUpdate:
   resources:
     limits:
       cpu: 1000m
-      memory: 512Mi
+      memory: 2Gi
+    requests:
+      cpu: 300m
+      memory: 2Gi
 
 elasticsearchSetupJob:
   enabled: true
@@ -59,6 +68,9 @@ elasticsearchSetupJob:
     limits:
       cpu: 1000m
       memory: 512Mi
+    requests:
+      cpu: 300m
+      memory: 256Mi
 
 kafkaSetupJob:
   enabled: true
@@ -66,7 +78,9 @@ kafkaSetupJob:
     limits:
       cpu: 1000m
       memory: 1024Mi
-
+    requests:
+      cpu: 300m
+      memory: 768Mi
 datahub-gms:
   enabled: true
   service:
