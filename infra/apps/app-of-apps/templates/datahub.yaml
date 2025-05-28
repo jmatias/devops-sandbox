@@ -32,6 +32,29 @@ spec:
 {{/*    helm:*/}}
 {{/*      releaseName: datahub*/}}
 
+
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: datahub-encryption-secrets
+      namespace: backstage
+      jsonPointers:
+        - /data/system_client_secret
+        - /data/token_service_salt
+        - /data/token_service_signing_key
+    - group: ""
+      kind: Secret
+      name: datahub-gms-secret
+      namespace: backstage
+      jsonPointers:
+        - /data/encryption_key_secret
+    - group: ""
+      kind: Secret
+      name: datahub-gms-secret
+      namespace: backstage
+      jsonPointers:
+        - /data/datahub.gms.secret
+        -
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

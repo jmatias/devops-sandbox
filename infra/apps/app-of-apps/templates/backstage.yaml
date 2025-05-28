@@ -81,8 +81,6 @@ spec:
             - postgres-secrets
             - github-oauth
 
-
-
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
