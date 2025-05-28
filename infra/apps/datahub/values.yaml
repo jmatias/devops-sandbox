@@ -16,4 +16,5 @@ datahub-frontend:
     hosts:
       - host: datahub.tw-javier.work
         paths:
-          - /
+          - path: /
+            pathType: Prefix
