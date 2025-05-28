@@ -15,7 +15,7 @@ spec:
   source:
     chart: cert-manager
     repoURL: https://charts.jetstack.io
-    targetRevision: v1.17.*
+    targetRevision: v1.*
     helm:
       valuesObject:
         crds:
@@ -23,19 +23,24 @@ spec:
         global:
           replicaCount: 1
         replicaCount: 1
+        webhook:
+          replicaCount: 1
+        cainjector:
+          replicaCount: 1
 
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - Prune=true
+
     automated:
       prune: true
       selfHeal: true
 
     retry:
       backoff:
-        duration: 5s
+        duration: 10s
         factor: 2
         maxDuration: 3m0s
-      limit: 5
+      limit: 10
 {{- end }}
