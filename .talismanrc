@@ -15,6 +15,8 @@ fileignoreconfig:
   checksum: 76c335e5b6786ae0063a3d25aa68c63830d98d84080866e0392530e9ff8a0819
 - filename: infra/apps/datahub/values-prerequisites.yaml
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
+- filename: infra/apps/datahub/values.yaml
+  checksum: 21313e1f562369b0570ad8c72451bf7a6c9cef379b018de4055e59cedb5ce8df
 - filename: infra/apps/prometheus/secrets.yaml
   checksum: 74a6bcf4038053f2f38e4a931efffc28bea6870ec9d7b913eeb95aae8c21e97c
 - filename: infra/apps/prometheus/values.yaml
