@@ -2,6 +2,7 @@ global:
   defaultStorageClass: gp2
   storageClass: gp2
 
+replicaCount: 1
 ingress:
   enabled: true
   className: "alb"
