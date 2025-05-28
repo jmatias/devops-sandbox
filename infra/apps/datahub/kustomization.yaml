@@ -10,7 +10,7 @@ helmCharts:
     releaseName: datahub-prerequisites
     namespace: datahub
     version: 0.*
-    valuesFile: values.yaml
+    valuesFile: values-prerequisites.yaml
 
   - name: datahub
     repo: https://helm.datahubproject.io/
