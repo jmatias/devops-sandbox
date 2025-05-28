@@ -1,0 +1,39 @@
+# infra/app-of-apps/templates/eck-stack.yaml
+{{ if .Values.eckOperator.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eck-stack
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: elastic-stack
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: eck-stack
+    repoURL: https://helm.elastic.co
+    targetRevision: 0.*
+    helm:
+      releaseName: eck-stack
+      valuesObject: { }
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - Prune=true
+    {{- if .Values.eckOperator.autoSync }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{- end }}
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 5
+
+{{- end }}

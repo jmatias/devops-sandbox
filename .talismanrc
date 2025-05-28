@@ -1,14 +1,20 @@
 fileignoreconfig:
+- filename: .github/actions/poetry/action.yml
+  checksum: a272f753fd0130975f30101ad7f312abf79c62b1057a1563a85b5cce43f939dd
 - filename: days-since/package.json
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
+- filename: infra/apps/actions-runner-controller-config/secrets.yaml
+  checksum: 56068b0a95724232a0f4472761ffa5c63a2783ffdfcc5be9671a75d6bcd4cdb4
 - filename: infra/apps/actions-runner-controller/external-secrets/secrets.yaml
   checksum: 15d2f93634a40a4589458d5e404902077e64552a12527cc289bf4f6592dc65b7
 - filename: infra/apps/actions-runner-controller/secrets.yaml
   checksum: 6d7fc29d105b22557f1f363c54ee72561b45ae7ccb074906de24802d31bab6c8
 - filename: infra/apps/actions-runner-controller/values-scale-set.yaml
   checksum: 8236f9603bbf6b6fea33ff0469a0239fa08d5252b676e102f073ca21a90b79c3
+- filename: infra/apps/app-of-apps/templates/actions-runner-scale-set.yaml
+  checksum: f371634a73856c9c8ed4d1c4789331200b267b9cfb41daf6a60764f8f4171161
 - filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
   checksum: b4a82f7f704a9c7307f4e464634b2d867a9339fce288c9c4e3b632eab0940516
 - filename: infra/apps/app-of-apps/templates/unleash.yaml
@@ -18,7 +24,7 @@ fileignoreconfig:
 - filename: infra/apps/argocd-image-updater/values.yaml
   checksum: ebc3d569dc8dd85bef7333d494a04881907fa7aff1c08e0d0c878b9c66d812ea
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
-  checksum: 42446bf954c271a97b071bc654a2ec30440b928e14868163dde0e3045cfea3d1
+  checksum: e39388f2845278164708a23009de4d1c5608791acac012f9747bca009b7d9233
 - filename: infra/apps/backstage/templates/secrets.yaml
   checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
 - filename: infra/apps/datahub-prerequisites/secrets.yaml
@@ -29,6 +35,10 @@ fileignoreconfig:
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml
   checksum: 21313e1f562369b0570ad8c72451bf7a6c9cef379b018de4055e59cedb5ce8df
+- filename: infra/apps/eck-operator/values.yaml
+  checksum: 3917db2e9b1913fa47fb98b36a990056168bc7e9b824ecffe3a6c91c4d53b6a9
+- filename: infra/apps/eck-stack/values.yaml
+  checksum: 4c23c84b0183d5d1dee02a93bc576bc35e01ec854ec932dc4d6c236d5c3a6dce
 - filename: infra/apps/external-secrets/secrets.yaml
   checksum: 3aad590c2dfef200f7b415064b05a36024f0a2b3d325e1e677c5f7e934ef8bca
 - filename: infra/apps/prometheus/secrets.yaml

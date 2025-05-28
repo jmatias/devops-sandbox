@@ -2,7 +2,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:jmatias/eks-sandbox.git
+    repoURL: git@github.com:jmatiascabrera/eks-sandbox.git
     targetRevision: main
 
 
@@ -76,5 +76,9 @@ argocdImageUpdater:
     tag: "latest"
 
 actionsRunnerController:
+  enabled: true
+  autoSync: false
+
+eckOperator:
   enabled: true
   autoSync: false

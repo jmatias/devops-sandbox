@@ -1,0 +1,90 @@
+{{ if .Values.actionsRunnerController.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gha-runner-ss
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/actions-runner
+    argocd-image-updater.argoproj.io/backstage.helm.image-tag: template.spec.containers[0].image
+    argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "2"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: github-actions
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: 0.10.*
+    helm:
+      releaseName: javier-runner
+      valuesObject:
+        annotations:
+          argocd.argoproj.io/compare-options: IgnoreExtraneous
+        githubConfigUrl: https://github.com/jmatiascabrera
+        githubConfigSecret: github-auth
+        runnerGroup: javier-k8s-runner-group
+        controllerServiceAccount:
+          namespace: github-actions
+          name: scale-set-controller-gha-rs-controller
+
+          containerMode:
+            type: "dind"
+            kubernetesModeWorkVolumeClaim:
+              accessModes: [ "ReadWriteOnce" ]
+              storageClassName: "dynamic-blob-storage"
+              resources:
+                requests:
+                  storage: 1Gi
+
+        resourceMeta:
+          autoscalingRunnerSet:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          githubConfigSecret:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          kubernetesModeRole:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          kubernetesModeRoleBinding:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          kubernetesModeServiceAccount:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          managerRole:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          managerRoleBinding:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+          noPermissionServiceAccount:
+            annotations:
+              argocd.argoproj.io/compare-options: IgnoreExtraneous
+
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+
+    {{- if .Values.actionsRunnerController.autoSync }}
+    automated:
+      prune: false
+      selfHeal: true
+
+    {{- end }}
+
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
+      limit: 10
+{{- end }}

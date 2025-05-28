@@ -1,35 +1,38 @@
+# infra/app-of-apps/templates/eck-operator.yaml
+{{ if .Values.eckOperator.enabled }}
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: eck-operator
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: argocd
-    server: https://kubernetes.default.svc
+    namespace: elastic-stack
+    server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: infra/apps/app-of-apps
+    path: infra/apps/eck-operator
     repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    helm:
-      valueFiles:
-        - values.yaml
+    targetRevision: main
+    kustomize:
+      namespace: elastic-stack
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-
-    {{ if .Values.appOfApps.autoSync }}
+      - Prune=true
+    {{- if .Values.eckOperator.autoSync }}
     automated:
       prune: true
       selfHeal: true
-    {{ end }}
-
+    {{- end }}
     retry:
       backoff:
         duration: 5s
         factor: 2
         maxDuration: 3m0s
       limit: 5
+
+{{- end }}

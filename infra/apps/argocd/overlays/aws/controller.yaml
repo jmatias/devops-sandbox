@@ -1,9 +1,15 @@
+#- op: add
+#  path: /spec/template/spec/containers/0/env/-
+#  value:
+#    name: ARGOCD_SYNC_WAVE_DELAY
+#    valueFrom:
+#      configMapKeyRef:
+#        key: controller.sync.delay
+#        name: argocd-cmd-params-cm
+#        optional: true
+
+
 - op: add
-  path: /spec/template/spec/containers/0/env/-
+  path: /spec/template/metadata/annotations
   value:
-    name: ARGOCD_SYNC_WAVE_DELAY
-    valueFrom:
-      configMapKeyRef:
-        key: controller.sync.delay
-        name: argocd-cmd-params-cm
-        optional: true
+    reloader.stakater.com/auto: "true"

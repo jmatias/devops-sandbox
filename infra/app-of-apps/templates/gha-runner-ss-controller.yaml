@@ -3,34 +3,33 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: actions-runner-controller
+  name: gha-runner-ss-controller
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/gha-runner-scale-set-controller
-    argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
     namespace: github-actions
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: infra/apps/actions-runner-controller
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    kustomize:
-      namespace: github-actions
+    chart: gha-runner-scale-set-controller
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: 0.10.*
+    helm:
+      releaseName: scale-set-controller
+
 
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - Prune=true
+      - ServerSideApply=true
 
     {{- if .Values.actionsRunnerController.autoSync }}
     automated:
-      prune: true
+      prune: false
       selfHeal: true
 
     {{- end }}

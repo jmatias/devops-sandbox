@@ -1,3 +1,8 @@
 - op: add
   path: /spec/template/spec/containers/0/args/-
   value: --insecure  # Already implied if you're handling TLS at ALB
+
+- op: add
+  path: /spec/template/metadata/annotations
+  value:
+    reloader.stakater.com/auto: "true"
