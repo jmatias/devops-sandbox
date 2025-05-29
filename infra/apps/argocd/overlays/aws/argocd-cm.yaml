@@ -6,3 +6,13 @@ metadata:
 data:
   timeout.reconciliation: "20s"
   kustomize.buildOptions: "--enable-helm"
+  resource.exclusions: |
+    - apiGroups:
+        - "actions.github.com"
+      kinds:
+        - "AutoscalingListener"
+      clusters:
+        - "*"
+      namespaces:
+        - "github-actions"
+      name: "javier-k8s-runner*"
