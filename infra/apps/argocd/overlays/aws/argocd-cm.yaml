@@ -15,4 +15,14 @@ data:
         - "*"
       namespaces:
         - "github-actions"
-      name: "javier-k8s-runner*"
+      name: "javier-k8s-runner*-listener"
+
+    - apiGroups:
+        - "rbac.authorization.k8s.io"
+      kinds:
+        - "Role"
+      clusters:
+        - "*"
+      namespaces:
+        - "github-actions"
+      name: "javier-k8s-runner*-listener"
