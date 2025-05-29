@@ -21,6 +21,7 @@ data:
         - "rbac.authorization.k8s.io"
       kinds:
         - "Role"
+        - "RoleBinding"
       clusters:
         - "*"
       namespaces:
