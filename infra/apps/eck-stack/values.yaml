@@ -109,11 +109,6 @@ eck-kibana:
         publicBaseUrl: "https://kibana.tw-javier.work"
 
 
-    http:
-      service:
-        spec:
-          type: ClusterIP
-
   ingress:
     enabled: true
     className: alb
@@ -125,12 +120,13 @@ eck-kibana:
       alb.ingress.kubernetes.io/group.name: "prod-external"
       alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
       alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+      alb.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
     pathType: Prefix
     hosts:
       - host: "kibana.tw-javier.work"
     path: "/"
-
 # If enabled, will use the eck-agent chart and deploy an Elastic Agent instance.
 #
 #eck-agent:
