@@ -43,31 +43,6 @@ spec:
                 requests:
                   storage: 1Gi
 
-        resourceMeta:
-          autoscalingRunnerSet:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          githubConfigSecret:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          kubernetesModeRole:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          kubernetesModeRoleBinding:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          kubernetesModeServiceAccount:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          managerRole:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          managerRoleBinding:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
-          noPermissionServiceAccount:
-            annotations:
-              argocd.argoproj.io/compare-options: IgnoreExtraneous
 
 
   syncPolicy:
