@@ -216,6 +216,57 @@ eck-kibana:
   elasticsearchRef:
     name: elasticsearch
 
+  # The following is an example of a Kibana resource that is configured to use an Ingress resource in an EKS cluster.
+  #
+
+  # Name of the Kibana instance.
+  #
+  fullnameOverride: kibana
+
+  # Reference to ECK-managed Elasticsearch instance, ideally from {{ "elasticsearch.fullname" }}
+  #
+  config:
+    server:
+      publicBaseUrl: "https://kibana.tw-javier.work"
+
+  ingress:
+    enabled: true
+    className: alb
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: 'ip'
+      alb.ingress.kubernetes.io/group.name: "prod-external"
+#      alb.ingress.kubernetes.io/healthcheck-path: /healthcheck
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+      alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+
+
+    labels:
+      my: label
+    pathType: Prefix
+    hosts:
+      - host: "kibana.tw-javier.work"
+    path: "/"
+
+  http:
+    service:
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: kibana.tw-javier.work
+      spec:
+        type: ClusterIP
+  nodeSets:
+    - name: default
+      count: 1
+      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
+      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
+      # and leave node.store.allow_mmap unset.
+      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-virtual-memory.html
+      #
+      config:
+        node.store.allow_mmap: false
+
+
 # If enabled, will use the eck-agent chart and deploy an Elastic Agent instance.
 #
 eck-agent:
