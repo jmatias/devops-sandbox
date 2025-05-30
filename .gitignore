@@ -428,3 +428,5 @@ dist
 !/infra/apps/*/overlays/local
 /configmap.yaml
 /app-config.yml
+.ash-results
+.test-results

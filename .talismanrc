@@ -38,7 +38,7 @@ fileignoreconfig:
 - filename: infra/apps/eck-operator/values.yaml
   checksum: 3917db2e9b1913fa47fb98b36a990056168bc7e9b824ecffe3a6c91c4d53b6a9
 - filename: infra/apps/eck-stack/values.yaml
-  checksum: 4c23c84b0183d5d1dee02a93bc576bc35e01ec854ec932dc4d6c236d5c3a6dce
+  checksum: f540d92bdfe04ff9a6a4021a9c6fee39235f03d05cc01d6a1fb81ed1a196c214
 - filename: infra/apps/external-secrets/secrets.yaml
   checksum: 3aad590c2dfef200f7b415064b05a36024f0a2b3d325e1e677c5f7e934ef8bca
 - filename: infra/apps/prometheus/secrets.yaml
