@@ -77,8 +77,8 @@ argocdImageUpdater:
 
 actionsRunnerController:
   enabled: true
-  autoSync: false
+  autoSync: true
 
 eckOperator:
   enabled: true
-  autoSync: false
+  autoSync: true
