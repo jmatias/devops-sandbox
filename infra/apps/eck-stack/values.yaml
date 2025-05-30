@@ -1,220 +1,82 @@
-# Default values for eck-stack.
-# This is a YAML-formatted file.
-
-# If enabled, will use the eck-elasticsearch chart and deploy an Elasticsearch resource.
-#
 eck-elasticsearch:
   enabled: true
   # This is adjusting the full name of the elasticsearch resource so that both the eck-elasticsearch
   # and the eck-kibana chart work together by default in the eck-stack chart.
   fullnameOverride: elasticsearch
 
-  nodeSets:
-  - name: masters
-    count: 1
-    config:
-      node.roles: ["master"]
-      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
-      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
-      # and leave node.store.allow_mmap unset.
-      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-virtual-memory.html
-      #
-      node.store.allow_mmap: false
-    podTemplate:
-      spec:
-        containers:
-          - name: elasticsearch
-            resources:
-              limits:
-                memory: 8Gi
-                cpu: 2
-        # Affinity/Anti-affinity settings for controlling the 'spreading' of Elasticsearch
-        # pods across existing hosts.
-        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-        # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-advanced-node-scheduling.html#k8s-affinity-options
-        #
-        # affinity:
-        #   nodeAffinity:
-        #     requiredDuringSchedulingIgnoredDuringExecution:
-        #       nodeSelectorTerms:
-        #       - matchExpressions:
-        #         - key: beta.kubernetes.io/instance-type
-        #           operator: In
-        #           # This should be adjusted to the instance type according to your setup
-        #           #
-        #           values:
-        #           - highio
-    # Volume Claim settings.
-    # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-volume-claim-templates.html
-    #
-    volumeClaimTemplates:
-      - metadata:
-          name: elasticsearch-data
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 1Ti
-          # Adjust to your storage class name
-          #
-          storageClassName: gp2
-  - name: hot
-    count: 1
-    config:
-      node.roles: ["data_hot", "data_content", "ingest"]
-      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
-      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
-      # and leave node.store.allow_mmap unset.
-      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-virtual-memory.html
-      #
-      node.store.allow_mmap: false
-    podTemplate:
-      spec:
-        containers:
-          - name: elasticsearch
-            resources:
-              limits:
-                memory: 16Gi
-                cpu: 4
-        # Affinity/Anti-affinity settings for controlling the 'spreading' of Elasticsearch
-        # pods across existing hosts.
-        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-        # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-advanced-node-scheduling.html#k8s-affinity-options
-        #
-        # affinity:
-        #   nodeAffinity:
-        #     requiredDuringSchedulingIgnoredDuringExecution:
-        #       nodeSelectorTerms:
-        #       - matchExpressions:
-        #         - key: beta.kubernetes.io/instance-type
-        #           operator: In
-        #           # This should be adjusted to the instance type according to your setup
-        #           #
-        #           values:
-        #           - highio
-    # Volume Claim settings.
-    # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-volume-claim-templates.html
-    #
-    volumeClaimTemplates:
-      - metadata:
-          name: elasticsearch-data
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 1Ti
-          # Adjust to your storage class name
-          #
-          storageClassName: gp2
-  - name: warm
-    count: 1
-    config:
-      node.roles: ["data_warm"]
-      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
-      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
-      # and leave node.store.allow_mmap unset.
-      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-virtual-memory.html
-      #
-      node.store.allow_mmap: false
-    podTemplate:
-      spec:
-        containers:
-          - name: elasticsearch
-            resources:
-              limits:
-                memory: 16Gi
-                cpu: 2
-        # Affinity/Anti-affinity settings for controlling the 'spreading' of Elasticsearch
-        # pods across existing hosts.
-        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-        # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-advanced-node-scheduling.html#k8s-affinity-options
-        #
-        # affinity:
-        #   nodeAffinity:
-        #     requiredDuringSchedulingIgnoredDuringExecution:
-        #       nodeSelectorTerms:
-        #       - matchExpressions:
-        #         - key: beta.kubernetes.io/instance-type
-        #           operator: In
-        #           # This should be adjusted to the instance type according to your setup
-        #           #
-        #           values:
-        #           - highstorage
-    # Volume Claim settings.
-    # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-volume-claim-templates.html
-    #
-    volumeClaimTemplates:
-      - metadata:
-          name: elasticsearch-data
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 10Ti
-          # Adjust to your storage class name
-          #
-          storageClassName: gp2
-  - name: cold
-    count: 1
-    config:
-      node.roles: ["data_cold"]
-      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
-      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
-      # and leave node.store.allow_mmap unset.
-      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-virtual-memory.html
-      #
-      node.store.allow_mmap: false
-    podTemplate:
-      spec:
-        containers:
-          - name: elasticsearch
-            resources:
-              limits:
-                memory: 8Gi
-                cpu: 2
-        # Affinity/Anti-affinity settings for controlling the 'spreading' of Elasticsearch
-        # pods across existing hosts.
-        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-        # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-advanced-node-scheduling.html#k8s-affinity-options
-        #
-        # affinity:
-        #   nodeAffinity:
-        #     requiredDuringSchedulingIgnoredDuringExecution:
-        #       nodeSelectorTerms:
-        #       - matchExpressions:
-        #         - key: beta.kubernetes.io/instance-type
-        #           operator: In
-        #           # This should be adjusted to the instance type according to your setup
-        #           #
-        #           values:
-        #           - highstorage
-    # Volume Claim settings.
-    # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-volume-claim-templates.html
-    #
-    volumeClaimTemplates:
-      - metadata:
-          name: elasticsearch-data
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 20Ti
-          # Adjust to your storage class name
-          #
-          storageClassName: gp2
+  version: 9.0.0
 
-# If enabled, will use the eck-kibana chart and deploy a Kibana resource.
+  nodeSets:
+    - name: default
+      count: 1
+      config:
+
+        # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
+        # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
+        # and leave node.store.allow_mmap unset.
+        # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-virtual-memory.html
+        #
+        node.store.allow_mmap: false
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 4Gi
+            storageClassName: gp2
+
+#eck-kibana:
+#  # Name of the Kibana resource.
+#  #
+#  fullnameOverride: quickstart
 #
+#  # Version of Kibana.
+#  #
+#  version: 9.0.0
+#
+#  spec:
+#    # Count of Kibana replicas to create.
+#    #
+#    count: 1
+#
+#    # Reference to ECK-managed Elasticsearch resource, ideally from {{ "elasticsearch.fullname" }}
+#    #
+#    elasticsearchRef:
+#      name: quickstart
+#      # namespace: default
+#    http:
+#      service:
+#        spec:
+#          # Type of service to deploy for Kibana.
+#          # This deploys a load balancer in a cloud service provider, where supported.
+#          #
+#          type: ClusterIP
+#      # tls:
+#      #   selfSignedCertificate:
+#      #     subjectAltNames:
+#      #     - ip: 1.2.3.4
+#      #     - dns: kibana.example.com
+#    podTemplate:
+#      spec:
+#        containers:
+#          - name: kibana
+#            env:
+#              - name: NODE_OPTIONS
+#                value: "--max-old-space-size=2048"
+#            resources:
+#              requests:
+#                memory: 1Gi
+#                cpu: 0.5
+#              limits:
+#                memory: 2.5Gi
+#                cpu: 2
+
+
 eck-kibana:
   enabled: true
-  # This is also adjusting the kibana reference to the elasticsearch resource named previously so that
-  # both the eck-elasticsearch and the eck-kibana chart work together by default in the eck-stack chart.
-  elasticsearchRef:
-    name: elasticsearch
 
   # The following is an example of a Kibana resource that is configured to use an Ingress resource in an EKS cluster.
   #
@@ -223,76 +85,78 @@ eck-kibana:
   #
   fullnameOverride: kibana
 
-  # Reference to ECK-managed Elasticsearch instance, ideally from {{ "elasticsearch.fullname" }}
-  #
-  config:
-    server:
-      publicBaseUrl: "https://kibana.tw-javier.work"
+  spec:
+    podTemplate:
+      spec:
+        containers:
+          - name: kibana
+            env:
+              - name: NODE_OPTIONS
+                value: "--max-old-space-size=2048"
+            resources:
+              requests:
+                memory: 1Gi
+                cpu: 0.5
+              limits:
+                memory: 2.5Gi
+                cpu: 2
+
+    elasticsearchRef:
+      name: elasticsearch
+
+    config:
+      server:
+        publicBaseUrl: "https://kibana.tw-javier.work"
+
+
+    http:
+      service:
+        spec:
+          type: ClusterIP
 
   ingress:
     enabled: true
     className: alb
     annotations:
+      external-dns.alpha.kubernetes.io/hostname: kibana.tw-javier.work
       kubernetes.io/ingress.class: alb
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/target-type: 'ip'
       alb.ingress.kubernetes.io/group.name: "prod-external"
-#      alb.ingress.kubernetes.io/healthcheck-path: /healthcheck
       alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
       alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
-
-    labels:
-      my: label
     pathType: Prefix
     hosts:
       - host: "kibana.tw-javier.work"
     path: "/"
 
-  http:
-    service:
-      annotations:
-        external-dns.alpha.kubernetes.io/hostname: kibana.tw-javier.work
-      spec:
-        type: ClusterIP
-  nodeSets:
-    - name: default
-      count: 1
-      # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
-      # For production workloads, it is strongly recommended to increase the kernel setting vm.max_map_count to 262144
-      # and leave node.store.allow_mmap unset.
-      # ref: https://www.elastic.co/guide/en/cloud-on-k8s/master/k8s-virtual-memory.html
-      #
-      config:
-        node.store.allow_mmap: false
-
-
 # If enabled, will use the eck-agent chart and deploy an Elastic Agent instance.
 #
-eck-agent:
-  enabled: false
-
-# If enabled, will use the eck-fleet-server chart and deploy a Fleet Server resource.
+#eck-agent:
+#  enabled: false
 #
-eck-fleet-server:
-  enabled: false
-
-# If enabled, will use the eck-beats chart and deploy a Beats resource.
+## If enabled, will use the eck-fleet-server chart and deploy a Fleet Server resource.
+##
+#eck-fleet-server:
+#  enabled: false
 #
-eck-beats:
-  enabled: false
-
-# If enabled, will use the eck-logstash chart and deploy a Logstash resource.
+## If enabled, will use the eck-beats chart and deploy a Beats resource.
+##
+#eck-beats:
+#  enabled: true
 #
-eck-logstash:
-  enabled: false
-
-# If enabled, will use the eck-apm-server chart and deploy a standalone APM Server resource.
+## If enabled, will use the eck-logstash chart and deploy a Logstash resource.
+##
+#eck-logstash:
+#  enabled: true
 #
-eck-apm-server:
-  enabled: false
-
-# If enabled, will use the eck-enterprise-search chart and deploy a Enterprise Search resource.
+## If enabled, will use the eck-apm-server chart and deploy a standalone APM Server resource.
+##
+#eck-apm-server:
+#  enabled: false
 #
-eck-enterprise-search:
-  enabled: false
+## If enabled, will use the eck-enterprise-search chart and deploy a Enterprise Search resource.
+##
+#eck-enterprise-search:
+#  enabled: false

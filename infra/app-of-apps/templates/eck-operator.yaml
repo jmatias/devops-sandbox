@@ -22,7 +22,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - Prune=true
+      - Prune=false
     {{- if .Values.eckOperator.autoSync }}
     automated:
       prune: true
