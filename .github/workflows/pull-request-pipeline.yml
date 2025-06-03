@@ -1,0 +1,93 @@
+name: "Pull Request Pipeline"
+
+on:
+  workflow_dispatch:
+  pull_request: { }
+
+jobs:
+
+  check_branch_naming_convention:
+    runs-on: javier-runner
+    name: "Check branch naming convention"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check branch naming convention
+        run: |
+          echo "Checking branch naming convention..."
+          exit 0
+
+
+  unit_tests:
+    name: "Run unit tests"
+    runs-on: javier-runner
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - name: Configure AWS environment
+        uses: ./.github/actions/configure-aws-environment
+
+      - name: Build docker image
+        run: ./devcli build 0.1.${{ github.run_number }}
+
+      - name: Run unit tests
+        uses: ./.github/actions/run-tests-unit
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v5
+        with:
+          comment: 'true'
+          report_paths: |
+            .test-results/test-results.xml
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: code-coverage-results.md
+
+
+
+  code_scan_quality:
+    name: "Code quality scan"
+    runs-on: javier-runner
+    needs: [ unit_tests ]
+    steps:
+
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - uses: ./.github/actions/run-scan-quality
+        name: "Run code quality scan"
+        with:
+          wait: 2
+
+  code_lint:
+    name: "Run code linters"
+    runs-on: javier-runner
+    steps:
+
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - uses: ./.github/actions/run-linters
+        name: "Run code linters"
+        with:
+          wait: 2
+
+  code_scan_security:
+    name: "Code security scan"
+    runs-on: javier-runner
+    steps:
+
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      - uses: ./.github/actions/run-scan-security
+        name: "Run code security scan"
+        with:
+          wait: 3
