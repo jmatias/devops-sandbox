@@ -4,10 +4,9 @@ metadata:
   name: argocd-image-updater
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: argoprojlabs/argocd-image-updater
-    argocd-image-updater.argoproj.io/updater.update-strategy: semver
+    argocd-image-updater.argoproj.io/image-list: quay.io/argoprojlabs/argocd-image-updater
+    argocd-image-updater.argoproj.io/update-strategy: semver
 spec:
   destination:
     namespace: argocd

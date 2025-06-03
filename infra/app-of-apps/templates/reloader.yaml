@@ -5,7 +5,9 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: stakater/reloader:v1.4.2
+    argocd-image-updater.argoproj.io/image-list: reloader=ghcr.io/stakater/reloader
+    argocd-image-updater.argoproj.io/reloader.helm.image-name: image.name
+    argocd-image-updater.argoproj.io/reloader.helm.image-tag: image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -27,8 +29,6 @@ spec:
                 cpu: 100m
                 memory: 128Mi
           watchGlobally: true
-          reloadOnConfigChange: true
-          reloadOnSecretChange: true
 
   syncPolicy:
     syncOptions:
@@ -43,4 +43,4 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 3m0s
-      limit: 5
+      limit: 10
