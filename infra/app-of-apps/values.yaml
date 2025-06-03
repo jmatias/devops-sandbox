@@ -46,10 +46,10 @@ celerySandbox:
 
 
 daysSince:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
-    tag: "latest"
+    tag: "0.*"
 
 
 unleash:
