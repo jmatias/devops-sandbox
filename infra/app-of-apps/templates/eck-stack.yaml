@@ -22,7 +22,8 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - Prune=false
+      - Prune=true
+      - ServerSideApply=true
     {{- if .Values.eckOperator.autoSync }}
     automated:
       prune: true
@@ -32,7 +33,7 @@ spec:
       backoff:
         duration: 5s
         factor: 2
-        maxDuration: 3m0s
-      limit: 5
+        maxDuration: 5m
+      limit: 15
 
 {{- end }}

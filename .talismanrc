@@ -5,6 +5,8 @@ fileignoreconfig:
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
   checksum: a8dd8d81a327b6b9f18135693443b93aad95653845c62efdee3b2e11b9572004
+- filename: infra/app-of-apps/templates/datahub.yaml
+  checksum: 41ce1707909138bcadaac218710d98ebc5a60d0da4eb74b841e80791a2753a94
 - filename: infra/apps/actions-runner-controller-config/secrets.yaml
   checksum: 56068b0a95724232a0f4472761ffa5c63a2783ffdfcc5be9671a75d6bcd4cdb4
 - filename: infra/apps/actions-runner-controller/external-secrets/secrets.yaml

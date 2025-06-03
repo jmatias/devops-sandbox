@@ -21,7 +21,7 @@ config:
       credsexpire: 4h
       limit: 1
 
-
+logLevel: "debug"
 
 authScripts:
   enabled: true

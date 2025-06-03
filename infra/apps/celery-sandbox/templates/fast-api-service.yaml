@@ -4,6 +4,7 @@ metadata:
   name: fast-api
   annotations:
     external-dns.alpha.kubernetes.io/hostname: api.tw-javier.work
+    external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   ports:
     - protocol: TCP

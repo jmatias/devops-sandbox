@@ -9,12 +9,90 @@ metadata:
   version: "1.32"
 
 
+autoModeConfig:
+  enabled: false
+
+
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
+  - name: mng1
+    instanceTypes: [ "m5a.large" ] # At least one instance type should be specified
+    amiFamily: "Bottlerocket"
+    minSize: 0
+    desiredCapacity: 0
+    maxSize: 4
+    spot: false
+    availabilityZones:
+      - "us-east-1a"
+    nodeRepairConfig:
+      enabled: true
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        xRay: false
+        cloudWatch: true
+
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
+        # For dev only
+  #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+
+  - name: mng2
+    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+    amiFamily: "Bottlerocket"
+    minSize: 0
+    desiredCapacity: 2
+    maxSize: 4
+    spot: false
+    availabilityZones:
+      - "us-east-1a"
+    nodeRepairConfig:
+      enabled: true
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        xRay: false
+        cloudWatch: true
+
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
+        # For dev only
+    #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+
+
   - name: mng1-spot
-    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    instanceTypes: [ "m5a.large" ] # At least one instance type should be specified
+    amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
     maxSize: 2
@@ -47,42 +125,9 @@ managedNodeGroups:
         # For dev only
 #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
-  - name: mng1
-    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
-    minSize: 0
-    desiredCapacity: 1
-    maxSize: 2
-    spot: false
-    availabilityZones:
-      - "us-east-1a"
-    nodeRepairConfig:
-      enabled: true
-    privateNetworking: true
-    iam:
-      withAddonPolicies:
-        imageBuilder: true
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        appMesh: true
-        ebs: true
-        fsx: true
-        efs: true
-        awsLoadBalancerController: true
-        xRay: false
-        cloudWatch: true
-
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
-        # For dev only
-#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
   - name: mng2-spot
-    instanceTypes: [ "m5.xlarge" ] # At least one instance type should be specified
+    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+    amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
     maxSize: 2
@@ -116,45 +161,7 @@ managedNodeGroups:
 #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 
-#fargateProfiles: [ ]
-fargateProfiles:
-  - name: fp1
-    selectors:
-      - namespace: kube-system
-      - namespace: monitoring
-        labels:
-          env: fargate
-      - namespace: unleash
-        labels:
-          env: fargate
-      - namespace: celery-sandbox
-        labels:
-          env: fargate
-    tags:
-      env: fargate
-      name: fp1
-
-  - name: fp2
-    selectors:
-      - namespace: cert-manager
-      - namespace: external-secrets
-    tags:
-      env: fargate
-      name: fp2
-
-  - name: fp3
-    selectors:
-      - namespace: sdlc-trace
-        labels:
-          env: fargate
-      - namespace: datahub
-      - namespace: backstage
-        labels:
-          env: fargate
-
-    tags:
-      env: fargate
-      name: fp3
+fargateProfiles: [ ]
 
 
 
@@ -196,15 +203,19 @@ iam:
 addons:
 
   - name: eks-node-monitoring-agent
+    version: latest
 
   - name: metrics-server
+    version: latest
 
   - name: vpc-cni
     version: latest
 
   - name: aws-ebs-csi-driver
+    version: latest
 
   - name: aws-mountpoint-s3-csi-driver
+    version: latest
 
   - name: external-dns
     version: latest
@@ -213,6 +224,12 @@ addons:
     version: latest
 
   - name: eks-pod-identity-agent
+    version: latest
+
+  - name: coredns
+    version: latest
+
+  - name: kube-proxy
     version: latest
 
 

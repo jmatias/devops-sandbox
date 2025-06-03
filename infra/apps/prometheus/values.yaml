@@ -37,8 +37,8 @@ crds:
   ## It deploy a corresponding clusterrole, clusterrolebinding and serviceaccount to apply the CRDs.
   ## This feature is in preview, off by default and may change in the future.
   upgradeJob:
-    enabled: false
-    forceConflicts: false
+    enabled: true
+    forceConflicts: true
     image:
       busybox:
         registry: docker.io
@@ -1354,3 +1354,4 @@ grafana:
     ipFamilyPolicy: ""
     annotations:
       external-dns.alpha.kubernetes.io/hostname: grafana.tw-javier.work
+      external-dns.alpha.kubernetes.io/ttl: "60"

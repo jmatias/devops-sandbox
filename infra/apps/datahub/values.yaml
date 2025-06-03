@@ -17,6 +17,7 @@ datahub-frontend:
     type: ClusterIP
     annotations:
       external-dns.alpha.kubernetes.io/hostname: datahub.tw-javier.work
+      external-dns.alpha.kubernetes.io/ttl: "60"
   ingress:
     enabled: true
     annotations:
@@ -42,7 +43,7 @@ mysqlSetupJob:
   enabled: true
   resources:
     limits:
-      cpu: 1500m
+      cpu: 2500m
       memory: 512Mi
     requests:
       cpu: 300m
@@ -55,7 +56,7 @@ datahubUpgrade:
   restoreIndices:
     resources:
       limits:
-        cpu: 1500m
+        cpu: 2500m
         memory: 512Mi
       requests:
         cpu: 300m
@@ -66,7 +67,7 @@ datahubSystemUpdate:
     - name: dockerhub-secret
   resources:
     limits:
-      cpu: 2000m
+      cpu: 3000m
       memory: 2Gi
     requests:
       cpu: 300m
@@ -78,7 +79,7 @@ elasticsearchSetupJob:
   enabled: true
   resources:
     limits:
-      cpu: 1500m
+      cpu: 2500m
       memory: 512Mi
     requests:
       cpu: 300m
@@ -90,7 +91,7 @@ kafkaSetupJob:
   enabled: true
   resources:
     limits:
-      cpu: 2000m
+      cpu: 3000m
       memory: 1024Mi
     requests:
       cpu: 500m
@@ -101,6 +102,7 @@ datahub-gms:
     type: ClusterIP
     annotations:
       external-dns.alpha.kubernetes.io/hostname: datahub-gms.tw-javier.work
+      external-dns.alpha.kubernetes.io/ttl: "60"
   ingress:
     enabled: false
     annotations:

@@ -4,6 +4,7 @@ metadata:
   name: flower-ui
   annotations:
     external-dns.alpha.kubernetes.io/hostname: flower.tw-javier.work
+    external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   selector:
     app.kubernetes.io/name: flower-ui

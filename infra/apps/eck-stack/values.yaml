@@ -28,52 +28,6 @@ eck-elasticsearch:
                 storage: 4Gi
             storageClassName: gp2
 
-#eck-kibana:
-#  # Name of the Kibana resource.
-#  #
-#  fullnameOverride: quickstart
-#
-#  # Version of Kibana.
-#  #
-#  version: 9.0.0
-#
-#  spec:
-#    # Count of Kibana replicas to create.
-#    #
-#    count: 1
-#
-#    # Reference to ECK-managed Elasticsearch resource, ideally from {{ "elasticsearch.fullname" }}
-#    #
-#    elasticsearchRef:
-#      name: quickstart
-#      # namespace: default
-#    http:
-#      service:
-#        spec:
-#          # Type of service to deploy for Kibana.
-#          # This deploys a load balancer in a cloud service provider, where supported.
-#          #
-#          type: ClusterIP
-#      # tls:
-#      #   selfSignedCertificate:
-#      #     subjectAltNames:
-#      #     - ip: 1.2.3.4
-#      #     - dns: kibana.example.com
-#    podTemplate:
-#      spec:
-#        containers:
-#          - name: kibana
-#            env:
-#              - name: NODE_OPTIONS
-#                value: "--max-old-space-size=2048"
-#            resources:
-#              requests:
-#                memory: 1Gi
-#                cpu: 0.5
-#              limits:
-#                memory: 2.5Gi
-#                cpu: 2
-
 
 eck-kibana:
   enabled: true
@@ -114,6 +68,7 @@ eck-kibana:
     className: alb
     annotations:
       external-dns.alpha.kubernetes.io/hostname: kibana.tw-javier.work
+      external-dns.alpha.kubernetes.io/ttl: "60"
       kubernetes.io/ingress.class: alb
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/target-type: 'ip'
@@ -139,13 +94,68 @@ eck-kibana:
 #
 ## If enabled, will use the eck-beats chart and deploy a Beats resource.
 ##
-#eck-beats:
-#  enabled: true
+eck-beats:
+  enabled: true
+  elasticsearchRef:
+    name: elasticsearch
+  kibanaRef:
+    name: kibana
+
+  name: filebeat
+  version: 9.0.0
+  type: filebeat
+  config:
+    filebeat.inputs:
+      - type: filestream
+        paths:
+          - /var/log/containers/*.log
+        parsers:
+          - container: ~
+        prospector:
+          scanner:
+            fingerprint.enabled: true
+            symlinks: true
+        file_identity.fingerprint: ~
+    processors:
+      - add_host_metadata: {}
+      - add_cloud_metadata: {}
+  daemonSet:
+    podTemplate:
+      spec:
+        automountServiceAccountToken: true
+        terminationGracePeriodSeconds: 30
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true # Allows to provide richer host metadata
+        containers:
+          - name: filebeat
+            securityContext:
+              runAsUser: 0
+              # If using Red Hat OpenShift uncomment this:
+              #privileged: true
+            volumeMounts:
+              - name: varlogcontainers
+                mountPath: /var/log/containers
+              - name: varlogpods
+                mountPath: /var/log/pods
+              - name: varlibdockercontainers
+                mountPath: /var/lib/docker/containers
+        volumes:
+          - name: varlogcontainers
+            hostPath:
+              path: /var/log/containers
+          - name: varlogpods
+            hostPath:
+              path: /var/log/pods
+          - name: varlibdockercontainers
+            hostPath:
+              path: /var/lib/docker/containers
+
+
 #
 ## If enabled, will use the eck-logstash chart and deploy a Logstash resource.
 ##
-#eck-logstash:
-#  enabled: true
+eck-logstash:
+  enabled: false
 #
 ## If enabled, will use the eck-apm-server chart and deploy a standalone APM Server resource.
 ##

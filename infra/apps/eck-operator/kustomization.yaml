@@ -6,5 +6,6 @@ helmCharts:
   - name: eck-operator
     repo: https://helm.elastic.co
     releaseName: eck-operator
+    version: 3.0.0
     namespace: eck-stack
     valuesFile: values.yaml

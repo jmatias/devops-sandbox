@@ -7,10 +7,10 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: datahub-frontend=acryldata/datahub-frontend-react
-    argocd-image-updater.argoproj.io/datahub-frontend.helm.image-tag: datahub-frontend.image.tag
-    argocd-image-updater.argoproj.io/datahub-frontend.helm.image-name: datahub-frontend.image.name
-    argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd-image-updater.argoproj.io/image-list: frontend=acryldata/datahub-frontend-react:latest
+    argocd-image-updater.argoproj.io/frontend.helm.image-name: datahub-frontend.image.repository
+    argocd-image-updater.argoproj.io/frontend.helm.image-tag: datahub-frontend.image.tag
+    argocd-image-updater.argoproj.io/frontend.update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -18,42 +18,145 @@ spec:
     namespace: datahub
     server: {{ .Values.spec.destination.server }}
   project: default
-  source:
-    path: infra/apps/datahub
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: main
-    kustomize:
-      namespace: datahub
-
 {{/*  source:*/}}
-{{/*    chart: datahub*/}}
-{{/*    repoURL: https://helm.datahubproject.io/*/}}
-{{/*    targetRevision: 0.**/}}
-{{/*    helm:*/}}
-{{/*      releaseName: datahub*/}}
+{{/*    path: infra/apps/datahub*/}}
+{{/*    repoURL: {{ .Values.spec.source.repoURL }}*/}}
+{{/*    targetRevision: main*/}}
+{{/*    kustomize:*/}}
+{{/*      namespace: datahub*/}}
+
+  source:
+    chart: datahub
+    repoURL: https://helm.datahubproject.io/
+    targetRevision: 0.*
+    helm:
+      releaseName: datahub
+      valuesObject:
+        datahub-frontend:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          extraVolumes:
+            - name: datahub-users
+              secret:
+                defaultMode: 0444
+                secretName: datahub-users-secret
+          extraVolumeMounts:
+            - name: datahub-users
+              mountPath: /datahub-frontend/conf/user.props
+              subPath: user.props
+
+          podAnnotations:
+            reloader.stakater.com/auto: "true"
+          service:
+            type: ClusterIP
+            annotations:
+              external-dns.alpha.kubernetes.io/hostname: datahub.tw-javier.work
+              external-dns.alpha.kubernetes.io/ttl: "60"
+          ingress:
+            enabled: true
+            annotations:
+              kubernetes.io/ingress.class: alb
+              alb.ingress.kubernetes.io/scheme: internet-facing
+              alb.ingress.kubernetes.io/target-type: 'ip'
+              alb.ingress.kubernetes.io/group.name: "prod-external"
+              alb.ingress.kubernetes.io/healthcheck-path: /health
+              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+              alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+
+            hosts:
+              - host: datahub.tw-javier.work
+                paths:
+                  - /
+            pathType: Prefix
+
+        imagePullSecrets:
+          - name: dockerhub-secret
+        mysqlSetupJob:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          enabled: true
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 512Mi
+            requests:
+              cpu: 300m
+              memory: 256Mi
+
+        datahubUpgrade:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          enabled: true
+          restoreIndices:
+            resources:
+              limits:
+                cpu: 1500m
+                memory: 512Mi
+              requests:
+                cpu: 300m
+                memory: 256Mi
+
+        datahubSystemUpdate:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+            requests:
+              cpu: 300m
+              memory: 2Gi
+
+        elasticsearchSetupJob:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          enabled: true
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 512Mi
+            requests:
+              cpu: 300m
+              memory: 256Mi
+
+        kafkaSetupJob:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          enabled: true
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 500m
+              memory: 768Mi
+        datahub-gms:
+          enabled: true
+          service:
+            type: ClusterIP
+            annotations:
+              external-dns.alpha.kubernetes.io/hostname: datahub-gms.tw-javier.work
+              external-dns.alpha.kubernetes.io/ttl: "60"
+          ingress:
+            enabled: false
+            annotations:
+              kubernetes.io/ingress.class: alb
+              alb.ingress.kubernetes.io/scheme: internet-facing
+              alb.ingress.kubernetes.io/target-type: 'ip'
+              alb.ingress.kubernetes.io/group.name: "prod-external"
+              alb.ingress.kubernetes.io/healthcheck-path: /health
+              alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+              alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+
+            hosts:
+              - host: datahub-gms.tw-javier.work
+                paths:
+                  - /
+            pathType: Prefix
 
 
-  ignoreDifferences:
-    - group: ""
-      kind: Secret
-      name: datahub-auth-secrets
-      namespace: datahub
-      jsonPointers:
-        - /data/system_client_secret
-        - /data/token_service_salt
-        - /data/token_service_signing_key
-    - group: ""
-      kind: Secret
-      name: datahub-encryption-secrets
-      namespace: datahub
-      jsonPointers:
-        - /data/encryption_key_secret
-    - group: ""
-      kind: Secret
-      name: datahub-gms-secret
-      namespace: datahub
-      jsonPointers:
-        - /data/datahub.gms.secret
+
+
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

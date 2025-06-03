@@ -59,6 +59,7 @@ spec:
             backend: 7007
           annotations:
             external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
+            external-dns.alpha.kubernetes.io/ttl: "60"
 
         backstage:
           resources:

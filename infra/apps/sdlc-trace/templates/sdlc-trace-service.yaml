@@ -4,6 +4,7 @@ metadata:
   name: sdlc-trace
   annotations:
     external-dns.alpha.kubernetes.io/hostname: sdlc-trace.tw-javier.work
+    external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   ports:
     - protocol: TCP
