@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: reloader
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: stakater/reloader:v1.4.2
+    argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

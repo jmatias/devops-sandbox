@@ -7,10 +7,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: frontend=acryldata/datahub-frontend-react
     argocd-image-updater.argoproj.io/frontend.helm.image-name: datahub-frontend.image.repository
-    argocd-image-updater.argoproj.io/frontend.helm.image-tag: datahub-frontend.image.tag
-    argocd-image-updater.argoproj.io/gms.helm.image-name: datahub-gms.image.repository
-    argocd-image-updater.argoproj.io/gms.helm.image-tag: datahub-gms.image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -19,19 +17,23 @@ spec:
     namespace: datahub
     server: {{ .Values.spec.destination.server }}
   project: default
-  source:
-    path: infra/apps/datahub
-    repoURL: {{ .Values.spec.source.repoURL }}
+  sources:
+  - chart: datahub
+    repoURL: https://helm.datahubproject.io/
+    targetRevision: 0.*
+    helm:
+      releaseName: datahub
+      valueFiles:
+        - $values/infra/apps/datahub/values.yaml
+  - repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
-    kustomize:
-      namespace: datahub
-
+    ref: values
 
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=false
-      - ServerSideApply=false
+      - ServerSideApply=true
 
     {{ if .Values.datahub.autoSync }}
     automated:
