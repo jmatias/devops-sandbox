@@ -48,7 +48,7 @@ datahub-frontend:
     resources:
       limits:
         cpu: 2500m
-        memory: 512Mi
+        memory: 1Gi
       requests:
         cpu: 300m
         memory: 256Mi
@@ -63,7 +63,7 @@ datahub-frontend:
       resources:
         limits:
           cpu: 2500m
-          memory: 512Mi
+          memory: 1Gi
         requests:
           cpu: 300m
           memory: 256Mi
@@ -90,7 +90,7 @@ datahub-frontend:
     resources:
       limits:
         cpu: 2500m
-        memory: 512Mi
+        memory: 1Gi
       requests:
         cpu: 300m
         memory: 256Mi
@@ -104,7 +104,7 @@ datahub-frontend:
     resources:
       limits:
         cpu: 3000m
-        memory: 1024Mi
+        memory: 2Gi
       requests:
         cpu: 500m
         memory: 768Mi
