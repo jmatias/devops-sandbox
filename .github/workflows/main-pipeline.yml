@@ -39,7 +39,7 @@ jobs:
       - uses: ./.github/actions/run-scan-security
         name: "Run code security scan"
         with:
-          wait: 8
+          wait: 1
 
   code_lint:
     name: "Run code linters"
@@ -52,7 +52,7 @@ jobs:
       - uses: ./.github/actions/run-linters
         name: "Run code linters"
         with:
-          wait: 2
+          wait: 1
 
   code_scan_quality:
     name: "Run code quality scan"
@@ -66,7 +66,7 @@ jobs:
       - uses: ./.github/actions/run-scan-quality
         name: "Run code quality scan"
         with:
-          wait: 2
+          wait: 1
 
 
 
@@ -84,13 +84,13 @@ jobs:
         name: "Deploy to dev"
         with:
           environment: dev
-          wait: 5
+          wait: 1
 
       - uses: ./.github/actions/run-tests-integration
         name: "Run integration tests in dev"
         with:
           environment: dev
-          wait: 2
+          wait: 1
 
 
   deploy_preq:
@@ -107,13 +107,13 @@ jobs:
         name: "Deploy to preq"
         with:
           environment: preq
-          wait: 5
+          wait: 1
 
       - uses: ./.github/actions/run-tests-integration
         name: "Run integration tests in preq"
         with:
           environment: preq
-          wait: 2
+          wait: 1
 
   deploy_qa:
     name: "Deploy and test in QA"
@@ -129,7 +129,7 @@ jobs:
         name: "Deploy to qa"
         with:
           environment: qa
-          wait: 3
+          wait: 1
 
       - uses: ./.github/actions/run-tests-integration
         name: "Run integration tests in qa"
@@ -152,10 +152,10 @@ jobs:
         name: "Deploy to prod"
         with:
           environment: prod
-          wait: 3
+          wait: 1
 
       - uses: ./.github/actions/run-tests-integration
         name: "Run integration tests in prod"
         with:
           environment: prod
-          wait: 2
+          wait: 1
