@@ -38,7 +38,14 @@ export default function DaysSinceAshleyScript() {
   return (
     <div style={{ textAlign: 'center', marginTop: '5rem' }}>
       <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-        Days since Ashley Casperite last started a script
+
+
+
+        Hello World!
+
+
+
+
       </h1>
       <div style={{ fontSize: '4rem', fontWeight: 'bold', color: '#ec4899' }}>{days}</div>
       <button onClick={handleReset} style={{ marginTop: '2rem', padding: '1rem', fontSize: '1rem' }}>
