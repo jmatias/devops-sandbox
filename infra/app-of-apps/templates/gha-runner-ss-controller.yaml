@@ -7,6 +7,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -17,9 +18,22 @@ spec:
   source:
     chart: gha-runner-scale-set-controller
     repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: 0.*
+    targetRevision: 0.10.*
     helm:
       releaseName: scale-set-controller
+      valuesObject:
+        annotations:
+          argocd.argoproj.io/compare-options: IgnoreExtraneous
+        imagePullSecrets:
+          - name: dockerhub-secret
+        ## template.spec will be modified if you change the container mode
+        ## with containerMode.type=dind, we will populate the template.spec with following pod spec
+        flags:
+          logLevel: "debug"
+        serviceAccount:
+          name: github-actions-sa
+          namespace: github-actions
+          create: false
 
 
   syncPolicy:
@@ -29,7 +43,7 @@ spec:
 
     {{- if .Values.actionsRunnerController.autoSync }}
     automated:
-      prune: false
+      prune: true
       selfHeal: true
 
     {{- end }}

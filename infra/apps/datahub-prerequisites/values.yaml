@@ -1,6 +1,5 @@
-global:
-  imagePullSecrets:
-    - name: dockerhub-secret
+#global:
+#  imageRegistry:
 
 # Default configuration for pre-requisites to get you started
 # Copy this file and update to the configuration of choice

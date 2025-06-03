@@ -18,10 +18,10 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 managedNodeGroups:
   - name: mng1
-    instanceTypes: [ "m5a.large" ] # At least one instance type should be specified
+    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
-    desiredCapacity: 0
+    desiredCapacity: 2
     maxSize: 4
     spot: false
     availabilityZones:
@@ -57,7 +57,7 @@ managedNodeGroups:
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
-    desiredCapacity: 2
+    desiredCapacity: 0
     maxSize: 4
     spot: false
     availabilityZones:
@@ -168,6 +168,13 @@ fargateProfiles: [ ]
 iam:
   withOIDC: true
   serviceAccounts:
+    - metadata:
+        name: github-actions-sa
+        namespace: github-actions
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
+
+
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets

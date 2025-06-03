@@ -33,3 +33,8 @@ patches:
     target:
       name: argocd-server
       kind: Deployment
+
+  - path: redis.yaml
+    target:
+      name: argocd-redis
+      kind: Deployment

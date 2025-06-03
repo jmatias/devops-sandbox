@@ -6,6 +6,8 @@ kind: Application
 metadata:
   name: eck-stack
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

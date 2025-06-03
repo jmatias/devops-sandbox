@@ -27,13 +27,17 @@ spec:
           defaultStorageClass: gp2
           storageClass: gp2
           imagePullSecrets:
-            - dockerhub-secret
+            - name: dockerhub-secret
 
         postgresql:
+          imagePullSecrets:
+            - name: dockerhub-secret
+          image:
+            repository: bitnami/postgresql
+            tag: 15.4.0-debian-11-r10
           global:
             defaultStorageClass: gp2
             storageClass: gp2
-
           enabled: true
           auth:
             username: backstage
