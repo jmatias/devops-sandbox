@@ -41,7 +41,7 @@ export default function DaysSinceAshleyScript() {
 
 
 
-        Hello World!
+        ¡Hola mundo!
 
 
 
