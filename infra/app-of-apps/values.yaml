@@ -51,7 +51,7 @@ daysSince:
     tag: "0.*"
 
 cicdStrawman:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "0.*"
