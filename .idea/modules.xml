@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/backstage/backstage.iml" filepath="$PROJECT_DIR$/backstage/backstage.iml" />
       <module fileurl="file://$PROJECT_DIR$/cicd-strawman/cicd-strawman.iml" filepath="$PROJECT_DIR$/cicd-strawman/cicd-strawman.iml" />
       <module fileurl="file://$PROJECT_DIR$/days-since/days-since.iml" filepath="$PROJECT_DIR$/days-since/days-since.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/infra.eks-sandbox.iml" filepath="$PROJECT_DIR$/.idea/infra.eks-sandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eks-sandbox.iml" filepath="$PROJECT_DIR$/.idea/eks-sandbox.iml" />
     </modules>
   </component>
 </project>

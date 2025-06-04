@@ -1,0 +1,26 @@
+[project]
+name = "cicd-strawman"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Javier Matias-Cabrera",email = "javier@javiermatias.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3-stubs[cloudwatch,codebuild,codecommit,codepipeline,cognito-idp,kms,logs,s3,ssm] (>=1.38.23,<2.0.0)",
+    "gradio (>=5.31.0,<6.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "cicd", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+black = "^25.1.0"
+pytest-cov = "^6.1.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
