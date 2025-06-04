@@ -51,6 +51,13 @@ daysSince:
   image:
     tag: "0.*"
 
+cicdStrawman:
+  enabled: true
+  autoSync: false
+  image:
+    tag: "0.*"
+
+
 
 unleash:
   enabled: true
