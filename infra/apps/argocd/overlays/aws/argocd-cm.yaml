@@ -7,3 +7,4 @@ data:
   timeout.reconciliation: "20s"
   kustomize.buildOptions: "--enable-helm"
   application.resourceTrackingMethod: annotation
+  accounts.javier: apiKey, login
