@@ -32,24 +32,8 @@ jobs:
         uses: ./.github/actions/configure-aws-environment
 
       - name: Build docker image
-        run: ./devcli build 0.1.${{ github.run_number }}
-
-      - name: Run unit tests
-        uses: ./.github/actions/run-tests-unit
-
-      - name: Publish test report
-        uses: mikepenz/action-junit-report@v5
-        with:
-          comment: 'true'
-          report_paths: |
-            .test-results/test-results.xml
-
-      - name: Add Coverage PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          recreate: true
-          path: code-coverage-results.md
-
+        working-directory: cicd-strawman
+        run: ./build.sh 0.2.${{ github.run_number }}
 
 
   code_scan_quality:
