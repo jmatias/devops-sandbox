@@ -36,6 +36,47 @@ spec:
           namespace: github-actions
           name: github-actions-sa
 
+        resourceMeta:
+{{/*          autoscalingRunnerSet:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          githubConfigSecret:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          kubernetesModeRole:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          kubernetesModeRoleBinding:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          kubernetesModeServiceAccount:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          managerRole:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+{{/*          managerRoleBinding:*/}}
+{{/*            labels:*/}}
+{{/*              key: value*/}}
+{{/*            annotations:*/}}
+{{/*              key: value*/}}
+          noPermissionServiceAccount:
+            labels:
+              key: value
+            annotations:
+              eks.amazonaws.com/role-arn: arn:aws:iam::386757133934:role/eksctl-javier-sandbox-eks-addon-iamserviceacc-Role1-hwB9aCByjGSH
         containerMode:
           type: "dind"
           kubernetesModeWorkVolumeClaim:
