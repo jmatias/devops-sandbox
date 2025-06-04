@@ -8,3 +8,4 @@ data:
   kustomize.buildOptions: "--enable-helm"
   application.resourceTrackingMethod: annotation
   accounts.javier: apiKey, login
+  accounts.admin: apiKey, login
