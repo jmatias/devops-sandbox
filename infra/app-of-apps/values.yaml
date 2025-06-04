@@ -44,20 +44,17 @@ celerySandbox:
   image:
     tag: "latest"
 
-
 daysSince:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "0.*"
 
 cicdStrawman:
-  enabled: true
-  autoSync: false
+  enabled: false
+  autoSync: true
   image:
     tag: "0.*"
-
-
 
 unleash:
   enabled: true
