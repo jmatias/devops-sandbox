@@ -49,10 +49,6 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
-        # For dev only
-  #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
-
   - name: mng2
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
@@ -85,13 +81,9 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
-        # For dev only
-    #        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
-
 
   - name: mng1-spot
-    instanceTypes: [ "m5a.large" ] # At least one instance type should be specified
+    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
@@ -122,8 +114,6 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
-        # For dev only
-#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
   - name: mng2-spot
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -157,12 +147,8 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
-        # For dev only
-#        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
 
 fargateProfiles: [ ]
-
 
 
 iam:
@@ -178,32 +164,6 @@ iam:
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/SecretsManagerReadWrite
-
-    - metadata:
-        name: prometheus-sa
-        namespace: monitoring
-      attachPolicyARNs:
-        # For dev only
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
-    - metadata:
-        name: eksctl-sa
-        namespace: monitoring
-      attachPolicyARNs:
-        # For dev only
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-
-    - metadata:
-        name: eksctl-sa
-        namespace: kube-system
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/SecretsManagerReadWrite
-
-    - metadata:
-        name: eksctl-sa
-        namespace: argocd
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
 
