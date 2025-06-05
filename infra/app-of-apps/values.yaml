@@ -45,7 +45,7 @@ celerySandbox:
     tag: "latest"
 
 daysSince:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "0.*"
