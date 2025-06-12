@@ -31,6 +31,8 @@ fileignoreconfig:
   checksum: ebc3d569dc8dd85bef7333d494a04881907fa7aff1c08e0d0c878b9c66d812ea
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
   checksum: e39388f2845278164708a23009de4d1c5608791acac012f9747bca009b7d9233
+- filename: infra/apps/argocd/overlays/aws/deployment.yaml
+  checksum: 97ee229b5148bec52c3a5bf597dc120c00e10fe22223efc6c9aac780a5348f28
 - filename: infra/apps/backstage/templates/secrets.yaml
   checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
 - filename: infra/apps/celery-sandbox/templates/fast-api-deployment.yaml

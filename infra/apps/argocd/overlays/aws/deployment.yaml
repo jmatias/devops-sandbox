@@ -6,3 +6,14 @@
   path: /spec/template/metadata/annotations
   value:
     reloader.stakater.com/auto: "true"
+
+
+## Add toleration for spot instances
+
+- op: add
+  path: /spec/template/spec/tolerations
+  value:
+    - key: "spot-instance"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
