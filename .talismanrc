@@ -41,6 +41,8 @@ fileignoreconfig:
   checksum: 5bf7bbf7b2d124f80e0ab0bd050a0d09f748e97c1cf218e4b580707e43afb762
 - filename: infra/apps/datahub-prerequisites/secrets.yaml
   checksum: 46e1c90ee2a2903ac79857aee9254f1f768860aaccafab7be9332eeb35dd5a4f
+- filename: infra/apps/datahub-prerequisites/values.yaml
+  checksum: fad2c327bee73b4d9687b9ea9ad105c0996e77ba7878727d69ec9307e3370bcf
 - filename: infra/apps/datahub/secrets.yaml
   checksum: c5e0cac52ea990193dffe38326ab74351d89ecaf0e757ab8404023f014524ff4
 - filename: infra/apps/datahub/values-prerequisites.yaml

@@ -110,6 +110,20 @@ kafka:
     logPersistence:
       storageClass: gp2
   broker:
+    tolerations:
+      - key: "spotInstance"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: eks.amazonaws.com/capacityType
+                  operator: In
+                  values:
+                    - SPOT
     persistence:
       storageClass: gp2
     replicaCount: 1
