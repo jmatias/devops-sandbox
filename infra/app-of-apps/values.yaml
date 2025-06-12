@@ -9,7 +9,7 @@ spec:
 environment: "aws"
 
 sdlcTrace:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     pullPolicy: IfNotPresent
