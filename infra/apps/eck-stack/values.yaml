@@ -8,7 +8,7 @@ eck-elasticsearch:
 
   nodeSets:
     - name: default
-      count: 2
+      count: 1
       config:
 
         # Comment out when setting the vm.max_map_count via initContainer, as these are mutually exclusive.
