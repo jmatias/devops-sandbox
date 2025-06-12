@@ -8,15 +8,6 @@ datahub-frontend:
       operator: "Equal"
       value: "true"
       effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: eks.amazonaws.com/capacityType
-                operator: In
-                values:
-                  - SPOT
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -129,15 +120,6 @@ datahub-gms:
       operator: "Equal"
       value: "true"
       effect: "NoSchedule"
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: eks.amazonaws.com/capacityType
-                operator: In
-                values:
-                  - SPOT
   imagePullSecrets:
     - name: dockerhub-secret
   enabled: true
