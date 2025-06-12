@@ -44,7 +44,7 @@ fileignoreconfig:
 - filename: infra/apps/datahub/values-prerequisites.yaml
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml
-  checksum: 21313e1f562369b0570ad8c72451bf7a6c9cef379b018de4055e59cedb5ce8df
+  checksum: 791d0d7d02a5cc1ddeafeb0aa7118556b4608f24537787e0724f894db0c5ee99
 - filename: infra/apps/days-since/templates/deployment.yaml
   checksum: 4b65fe9db82dfcc9ae4ada0d16f6c09661e49e4b3241b735e9c03522cfb8ef80
 - filename: infra/apps/eck-operator/values.yaml

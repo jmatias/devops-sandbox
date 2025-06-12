@@ -4,5 +4,5 @@ helm:
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/cicd-strawman
     forcestring: true
   - name: image.tag
-    value: 0.2.26
+    value: 0.2.30
     forcestring: true
