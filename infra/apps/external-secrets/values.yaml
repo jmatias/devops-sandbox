@@ -2,3 +2,10 @@ installCRDs: true
 
 imagePullSecrets:
   - name: dockerhub-secret
+
+
+tolerations:
+  - key: "spotInstance"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"

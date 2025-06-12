@@ -132,6 +132,7 @@ managedNodeGroups:
     spot: true
     availabilityZones:
       - "us-east-1a"
+      - "us-east-1b"
     nodeRepairConfig:
       enabled: true
     privateNetworking: false
