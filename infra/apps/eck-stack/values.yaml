@@ -116,71 +116,7 @@ eck-kibana:
 ## If enabled, will use the eck-beats chart and deploy a Beats resource.
 ##
 eck-beats:
-  enabled: true
-  version: 9.0.2
-
-  elasticsearchRef:
-    name: elasticsearch
-
-  kibanaRef:
-    name: kibana
-
-  name: filebeat
-  type: filebeat
-  config:
-    filebeat.inputs:
-      - type: filestream
-        paths:
-          - /var/log/containers/*.log
-          - /var/lib/docker/containers/*/*.log
-        parsers:
-          - container: ~
-        prospector:
-          scanner:
-            fingerprint.enabled: true
-            symlinks: true
-        file_identity.fingerprint: ~
-      - type: log
-          - /usr/log/messages
-          - /usr/log/*.log
-    processors:
-      - add_host_metadata: {}
-      - add_cloud_metadata: {}
-      - add_kubernetes_metadata: {}
-  daemonSet:
-    podTemplate:
-      spec:
-        automountServiceAccountToken: true
-        terminationGracePeriodSeconds: 30
-        dnsPolicy: ClusterFirstWithHostNet
-        hostNetwork: true # Allows to provide richer host metadata
-        containers:
-          - name: filebeat
-            securityContext:
-              runAsUser: 0
-              # If using Red Hat OpenShift uncomment this:
-              #privileged: true
-            volumeMounts:
-              - name: varlogcontainers
-                mountPath: /var/log/containers
-              - name: varlogpods
-                mountPath: /var/log/pods
-              - name: varlibdockercontainers
-                mountPath: /var/lib/docker/containers
-        volumes:
-          - name: varlogcontainers
-            hostPath:
-              path: /var/log/containers
-          - name: varlogpods
-            hostPath:
-              path: /var/log/pods
-          - name: varlibdockercontainers
-            hostPath:
-              path: /var/lib/docker/containers
-
-
-#
-## If enabled, will use the eck-logstash chart and deploy a Logstash resource.
+  enabled: false
 ##
 eck-logstash:
   enabled: false

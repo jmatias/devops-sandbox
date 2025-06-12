@@ -8,3 +8,7 @@ helmCharts:
     releaseName: eck-stack
     namespace: eck-stack
     valuesFile: values.yaml
+
+resources:
+  - filebeat_autodiscover_by_metadata.yaml
+  - metricbeat_hosts.yaml

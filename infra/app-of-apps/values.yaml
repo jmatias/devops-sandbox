@@ -2,7 +2,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:jmatiascabrera/eks-sandbox.git
+    repoURL: git@github.com:jmatiascabrera/devops-sandbox.git
     targetRevision: main
 
 
