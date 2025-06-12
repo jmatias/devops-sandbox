@@ -31,6 +31,12 @@ fileignoreconfig:
   checksum: e39388f2845278164708a23009de4d1c5608791acac012f9747bca009b7d9233
 - filename: infra/apps/backstage/templates/secrets.yaml
   checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
+- filename: infra/apps/celery-sandbox/templates/fast-api-deployment.yaml
+  checksum: fbe9f8fefda86dfa1b2ded32732971507ee2b5f14f95ddcb2bb92306a748ffaa
+- filename: infra/apps/celery-sandbox/templates/flower-deployment.yaml
+  checksum: ce968e541ccd9d561542c335a841c1e9ea73c91502ac92a781077c03fd096e94
+- filename: infra/apps/celery-sandbox/templates/worker-deployment.yaml
+  checksum: 51e063ad947f8b237b251424620fb3135525bf5ab015188eadf3e5a60d4448b0
 - filename: infra/apps/datahub-prerequisites/secrets.yaml
   checksum: 46e1c90ee2a2903ac79857aee9254f1f768860aaccafab7be9332eeb35dd5a4f
 - filename: infra/apps/datahub/secrets.yaml
@@ -39,6 +45,8 @@ fileignoreconfig:
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml
   checksum: 21313e1f562369b0570ad8c72451bf7a6c9cef379b018de4055e59cedb5ce8df
+- filename: infra/apps/days-since/templates/deployment.yaml
+  checksum: 4b65fe9db82dfcc9ae4ada0d16f6c09661e49e4b3241b735e9c03522cfb8ef80
 - filename: infra/apps/eck-operator/values.yaml
   checksum: 58dabf99727446466e17667ac3775fa957536aada080775352836dbb510b1f29
 - filename: infra/apps/eck-stack/values.yaml
@@ -56,7 +64,9 @@ fileignoreconfig:
 - filename: infra/apps/unleash/templates/secrets.yaml
   checksum: 28ea4d201cf716b78099785988ddd1406a04e3251e19d497f9ed97c1fa13ae57
 - filename: infra/apps/unleash/values.yaml
-  checksum: 34e7ed2d07678b12708bdf17cbaa9a11454c4f91e20379903042a4ca4323f4b5
+  checksum: a7dda1d4068b832a0395c293f03465f7e3955878bdb47d237ffa3f0daecd8e5d
+- filename: infra/cluster/cluster.yaml
+  checksum: 8d7da31d70b1c92da1a0b2ee0b831b57bce4b80dc9b99488c76007aacb57ac10
 scopeconfig:
 - scope: python
 - scope: node

@@ -29,6 +29,7 @@ managedNodeGroups:
     nodeRepairConfig:
       enabled: true
     privateNetworking: true
+
     iam:
       withAddonPolicies:
         imageBuilder: true
@@ -61,6 +62,7 @@ managedNodeGroups:
     nodeRepairConfig:
       enabled: true
     privateNetworking: true
+
     iam:
       withAddonPolicies:
         imageBuilder: true
@@ -94,6 +96,12 @@ managedNodeGroups:
     nodeRepairConfig:
       enabled: true
     privateNetworking: true
+
+    taints:
+      - key: spotInstance
+        value: "true"
+        effect: NoSchedule
+
     iam:
       withAddonPolicies:
         imageBuilder: true
@@ -127,6 +135,12 @@ managedNodeGroups:
     nodeRepairConfig:
       enabled: true
     privateNetworking: false
+
+    taints:
+      - key: spotInstance
+        value: "true"
+        effect: NoSchedule
+
     iam:
       withAddonPolicies:
         imageBuilder: true

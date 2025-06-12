@@ -5,7 +5,14 @@ global:
 image:
   repository: public.ecr.aws/unleashorg/unleash-server
 
-replicaCount: 2
+replicaCount: 1
+
+tolerations:
+  - key: "spotInstance"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+
 ingress:
   enabled: true
   className: "alb"

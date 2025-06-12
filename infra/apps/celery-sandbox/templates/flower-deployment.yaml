@@ -21,7 +21,15 @@ spec:
         app.kubernetes.io/name: flower-ui
         env: fargate
     spec:
+
+      tolerations:
+        - key: "spotInstance"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
+
       containers:
         - image: {{ .Values.flower.image.repository }}:{{ .Values.flower.image.tag }}
           imagePullPolicy: {{ .Values.flower.image.pullPolicy }}

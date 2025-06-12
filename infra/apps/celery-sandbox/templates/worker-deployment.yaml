@@ -18,8 +18,16 @@ spec:
         app.kubernetes.io/name: worker
         env: fargate
     spec:
-      restartPolicy: Always
+
+      tolerations:
+        - key: "spotInstance"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
+
+      restartPolicy: Always
       containers:
         - image: "{{ .Values.worker.image.repository }}:{{ .Values.worker.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.worker.image.pullPolicy }}

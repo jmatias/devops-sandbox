@@ -13,7 +13,15 @@ spec:
         app.kubernetes.io/name: fast-api
         env: fargate
     spec:
+
+      tolerations:
+        - key: "spotInstance"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+
       serviceAccountName: {{ include "celery-sandbox.serviceAccountName" . }}
+
       containers:
         - name: {{ .Chart.Name }}
           command: [ "poetry", "run","fastapi", "run","src/celery_sandbox/app.py", "--port=5000" ]
