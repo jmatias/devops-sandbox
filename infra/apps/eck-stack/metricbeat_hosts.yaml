@@ -66,6 +66,13 @@ spec:
   daemonSet:
     podTemplate:
       spec:
+
+        tolerations:
+          - key: "spotInstance"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
+
         serviceAccountName: metricbeat
         automountServiceAccountToken: true # some older Beat versions are depending on this settings presence in k8s context
         containers:

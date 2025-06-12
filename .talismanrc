@@ -53,6 +53,10 @@ fileignoreconfig:
   checksum: 4b65fe9db82dfcc9ae4ada0d16f6c09661e49e4b3241b735e9c03522cfb8ef80
 - filename: infra/apps/eck-operator/values.yaml
   checksum: 58dabf99727446466e17667ac3775fa957536aada080775352836dbb510b1f29
+- filename: infra/apps/eck-stack/filebeat_autodiscover_by_metadata.yaml
+  checksum: 989ac9a95a397038476b1fba5bf5cfad9824d92e40f4d1090c3279e2d2a5ea42
+- filename: infra/apps/eck-stack/metricbeat_hosts.yaml
+  checksum: 6251d74fb6ea29f61a4e29a658dfffe80e3dcb158ef94a3d2a3e4e5e7afa5b67
 - filename: infra/apps/eck-stack/values.yaml
   checksum: d36b0771b0754d097bc2e46ba3b761d7cc615aeec6f2ed5b02284e3663f933ba
 - filename: infra/apps/external-secrets/secrets.yaml

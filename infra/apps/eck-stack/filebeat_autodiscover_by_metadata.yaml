@@ -45,6 +45,13 @@ spec:
   daemonSet:
     podTemplate:
       spec:
+
+        tolerations:
+          - key: "spotInstance"
+            operator: "Equal"
+            value: "true"
+            effect: "NoSchedule"
+
         serviceAccountName: filebeat
         automountServiceAccountToken: true
         terminationGracePeriodSeconds: 30
