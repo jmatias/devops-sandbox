@@ -1,10 +1,10 @@
 eck-elasticsearch:
   enabled: true
+  version: 9.0.2
+
   # This is adjusting the full name of the elasticsearch resource so that both the eck-elasticsearch
   # and the eck-kibana chart work together by default in the eck-stack chart.
   fullnameOverride: elasticsearch
-
-  version: 9.0.0
 
   ingress:
     enabled: true
@@ -51,6 +51,7 @@ eck-elasticsearch:
 
 eck-kibana:
   enabled: true
+  version: 9.0.2
 
   # The following is an example of a Kibana resource that is configured to use an Ingress resource in an EKS cluster.
   #
@@ -116,13 +117,15 @@ eck-kibana:
 ##
 eck-beats:
   enabled: true
+  version: 9.0.2
+
   elasticsearchRef:
     name: elasticsearch
+
   kibanaRef:
     name: kibana
 
   name: filebeat
-  version: 9.0.0
   type: filebeat
   config:
     filebeat.inputs:
