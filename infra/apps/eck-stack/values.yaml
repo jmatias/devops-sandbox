@@ -47,6 +47,14 @@ eck-elasticsearch:
               requests:
                 storage: 4Gi
             storageClassName: gp2
+      podTemplate:
+        spec:
+          tolerations:
+            - key: "spotInstance"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+
 
 
 eck-kibana:

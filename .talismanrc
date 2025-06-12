@@ -54,7 +54,7 @@ fileignoreconfig:
 - filename: infra/apps/eck-operator/values.yaml
   checksum: 58dabf99727446466e17667ac3775fa957536aada080775352836dbb510b1f29
 - filename: infra/apps/eck-stack/values.yaml
-  checksum: f540d92bdfe04ff9a6a4021a9c6fee39235f03d05cc01d6a1fb81ed1a196c214
+  checksum: d36b0771b0754d097bc2e46ba3b761d7cc615aeec6f2ed5b02284e3663f933ba
 - filename: infra/apps/external-secrets/secrets.yaml
   checksum: 3aad590c2dfef200f7b415064b05a36024f0a2b3d325e1e677c5f7e934ef8bca
 - filename: infra/apps/external-secrets/values.yaml
