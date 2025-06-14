@@ -8,6 +8,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
