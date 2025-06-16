@@ -8,70 +8,13 @@ spec:
 
 environment: "aws"
 
-sdlcTrace:
-  enabled: false
-  autoSync: true
-  image:
-    pullPolicy: IfNotPresent
-    tag: "0.*"
-
-appOfApps:
-  enabled: true
-  autoSync: true
-
-backstage:
-  enabled: false
-  autoSync: true
-  image:
-    tag: "latest"
-
 argocd:
   autoSync: true
   ingress:
     enabled: true
 
-prometheus:
-  enabled: true
-  autoSync: true
-
-datahub:
-  enabled: false
-  autoSync: true
-
-celerySandbox:
-  enabled: false
-  autoSync: true
-  image:
-    tag: "latest"
-
-daysSince:
-  enabled: false
-  autoSync: true
-  image:
-    tag: "0.*"
-
-cicdStrawman:
-  enabled: true
-  autoSync: true
-  image:
-    tag: "0.*"
-
-unleash:
-  enabled: true
-  autoSync: true
-  image:
-    tag: "latest"
-
-externalSecrets:
-  enabled: true
-  autoSync: true
-  image:
-    tag: "latest"
-
-
 albIngressController:
   autoSync: true
-
 
 argocdImageUpdater:
   enabled: true
@@ -83,6 +26,62 @@ actionsRunnerController:
   enabled: true
   autoSync: true
 
+appOfApps:
+  enabled: true
+  autoSync: true
+
+backstage:
+  enabled: false
+  autoSync: true
+  image:
+    tag: "latest"
+
+celerySandbox:
+  enabled: false
+  autoSync: true
+  image:
+    tag: "latest"
+
+cicdStrawman:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "0.*"
+
+datahub:
+  enabled: true
+  autoSync: true
+
+daysSince:
+  enabled: false
+  autoSync: true
+  image:
+    tag: "0.*"
+
+externalSecrets:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "latest"
+
 eckOperator:
   enabled: true
   autoSync: true
+
+prometheus:
+  enabled: true
+  autoSync: true
+
+
+sdlcTrace:
+  enabled: false
+  autoSync: true
+  image:
+    pullPolicy: IfNotPresent
+    tag: "0.*"
+
+unleash:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "latest"

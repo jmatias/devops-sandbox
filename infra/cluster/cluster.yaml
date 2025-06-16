@@ -163,7 +163,12 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
 
-fargateProfiles: [ ]
+fargateProfiles:
+  - name: fp-datahub
+    selectors:
+      - namespace: datahub
+        labels:
+          env: fargate
 
 
 iam:
