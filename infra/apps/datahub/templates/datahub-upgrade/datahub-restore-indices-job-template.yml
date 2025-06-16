@@ -16,12 +16,12 @@ spec:
   jobTemplate:
     spec:
       template:
-        {{- if .Values.datahubUpgrade.podLabels }}
-        labels:
-              {{- toYaml .Values.datahubUpgrade.podLabels | nindent 12 }}
-        {{- end}}
-        {{- if or .Values.global.podLabels .Values.datahubUpgrade.podAnnotations }}
+        {{- if or .Values.global.podLabels .Values.datahubUpgrade.podAnnotations .Values.datahubUpgrade.podLabels  }}
         metadata:
+        {{- if .Values.datahubUpgrade.podLabels }}
+          labels:
+            {{- toYaml .Values.datahubUpgrade.podLabels | nindent 12 }}
+        {{- end}}
         {{- with .Values.datahubUpgrade.podAnnotations }}
           annotations:
             {{- toYaml . | nindent 12 }}
