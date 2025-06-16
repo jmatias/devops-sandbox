@@ -53,6 +53,9 @@ crds:
         sha: ""
         pullPolicy: IfNotPresent
 
+    labels:
+      env: "fargate"
+
     env: { }
     ## Define resources requests and limits for single Pods.
     ## ref: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
@@ -105,10 +108,6 @@ crds:
     #   labelSelector:
     #     matchLabels:
     #       app: alertmanager
-
-    # ## Labels to add to the upgrade-crd job
-    # ##
-    labels: { }
 
     ## Annotations to add to the upgrade-crd job
     ##

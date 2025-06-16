@@ -169,7 +169,11 @@ fargateProfiles:
       - namespace: datahub
         labels:
           env: fargate
-
+  - name: fp-prometheus
+    selectors:
+      - namespace: monitoring
+        labels:
+          env: fargate
 
 iam:
   withOIDC: true
