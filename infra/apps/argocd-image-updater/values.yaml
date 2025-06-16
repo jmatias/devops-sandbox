@@ -13,13 +13,14 @@ config:
       credentials: ext:/scripts/ecr-login.sh
       credsexpire: 4h
 
-    - name: DockerHub
-      api_url: https://registry-1.docker.io
-      prefix: docker.io
-      defaultns: library
-      credentials: pullsecret:argocd/dockerhub-secret
-      credsexpire: 4h
-      limit: 1
+#    - name: DockerHub
+#      api_url: https://registry-1.docker.io
+#      prefix: docker.io
+#      ping: yes
+#      defaultns: library
+#      credentials: pullsecret:argocd/dockerhub-secret
+#      credsexpire: 4h
+#      limit: 1
 
   logLevel: "info"
 
@@ -29,3 +30,8 @@ authScripts:
     ecr-login.sh: |
       #!/bin/sh
       aws ecr --region "us-east-1" get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d
+
+
+
+metrics:
+    enabled: true
