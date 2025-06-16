@@ -175,6 +175,8 @@ fargateProfiles:
         labels:
           env: fargate
 
+
+
 iam:
   withOIDC: true
   serviceAccounts:

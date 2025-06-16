@@ -18,16 +18,11 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   sources:
-  - chart: datahub
-    repoURL: https://helm.datahubproject.io/
-    targetRevision: 0.*
+  - path: infra/apps/datahub
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: main
     helm:
       releaseName: datahub
-      valueFiles:
-        - $values/infra/apps/datahub/values.yaml
-  - repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: main
-    ref: values
 
   syncPolicy:
     syncOptions:
