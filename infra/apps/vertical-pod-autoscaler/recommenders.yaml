@@ -23,7 +23,7 @@ spec:
           imagePullPolicy: Always
           args:
             - --recommender-name=frugal
-            - --target-cpu-percentile=0.75
+            - --target-cpu-percentile=0.50
             - --humanize-memory=true
           resources:
             limits:

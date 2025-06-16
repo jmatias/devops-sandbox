@@ -181,8 +181,6 @@ datahub-ingestion-cron:
     # tag: "v0.11.0" # defaults to .global.datahub.version
 
 elasticsearchSetupJob:
-  podLabels:
-    env: "fargate"
   enabled: true
   imagePullSecrets:
     - name: dockerhub-secret
@@ -223,8 +221,6 @@ elasticsearchSetupJob:
   #   imagePullPolicy: Always
 
 kafkaSetupJob:
-  podLabels:
-    env: "fargate"
   enabled: true
   imagePullSecrets:
     - name: dockerhub-secret
@@ -304,8 +300,6 @@ mysqlSetupJob:
 
 postgresqlSetupJob:
   enabled: false
-  podLabels:
-    env: "fargate"
   image:
     repository: acryldata/datahub-postgres-setup
     # tag: "v0.11.0" # defaults to .global.datahub.version
@@ -351,8 +345,6 @@ postgresqlSetupJob:
 ## No code data migration
 datahubUpgrade:
   enabled: true
-  podLabels:
-    env: "fargate"
   image:
     repository: acryldata/datahub-upgrade
     # tag: "v0.11.0"  # defaults to .global.datahub.version
@@ -449,8 +441,6 @@ datahubSystemCronHourly:
 ## Runs system update processes
 ## Includes: Elasticsearch Indices Creation/Reindex (See global.elasticsearch.index for additional configuration)
 datahubSystemUpdate:
-  podLabels:
-    env: "fargate"
   image:
     repository: acryldata/datahub-upgrade
     # tag:
