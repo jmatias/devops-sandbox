@@ -3,11 +3,6 @@ global:
   imagePullSecrets:
     - name: dockerhub-secret
 datahub-frontend:
-  tolerations:
-    - key: "spotInstance"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -125,11 +120,6 @@ kafkaSetupJob:
       memory: 768Mi
 
 datahub-gms:
-  tolerations:
-    - key: "spotInstance"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
   imagePullSecrets:
     - name: dockerhub-secret
   enabled: true
