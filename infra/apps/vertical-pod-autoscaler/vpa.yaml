@@ -15,44 +15,70 @@
     recommenders:
       - name: frugal
 ---
-apiVersion: v1
-kind: ServiceAccount
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
 metadata:
-  name: vpa-recommender
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vpa-recommender-frugal
+  name: unleash
+  namespace: unleash
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: vpa-recommender-frugal
-  template:
-    metadata:
-      labels:
-        app: vpa-recommender-frugal
-    spec:
-      serviceAccountName: vpa-recommender
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 65534 # nobody
-      containers:
-        - name: recommender
-          image: registry.k8s.io/autoscaling/vpa-recommender:1.4.1
-          imagePullPolicy: Always
-          args:
-            - --recommender-name=frugal
-            - --target-cpu-percentile=0.75
-            - --humanize-memory=true
-          resources:
-            limits:
-              cpu: 200m
-              memory: 1000Mi
-            requests:
-              cpu: 50m
-              memory: 256Mi
-          ports:
-            - name: prometheus
-              containerPort: 8942
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: unleash
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: backstage
+  namespace: backstage
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: backstage
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: datahub-datahub-frontend
+  namespace: datahub
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: datahub-datahub-frontend
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: datahub-datahub-gms
+  namespace: datahub
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: datahub-datahub-gms
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal

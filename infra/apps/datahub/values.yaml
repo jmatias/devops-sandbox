@@ -56,7 +56,7 @@ datahub-frontend:
   enabled: true
   imagePullSecrets:
     - name: dockerhub-secret
-  replicaCount: 1
+  replicaCount: 2
   hpa:
     # If enabled, Horizontal Pod Autoscaler (HPA) will automatically scale the number of replicas based on CPU and memory utilization thresholds.
     enabled: false

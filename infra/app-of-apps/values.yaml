@@ -31,7 +31,7 @@ appOfApps:
   autoSync: true
 
 backstage:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "latest"
