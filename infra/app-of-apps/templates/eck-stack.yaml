@@ -10,8 +10,8 @@ metadata:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: docker.elastic.co/beats/filebeat:^9.0,
-      docker.elastic.co/beats/metricbeat:^9.0
-      docker.elastic.co/kibana/kibana:^9.0
+      docker.elastic.co/beats/metricbeat:^9.0,
+      docker.elastic.co/kibana/kibana:^9.0,
       docker.elastic.co/elasticsearch/elasticsearch:^9.0
     argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
