@@ -1,3 +1,5 @@
+{{ if .Values.reloader.enabled }}
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -34,9 +36,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Prune=true
+
+    {{ if .Values.reloader.autoSync }}
     automated:
       prune: true
       selfHeal: true
+    {{- end }}
 
     retry:
       backoff:
@@ -44,3 +49,5 @@ spec:
         factor: 2
         maxDuration: 3m0s
       limit: 10
+
+{{- end }}

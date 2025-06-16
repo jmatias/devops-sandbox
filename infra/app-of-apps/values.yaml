@@ -73,6 +73,11 @@ prometheus:
   autoSync: true
 
 
+reloader:
+  enabled: false
+  autoSync: true
+
+
 sdlcTrace:
   enabled: false
   autoSync: true
