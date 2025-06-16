@@ -4,6 +4,10 @@ kind: Application
 metadata:
   name: prometheus
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: docker.io/grafana/grafana:^12.0, quay.io/prometheus/prometheus:^3.4.1
+    argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
