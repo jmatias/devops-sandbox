@@ -20,7 +20,7 @@ appOfApps:
   autoSync: true
 
 backstage:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
@@ -35,17 +35,17 @@ prometheus:
   autoSync: true
 
 datahub:
-  enabled: true
+  enabled: false
   autoSync: true
 
 celerySandbox:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
 
 daysSince:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "0.*"
