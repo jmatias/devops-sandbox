@@ -2,6 +2,10 @@ global:
 #  imageRegistry: "386757133934.dkr.ecr.us-east-1.amazonaws.com"
   imagePullSecrets:
     - name: dockerhub-secret
+
+  podLabels:
+    env: "fargate"
+
 datahub-frontend:
   imagePullSecrets:
     - name: dockerhub-secret
@@ -104,8 +108,6 @@ elasticsearchSetupJob:
       memory: 256Mi
 
 kafkaSetupJob:
-  podLabels:
-    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
