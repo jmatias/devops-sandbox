@@ -85,7 +85,7 @@ datahubSystemUpdate:
       memory: 2Gi
     requests:
       cpu: 300m
-      memory: 2Gi
+      memory: 512Mi
 
 elasticsearchSetupJob:
   podLabels:
@@ -120,6 +120,10 @@ kafkaSetupJob:
       memory: 768Mi
 
 datahub-gms:
+  resources:
+    requests:
+      memory: 512Mi
+
   imagePullSecrets:
     - name: dockerhub-secret
   enabled: true
