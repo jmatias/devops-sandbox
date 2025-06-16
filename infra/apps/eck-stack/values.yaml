@@ -48,6 +48,18 @@ eck-elasticsearch:
                 storage: 4Gi
             storageClassName: gp2
 
+      podTemplate:
+        spec:
+          containers[0]:
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 2
+
+
 
 
 eck-kibana:
