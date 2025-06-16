@@ -5,6 +5,12 @@ kind: Application
 metadata:
   name: alb-ingress-controller
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: public.ecr.aws/eks/aws-load-balancer-controller:^2.13
+    argocd-image-updater.argoproj.io/update-strategy: semver
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: alb-ingress-controller
