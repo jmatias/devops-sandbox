@@ -28,7 +28,7 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=false
-      - ServerSideApply=true
+      - ServerSideApply=false
 
     {{ if .Values.datahub.autoSync }}
     automated:
@@ -43,5 +43,26 @@ spec:
         factor: 2
         maxDuration: 3m0s
 
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: datahub-auth-secrets
+      namespace: datahub
+      jsonPointers:
+        - /data/system_client_secret
+        - /data/token_service_salt
+        - /data/token_service_signing_key
+    - group: ""
+      kind: Secret
+      name: datahub-encryption-secrets
+      namespace: datahub
+      jsonPointers:
+        - /data/encryption_key_secret
+    - group: ""
+      kind: Secret
+      name: datahub-gms-secret
+      namespace: datahub
+      jsonPointers:
+        - /data/datahub.gms.secret
 
 {{- end }}
