@@ -5,27 +5,23 @@ metadata:
   name: {{ .Release.Name }}-mysql-setup-job
   labels:
     {{- include "datahub.labels" . | nindent 4 }}
-    {{- if .Values.mysqlSetupJob.podLabels }}
-      {{- toYaml .Values.mysqlSetupJob.podLabels | nindent 4 }}
-    {{- end}}
+
   {{- with .Values.mysqlSetupJob.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   template:
-    {{- if or .Values.global.podLabels .Values.mysqlSetupJob.podAnnotations }}
+    {{- if or .Values.global.podLabels .Values.mysqlSetupJob.podAnnotations .Values.mysqlSetupJob.podLabels }}
     metadata:
     {{- with .Values.mysqlSetupJob.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-    {{- with .Values.global.podLabels }}
+    {{- if .Values.mysqlSetupJob.podLabels }}
       labels:
-        {{- range $key, $value := . }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }}
-    {{- end }}
+        {{- toYaml .Values.mysqlSetupJob.podLabels | nindent 4 }}
+    {{- end}}
     {{- end }}
     spec:
     {{- with .Values.global.hostAliases }}

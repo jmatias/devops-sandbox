@@ -181,6 +181,8 @@ datahub-ingestion-cron:
     # tag: "v0.11.0" # defaults to .global.datahub.version
 
 elasticsearchSetupJob:
+  podLabels:
+    env: "fargate"
   enabled: true
   imagePullSecrets:
     - name: dockerhub-secret
@@ -194,7 +196,7 @@ elasticsearchSetupJob:
   resources:
     limits:
       cpu: 3000m
-      memory: 2Gi
+      memory: 3Gi
     requests:
       cpu: 500m
       memory: 768Mi
@@ -230,8 +232,8 @@ kafkaSetupJob:
     repository: acryldata/datahub-kafka-setup
   resources:
     limits:
-      cpu: 2000m
-      memory: 2Gi
+      cpu: 2500m
+      memory: 3Gi
     requests:
       cpu: 500m
       memory: 768Mi
@@ -272,7 +274,7 @@ mysqlSetupJob:
   resources:
     limits:
       cpu: 2500m
-      memory: 1Gi
+      memory: 3Gi
     requests:
       cpu: 300m
       memory: 256Mi
@@ -314,7 +316,7 @@ postgresqlSetupJob:
   resources:
     limits:
       cpu: 2500m
-      memory: 1Gi
+      memory: 3Gi
     requests:
       cpu: 300m
       memory: 256Mi
@@ -376,7 +378,7 @@ datahubUpgrade:
     resources:
       limits:
         cpu: 2500m
-        memory: 1Gi
+        memory: 3Gi
       requests:
         cpu: 300m
         memory: 256Mi
@@ -529,7 +531,7 @@ datahubSystemUpdate:
   resources:
     limits:
       cpu: 3000m
-      memory: 2Gi
+      memory: 3Gi
     requests:
       cpu: 300m
       memory: 512Mi
@@ -550,6 +552,9 @@ global:
   datahub_analytics_enabled: true
   datahub_standalone_consumers_enabled: false
   imageRegistry: "docker.io"
+
+  imagePullSecrets:
+    - name: dockerhub-secret
 
   elasticsearch:
     host: "elasticsearch-master"

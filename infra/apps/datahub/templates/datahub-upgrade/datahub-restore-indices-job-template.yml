@@ -9,9 +9,6 @@ metadata:
   name: {{ printf "%s-datahub-restore-indices-job-template" .Release.Name | trunc 52 }}
   labels:
     {{- include "datahub.labels" . | nindent 4 }}
-    {{- if .Values.datahubUpgrade.podLabels }}
-      {{- toYaml .Values.datahubUpgrade.podLabels | nindent 4 }}
-    {{- end}}
 spec:
   schedule: {{ .Values.datahubUpgrade.restoreIndices.schedule | default "0 0 * * 0" }}
   suspend: true
@@ -19,17 +16,15 @@ spec:
   jobTemplate:
     spec:
       template:
+        {{- if .Values.datahubUpgrade.podLabels }}
+        labels:
+              {{- toYaml .Values.datahubUpgrade.podLabels | nindent 12 }}
+        {{- end}}
         {{- if or .Values.global.podLabels .Values.datahubUpgrade.podAnnotations }}
         metadata:
         {{- with .Values.datahubUpgrade.podAnnotations }}
           annotations:
             {{- toYaml . | nindent 12 }}
-        {{- end }}
-        {{- with .Values.global.podLabels }}
-          labels:
-            {{- range $key, $value := . }}
-            {{ $key }}: {{ $value | quote }}
-            {{- end }}
         {{- end }}
         {{- end }}
         spec:

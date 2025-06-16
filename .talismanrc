@@ -124,9 +124,9 @@ fileignoreconfig:
 - filename: infra/apps/datahub/templates/kafka-setup-job.yml
   checksum: a60378a62ffaa7c8b2144c880e31b5146b2587d545c7f762b7c8f3d0ddc1c0ab
 - filename: infra/apps/datahub/templates/mysql-setup-job.yml
-  checksum: 8f5265ff7034d8a70e0a7e3fe113c1e6a90a8c99af4f50f222b36ef56a1528c7
+  checksum: 7a79e4d4efd6189196dc8912fa87faaabcf8bb72f0f457f1e4e1881fbd0db702
 - filename: infra/apps/datahub/templates/postgresql-setup-job.yml
-  checksum: a2682afe2c4ed78ef94ba75fad8c61639acb66975ed77dab5df326aaf7673e16
+  checksum: 6e93d66af12c63286b71edf6c9ea13d76162d11cc6b8d03283ea664481cf238a
 - filename: infra/apps/datahub/values-prerequisites.yaml
   checksum: 588efff2cf19cd9231a6d8a012ca9380d878fb33183dadea5928071e3aee7783
 - filename: infra/apps/datahub/values.yaml
