@@ -47,6 +47,11 @@ spec:
     minReplicas: 1
   recommenders:
     - name: frugal
+  resourcePolicy:
+    containerPolicies:
+      - minAllowed:
+          cpu: 300m
+        containerName: backstage-backend
 
 ---
 
