@@ -45,6 +45,8 @@ datahub-frontend:
     pathType: Prefix
 
 mysqlSetupJob:
+  podLabels:
+    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -59,6 +61,8 @@ mysqlSetupJob:
       memory: 256Mi
 
 datahubUpgrade:
+  podLabels:
+    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -74,6 +78,8 @@ datahubUpgrade:
         memory: 256Mi
 
 datahubSystemUpdate:
+  podLabels:
+    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -87,6 +93,8 @@ datahubSystemUpdate:
       memory: 2Gi
 
 elasticsearchSetupJob:
+  podLabels:
+    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
@@ -101,6 +109,8 @@ elasticsearchSetupJob:
       memory: 256Mi
 
 kafkaSetupJob:
+  podLabels:
+    env: "fargate"
   imagePullSecrets:
     - name: dockerhub-secret
   image:
