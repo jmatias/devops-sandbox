@@ -57,7 +57,7 @@ cicdStrawman:
     tag: "0.*"
 
 unleash:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
