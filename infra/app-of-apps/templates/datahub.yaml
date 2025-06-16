@@ -7,8 +7,8 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: frontend=acryldata/datahub-frontend-react
-    argocd-image-updater.argoproj.io/frontend.helm.image-name: datahub-frontend.image.repository
+    argocd-image-updater.argoproj.io/image-list: docker.io/acryldata/datahub-gms:^1.1,
+      docker.io/acryldata/datahub-frontend-react:^1.1
     argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
