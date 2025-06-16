@@ -1,0 +1,95 @@
+---
+  apiVersion: autoscaling.k8s.io/v1
+  kind: VerticalPodAutoscaler
+  metadata:
+    name: elasticsearch-es-default
+    namespace: elastic-stack
+  spec:
+    targetRef:
+      apiVersion: apps/v1
+      kind: StatefulSet
+      name: elasticsearch-es-default
+    updatePolicy:
+      updateMode: "Recreate"
+      minReplicas: 1
+    recommenders:
+      - name: frugal
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vpa-recommender
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vpa-recommender-frugal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vpa-recommender-frugal
+  template:
+    metadata:
+      labels:
+        app: vpa-recommender-frugal
+    spec:
+      serviceAccountName: vpa-recommender
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534 # nobody
+      containers:
+        - name: recommender
+          image: registry.k8s.io/autoscaling/vpa-recommender:1.4.1
+          imagePullPolicy: Always
+          args:
+            - --recommender-name=frugal
+            - --target-cpu-percentile=0.20
+            - --humanize-memory=true
+          resources:
+            limits:
+              cpu: 200m
+              memory: 1000Mi
+            requests:
+              cpu: 50m
+              memory: 256Mi
+          ports:
+            - name: prometheus
+              containerPort: 8942
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vpa-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vpa-recommender
+  template:
+    metadata:
+      labels:
+        app: vpa-recommender
+    spec:
+      serviceAccountName: vpa-recommender
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534 # nobody
+      containers:
+        - name: recommender
+          image: registry.k8s.io/autoscaling/vpa-recommender:1.4.1
+          imagePullPolicy: IfNotPresent
+          args:
+            - --humanize-memory=true
+            - --recommender-name=default
+          resources:
+            limits:
+              cpu: 200m
+              memory: 1000Mi
+            requests:
+              cpu: 50m
+              memory: 256Mi
+          ports:
+            - name: prometheus
+              containerPort: 8942

@@ -1,0 +1,40 @@
+{{ if .Values.vpa.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vertical-pod-autoscaler
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: registry.k8s.io/autoscaling/vpa-recommender:1.4.1
+    argocd-image-updater.argoproj.io/update-strategy: semver
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: infra/apps/vertical-pod-autoscaler
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: main
+
+
+  syncPolicy:
+    retry:
+      limit: 6
+      backoff:
+        duration: "30s"
+
+    {{ if .Values.vpa.autoSync }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    syncOptions:
+      - CreateNamespace=true
+
+{{ end }}

@@ -85,3 +85,9 @@ unleash:
   autoSync: true
   image:
     tag: "latest"
+
+vpa:
+    enabled: true
+    autoSync: true
+    image:
+        tag: "latest"
