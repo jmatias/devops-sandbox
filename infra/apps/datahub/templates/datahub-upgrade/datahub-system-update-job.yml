@@ -199,18 +199,17 @@ metadata:
   {{- end }}
 spec:
   template:
-    {{- if or .Values.global.podLabels .Values.datahubSystemUpdate.podAnnotations }}
+    {{- if or .Values.global.podLabels .Values.datahubSystemUpdate.podAnnotations .Values.datahubSystemUpdate.podLabels }}
     metadata:
     {{- with .Values.datahubSystemUpdate.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-    {{- with .Values.global.podLabels }}
+
+    {{- if .Values.datahubSystemUpdate.podLabels }}
       labels:
-        {{- range $key, $value := . }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }}
-    {{- end }}
+      {{- toYaml .Values.datahubSystemUpdate.podLabels | nindent 8 }}
+    {{- end}}
     {{- end }}
     spec:
     {{- with .Values.global.hostAliases }}
