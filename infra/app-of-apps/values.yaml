@@ -84,5 +84,5 @@ actionsRunnerController:
   autoSync: true
 
 eckOperator:
-  enabled: false
+  enabled: true
   autoSync: true
