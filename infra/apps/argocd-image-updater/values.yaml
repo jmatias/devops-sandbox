@@ -13,14 +13,14 @@ config:
       credentials: ext:/scripts/ecr-login.sh
       credsexpire: 4h
 
-#    - name: DockerHub
-#      api_url: https://registry-1.docker.io
-#      prefix: docker.io
-#      ping: yes
-#      defaultns: library
-#      credentials: pullsecret:argocd/dockerhub-secret
-#      credsexpire: 4h
-#      limit: 1
+    - name: DockerHub
+      api_url: https://registry-1.docker.io
+      prefix: docker.io
+      ping: yes
+      defaultns: library
+      credentials: pullsecret:argocd/dockerhub-secret-json
+      credsexpire: 4h
+      limit: 1
 
   logLevel: "info"
 

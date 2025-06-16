@@ -28,7 +28,7 @@ fileignoreconfig:
 - filename: infra/apps/argocd-image-updater/secrets.yaml
   checksum: 4b953659150a85174f164f6c98295053e1fa2a541dc57599dbf43318358c9df6
 - filename: infra/apps/argocd-image-updater/values.yaml
-  checksum: 69763ed18c5688a1f6a9a0e5beea2202e41012d399da5c849f410e4b65154ff7
+  checksum: f0b42005bedaaade5c3f1c6024111ecacae659def20caf239f9a1bbddc17d258
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
   checksum: e39388f2845278164708a23009de4d1c5608791acac012f9747bca009b7d9233
 - filename: infra/apps/argocd/overlays/aws/deployment.yaml
