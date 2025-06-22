@@ -6,19 +6,21 @@ kind: ClusterConfig
 metadata:
   name: javier-sandbox-eks
   region: "us-east-1"
-  version: "1.32"
+  version: "1.33"
+  tags:
+    karpenter.sh/discovery: javier-sandbox-eks
 
-
-autoModeConfig:
-  enabled: true
-
+karpenter:
+  version: 1.5.1
+  createServiceAccount: true # default is false
+  withSpotInterruptionQueue: true # adds all required policies and rules for supporting Spot Interruption Queue, default is false
 
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
 managedNodeGroups:
   - name: mng1
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+    #    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 2
@@ -51,7 +53,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
   - name: mng2
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+    #    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
@@ -85,7 +87,7 @@ managedNodeGroups:
 
 
   - name: mng1-spot
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
@@ -96,6 +98,9 @@ managedNodeGroups:
     nodeRepairConfig:
       enabled: true
     privateNetworking: true
+
+    updateConfig:
+      maxUnavailable: 1
 
     taints:
       - key: spotInstance
@@ -124,7 +129,7 @@ managedNodeGroups:
 
 
   - name: mng2-spot
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
+#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
@@ -135,7 +140,9 @@ managedNodeGroups:
       - "us-east-1b"
     nodeRepairConfig:
       enabled: true
-    privateNetworking: false
+    privateNetworking: true
+    updateConfig:
+      maxUnavailable: 1
 
     taints:
       - key: spotInstance
@@ -163,17 +170,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
 
-fargateProfiles:
-  - name: fp-datahub
-    selectors:
-      - namespace: datahub
-        labels:
-          env: fargate
-  - name: fp-prometheus
-    selectors:
-      - namespace: monitoring
-        labels:
-          env: fargate
+fargateProfiles: [ ]
 
 
 
@@ -185,11 +182,12 @@ iam:
         namespace: github-actions
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
-
+      roleName: github-actions-sa-role
 
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets
+      roleName: external-secrets-sa-role
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/SecretsManagerReadWrite
 
