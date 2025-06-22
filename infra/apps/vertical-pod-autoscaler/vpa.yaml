@@ -12,8 +12,13 @@
     updatePolicy:
       updateMode: "Recreate"
       minReplicas: 1
+    resourcePolicy:
+      containerPolicies:
+        - minAllowed:
+            cpu: 300m
+          containerName: elasticsearch
     recommenders:
-      - name: frugal
+      - name: default
 ---
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
@@ -46,7 +51,7 @@ spec:
     updateMode: "Recreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
   resourcePolicy:
     containerPolicies:
       - minAllowed:
