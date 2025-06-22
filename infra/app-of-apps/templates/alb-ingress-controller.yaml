@@ -1,4 +1,4 @@
-{{- if eq (lower .Values.environment) "nope" }}
+{{- if and (eq .Values.environment "aws") .Values.albIngressController.enabled }}
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
