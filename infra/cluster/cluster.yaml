@@ -10,7 +10,7 @@ metadata:
 
 
 autoModeConfig:
-  enabled: false
+  enabled: true
 
 
 availabilityZones: [ "us-east-1a","us-east-1b" ]
