@@ -10,11 +10,11 @@ helm:
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
   - name: fastapi.image.tag
-    value: 0.6.11
+    value: 0.6.12
     forcestring: true
   - name: worker.image.name
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
     forcestring: true
   - name: worker.image.tag
-    value: 0.6.11
+    value: 0.6.12
     forcestring: true
