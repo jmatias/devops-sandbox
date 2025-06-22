@@ -45,7 +45,7 @@ eck-elasticsearch:
               - ReadWriteOnce
             resources:
               requests:
-                storage: 4Gi
+                storage: 50Gi
             storageClassName: gp2
 
       podTemplate:
