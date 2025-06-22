@@ -161,6 +161,8 @@ fileignoreconfig:
   checksum: 28ea4d201cf716b78099785988ddd1406a04e3251e19d497f9ed97c1fa13ae57
 - filename: infra/apps/unleash/values.yaml
   checksum: a7dda1d4068b832a0395c293f03465f7e3955878bdb47d237ffa3f0daecd8e5d
+- filename: infra/cluster/cluster-auto-mode.yaml
+  checksum: 4047bd76c99736dab52e92b216d143440fd49a809316bfd6858f0952181a0b4f
 - filename: infra/cluster/cluster.yaml
   checksum: 8d7da31d70b1c92da1a0b2ee0b831b57bce4b80dc9b99488c76007aacb57ac10
 scopeconfig:
