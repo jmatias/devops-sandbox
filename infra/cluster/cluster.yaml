@@ -170,14 +170,17 @@ fargateProfiles: [ ]
 
 iam:
   withOIDC: true
-  serviceAccounts:
-    - metadata:
-        name: github-actions-sa
-        namespace: github-actions
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
-      roleName: github-actions-sa-role
 
+  podIdentityAssociations:
+    - roleName: github-actions-role
+      namespace: github-actions
+      createServiceAccount: true
+      serviceAccountName: github-actions-sa
+      wellKnownPolicies:
+        imageBuilder: true
+
+
+  serviceAccounts:
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets

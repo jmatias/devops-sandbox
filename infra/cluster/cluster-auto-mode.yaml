@@ -13,180 +13,27 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 autoModeConfig:
   enabled: true
+  nodePools:
+    - general-purpose
 
 managedNodeGroups: []
-#  - name: mng1
-#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-#    amiFamily: "Bottlerocket"
-#    minSize: 0
-#    desiredCapacity: 2
-#    maxSize: 4
-#    spot: false
-#    availabilityZones:
-#      - "us-east-1a"
-#    nodeRepairConfig:
-#      enabled: true
-#    privateNetworking: true
-#    updateConfig:
-#      maxUnavailable: 1
-#
-#    iam:
-#      withAddonPolicies:
-#        imageBuilder: true
-#        autoScaler: true
-#        externalDNS: true
-#        certManager: true
-#        appMesh: true
-#        ebs: true
-#        fsx: true
-#        efs: true
-#        awsLoadBalancerController: true
-#        xRay: false
-#        cloudWatch: true
-#
-#      attachPolicyARNs:
-#        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-#        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-#        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-#        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
-#  - name: mng2
-#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-#    amiFamily: "Bottlerocket"
-#    minSize: 0
-#    desiredCapacity: 0
-#    maxSize: 4
-#    spot: false
-#    availabilityZones:
-#      - "us-east-1a"
-#    nodeRepairConfig:
-#      enabled: true
-#    privateNetworking: true
-#    updateConfig:
-#      maxUnavailable: 1
-#
-#    iam:
-#      withAddonPolicies:
-#        imageBuilder: true
-#        autoScaler: true
-#        externalDNS: true
-#        certManager: true
-#        appMesh: true
-#        ebs: true
-#        fsx: true
-#        efs: true
-#        awsLoadBalancerController: true
-#        xRay: false
-#        cloudWatch: true
-#
-#      attachPolicyARNs:
-#        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-#        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-#        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-#        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
-
-#  - name: mng1-spot
-#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-#    amiFamily: "Bottlerocket"
-#    minSize: 0
-#    desiredCapacity: 0
-#    maxSize: 2
-#    spot: true
-#    availabilityZones:
-#      - "us-east-1a"
-#    nodeRepairConfig:
-#      enabled: true
-#    privateNetworking: true
-#    updateConfig:
-#      maxUnavailable: 1
-#
-#    taints:
-#      - key: spotInstance
-#        value: "true"
-#        effect: NoSchedule
-#
-#    iam:
-#      withAddonPolicies:
-#        imageBuilder: true
-#        autoScaler: true
-#        externalDNS: true
-#        certManager: true
-#        appMesh: true
-#        ebs: true
-#        fsx: true
-#        efs: true
-#        awsLoadBalancerController: true
-#        xRay: false
-#        cloudWatch: true
-#
-#      attachPolicyARNs:
-#        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-#        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-#        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-#        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
-
-#  - name: mng2-spot
-#    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-#    amiFamily: "Bottlerocket"
-#    minSize: 0
-#    desiredCapacity: 0
-#    maxSize: 2
-#    spot: true
-#    availabilityZones:
-#      - "us-east-1a"
-#      - "us-east-1b"
-#    nodeRepairConfig:
-#      enabled: true
-#    privateNetworking: true
-#    updateConfig:
-#      maxUnavailable: 1
-#
-#    taints:
-#      - key: spotInstance
-#        value: "true"
-#        effect: NoSchedule
-#
-#    iam:
-#      withAddonPolicies:
-#        imageBuilder: true
-#        autoScaler: true
-#        externalDNS: true
-#        certManager: true
-#        appMesh: true
-#        ebs: true
-#        fsx: true
-#        efs: true
-#        awsLoadBalancerController: true
-#        xRay: false
-#        cloudWatch: true
-#
-#      attachPolicyARNs:
-#        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-#        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-#        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-#        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
 
 fargateProfiles: []
-
-
 
 iam:
   withOIDC: true
 
+  podIdentityAssociations:
+    - roleName: github-actions-role
+      namespace: github-actions
+      createServiceAccount: true
+      serviceAccountName: github-actions-sa
+      wellKnownPolicies:
+        imageBuilder: true
+
+
 
   serviceAccounts:
-    - metadata:
-        name: github-actions-sa
-        namespace: github-actions
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
-      roleName: github-actions-sa-role
-
-
-
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets

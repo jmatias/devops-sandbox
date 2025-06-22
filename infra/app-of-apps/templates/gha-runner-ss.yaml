@@ -76,7 +76,7 @@ spec:
             labels:
               key: value
             annotations:
-              eks.amazonaws.com/role-arn: arn:aws:iam::386757133934:role/eksctl-javier-sandbox-eks-addon-iamserviceacc-Role1-hwB9aCByjGSH
+              eks.amazonaws.com/role-arn: arn:aws:iam::386757133934:role/github-actions-role
         containerMode:
           type: "dind"
           kubernetesModeWorkVolumeClaim:
