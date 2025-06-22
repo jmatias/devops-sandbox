@@ -15,10 +15,27 @@
     resourcePolicy:
       containerPolicies:
         - minAllowed:
-            cpu: 300m
+            cpu: 100m
           containerName: elasticsearch
     recommenders:
-      - name: default
+      - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: kibana-kb
+  namespace: elastic-stack
+spec:
+  targetRef:
+    apiVersion: kibana.k8s.elastic.co/v1
+    kind: Kibana
+    name: kibana
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+
 ---
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
@@ -55,7 +72,7 @@ spec:
   resourcePolicy:
     containerPolicies:
       - minAllowed:
-          cpu: 300m
+          cpu: 150m
         containerName: backstage-backend
 
 ---
