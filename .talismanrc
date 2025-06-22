@@ -10,7 +10,7 @@ fileignoreconfig:
 - filename: infra/app-of-apps/templates/datahub.yaml
   checksum: 41ce1707909138bcadaac218710d98ebc5a60d0da4eb74b841e80791a2753a94
 - filename: infra/app-of-apps/templates/gha-runner-ss.yaml
-  checksum: 59ad0be87949df8154ea04fd414a34f686164fc5b1f302119a6d30b8efd70543
+  checksum: d97a8193d40bc91e36fbff8ee2b79d5211cabd1ab99638981b658ec8564d900d
 - filename: infra/app-of-apps/templates/karpenter.yaml
   checksum: 697629132b41a84f9bcef29972ded9e448016d532e219dff16113d723d740088
 - filename: infra/apps/actions-runner-controller-config/secrets.yaml

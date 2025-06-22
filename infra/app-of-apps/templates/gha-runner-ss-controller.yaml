@@ -22,6 +22,8 @@ spec:
     helm:
       releaseName: scale-set-controller
       valuesObject:
+        rbac:
+          allowGrantingKubernetesContainerModePermissions: true
         annotations:
           argocd.argoproj.io/compare-options: IgnoreExtraneous
         imagePullSecrets:

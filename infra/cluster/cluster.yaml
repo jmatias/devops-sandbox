@@ -171,16 +171,16 @@ fargateProfiles: [ ]
 iam:
   withOIDC: true
 
-  podIdentityAssociations:
-    - roleName: github-actions-role
-      namespace: github-actions
-      createServiceAccount: true
-      serviceAccountName: github-actions-sa
+
+  serviceAccounts:
+    - metadata:
+        name: github-actions-sa
+        namespace: github-actions
+      roleName: github-actions-sa-role
+
       wellKnownPolicies:
         imageBuilder: true
 
-
-  serviceAccounts:
     - metadata:
         name: external-secrets-sa
         namespace: external-secrets
