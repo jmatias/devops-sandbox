@@ -32,15 +32,15 @@ spec:
       valuesObject:
         flower:
           enabled: true
-          replicas: 1
+          replicas: 2
 
         fastapi:
           enabled: true
-          replicas: 1
+          replicas: 2
 
         worker:
           enabled: true
-          replicas: 1
+          replicas: 2
 
   syncPolicy:
     retry:
