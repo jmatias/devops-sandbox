@@ -22,12 +22,10 @@ spec:
   source:
     chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: 0.10.*
+    targetRevision: 0.12.*
     helm:
       releaseName: javier-runner
       valuesObject:
-{{/*        annotations:*/}}
-{{/*          argocd.argoproj.io/compare-options: IgnoreExtraneous*/}}
         runnerScaleSetName: javier-runner
         githubConfigUrl: https://github.com/jmatiascabrera
         githubConfigSecret: github-auth
@@ -37,56 +35,6 @@ spec:
           name: github-actions-sa
         containerMode:
           type: "dind"
-
-        resourceMeta:
-{{/*          autoscalingRunnerSet:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          githubConfigSecret:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          kubernetesModeRole:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          kubernetesModeRoleBinding:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          kubernetesModeServiceAccount:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          managerRole:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          managerRoleBinding:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              key: value*/}}
-{{/*          noPermissionServiceAccount:*/}}
-{{/*            labels:*/}}
-{{/*              key: value*/}}
-{{/*            annotations:*/}}
-{{/*              eks.amazonaws.com/role-arn: arn:aws:iam::386757133934:role/github-actions-role*/}}
-{{/*        containerMode:*/}}
-{{/*          type: "dind"*/}}
-{{/*          kubernetesModeWorkVolumeClaim:*/}}
-{{/*            accessModes: [ "ReadWriteOnce" ]*/}}
-{{/*            storageClassName: "dynamic-blob-storage"*/}}
-{{/*            resources:*/}}
-{{/*              requests:*/}}
-{{/*                storage: 2Gi*/}}
 
         maxRunners: 10
 
