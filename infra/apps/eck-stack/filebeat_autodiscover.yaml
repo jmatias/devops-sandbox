@@ -10,28 +10,18 @@ spec:
   kibanaRef:
     name: kibana
   config:
-    filebeat.autodiscover.providers:
-      - node: ${NODE_NAME}
-        type: kubernetes
-        hints.default_config.enabled: "false"
-        templates:
-          - condition.equals.kubernetes.namespace: log-namespace
-            config:
-              - paths: ["/var/log/containers/*${data.kubernetes.container.id}.log"]
-                id: kubernetes-container-logs-${data.kubernetes.pod.name}-${data.kubernetes.container.id}
+    filebeat:
+      autodiscover:
+        providers:
+          - type: kubernetes
+            node: ${NODE_NAME}
+            hints:
+              enabled: true
+              default_config:
                 type: filestream
-                parsers:
-                  - container: ~
-                prospector:
-                  scanner:
-                    fingerprint.enabled: true
-                    symlinks: true
-                file_identity.fingerprint: ~
-          - condition.equals.kubernetes.labels.log-label: "true"
-            config:
-              - paths: ["/var/log/containers/*${data.kubernetes.container.id}.log"]
                 id: kubernetes-container-logs-${data.kubernetes.pod.name}-${data.kubernetes.container.id}
-                type: filestream
+                paths:
+                  - /var/log/containers/*${data.kubernetes.container.id}.log
                 parsers:
                   - container: ~
                 prospector:
@@ -45,13 +35,6 @@ spec:
   daemonSet:
     podTemplate:
       spec:
-
-        tolerations:
-          - key: "spotInstance"
-            operator: "Equal"
-            value: "true"
-            effect: "NoSchedule"
-
         serviceAccountName: filebeat
         automountServiceAccountToken: true
         terminationGracePeriodSeconds: 30
@@ -100,6 +83,20 @@ rules:
       - get
       - watch
       - list
+  - apiGroups: ["apps"]
+    resources:
+      - replicasets
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+    verbs:
+      - get
+      - list
+      - watch
 ---
 apiVersion: v1
 kind: ServiceAccount

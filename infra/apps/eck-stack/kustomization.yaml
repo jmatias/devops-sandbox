@@ -10,5 +10,5 @@ helmCharts:
     valuesFile: values.yaml
 
 resources:
-  - filebeat_autodiscover_by_metadata.yaml
+  - filebeat_autodiscover.yaml
   - metricbeat_hosts.yaml
