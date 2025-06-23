@@ -44,7 +44,7 @@ celerySandbox:
     tag: "latest"
 
 cicdStrawman:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "0.*"
