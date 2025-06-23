@@ -3,47 +3,51 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gha-runner-ss-controller
+  name: gha-runner-ss
   namespace: argocd
 
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/actions-runner:^0.12
+    argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-  
+
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 
 spec:
-  
+
   destination:
     namespace: github-actions
     server: {{ .Values.spec.destination.server }}
-  
+
   project: default
-  
+
   source:
-    chart: gha-runner-scale-set-controller
+    chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.12.*
-  
+
     helm:
-      releaseName: scale-set-controller
-      
+      releaseName: javier-runner
+
       valuesObject:
-        annotations:
-          argocd.argoproj.io/compare-options: IgnoreExtraneous
-        
-        imagePullSecrets:
-          - name: dockerhub-secret
-        
-      
-        flags:
-          logLevel: "info"
-        
-        serviceAccount:
-          name: github-actions-sa
+
+        runnerGroup: javier-k8s-runner-group
+        runnerScaleSetName: javier-runner
+
+        githubConfigUrl: https://github.com/jmatiascabrera
+        githubConfigSecret: github-auth
+
+        controllerServiceAccount:
           namespace: github-actions
-          create: false
+          name: github-actions-sa
+
+        containerMode:
+          type: "dind" #docker-in-docker
+
+        maxRunners: 10
 
 
   syncPolicy:
@@ -60,8 +64,8 @@ spec:
 
     retry:
       backoff:
-        duration: 10s
+        duration: 5s
         factor: 2
         maxDuration: 10m
-      limit: 15
+      limit: 10
 {{- end }}
