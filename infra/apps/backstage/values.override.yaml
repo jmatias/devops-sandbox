@@ -55,15 +55,13 @@ backstage:
       cpu: 500m
   podLabels:
     env: fargate
-  annotations:
-    reloader.stakater.com/auto: "true"
   containerPorts:
     backend: 7007
   replicas: 2
   image:
     registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
     repository: javier/backstage
-    tag: { { .Values.backstage.image.tag } }
+    tag: latest
   extraEnvVarsSecrets:
     - postgres-secrets
     - github-oauth

@@ -44,6 +44,10 @@ spec:
           namespace: github-actions
           name: github-actions-sa
 
+        ## Because we are using docker-in-docker, the helm chart is applying
+        ## the service account {releaseName}-gha-rs-no-permission-role
+        ## even though you don't specify it here.
+
         containerMode:
           type: "dind" #docker-in-docker
 

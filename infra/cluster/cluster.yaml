@@ -38,11 +38,13 @@ iam:
       wellKnownPolicies:
         imageBuilder: true
 
-    - namespace: external-secrets
+
+  serviceAccounts:
+    - metadata:
+        name: external-secrets
+        namespace: external-secrets
       roleName: external-secrets-sa-role
-      serviceAccountName: external-secrets
-      createServiceAccount: true
-      permissionPolicy:
+      attachPolicy:
         Version: "2012-10-17"
         Statement:
           - Effect: Allow
@@ -53,8 +55,6 @@ iam:
               - secretsmanager:ListSecretVersionIds
             Resource: "*"
 
-
-  serviceAccounts: []
 
 managedNodeGroups:
   - name: mng1
