@@ -1,0 +1,22 @@
+fileignoreconfig:
+- filename: .github/actions/poetry/action.yml
+  checksum: a272f753fd0130975f30101ad7f312abf79c62b1057a1563a85b5cce43f939dd
+- filename: .github/actions/run-tests-unit/action.yml
+  checksum: 2801bb38d58397e125513aed7fef931a788797a7a3086004ae635aed88ebd8a5
+- filename: .github/actions/run-unit-tests/action.yml
+  checksum: 59bf6f31b205d07f9edd56b2768c97cb384a9f3559231263fd8987a477eca11a
+- filename: build-cli
+  checksum: 4c50d820899377ddec901f2b8e8844a7de6ca07b1f74de4829dad4425ac190fa
+- filename: cli/src/lib/environment.sh
+  checksum: 6eed81f20cf0e553094be795da74a44a2de6f6f44ad82e8664b90ab450d82f4c
+- filename: cli/src/lib/ini_config.sh
+  checksum: b9c1b906803404640956d6013af3ba022bd4debef9971c8bdd407a8b011aaa59
+- filename: cli/src/lib/send_completions.sh
+  checksum: e9d00b9e644e4644bd2233f41de0e15c12ca23ee4711adc079d1024115d6f75a
+- filename: cli/src/lib/source_dir.sh
+  checksum: 1bc01d5b5ec8ec0ea2fec74c3ad4d3aa3e3240a2d5f86532679442a7ceff5ead
+- filename: devcli
+  checksum: db92d18e21213366ce370eda6c320dd404cd7d004e1d1fb22857b567d8b2e608
+scopeconfig:
+- scope: python
+version: "1.0"
