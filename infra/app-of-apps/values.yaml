@@ -66,21 +66,19 @@ externalSecrets:
     tag: "latest"
 
 eckOperator:
-  enabled: true
+  enabled: false
   autoSync: true
 
 prometheus:
   enabled: true
   autoSync: true
 
-
 reloader:
   enabled: false
   autoSync: true
 
-
 sdlcTrace:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     pullPolicy: IfNotPresent
