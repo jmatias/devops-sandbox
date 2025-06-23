@@ -16,42 +16,33 @@ iam:
   withOIDC: true
 
   podIdentityAssociations:
+
     - namespace: celery-sandbox
-      roleName: celery-sandbox-role-pod-identity-association
-      serviceAccountName: celery-sandbox-pod-identity-association
+      roleName: celery-sandbox-s3-readonly-role
+      serviceAccountName: celery-sandbox-s3-readonly
       createServiceAccount: true
       permissionPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 
-
-  serviceAccounts:
-
-    - metadata:
-        name: celery-sandbox-s3-readonly
-        namespace: celery-sandbox
-      roleName: celery-sandbox-s3-readonly-role
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
-
-    - metadata:
-        name: github-actions-sa
-        namespace: github-actions
+    - namespace: github-actions
       roleName: github-actions-sa-role
+      serviceAccountName: github-actions-sa
+      createServiceAccount: true
       wellKnownPolicies:
         imageBuilder: true
 
-    - metadata:
-        name: javier-runner-gha-rs-no-permission
-        namespace: github-actions
+    - namespace: github-actions
       roleName: javier-runner-gha-rs-no-permission-role
+      serviceAccountName: javier-runner-gha-rs-no-permission
+      createServiceAccount: true
       wellKnownPolicies:
         imageBuilder: true
 
-    - metadata:
-        name: external-secrets
-        namespace: external-secrets
+    - namespace: external-secrets
       roleName: external-secrets-sa-role
-      attachPolicy:
+      serviceAccountName: external-secrets
+      createServiceAccount: true
+      permissionPolicy:
         Version: "2012-10-17"
         Statement:
           - Effect: Allow
@@ -62,6 +53,8 @@ iam:
               - secretsmanager:ListSecretVersionIds
             Resource: "*"
 
+
+  serviceAccounts: []
 
 managedNodeGroups:
   - name: mng1
