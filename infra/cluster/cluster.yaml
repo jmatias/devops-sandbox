@@ -33,11 +33,12 @@ managedNodeGroups:
         efs: true
         awsLoadBalancerController: true
 
+      instanceRoleName: "javier-mng1-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
   - name: mng2
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -59,12 +60,12 @@ managedNodeGroups:
         efs: true
         awsLoadBalancerController: true
 
+      instanceRoleName: "javier-mng2-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
-
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
   - name: mng1-spot
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -94,11 +95,12 @@ managedNodeGroups:
         efs: true
         awsLoadBalancerController: true
 
+      instanceRoleName: "javier-mng1-spot-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
 
   - name: mng2-spot
@@ -129,11 +131,12 @@ managedNodeGroups:
         efs: true
         awsLoadBalancerController: true
 
+      instanceRoleName: "javier-mng2-spot-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
 
 fargateProfiles: [ ]
