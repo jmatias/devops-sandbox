@@ -1,0 +1,32 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: datahub-datahub-frontend
+  namespace: datahub
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: datahub-datahub-frontend
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: datahub-datahub-gms
+  namespace: datahub
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: datahub-datahub-gms
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
