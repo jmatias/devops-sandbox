@@ -17,6 +17,14 @@ iam:
 
 
   serviceAccounts:
+
+    - metadata:
+        name: celery-sandbox-s3-readonly
+        namespace: celery-sandbox
+      roleName: celery-sandbox-s3-readonly-role
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+
     - metadata:
         name: github-actions-sa
         namespace: github-actions
