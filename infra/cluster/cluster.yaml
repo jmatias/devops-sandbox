@@ -15,6 +15,14 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 iam:
   withOIDC: true
 
+  podIdentityAssociations:
+    - namespace: celery-sandbox
+      roleName: celery-sandbox-role-pod-identity-association
+      serviceAccountName: celery-sandbox-pod-identity-association
+      createServiceAccount: true
+      permissionPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+
 
   serviceAccounts:
 
@@ -53,7 +61,6 @@ iam:
               - secretsmanager:ListSecrets
               - secretsmanager:ListSecretVersionIds
             Resource: "*"
-
 
 
 managedNodeGroups:
