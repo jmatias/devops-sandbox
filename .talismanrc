@@ -1,6 +1,8 @@
 fileignoreconfig:
 - filename: .github/actions/poetry/action.yml
   checksum: a272f753fd0130975f30101ad7f312abf79c62b1057a1563a85b5cce43f939dd
+- filename: .idea/jsonSchemas.xml
+  checksum: 10751e47cf4f97fbf1ff3b4443da89ddb875dddf941ea0c3f4ca7a1fcfc32a2f
 - filename: days-since/package.json
   checksum: 255bf80feaf1607f95069afbf1256ed26e0b2cc29989f21980505f70160cf74d
 - filename: days-since/src/DaysSinceAshleyScript.tsx
