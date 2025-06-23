@@ -7,7 +7,8 @@ runs:
   using: "composite"
   steps:
     - run: |
-        echo "Deploying to ${{inputs.environment}}..."
-        sleep ${{inputs.wait}}
-      name: Deploy to ${{inputs.environment}}
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+      name: Install AWS CLI
       shell: bash
