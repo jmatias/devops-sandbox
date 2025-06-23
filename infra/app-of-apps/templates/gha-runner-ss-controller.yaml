@@ -5,33 +5,41 @@ kind: Application
 metadata:
   name: gha-runner-ss-controller
   namespace: argocd
+
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+  
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+
 spec:
+  
   destination:
     namespace: github-actions
     server: {{ .Values.spec.destination.server }}
+  
   project: default
+  
   source:
     chart: gha-runner-scale-set-controller
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.10.*
+  
     helm:
       releaseName: scale-set-controller
+      
       valuesObject:
-        rbac:
-          allowGrantingKubernetesContainerModePermissions: true
         annotations:
           argocd.argoproj.io/compare-options: IgnoreExtraneous
+        
         imagePullSecrets:
           - name: dockerhub-secret
-        ## template.spec will be modified if you change the container mode
-        ## with containerMode.type=dind, we will populate the template.spec with following pod spec
+        
+      
         flags:
-          logLevel: "debug"
+          logLevel: "info"
+        
         serviceAccount:
           name: github-actions-sa
           namespace: github-actions
@@ -52,8 +60,8 @@ spec:
 
     retry:
       backoff:
-        duration: 5s
+        duration: 10s
         factor: 2
         maxDuration: 10m
-      limit: 10
+      limit: 15
 {{- end }}
