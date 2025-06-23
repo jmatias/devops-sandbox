@@ -37,6 +37,8 @@ fileignoreconfig:
   checksum: 97ee229b5148bec52c3a5bf597dc120c00e10fe22223efc6c9aac780a5348f28
 - filename: infra/apps/backstage/templates/secrets.yaml
   checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
+- filename: infra/apps/backstage/values_override.yaml
+  checksum: 4d3d338cd2987d53f2958d32bc9e563bd3b51d87aa49a1957d0b06b87c807485
 - filename: infra/apps/celery-sandbox/templates/fast-api-deployment.yaml
   checksum: ac23d04d316fd81cebb5d00f9e49ade028f3cccd47adf0297938e4bfae6e04ff
 - filename: infra/apps/celery-sandbox/templates/flower-deployment.yaml

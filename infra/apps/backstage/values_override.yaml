@@ -1,0 +1,69 @@
+global:
+  defaultStorageClass: gp2
+  storageClass: gp2
+  imagePullSecrets:
+    - dockerhub-secret
+
+postgresql:
+  imagePullSecrets:
+    - dockerhub-secret
+  image:
+    repository: bitnami/postgresql
+    tag: 15.4.0-debian-11-r10
+  global:
+    defaultStorageClass: gp2
+    storageClass: gp2
+  enabled: true
+  auth:
+    username: backstage
+ingress:
+  enabled: true
+  className: alb
+  path: /
+  host: "backstage.tw-javier.work"
+  tls:
+    enabled: false
+    secretName: "backstage-tls"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: 'ip'
+    alb.ingress.kubernetes.io/group.name: "prod-external"
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
+
+service:
+  type: ClusterIP
+  ports:
+    backend: 7007
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
+    external-dns.alpha.kubernetes.io/ttl: "60"
+
+backstage:
+  tolerations:
+    - key: "spotInstance"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+  resources:
+    limits:
+      memory: 2Gi
+      cpu: 1200m
+    requests:
+      memory: 512Mi
+      cpu: 500m
+  podLabels:
+    env: fargate
+  annotations:
+    reloader.stakater.com/auto: "true"
+  containerPorts:
+    backend: 7007
+  replicas: 2
+  image:
+    registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
+    repository: javier/backstage
+    tag: { { .Values.backstage.image.tag } }
+  extraEnvVarsSecrets:
+    - postgres-secrets
+    - github-oauth
