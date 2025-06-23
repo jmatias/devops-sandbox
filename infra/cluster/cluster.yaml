@@ -12,6 +12,42 @@ metadata:
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 
 
+iam:
+  withOIDC: true
+
+
+  serviceAccounts:
+    - metadata:
+        name: github-actions-sa
+        namespace: github-actions
+      roleName: github-actions-sa-role
+      wellKnownPolicies:
+        imageBuilder: true
+
+    - metadata:
+        name: javier-runner-gha-rs-no-permission
+        namespace: github-actions
+      roleName: javier-runner-gha-rs-no-permission-role
+      wellKnownPolicies:
+        imageBuilder: true
+
+    - metadata:
+        name: external-secrets
+        namespace: external-secrets
+      roleName: external-secrets-sa-role
+      attachPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - secretsmanager:DescribeSecret
+              - secretsmanager:GetSecretValue
+              - secretsmanager:ListSecrets
+              - secretsmanager:ListSecretVersionIds
+            Resource: "*"
+
+
+
 managedNodeGroups:
   - name: mng1
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -106,43 +142,6 @@ managedNodeGroups:
 
 
 fargateProfiles: [ ]
-
-
-iam:
-  withOIDC: true
-
-
-  serviceAccounts:
-    - metadata:
-        name: github-actions-sa
-        namespace: github-actions
-      roleName: github-actions-sa-role
-      wellKnownPolicies:
-        imageBuilder: true
-
-    - metadata:
-        name: javier-runner-gha-rs-no-permission
-        namespace: github-actions
-      roleName: javier-runner-gha-rs-no-permission-role
-      wellKnownPolicies:
-        imageBuilder: true
-
-    - metadata:
-        name: external-secrets
-        namespace: external-secrets
-      roleName: external-secrets-sa-role
-      attachPolicy:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Action:
-              - secretsmanager:DescribeSecret
-              - secretsmanager:GetSecretValue
-              - secretsmanager:ListSecrets
-              - secretsmanager:ListSecretVersionIds
-            Resource: "*"
-
-
 
 
 addons:
