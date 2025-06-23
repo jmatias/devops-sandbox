@@ -177,16 +177,33 @@ iam:
         name: github-actions-sa
         namespace: github-actions
       roleName: github-actions-sa-role
-
       wellKnownPolicies:
         imageBuilder: true
 
     - metadata:
-        name: external-secrets-sa
+        name: javier-runner-gha-rs-no-permission
+        namespace: github-actions
+      roleName: javier-runner-gha-rs-no-permission-role
+      wellKnownPolicies:
+        imageBuilder: true
+
+    - metadata:
+        name: external-secrets
         namespace: external-secrets
       roleName: external-secrets-sa-role
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/SecretsManagerReadWrite
+      attachPolicy:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - secretsmanager:DescribeSecret
+              - secretsmanager:GetSecretValue
+              - secretsmanager:ListSecrets
+              - secretsmanager:ListSecretVersionIds
+            Resource: "*"
+
+
+
 
 addons:
 

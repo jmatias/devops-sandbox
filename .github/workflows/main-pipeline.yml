@@ -21,7 +21,7 @@ jobs:
 
       - name: Configure AWS environment
         uses: ./.github/actions/configure-aws-environment
-#
+
       - name: Build docker image
         working-directory: cicd-strawman
         run: ./build.sh 0.2.${{ github.run_number }}

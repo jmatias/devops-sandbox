@@ -164,7 +164,7 @@ fileignoreconfig:
 - filename: infra/cluster/cluster-auto-mode.yaml
   checksum: 4047bd76c99736dab52e92b216d143440fd49a809316bfd6858f0952181a0b4f
 - filename: infra/cluster/cluster.yaml
-  checksum: 8d7da31d70b1c92da1a0b2ee0b831b57bce4b80dc9b99488c76007aacb57ac10
+  checksum: 44c29b86712c2f4d313f99bd55ca60058640fdf2a899edff753f9a4c85ba6400
 scopeconfig:
 - scope: python
 - scope: node
