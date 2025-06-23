@@ -24,7 +24,7 @@ jobs:
 
 #      - name: Build docker image
 #        working-directory: src/cicd-strawman
-#        run: ./build.sh 0.2.${{ github.run_number }}
+#        run: ./build.sh 0.3.${{ github.run_number }}
 
 
 

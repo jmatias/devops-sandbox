@@ -15,14 +15,6 @@ availabilityZones: [ "us-east-1a","us-east-1b" ]
 iam:
   withOIDC: true
 
-  podIdentityAssociations:
-    - namespace: celery-sandbox
-      roleName: celery-sandbox-role-pod-identity-association
-      serviceAccountName: celery-sandbox-pod-identity-association
-      createServiceAccount: true
-      permissionPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
-
   serviceAccounts:
 
     - metadata:
@@ -82,14 +74,12 @@ managedNodeGroups:
     iam:
       withAddonPolicies:
         ebs: true
-        fsx: true
         efs: true
         awsLoadBalancerController: true
 
       instanceRoleName: "javier-mng1-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
@@ -117,7 +107,6 @@ managedNodeGroups:
       instanceRoleName: "javier-mng2-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
@@ -151,7 +140,6 @@ managedNodeGroups:
       instanceRoleName: "javier-mng1-spot-nodegroup-role"
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
@@ -167,20 +155,33 @@ addons:
   - name: metrics-server
     version: latest
 
+  - name: kube-state-metrics
+    version: latest
+
   - name: vpc-cni
     version: latest
+    attachPolicyARNs:
+      - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+    resolveConflicts: overwrite
 
   - name: aws-ebs-csi-driver
     version: latest
 
-  - name: aws-mountpoint-s3-csi-driver
-    version: latest
+#  - name: aws-mountpoint-s3-csi-driver
+#    version: latest
 
   - name: external-dns
     version: latest
 
   - name: cert-manager
     version: latest
+    configurationValues: |-
+      replicaCount: 1
+      cainjector:
+        replicaCount: 1
+      webhook:
+        replicaCount: 1
+      resolveConflicts: overwrite
 
   - name: eks-pod-identity-agent
     version: latest
