@@ -19,11 +19,13 @@ managedNodeGroups:
     minSize: 0
     desiredCapacity: 2
     maxSize: 5
-    spot: false
+    
     availabilityZones:
       - "us-east-1a"
+    
     nodeRepairConfig:
       enabled: true
+    
     privateNetworking: true
 
     iam:
@@ -45,18 +47,19 @@ managedNodeGroups:
     amiFamily: "Bottlerocket"
     minSize: 0
     desiredCapacity: 0
-    maxSize: 4
-    spot: false
+    maxSize: 5
+    
     availabilityZones:
       - "us-east-1a"
+    
     nodeRepairConfig:
       enabled: true
+    
     privateNetworking: true
 
     iam:
       withAddonPolicies:
         ebs: true
-        fsx: true
         efs: true
         awsLoadBalancerController: true
 
@@ -74,14 +77,14 @@ managedNodeGroups:
     desiredCapacity: 0
     maxSize: 2
     spot: true
+    
     availabilityZones:
       - "us-east-1a"
+    
     nodeRepairConfig:
       enabled: true
+    
     privateNetworking: true
-
-    updateConfig:
-      maxUnavailable: 1
 
     taints:
       - key: spotInstance
@@ -91,7 +94,6 @@ managedNodeGroups:
     iam:
       withAddonPolicies:
         ebs: true
-        fsx: true
         efs: true
         awsLoadBalancerController: true
 
@@ -103,44 +105,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 
 
-  - name: mng2-spot
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-    amiFamily: "Bottlerocket"
-    minSize: 0
-    desiredCapacity: 0
-    maxSize: 2
-    spot: true
-    availabilityZones:
-      - "us-east-1a"
-      - "us-east-1b"
-    nodeRepairConfig:
-      enabled: true
-    privateNetworking: true
-    updateConfig:
-      maxUnavailable: 1
-
-    taints:
-      - key: spotInstance
-        value: "true"
-        effect: NoSchedule
-
-    iam:
-      withAddonPolicies:
-        ebs: true
-        fsx: true
-        efs: true
-        awsLoadBalancerController: true
-
-      instanceRoleName: "javier-mng2-spot-nodegroup-role"
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
-
 fargateProfiles: [ ]
-
 
 
 iam:
