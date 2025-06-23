@@ -82,6 +82,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 
   - name: mng2
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -109,6 +110,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 
   - name: mng1-spot
     instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
@@ -142,6 +144,7 @@ managedNodeGroups:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
 
 
 fargateProfiles: [ ]
@@ -160,28 +163,31 @@ addons:
 
   - name: vpc-cni
     version: latest
-    attachPolicyARNs:
-      - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-    resolveConflicts: overwrite
 
   - name: aws-ebs-csi-driver
     version: latest
+    wellKnownPolicies:
+      ebsCSIController: true
 
-#  - name: aws-mountpoint-s3-csi-driver
-#    version: latest
+
+  - name: aws-mountpoint-s3-csi-driver
+    version: latest
+
 
   - name: external-dns
     version: latest
 
   - name: cert-manager
     version: latest
+    wellKnownPolicies:
+      certManager: true
     configurationValues: |-
       replicaCount: 1
       cainjector:
         replicaCount: 1
       webhook:
         replicaCount: 1
-      resolveConflicts: overwrite
+    resolveConflicts: overwrite
 
   - name: eks-pod-identity-agent
     version: latest
