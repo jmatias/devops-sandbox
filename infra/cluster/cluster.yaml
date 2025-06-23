@@ -28,17 +28,10 @@ managedNodeGroups:
 
     iam:
       withAddonPolicies:
-        imageBuilder: true
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        appMesh: true
         ebs: true
         fsx: true
         efs: true
         awsLoadBalancerController: true
-        xRay: false
-        cloudWatch: true
 
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
@@ -61,17 +54,10 @@ managedNodeGroups:
 
     iam:
       withAddonPolicies:
-        imageBuilder: true
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        appMesh: true
         ebs: true
         fsx: true
         efs: true
         awsLoadBalancerController: true
-        xRay: false
-        cloudWatch: true
 
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
@@ -103,17 +89,10 @@ managedNodeGroups:
 
     iam:
       withAddonPolicies:
-        imageBuilder: true
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        appMesh: true
         ebs: true
         fsx: true
         efs: true
         awsLoadBalancerController: true
-        xRay: false
-        cloudWatch: true
 
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
@@ -145,17 +124,10 @@ managedNodeGroups:
 
     iam:
       withAddonPolicies:
-        imageBuilder: true
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        appMesh: true
         ebs: true
         fsx: true
         efs: true
         awsLoadBalancerController: true
-        xRay: false
-        cloudWatch: true
 
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
