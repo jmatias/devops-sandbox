@@ -14,7 +14,11 @@ runs:
   using: "composite"
   steps:
     - run: |
-        echo "Deploying to ${{inputs.environment}}..."
-        sleep ${{inputs.wait}}
+        echo "Deploying to ${INPUTS_ENVIRONMENT}..."
+        sleep $WAIT
+      env:
+        INPUTS_ENVIRONMENT: ${{inputs.environment}}
+        WAIT: ${{inputs.wait}}
+
       name: Deploy to ${{inputs.environment}}
       shell: bash
