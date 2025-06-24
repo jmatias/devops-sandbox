@@ -77,6 +77,10 @@ reloader:
   enabled: false
   autoSync: true
 
+selfServeExample:
+  enabled: true
+  autoSync: true
+
 sdlcTrace:
   enabled: true
   autoSync: true

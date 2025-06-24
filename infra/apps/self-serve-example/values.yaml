@@ -1,0 +1,15 @@
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: ""
+
+# This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
+serviceAccount:
+  create: false
+
+resources: { }
+
+replicas: 1
+image:
+  repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/ocean/self-serve-example
+  pullPolicy: IfNotPresent
+  tag: "0.1.0"

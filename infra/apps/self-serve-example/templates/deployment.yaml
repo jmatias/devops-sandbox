@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: self-serve-example
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: self-serve-example
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: self-serve-example
+    spec:
+
+      serviceAccountName: {{ include "self-serve-example.serviceAccountName" . }}
+
+      containers:
+        - name: {{ .Chart.Name }}
+
+          image: "{{ .Values.selfServeExample.image.repository }}:{{ .Values.selfServeExample.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.selfServeExample.image.pullPolicy }}
+
+          ports:
+            - containerPort: 80
+              protocol: TCP
