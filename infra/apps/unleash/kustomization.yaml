@@ -11,3 +11,4 @@ helmCharts:
 
 resources:
   - secrets.yaml
+  - vpa.yaml

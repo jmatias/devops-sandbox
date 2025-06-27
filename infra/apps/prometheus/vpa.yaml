@@ -2,13 +2,12 @@
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: unleash
-  namespace: unleash
+  name: prometheus
 spec:
   targetRef:
     apiVersion: apps/v1
-    kind: Deployment
-    name: unleash
+    kind: StatefulSet
+    name: prometheus-grafana
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
@@ -16,7 +15,7 @@ spec:
     - name: frugal
   resourcePolicy:
     containerPolicies:
-      - containerName: "unleash"
+      - containerName: "*"
         controlledResources:
           - cpu
           - memory

@@ -7,7 +7,8 @@ helmCharts:
     releaseName: prometheus
     namespace: monitoring
     valuesFile: values.yaml
-    version: 72.*
+    version: 73.*
 
 resources:
   - secrets.yaml
+  - vpa.yaml
