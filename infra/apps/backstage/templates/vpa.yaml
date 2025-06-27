@@ -23,3 +23,5 @@ spec:
         minAllowed:
           cpu: 50m
           memory: "128Mi"
+        maxAllowed:
+          memory: "200Mi"
