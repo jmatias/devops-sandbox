@@ -1,46 +1,7 @@
 apiVersion: v1
 data:
-  kubernetes-cluster-monitoring.json: |-
+  kubernetes-cluster-monitoring.json: |
     {
-      "__elements": {},
-      "__requires": [
-        {
-          "type": "panel",
-          "id": "bargauge",
-          "name": "Bar gauge",
-          "version": ""
-        },
-        {
-          "type": "grafana",
-          "id": "grafana",
-          "name": "Grafana",
-          "version": "10.4.1"
-        },
-        {
-          "type": "datasource",
-          "id": "prometheus",
-          "name": "prometheus",
-          "version": "1.0.0"
-        },
-        {
-          "type": "panel",
-          "id": "stat",
-          "name": "Stat",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "table",
-          "name": "Table",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "timeseries",
-          "name": "Time series",
-          "version": ""
-        }
-      ],
       "annotations": {
         "list": [
           {
@@ -64,43 +25,29 @@ data:
           }
         ]
       },
-      "description": "【English version】2025.01.25 Updates，kubernetesComprehensive display of resources！Includes K8S Overall Resource Overview、Microservices Resource Details、Pod Resource Details andK8SNetwork Bandwidth，Optimization metrics。https://grafana.com/orgs/starsliao/dashboards",
       "editable": true,
       "fiscalYearStartMonth": 0,
-      "gnetId": 15661,
       "graphTooltip": 0,
-      "id": null,
+      "id": 287,
       "links": [
         {
-          "icon": "bolt",
-          "tags": [],
-          "targetBlank": true,
-          "title": "Update",
-          "tooltip": "See more dashboards",
-          "type": "link",
-          "url": "https://grafana.com/orgs/starsliao/dashboards"
-        },
-        {
-          "$$hashKey": "object:831",
-          "icon": "question",
+          "asDropdown": true,
+          "icon": "external link",
+          "includeVars": false,
+          "keepTime": false,
           "tags": [
-            "node_exporter"
+            "kubernetes-mixin"
           ],
-          "targetBlank": true,
-          "title": "GitHub",
-          "tooltip": "View more dashboards",
-          "type": "link",
-          "url": "https://github.com/starsliao"
+          "targetBlank": false,
+          "title": "Kubernetes",
+          "tooltip": "",
+          "type": "dashboards",
+          "url": ""
         }
       ],
-      "liveNow": false,
       "panels": [
         {
           "collapsed": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "WAYOn0FGz"
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -127,8 +74,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "orange",
@@ -153,6 +99,12 @@ data:
           "id": 44,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -170,7 +122,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -238,8 +190,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "orange",
@@ -264,6 +215,12 @@ data:
           "id": 45,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -281,7 +238,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -345,8 +302,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "orange",
@@ -371,6 +327,12 @@ data:
           "id": 74,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -388,7 +350,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -454,8 +416,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -565,7 +526,7 @@ data:
               }
             ]
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -698,6 +659,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 30,
                 "gradientMode": "opacity",
@@ -732,8 +694,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -763,11 +724,12 @@ data:
               "width": 200
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -821,8 +783,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "orange",
@@ -847,6 +808,12 @@ data:
           "id": 71,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -864,7 +831,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -933,8 +900,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "#EAB839",
@@ -959,6 +925,12 @@ data:
           "id": 72,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -976,7 +948,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1045,8 +1017,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "#EAB839",
@@ -1084,8 +1055,7 @@ data:
                       "mode": "percentage",
                       "steps": [
                         {
-                          "color": "green",
-                          "value": null
+                          "color": "green"
                         },
                         {
                           "color": "orange",
@@ -1123,6 +1093,12 @@ data:
           "id": 73,
           "options": {
             "displayMode": "basic",
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
             "maxVizHeight": 300,
             "minVizHeight": 10,
             "minVizWidth": 0,
@@ -1140,7 +1116,7 @@ data:
             "text": {},
             "valueMode": "color"
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1194,8 +1170,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1337,6 +1312,7 @@ data:
               "refId": "A"
             }
           ],
+          "title": "",
           "transformations": [
             {
               "id": "renameByRegex",
@@ -1365,6 +1341,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 15,
                 "gradientMode": "opacity",
@@ -1395,8 +1372,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1443,11 +1419,12 @@ data:
               "showLegend": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1521,6 +1498,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 15,
                 "gradientMode": "opacity",
@@ -1551,8 +1529,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1599,11 +1576,12 @@ data:
               "showLegend": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1678,6 +1656,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 15,
                 "gradientMode": "opacity",
@@ -1708,8 +1687,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1783,11 +1761,12 @@ data:
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1850,6 +1829,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -1880,8 +1860,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1928,11 +1907,12 @@ data:
               "showLegend": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -1969,6 +1949,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -1999,8 +1980,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2031,11 +2011,12 @@ data:
               "showLegend": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -2072,6 +2053,7 @@ data:
                 "axisLabel": "←Inflow/Outflow→",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -2103,8 +2085,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2148,11 +2129,12 @@ data:
               "showLegend": false
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -2544,7 +2526,7 @@ data:
               }
             ]
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -3141,7 +3123,7 @@ data:
               }
             ]
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -3263,6 +3245,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -3326,11 +3309,12 @@ data:
               "sortDesc": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -3370,6 +3354,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -3434,11 +3419,12 @@ data:
               "sortDesc": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "desc"
             }
           },
-          "pluginVersion": "10.4.1",
+          "pluginVersion": "12.0.2",
           "targets": [
             {
               "datasource": {
@@ -3462,10 +3448,6 @@ data:
         },
         {
           "collapsed": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "WAYOn0FGz"
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -3503,8 +3485,7 @@ data:
                 "mode": "percentage",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "#EAB839",
@@ -3575,8 +3556,7 @@ data:
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "green",
-                          "value": null
+                          "color": "green"
                         },
                         {
                           "color": "#EAB839",
@@ -3858,8 +3838,7 @@ data:
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "green",
-                          "value": null
+                          "color": "green"
                         },
                         {
                           "color": "orange",
@@ -4403,8 +4382,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4510,8 +4488,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4649,8 +4626,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4804,8 +4780,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -4946,8 +4921,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -5087,8 +5061,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -5146,10 +5119,6 @@ data:
         },
         {
           "collapsed": true,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "WAYOn0FGz"
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
@@ -6560,26 +6529,26 @@ data:
           "type": "row"
         }
       ],
+      "preload": false,
       "refresh": "",
-      "schemaVersion": 39,
+      "schemaVersion": 41,
       "tags": [
-        "Prometheus",
-        "Kubernetes"
+        "kubernetes-mixin"
       ],
       "templating": {
         "list": [
           {
-            "allValue": "",
-            "current": {},
+            "current": {
+              "text": "",
+              "value": ""
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
             "definition": "label_values(kube_node_info,origin_prometheus)",
-            "hide": 0,
             "includeAll": false,
             "label": "K8S",
-            "multi": false,
             "name": "origin_prometheus",
             "options": [],
             "query": {
@@ -6588,25 +6557,22 @@ data:
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 5,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           },
           {
             "allValue": ".*",
-            "current": {},
+            "current": {
+              "text": "All",
+              "value": "$__all"
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
             "definition": "label_values(kube_node_info{origin_prometheus=~\"$origin_prometheus\"},node)",
-            "hide": 0,
             "includeAll": true,
             "label": "Nodes",
-            "multi": false,
             "name": "Node",
             "options": [],
             "query": {
@@ -6615,25 +6581,22 @@ data:
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 5,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           },
           {
             "allValue": ".*",
-            "current": {},
+            "current": {
+              "text": "All",
+              "value": "$__all"
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
             "definition": "label_values(kube_namespace_created{origin_prometheus=~\"$origin_prometheus\"},namespace)",
-            "hide": 0,
             "includeAll": true,
             "label": "Namespace",
-            "multi": false,
             "name": "NameSpace",
             "options": [],
             "query": {
@@ -6642,25 +6605,22 @@ data:
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 5,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           },
           {
             "allValue": ".*",
-            "current": {},
+            "current": {
+              "text": "All",
+              "value": "$__all"
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
             "definition": "label_values(kube_pod_container_info{origin_prometheus=~\"$origin_prometheus\",namespace=~\"$NameSpace\"},container)",
-            "hide": 0,
             "includeAll": true,
             "label": "Microservice (Container Name)",
-            "multi": false,
             "name": "Container",
             "options": [],
             "query": {
@@ -6669,25 +6629,22 @@ data:
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 5,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           },
           {
             "allValue": ".*",
-            "current": {},
+            "current": {
+              "text": "All",
+              "value": "$__all"
+            },
             "datasource": {
               "type": "prometheus",
               "uid": "prometheus"
             },
             "definition": "label_values(kube_pod_container_info{origin_prometheus=~\"$origin_prometheus\",namespace=~\"$NameSpace\",container=~\"$Container\"},pod)",
-            "hide": 0,
             "includeAll": true,
             "label": "Pod",
-            "multi": false,
             "name": "Pod",
             "options": [],
             "query": {
@@ -6696,12 +6653,8 @@ data:
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 5,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           }
         ]
       },
@@ -6717,27 +6670,15 @@ data:
           "15m",
           "30m",
           "1h"
-        ],
-        "time_options": [
-          "5m",
-          "15m",
-          "1h",
-          "6h",
-          "12h",
-          "24h",
-          "2d",
-          "7d",
-          "30d"
         ]
       },
       "timezone": "browser",
-      "title": "K8S Dashboard",
-      "version": 8
+      "title": "Kubernetes / K8S",
+      "uid": "cfed255f-feee-46d4-a468-c36f5a20e3ca",
+      "version": 4
     }
 kind: ConfigMap
 metadata:
-
+  name: prometheus-grafana-dashboard-13106
   labels:
     grafana_dashboard: "1"
-  name: prometheus-grafana-dashboard-13106
-  namespace: monitoring

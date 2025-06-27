@@ -45,13 +45,13 @@ backstage:
       operator: "Equal"
       value: "true"
       effect: "NoSchedule"
-  resources:
-    limits:
-      memory: 2Gi
-      cpu: 1200m
-    requests:
-      memory: 512Mi
-      cpu: 500m
+  resources: {}
+#    limits:
+#      memory: 2Gi
+#      cpu: 1200m
+#    requests:
+#      memory: 512Mi
+#      cpu: 500m
   podLabels:
     env: fargate
   containerPorts:

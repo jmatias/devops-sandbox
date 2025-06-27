@@ -9,10 +9,10 @@ serviceAccount:
   automount: true
   annotations: { }
 
-resources:
-  requests:
-    cpu: 250m
-    memory: 250m
+resources: {}
+#  requests:
+#    cpu: 250m
+#    memory: 250m
 
 livenessProbe:
   httpGet:

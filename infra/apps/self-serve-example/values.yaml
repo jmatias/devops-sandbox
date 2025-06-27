@@ -6,10 +6,10 @@ fullnameOverride: ""
 serviceAccount:
   create: false
 
-resources:
-  requests:
-    cpu: 50m
-    memory: 100Mi
+resources: {}
+#  requests:
+#    cpu: 50m
+#    memory: 100Mi
 replicas: 2
 image:
   repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/ocean/self-serve-example
