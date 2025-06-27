@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - vpa.yaml
-  - recommenders.yaml
+#  - recommenders.yaml

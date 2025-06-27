@@ -159,6 +159,8 @@ fileignoreconfig:
   checksum: 5e10ff98a843ebbe486161b37a9a76c30aa4c4643edeb37230adff15129995d4
 - filename: infra/apps/prometheus/grafana-dashboard-13105-cm.yaml
   checksum: d7a973950a919f511c46f82f2f83739614fa5c7f8de894ec518b423ce8c69d78
+- filename: infra/apps/prometheus/grafana-dashboard-15661-cm.yaml
+  checksum: 5944e52ff98b4ea4043d0eb7672239fd0266eb4d769103ae3250044f7e0f5977
 - filename: infra/apps/prometheus/secrets.yaml
   checksum: b1607556fffa91fbf3ef20a5132f1a546a4751f3ed5b8138ebe8b54c2d825bdb
 - filename: infra/apps/prometheus/values.yaml

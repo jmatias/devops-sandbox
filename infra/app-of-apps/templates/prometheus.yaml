@@ -29,7 +29,7 @@ spec:
     {{ if .Values.prometheus.autoSync }}
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
     {{ end }}
 
     retry:
