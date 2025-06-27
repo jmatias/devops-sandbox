@@ -1,5 +1,9 @@
-#global:
+global:
+  storageClass: "auto-ebs-sc"
+  defaultStorageClass: "auto-ebs-sc"
 #  imageRegistry:
+
+
 
 # Default configuration for pre-requisites to get you started
 # Copy this file and update to the configuration of choice
@@ -33,7 +37,7 @@ elasticsearch:
   # Request smaller persistent volumes.
   volumeClaimTemplate:
     accessModes: [ "ReadWriteOnce" ]
-    storageClassName: "gp2"
+    storageClassName: "auto-ebs-sc"
     resources:
       requests:
         storage: 100M
@@ -114,7 +118,7 @@ kafka:
   controller:
     replicaCount: 0
     logPersistence:
-      storageClass: gp2
+      storageClass: auto-ebs-sc
   broker:
     tolerations:
       - key: "spotInstance"
@@ -122,7 +126,7 @@ kafka:
         value: "true"
         effect: "NoSchedule"
     persistence:
-      storageClass: gp2
+      storageClass: auto-ebs-sc
     replicaCount: 1
     # The new minId for broker is 100. If we don't override this, the broker will have id 100
     # and cannot load the partitions. So we set minId to 0 to be backwards compatible
@@ -140,7 +144,7 @@ kafka:
   zookeeper:
     enabled: true
     persistence:
-      storageClass: "gp2"
+      storageClass: "auto-ebs-sc"
 
     tolerations:
       - key: "spotInstance"

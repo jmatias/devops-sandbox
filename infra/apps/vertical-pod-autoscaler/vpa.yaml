@@ -1,54 +1,87 @@
----
-  apiVersion: autoscaling.k8s.io/v1
-  kind: VerticalPodAutoscaler
-  metadata:
-    name: elasticsearch-es-default
-    namespace: elastic-stack
-  spec:
-    targetRef:
-      apiVersion: apps/v1
-      kind: StatefulSet
-      name: elasticsearch-es-default
-    updatePolicy:
-      updateMode: "Recreate"
-      minReplicas: 1
-    resourcePolicy:
-      containerPolicies:
-        - minAllowed:
-            cpu: 250m
-          containerName: elasticsearch
-    recommenders:
-      - name: frugal
----
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: kibana-kb
-  namespace: elastic-stack
+  name: vpa-recommender-frugal
+  namespace: kube-system
 spec:
   targetRef:
-    apiVersion: kibana.k8s.elastic.co/v1
-    kind: Kibana
-    name: kibana
+    apiVersion: apps/v1
+    kind: Deployment
+    name: vpa-recommender-frugal
   updatePolicy:
-    updateMode: "Recreate"
+    updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: default
+    - name: frugal
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "recommender"
+        controlledResources:
+          - cpu
+          - memory
+        controlledValues: "RequestsAndLimits"
+        minAllowed:
+          cpu: 50m
+          memory: "128Mi"
+        maxAllowed:
+          memory: "256Mi"
+
+---
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: vpa-recommender
+  namespace: kube-system
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: vpa-recommender
+  updatePolicy:
+    updateMode: "InPlaceOrRecreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"
+        controlledResources:
+          - cpu
+          - memory
+        controlledValues: "RequestsAndLimits"
+        minAllowed:
+          cpu: 50m
+          memory: "100Mi"
+        maxAllowed:
+          memory: "256Mi"
+
 
 ---
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: unleash
-  namespace: unleash
+  name: vpa-updater
+  namespace: kube-system
 spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: unleash
+    name: vpa-updater
   updatePolicy:
-    updateMode: "Recreate"
+    updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
     - name: frugal
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"
+        controlledResources:
+          - cpu
+          - memory
+        controlledValues: "RequestsAndLimits"
+        minAllowed:
+          cpu: 25m
+          memory: "75Mi"
+        maxAllowed:
+          memory: "128Mi"

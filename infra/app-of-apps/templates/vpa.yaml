@@ -1,13 +1,13 @@
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: backstage
-  namespace: backstage
+  name: metrics-server
+  namespace: kube-system
 spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: backstage
+    name: metrics-server
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
@@ -15,7 +15,7 @@ spec:
     - name: frugal
   resourcePolicy:
     containerPolicies:
-      - containerName: "backstage-backend"
+      - containerName: "metrics-server"
         controlledResources:
           - cpu
           - memory
@@ -23,3 +23,5 @@ spec:
         minAllowed:
           cpu: 50m
           memory: "128Mi"
+        maxAllowed:
+          memory: "300Mi"

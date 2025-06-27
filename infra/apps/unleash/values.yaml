@@ -5,7 +5,7 @@ global:
 image:
   repository: public.ecr.aws/unleashorg/unleash-server
 
-replicaCount: 2
+replicaCount: 0
 
 tolerations:
   - key: "spotInstance"

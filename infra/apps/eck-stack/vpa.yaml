@@ -1,0 +1,71 @@
+---
+  apiVersion: autoscaling.k8s.io/v1
+  kind: VerticalPodAutoscaler
+  metadata:
+    name: elasticsearch-es-default
+    namespace: elastic-stack
+  spec:
+    targetRef:
+      apiVersion: apps/v1
+      kind: StatefulSet
+      name: elasticsearch-es-default
+    updatePolicy:
+      updateMode: "Recreate"
+      minReplicas: 1
+    resourcePolicy:
+      containerPolicies:
+        - minAllowed:
+            cpu: 200m
+          containerName: elasticsearch
+    recommenders:
+      - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: kibana-kb
+  namespace: elastic-stack
+spec:
+  targetRef:
+    apiVersion: kibana.k8s.elastic.co/v1
+    kind: Kibana
+    name: kibana
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: metricbeat-beat-metricbeat
+  namespace: elastic-stack
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: DaemonSet
+    name: metricbeat-beat-metricbeat
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: filebeat-beat-filebeat
+  namespace: elastic-stack
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: DaemonSet
+    name: filebeat-beat-filebeat
+  updatePolicy:
+    updateMode: "Recreate"
+    minReplicas: 1
+  recommenders:
+    - name: frugal

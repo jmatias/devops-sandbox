@@ -1,0 +1,26 @@
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Chart.Name }}
+  updatePolicy:
+    updateMode: InPlaceOrRecreate
+    minReplicas: 1
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"
+        minAllowed:
+          cpu: 1m
+          memory: 10Mi
+        maxAllowed:
+          cpu: 200m
+          memory: 100Mi
+        controlledResources: [ "cpu", "memory" ]
+        controlledValues: RequestsAndLimits
+  recommenders:
+    - name: frugal

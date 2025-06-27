@@ -34,7 +34,7 @@ startupProbe:
   periodSeconds: 10
   failureThreshold: 30
 
-replicas: 1
+replicas: 2
 
 environment: "aws"
 

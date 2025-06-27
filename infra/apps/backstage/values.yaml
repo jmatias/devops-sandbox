@@ -195,7 +195,6 @@ backstage:
     periodSeconds: 10
     successThreshold: 2
     timeoutSeconds: 2
-    readinessProbe:
 
   livenessProbe:
     failureThreshold: 3
@@ -203,7 +202,7 @@ backstage:
       path: /.backstage/health/v1/liveness
       port: 7007
       scheme: HTTP
-    initialDelaySeconds: 60
+    initialDelaySeconds: 30
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 2
@@ -214,7 +213,7 @@ backstage:
       path: /.backstage/health/v1/liveness
       port: 7007
       scheme: HTTP
-    initialDelaySeconds: 60
+    initialDelaySeconds: 120
     periodSeconds: 10
     successThreshold: 1
     timeoutSeconds: 2
