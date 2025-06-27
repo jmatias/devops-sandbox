@@ -1,6 +1,6 @@
 global:
-  defaultStorageClass: gp2
-  storageClass: gp2
+  defaultStorageClass: auto-ebs-sc
+  storageClass: auto-ebs-sc
 
 image:
   repository: public.ecr.aws/unleashorg/unleash-server

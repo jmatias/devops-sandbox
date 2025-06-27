@@ -72,7 +72,7 @@ neo4j:
       mode: "defaultStorageClass"
 
       defaultStorageClass:
-        storageClassName: "gp2"
+        storageClassName: "auto-ebs-sc"
       # mode: "dynamic"
       # dynamic:
       #   storageClassName: managed-csi-premium
@@ -83,8 +83,8 @@ neo4j:
 mysql:
   enabled: true
   global:
-    storageClass: "gp2"
-    defaultStorageClass: "gp2"
+    storageClass: ""
+    defaultStorageClass: ""
   image:
     tag: 8.0.32-debian-11-r26
   auth:
@@ -104,8 +104,8 @@ mysql:
 kafka:
   enabled: true
   global:
-    storageClass: "gp2"
-    defaultStorageClass: "gp2"
+    storageClass: "auto-ebs-sc"
+    defaultStorageClass: "auto-ebs-sc"
   listeners:
     client:
       protocol: PLAINTEXT

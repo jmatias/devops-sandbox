@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/rules/0/host
-  value: argocd.tw-ocean.com
+  value: argo.tw-ocean.com
 
 - op: add
   path: /metadata/annotations

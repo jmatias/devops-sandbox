@@ -1,6 +1,6 @@
 global:
-  defaultStorageClass: gp2
-  storageClass: gp2
+  defaultStorageClass: auto-ebs-sc
+  storageClass: auto-ebs-sc
   imagePullSecrets:
     - dockerhub-secret
 
@@ -10,9 +10,8 @@ postgresql:
   image:
     repository: bitnami/postgresql
     tag: 15.4.0-debian-11-r10
-  global:
-    defaultStorageClass: gp2
-    storageClass: gp2
+    defaultStorageClass: auto-ebs-sc
+    storageClass: auto-ebs-sc
   enabled: true
   auth:
     username: backstage

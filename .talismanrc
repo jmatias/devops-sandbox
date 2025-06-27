@@ -33,10 +33,14 @@ fileignoreconfig:
   checksum: 4b953659150a85174f164f6c98295053e1fa2a541dc57599dbf43318358c9df6
 - filename: infra/apps/argocd-image-updater/values.yaml
   checksum: f0b42005bedaaade5c3f1c6024111ecacae659def20caf239f9a1bbddc17d258
+- filename: infra/apps/argocd/overlays/aws/argocd-cm.yaml
+  checksum: f2efbec6176891e57d3cb017209e73a2135d365764a17ebd36d4e495c737cb1d
 - filename: infra/apps/argocd/overlays/aws/controller.yaml
   checksum: e39388f2845278164708a23009de4d1c5608791acac012f9747bca009b7d9233
 - filename: infra/apps/argocd/overlays/aws/deployment.yaml
   checksum: 97ee229b5148bec52c3a5bf597dc120c00e10fe22223efc6c9aac780a5348f28
+- filename: infra/apps/argocd/overlays/aws/github-oauth-secret.yaml
+  checksum: dbbdc92c328267cbb707cab07428f80a25b3783d9bdddb2b7d02d0d062565fa6
 - filename: infra/apps/backstage/templates/secrets.yaml
   checksum: 4b2e103ce7d4a9adbebee8ab4608e31a5880a12427e13de5fbabf4c375cf4545
 - filename: infra/apps/backstage/values_override.yaml

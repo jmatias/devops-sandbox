@@ -9,3 +9,14 @@ data:
   application.resourceTrackingMethod: annotation
   accounts.javier: apiKey, login
   accounts.admin: apiKey, login
+  dex.config: |
+    connectors:
+      # GitHub example
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: $argocd-secret:dex.github.clientID
+          clientSecret: $argocd-secret:dex.github.clientSecret # Alternatively $<some_K8S_secret>:dex.github.clientSecret
+          orgs:
+          - name: jmatias

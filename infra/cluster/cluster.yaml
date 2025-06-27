@@ -172,6 +172,7 @@ addons:
     version: latest
     wellKnownPolicies:
       ebsCSIController: true
+    resolveConflicts: overwrite
 
 
   - name: aws-mountpoint-s3-csi-driver
