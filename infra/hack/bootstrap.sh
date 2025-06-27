@@ -49,5 +49,5 @@ set -e
 install_argocd
 install_apps
 
-pushd $HOME/work/external-repos/autoscaler/vertical-pod-autoscaler/hack
-./vpa-up.sh
+#pushd $HOME/work/external-repos/autoscaler/vertical-pod-autoscaler/hack
+#./vpa-up.sh

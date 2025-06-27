@@ -7,4 +7,4 @@ metadata:
 data:
   server.insecure: "true"
   server.rootpath: ""
-  controller.sync.delay: "30"
+  controller.sync.delay: "20"

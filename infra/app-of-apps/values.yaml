@@ -15,7 +15,7 @@ argocd:
 
 albIngressController:
   autoSync: true
-  enabled: true
+  enabled: false
 
 argocdImageUpdater:
   enabled: true

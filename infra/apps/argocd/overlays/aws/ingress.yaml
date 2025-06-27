@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/rules/0/host
-  value: argo.tw-ocean.com
+  value: argocd.tw-ocean.com
 
 - op: add
   path: /metadata/annotations
@@ -10,7 +10,7 @@
     external-dns.alpha.kubernetes.io/ttl: "60"
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
-    alb.ingress.kubernetes.io/group.name: "prod-external"
+    alb.ingress.kubernetes.io/group.name: "sandbox-external"
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
