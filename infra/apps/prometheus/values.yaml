@@ -1129,7 +1129,7 @@ grafana:
 
   grafana.ini:
     server:
-      root_url: "https://grafana.tw-javier.work"
+      root_url: "https://grafana.tw-ocean.com"
 
   annotations:
     reloader.stakater.com/auto: "true"
@@ -1141,7 +1141,7 @@ grafana:
     GF_AUTH_GITHUB_AUTH_URL: "https://github.com/login/oauth/authorize"
     GF_AUTH_GITHUB_TOKEN_URL: "https://github.com/login/oauth/access_token"
     GF_AUTH_GITHUB_API_URL: "https://api.github.com/user"
-    GF_AUTH_SIGNOUT_REDIRECT_URL: "https://grafana.tw-javier.work"
+    GF_AUTH_SIGNOUT_REDIRECT_URL: "https://grafana.tw-ocean.com"
 
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
   ##
@@ -1200,7 +1200,7 @@ grafana:
       alb.ingress.kubernetes.io/target-type: 'ip'
       alb.ingress.kubernetes.io/group.name: "prod-external"
       alb.ingress.kubernetes.io/healthcheck-path: /healthz
-      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/f3618733-cee3-4704-8bb3-2ba753cbd56e
       alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
       # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -1215,7 +1215,7 @@ grafana:
     # hosts:
     #   - grafana.domain.com
     hosts:
-      - grafana.tw-javier.work
+      - grafana.tw-ocean.com
 
     ## Path for grafana ingress
     path: /
@@ -1352,5 +1352,5 @@ grafana:
     ipFamilies: [ ]
     ipFamilyPolicy: ""
     annotations:
-      external-dns.alpha.kubernetes.io/hostname: grafana.tw-javier.work
+      external-dns.alpha.kubernetes.io/hostname: grafana.tw-ocean.com
       external-dns.alpha.kubernetes.io/ttl: "60"

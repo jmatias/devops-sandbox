@@ -20,7 +20,7 @@ ingress:
   enabled: true
   className: alb
   path: /
-  host: "backstage.tw-javier.work"
+  host: "backstage.tw-ocean.com"
   tls:
     enabled: false
     secretName: "backstage-tls"
@@ -29,7 +29,7 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/group.name: "prod-external"
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/f3618733-cee3-4704-8bb3-2ba753cbd56e
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
 service:
@@ -37,7 +37,7 @@ service:
   ports:
     backend: 7007
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: backstage.tw-javier.work
+    external-dns.alpha.kubernetes.io/hostname: backstage.tw-ocean.com
     external-dns.alpha.kubernetes.io/ttl: "60"
 
 backstage:

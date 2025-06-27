@@ -21,10 +21,10 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: 'ip'
     alb.ingress.kubernetes.io/group.name: "prod-external"
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/f3618733-cee3-4704-8bb3-2ba753cbd56e
     alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
   hosts:
-    - host: "feature-toggles.tw-javier.work"
+    - host: "feature-toggles.tw-ocean.com"
       paths:
         - path: /
           pathType: Prefix
@@ -49,7 +49,7 @@ service:
   type: ClusterIP
   port: 4242
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: feature-toggles.tw-javier.work
+    external-dns.alpha.kubernetes.io/hostname: feature-toggles.tw-ocean.com
     external-dns.alpha.kubernetes.io/ttl: "60"
 
 dbConfig:
@@ -73,7 +73,7 @@ env:
   - name: SEND_TELEMETRY
     value: "false"
   - name: UNLEASH_URL
-    value: "https://feature-toggles.tw-javier.work"
+    value: "https://feature-toggles.tw-ocean.com"
 
 podLabels:
     env: fargate

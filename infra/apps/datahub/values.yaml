@@ -33,7 +33,7 @@ datahub-gms:
   service:
     type: ClusterIP
     annotations:
-      external-dns.alpha.kubernetes.io/hostname: datahub-gms.tw-javier.work
+      external-dns.alpha.kubernetes.io/hostname: datahub-gms.tw-ocean.com
       external-dns.alpha.kubernetes.io/ttl: "60"
   ingress:
     enabled: false
@@ -43,11 +43,11 @@ datahub-gms:
       alb.ingress.kubernetes.io/target-type: 'ip'
       alb.ingress.kubernetes.io/group.name: "prod-external"
       alb.ingress.kubernetes.io/healthcheck-path: /health
-      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/f3618733-cee3-4704-8bb3-2ba753cbd56e
       alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
     hosts:
-      - host: datahub-gms.tw-javier.work
+      - host: datahub-gms.tw-ocean.com
         paths:
           - /
     pathType: Prefix
@@ -108,11 +108,11 @@ datahub-frontend:
       alb.ingress.kubernetes.io/target-type: 'ip'
       alb.ingress.kubernetes.io/group.name: "prod-external"
       alb.ingress.kubernetes.io/healthcheck-path: /health
-      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/2011e861-aed4-447e-b55c-7d3c56155d37
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/f3618733-cee3-4704-8bb3-2ba753cbd56e
       alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
     hosts:
-      - host: datahub.tw-javier.work
+      - host: datahub.tw-ocean.com
         paths:
           - /
     pathType: Prefix
@@ -120,7 +120,7 @@ datahub-frontend:
   service:
     type: ClusterIP
     annotations:
-      external-dns.alpha.kubernetes.io/hostname: datahub.tw-javier.work
+      external-dns.alpha.kubernetes.io/hostname: datahub.tw-ocean.com
       external-dns.alpha.kubernetes.io/ttl: "60"
     extraLabels: {}
 

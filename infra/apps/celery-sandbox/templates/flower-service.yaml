@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: flower-ui
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: flower.tw-javier.work
+    external-dns.alpha.kubernetes.io/hostname: flower.tw-ocean.com
     external-dns.alpha.kubernetes.io/ttl: "60"
 spec:
   selector:

@@ -39,3 +39,13 @@ spec:
     message ExampleMessage {
       string example = 1;
     };
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: example-website-2
+spec:
+  type: website
+  lifecycle: experimental
+  owner: admin
+  system: examples
