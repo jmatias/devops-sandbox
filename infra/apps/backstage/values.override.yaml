@@ -56,7 +56,7 @@ backstage:
     env: fargate
   containerPorts:
     backend: 7007
-  replicas: 2
+  replicas: 1
   image:
     registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com
     repository: javier/backstage

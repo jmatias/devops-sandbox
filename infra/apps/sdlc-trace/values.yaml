@@ -34,7 +34,7 @@ startupProbe:
   periodSeconds: 10
   failureThreshold: 30
 
-replicas: 2
+replicas: 1
 
 environment: "aws"
 
@@ -46,4 +46,4 @@ persistence:
   accessModes:
     - ReadWriteOnce
   size: 1Gi
-  storageClass: standard
+  storageClass: auto-ebs-sc
