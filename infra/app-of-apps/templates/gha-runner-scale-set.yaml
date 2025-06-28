@@ -11,7 +11,6 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/actions-runner:^0.12
     argocd-image-updater.argoproj.io/update-strategy: semver
     argocd.argoproj.io/sync-wave: "2"
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
 
   finalizers:
     - resources-finalizer.argocd.argoproj.io

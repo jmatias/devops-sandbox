@@ -31,7 +31,7 @@ ingress:
   tls: [ ]
 
 imagePullSecrets:
-    - name: dockerhub-secret
+  - name: dockerhub-secret
 
 existingSecrets:
   - name: UNLEASH_DEFAULT_ADMIN_PASSWORD
@@ -76,7 +76,7 @@ env:
     value: "https://feature-toggles.tw-ocean.com"
 
 podLabels:
-    env: fargate
+  env: fargate
 
 
 readinessProbe:
@@ -99,3 +99,11 @@ startupProbe:
   periodSeconds: 10
   successThreshold: 1
   timeoutSeconds: 2
+
+resources:
+  limits:
+    cpu:
+    memory:
+  requests:
+    cpu:
+    memory:

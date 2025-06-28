@@ -194,10 +194,33 @@ addons:
       certManager: true
     configurationValues: |-
       replicaCount: 1
+
+      resources:
+        limits:
+          memory:
+        requests:
+          cpu:
+          memory:
+      
       cainjector:
         replicaCount: 1
+        resources:
+          limits:
+            memory:
+          requests:
+            cpu:
+            memory:
       webhook:
         replicaCount: 1
+        resources:
+          limits:
+            memory:
+          requests:
+            cpu:
+            memory:
+
+
+      resources: {}
     resolveConflicts: overwrite
 
   - name: eks-pod-identity-agent
