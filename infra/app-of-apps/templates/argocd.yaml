@@ -16,7 +16,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: infra/apps/argocd/overlays/{{ .Values.environment }}
+    path: infra/apps/argocd/overlays/aws
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
 
