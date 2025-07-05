@@ -93,10 +93,7 @@ spec:
                 valueFrom:
                   fieldRef:
                     fieldPath: spec.nodeName
-            resources:
-              requests:
-                cpu: 50m
-                memory: 200Mi
+            resources: {}
         dnsPolicy: ClusterFirstWithHostNet
         hostNetwork: true # Allows to provide richer host metadata
         securityContext:

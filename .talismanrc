@@ -145,6 +145,8 @@ fileignoreconfig:
   checksum: 492536f62a3413ca0c4e6320b6a7c2e43abdf23426aad690cc41ec08b0fcf502
 - filename: infra/apps/days-since/templates/deployment.yaml
   checksum: 4b65fe9db82dfcc9ae4ada0d16f6c09661e49e4b3241b735e9c03522cfb8ef80
+- filename: infra/apps/descheduler/values.yaml
+  checksum: e841a064eeca73cf670ef3115a8fcdd304fc139aa29393db28216c7e97cbc114
 - filename: infra/apps/eck-operator/values.yaml
   checksum: 58dabf99727446466e17667ac3775fa957536aada080775352836dbb510b1f29
 - filename: infra/apps/eck-stack/filebeat_autodiscover_by_metadata.yaml

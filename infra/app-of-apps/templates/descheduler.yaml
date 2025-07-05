@@ -16,14 +16,17 @@ spec:
     namespace: kube-system
     server: https://kubernetes.default.svc
   project: default
-  source:
-    chart: descheduler
-    repoURL: https://kubernetes-sigs.github.io/descheduler/
-    targetRevision: 0.*
-    helm:
-      releaseName: descheduler
-      valuesObject:
-        deschedulingInterval: 1m
+  sources:
+    - chart: descheduler
+      repoURL: https://kubernetes-sigs.github.io/descheduler/
+      targetRevision: 0.*
+      helm:
+        releaseName: descheduler
+        valueFiles:
+          - $values/infra/apps/descheduler/values.yaml
+    - repoURL: {{ .Values.spec.source.repoURL }}
+      targetRevision: {{ .Values.spec.source.targetRevision }}
+      ref: values
 
 
   syncPolicy:
