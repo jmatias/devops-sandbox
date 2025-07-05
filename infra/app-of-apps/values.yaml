@@ -57,6 +57,10 @@ daysSince:
   image:
     tag: "0.*"
 
+descheduler:
+  enabled: true
+  autoSync: true
+
 externalSecrets:
   enabled: true
   autoSync: true
@@ -93,7 +97,7 @@ unleash:
     tag: "latest"
 
 vpa:
-    enabled: false
-    autoSync: true
-    image:
-        tag: "latest"
+  enabled: false
+  autoSync: true
+  image:
+    tag: "latest"

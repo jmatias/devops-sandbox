@@ -1,0 +1,44 @@
+{{- if .Values.descheduler.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: descheduler
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: registry.k8s.io/descheduler/descheduler
+    argocd-image-updater.argoproj.io/update-strategy: semver
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: descheduler
+    repoURL: https://kubernetes-sigs.github.io/descheduler/
+    targetRevision: 0.*
+    helm:
+      releaseName: descheduler
+
+
+  syncPolicy:
+    syncOptions:
+      - Prune=true
+
+    {{ if .Values.descheduler.autoSync }}
+    automated:
+      prune: true
+      selfHeal: true
+    {{ end }}
+
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
+      limit: 2
+
+{{- end }}
