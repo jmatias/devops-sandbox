@@ -6,8 +6,6 @@ spec:
     targetRevision: main
 
 
-environment: "aws"
-
 argocd:
   autoSync: true
   ingress:
@@ -66,7 +64,7 @@ externalSecrets:
     tag: "latest"
 
 eckOperator:
-  enabled: false
+  enabled: true
   autoSync: true
 
 prometheus:
@@ -95,7 +93,7 @@ unleash:
     tag: "latest"
 
 vpa:
-    enabled: true
+    enabled: false
     autoSync: true
     image:
         tag: "latest"

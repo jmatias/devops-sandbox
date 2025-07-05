@@ -100,10 +100,4 @@ startupProbe:
   successThreshold: 1
   timeoutSeconds: 2
 
-resources:
-  limits:
-    cpu:
-    memory:
-  requests:
-    cpu:
-    memory:
+resources: {}
