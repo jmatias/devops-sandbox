@@ -58,7 +58,7 @@ daysSince:
     tag: "0.*"
 
 descheduler:
-  enabled: true
+  enabled: false
   autoSync: true
 
 externalSecrets:
