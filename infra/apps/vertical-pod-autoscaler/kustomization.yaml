@@ -8,4 +8,5 @@ resources:
   - prometheus-vpa.yaml
   - recommenders.yaml
   - self-serve-example-vpa.yaml
+  - unleash-vpa.yaml
   - vpa.yaml
