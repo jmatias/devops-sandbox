@@ -214,6 +214,9 @@ addons:
 
   - name: coredns
     version: latest
+    configurationValues: |-
+      replicaCount: 2
+    resolveConflicts: overwrite
 
   - name: kube-proxy
     version: latest
