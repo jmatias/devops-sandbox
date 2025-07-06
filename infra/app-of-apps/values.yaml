@@ -30,7 +30,7 @@ appOfApps:
   autoSync: true
 
 backstage:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
@@ -68,7 +68,7 @@ externalSecrets:
     tag: "latest"
 
 eckOperator:
-  enabled: true
+  enabled: false
   autoSync: true
 
 prometheus:
