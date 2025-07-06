@@ -2,5 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - argocd-vpa.yaml
+  - backstage-vpa.yaml
+  - metrics-server-vpas.yaml
+  - prometheus-vpa.yaml
+  - recommenders.yaml
+  - self-serve-example-vpa.yaml
   - vpa.yaml
-#  - recommenders.yaml
