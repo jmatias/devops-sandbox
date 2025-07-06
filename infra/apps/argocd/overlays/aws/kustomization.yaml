@@ -7,7 +7,6 @@ resources:
   - ../../base
   - github-oauth-secret.yaml
   - ingress-class.yaml
-  - vpa.yaml
 
 patches:
   - path: controller.yaml
