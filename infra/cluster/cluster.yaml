@@ -173,7 +173,9 @@ addons:
     wellKnownPolicies:
       ebsCSIController: true
     resolveConflicts: overwrite
-
+    configurationValues: |-
+      controller:
+        resources: {}
 
   - name: aws-mountpoint-s3-csi-driver
     version: latest
@@ -193,34 +195,18 @@ addons:
     wellKnownPolicies:
       certManager: true
     configurationValues: |-
-      replicaCount: 1
-
-      resources:
-        limits:
-          memory:
-        requests:
-          cpu:
-          memory:
-      
-      cainjector:
-        replicaCount: 1
-        resources:
-          limits:
-            memory:
-          requests:
-            cpu:
-            memory:
-      webhook:
-        replicaCount: 1
-        resources:
-          limits:
-            memory:
-          requests:
-            cpu:
-            memory:
-
+      replicaCount: 2
 
       resources: {}
+
+      cainjector:
+        replicaCount: 2
+        resources: {}
+
+      webhook:
+        replicaCount: 2
+        resources: {}
+
     resolveConflicts: overwrite
 
   - name: eks-pod-identity-agent

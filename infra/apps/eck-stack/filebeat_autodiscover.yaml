@@ -30,8 +30,8 @@ spec:
                     symlinks: true
                 file_identity.fingerprint: ~
     processors:
-      - add_cloud_metadata: {}
-      - add_host_metadata: {}
+      - add_cloud_metadata: { }
+      - add_host_metadata: { }
   daemonSet:
     podTemplate:
       spec:
@@ -58,7 +58,8 @@ spec:
                 valueFrom:
                   fieldRef:
                     fieldPath: spec.nodeName
-            resources: {}
+            resources:
+              requests: { }
         volumes:
           - name: varlogcontainers
             hostPath:
@@ -75,7 +76,7 @@ kind: ClusterRole
 metadata:
   name: filebeat
 rules:
-  - apiGroups: [""] # "" indicates the core API group
+  - apiGroups: [ "" ] # "" indicates the core API group
     resources:
       - namespaces
       - pods
@@ -84,14 +85,14 @@ rules:
       - get
       - watch
       - list
-  - apiGroups: ["apps"]
+  - apiGroups: [ "apps" ]
     resources:
       - replicasets
     verbs:
       - get
       - list
       - watch
-  - apiGroups: ["batch"]
+  - apiGroups: [ "batch" ]
     resources:
       - jobs
     verbs:
