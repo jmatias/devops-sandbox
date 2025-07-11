@@ -21,6 +21,14 @@ iam:
 
   serviceAccounts:
 
+
+    - metadata:
+        name: argocd-ecr-readonly
+        namespace: argocd
+      roleName: argocd-ecr-readonly
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
     - metadata:
         name: celery-sandbox-s3-readonly
         namespace: celery-sandbox

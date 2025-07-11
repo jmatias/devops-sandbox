@@ -35,3 +35,8 @@ authScripts:
 
 metrics:
     enabled: true
+
+
+serviceAccount:
+  name: argocd-ecr-readonly
+  create: false
