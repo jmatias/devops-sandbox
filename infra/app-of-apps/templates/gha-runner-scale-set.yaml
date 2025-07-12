@@ -47,6 +47,7 @@ spec:
         ## the service account {releaseName}-gha-rs-no-permission-role
         ## even though you don't specify it here.
 
+
         containerMode:
           type: "dind" #docker-in-docker
 

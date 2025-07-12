@@ -21,7 +21,6 @@ iam:
 
   serviceAccounts:
 
-
     - metadata:
         name: argocd-ecr-readonly
         namespace: argocd
@@ -67,98 +66,7 @@ iam:
 
 
 
-managedNodeGroups:
-  - name: mng1
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-    amiFamily: "Bottlerocket"
-    minSize: 0
-    desiredCapacity: 2
-    maxSize: 5
-    
-    availabilityZones:
-      - "us-east-1a"
-    
-    nodeRepairConfig:
-      enabled: true
-    
-    privateNetworking: true
-
-    iam:
-      withAddonPolicies:
-        ebs: true
-        efs: true
-        awsLoadBalancerController: true
-
-      instanceRoleName: "javier-mng1-nodegroup-role"
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-
-  - name: mng2
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-    amiFamily: "Bottlerocket"
-    minSize: 0
-    desiredCapacity: 0
-    maxSize: 5
-    
-    availabilityZones:
-      - "us-east-1a"
-    
-    nodeRepairConfig:
-      enabled: true
-    
-    privateNetworking: true
-
-    iam:
-      withAddonPolicies:
-        ebs: true
-        efs: true
-        awsLoadBalancerController: true
-
-      instanceRoleName: "javier-mng2-nodegroup-role"
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-
-  - name: mng1-spot
-    instanceTypes: [ "m5a.xlarge" ] # At least one instance type should be specified
-    amiFamily: "Bottlerocket"
-    minSize: 0
-    desiredCapacity: 0
-    maxSize: 2
-    spot: true
-    
-    availabilityZones:
-      - "us-east-1a"
-    
-    nodeRepairConfig:
-      enabled: true
-    
-    privateNetworking: true
-
-    taints:
-      - key: spotInstance
-        value: "true"
-        effect: NoSchedule
-
-    iam:
-      withAddonPolicies:
-        ebs: true
-        efs: true
-        awsLoadBalancerController: true
-
-      instanceRoleName: "javier-mng1-spot-nodegroup-role"
-      attachPolicyARNs:
-        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
-        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
-
-
+managedNodeGroups: [ ]
 fargateProfiles: [ ]
 
 
@@ -173,8 +81,6 @@ addons:
   - name: kube-state-metrics
     version: latest
 
-  - name: vpc-cni
-    version: latest
 
   - name: aws-ebs-csi-driver
     version: latest
@@ -220,14 +126,6 @@ addons:
   - name: eks-pod-identity-agent
     version: latest
 
-  - name: coredns
-    version: latest
-    configurationValues: |-
-      replicaCount: 2
-    resolveConflicts: overwrite
-
-  - name: kube-proxy
-    version: latest
 
 
 addonsConfig:

@@ -15,6 +15,7 @@ install_argocd() {
   argocd login --core
 
   argocd repo add git@github.com:jmatiascabrera/devops-sandbox.git --ssh-private-key-path ~/.ssh/id_ed25519_personal --project default --name devops-sandbox
+  argocd repo add git@github.com:jmatias/self-serve-example.git --ssh-private-key-path ~/.ssh/id_ed25519_personal --project default --name devops-sandbox
 
   sleep 2
   kubectl wait --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
@@ -46,9 +47,11 @@ install_apps() {
 
 set -e
 
+#eksctl create cluster -f ../cluster/cluster.yaml
+
 install_argocd
 install_apps
 
-pushd $HOME/work/external-repos/autoscaler/vertical-pod-autoscaler/hack
-./vpa-up.sh
-pod || true
+#pushd $HOME/work/external-repos/autoscaler/vertical-pod-autoscaler/hack
+#./vpa-up.sh
+#pod || true

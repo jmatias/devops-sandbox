@@ -27,7 +27,6 @@ jobs:
 #        run: ./build.sh 0.3.${{ github.run_number }}
 
 
-
   code_scan_security:
     name: "Run code security scan"
     runs-on: javier-runner

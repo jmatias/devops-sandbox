@@ -14,3 +14,7 @@ tolerations:
     operator: "Equal"
     value: "true"
     effect: "NoSchedule"
+
+serviceAccount:
+  create: false
+  name: external-secrets-sa

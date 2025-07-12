@@ -11,6 +11,8 @@ fileignoreconfig:
   checksum: 9c720f444f562a4b3863773e548ba41055d2380579309c53767f422f5c692da7
 - filename: infra/app-of-apps/templates/datahub.yaml
   checksum: 41ce1707909138bcadaac218710d98ebc5a60d0da4eb74b841e80791a2753a94
+- filename: infra/app-of-apps/templates/gha-runner-scale-set.yaml
+  checksum: 21cf1e138c8c893c2d9ed01036349cffd87bce0c48113e7a6d7f4eb7708250ba
 - filename: infra/app-of-apps/templates/gha-runner-ss.yaml
   checksum: d97a8193d40bc91e36fbff8ee2b79d5211cabd1ab99638981b658ec8564d900d
 - filename: infra/app-of-apps/templates/karpenter.yaml
@@ -159,6 +161,10 @@ fileignoreconfig:
   checksum: 3aad590c2dfef200f7b415064b05a36024f0a2b3d325e1e677c5f7e934ef8bca
 - filename: infra/apps/external-secrets/values.yaml
   checksum: 5e10ff98a843ebbe486161b37a9a76c30aa4c4643edeb37230adff15129995d4
+- filename: infra/apps/gha-runner-scale-set/secrets.yaml
+  checksum: 8e951a891c22b6676606b1579cf0bb43cb9edce2e71232353b5c7df5fe9afe4c
+- filename: infra/apps/gha-runner-scale-set/values.yaml
+  checksum: d3cc27135a49c54ace854d386b821d8f0ba645971b4103108b4990d79cf17924
 - filename: infra/apps/prometheus/grafana-dashboard-13105-cm.yaml
   checksum: d7a973950a919f511c46f82f2f83739614fa5c7f8de894ec518b423ce8c69d78
 - filename: infra/apps/prometheus/grafana-dashboard-15661-cm.yaml
@@ -176,7 +182,7 @@ fileignoreconfig:
 - filename: infra/apps/unleash/values.yaml
   checksum: a7dda1d4068b832a0395c293f03465f7e3955878bdb47d237ffa3f0daecd8e5d
 - filename: infra/cluster/cluster-auto-mode.yaml
-  checksum: 4047bd76c99736dab52e92b216d143440fd49a809316bfd6858f0952181a0b4f
+  checksum: 4d6f4d41b60fdb7885c5cb26347c196477b20fa486a0ebc69a8c472f7945aa98
 - filename: infra/cluster/cluster.yaml
   checksum: 44c29b86712c2f4d313f99bd55ca60058640fdf2a899edff753f9a4c85ba6400
 scopeconfig:
