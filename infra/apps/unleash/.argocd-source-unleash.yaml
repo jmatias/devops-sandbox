@@ -1,4 +1,4 @@
 kustomize:
   images:
   - unleashorg/unleash-server:6.10.0
-  - public.ecr.aws/unleashorg/unleash-server:7.0.4
+  - public.ecr.aws/unleashorg/unleash-server:7.0.5
