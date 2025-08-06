@@ -17,4 +17,4 @@ tolerations:
 
 serviceAccount:
   create: false
-  name: external-secrets-sa
+  name: external-secrets
