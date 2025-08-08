@@ -36,7 +36,7 @@ backstage:
     tag: "latest"
 
 celerySandbox:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "latest"
