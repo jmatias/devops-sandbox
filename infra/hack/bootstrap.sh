@@ -47,7 +47,10 @@ install_apps() {
 
 set -e
 
-#eksctl create cluster -f ../cluster/cluster.yaml
+pushd ../cluster
+eksctl create cluster -f cluster.yaml
+kubectl apply -f storage_class.yaml
+popd
 
 install_argocd
 install_apps
