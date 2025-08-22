@@ -6,6 +6,11 @@ spec:
     targetRevision: main
 
 
+airflow:
+  enabled: true
+  autoSync: true
+  image:
+    tag: "latest"
 argocd:
   autoSync: true
   ingress:

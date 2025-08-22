@@ -25,6 +25,8 @@ fileignoreconfig:
   checksum: 6d7fc29d105b22557f1f363c54ee72561b45ae7ccb074906de24802d31bab6c8
 - filename: infra/apps/actions-runner-controller/values-scale-set.yaml
   checksum: 8236f9603bbf6b6fea33ff0469a0239fa08d5252b676e102f073ca21a90b79c3
+- filename: infra/apps/airflow/values.yaml
+  checksum: f1b5c4e26a9011fb5a7787976d0f4a20198b046c9e09ce27590c59776776bec4
 - filename: infra/apps/app-of-apps/templates/actions-runner-scale-set.yaml
   checksum: f371634a73856c9c8ed4d1c4789331200b267b9cfb41daf6a60764f8f4171161
 - filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
