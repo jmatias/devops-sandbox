@@ -148,7 +148,7 @@ auth:
 executor: KubernetesExecutor
 ## @param loadExamples Switch to load some Airflow examples
 ##
-loadExamples: false
+loadExamples: true
 ## @param configuration Specify content for Airflow config file (auto-generated based on other parameters otherwise)
 ## ref: https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html
 ## Use YAML format, then it's transformed to .cfg format by the chart. e.g:
