@@ -49,7 +49,8 @@ set -e
 
 pushd ../cluster
 #eksctl create cluster -f cluster.yaml
-#kubectl apply -f storage_class.yaml
+kubectl apply -f storage_class.yaml
+kubectl apply -f ingress_class.yaml
 popd
 
 install_argocd
