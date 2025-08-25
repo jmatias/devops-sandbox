@@ -3,8 +3,8 @@ kind: Kustomization
 
 helmCharts:
   - name: airflow
-    repo: oci://registry-1.docker.io/bitnamicharts
+    repo: https://airflow.apache.org
     releaseName: airflow
     namespace: airflow
-    version: 25.*
+    version: 1.*
     valuesFile: values.yaml
