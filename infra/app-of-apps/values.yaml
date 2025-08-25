@@ -7,10 +7,11 @@ spec:
 
 
 airflow:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
+
 argocd:
   autoSync: true
   ingress:

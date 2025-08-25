@@ -20,6 +20,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
 
     {{ if .Values.appOfApps.autoSync }}
     automated:
