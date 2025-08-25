@@ -26,9 +26,14 @@ patches:
     target:
       name: argocd-server-ingress
 
-  - path: deployment.yaml
+  - path: server-deployment.yaml
     target:
       name: argocd-server
+      kind: Deployment
+
+  - path: repo-server-deployment.yaml
+    target:
+      name: argocd-repo-server
       kind: Deployment
 
   - path: redis.yaml
