@@ -9,7 +9,7 @@
 #        optional: true
 
 
-- op: add
-  path: /spec/template/metadata/annotations
-  value:
-    reloader.stakater.com/auto: "true"
+#- op: add
+#  path: /spec/template/metadata/annotations
+#  value:
+#    reloader.stakater.com/auto: "true"
