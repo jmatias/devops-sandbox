@@ -6,10 +6,10 @@
   path: /spec/replicas
   value: 2
 
-- op: add
-  path: /spec/template/metadata/annotations
-  value:
-    reloader.stakater.com/auto: "true"
+#- op: add
+#  path: /spec/template/metadata/annotations
+#  value:
+#    reloader.stakater.com/auto: "true"
 
 
 ## Add toleration for spot instances
