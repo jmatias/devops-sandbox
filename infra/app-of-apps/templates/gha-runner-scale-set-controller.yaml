@@ -9,6 +9,9 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/gha-runner-scale-set-controller:^0
+    argocd-image-updater.argoproj.io/update-strategy: semver
 
   finalizers:
     - resources-finalizer.argocd.argoproj.io
