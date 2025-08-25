@@ -37,7 +37,7 @@ nameOverride: ""
 #
 # Note:fernet-key,redis-password and broker-url secrets don't use this logic yet,
 # as this may break existing installations due to how they get installed via pre-install hook.
-useStandardNaming: false
+useStandardNaming: true
 
 # Max number of old replicasets to retain. Can be overridden by each deployment's revisionHistoryLimit
 revisionHistoryLimit: ~
@@ -189,10 +189,18 @@ ingress:
   # Configs for the Ingress of the web Service
   web:
     # Enable web ingress resource
-    enabled: false
+    enabled: true
 
     # Annotations for the web Ingress
-    annotations: {}
+    annotations:
+      kubernetes.io/ingress.class: alb
+      external-dns.alpha.kubernetes.io/hostname: airflow.tw-ocean.com
+      external-dns.alpha.kubernetes.io/ttl: "60"
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: 'ip'
+      alb.ingress.kubernetes.io/group.name: "sandbox-external"
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
+      alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
     # The path for the web Ingress
     path: "/"
@@ -201,7 +209,7 @@ ingress:
     pathType: "ImplementationSpecific"
 
     # The hostname for the web Ingress (Deprecated - renamed to `ingress.web.hosts`)
-    host: ""
+    host: "airflow.tw-ocean.com"
 
     # The hostnames or hosts configuration for the web Ingress
     hosts: []
@@ -215,7 +223,7 @@ ingress:
     #     secretName: ""
 
     # The Ingress Class for the web Ingress (used only with Kubernetes v1.19 and above)
-    ingressClassName: ""
+    ingressClassName: "alb"
 
     # configs for web Ingress TLS (Deprecated - renamed to `ingress.web.hosts[*].tls`)
     tls:
@@ -440,7 +448,6 @@ priorityClasses: []
 #          The value associated with those keys must be a string (templated)
 extraSecrets:
   '{{ .Release.Name }}-example':
-    useHelmHooks: false
     data: |
       AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
 
@@ -473,7 +480,6 @@ extraSecrets:
 #          The value associated with this keys must be a string (templated)
 extraConfigMaps:
   '{{ .Release.Name }}-example':
-    useHelmHooks: false
     data: |
       AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
 # eg:
@@ -788,7 +794,7 @@ workers:
     size: 100Gi
 
     # If using a custom storageClass, pass name ref to all StatefulSets here
-    storageClassName: auto-ebs-sc
+    storageClassName:
 
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
@@ -855,7 +861,7 @@ workers:
 
   # Grace period for tasks to finish after SIGTERM is sent from kubernetes.
   # It is used by Airflow Celery workers and pod-template-file.
-  terminationGracePeriodSeconds: 600
+  terminationGracePeriodSeconds: 30
 
   # This setting tells kubernetes that its ok to evict when it wants to scale a node down.
   # It is used by Airflow Celery workers and pod-template-file.
@@ -1208,7 +1214,8 @@ createUserJob:
   # Annotations on the create user job pod
   annotations: {}
   # jobAnnotations are annotations on the create user job
-  jobAnnotations: {}
+  jobAnnotations:
+    "argocd.argoproj.io/hook": Sync
 
   # Labels specific to createUserJob objects and pods
   labels: {}
@@ -1846,7 +1853,7 @@ triggerer:
     # Volume size for triggerer StatefulSet
     size: 100Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: auto-ebs-sc
+    storageClassName:
     # Execute init container to chown log directory.
     # This is currently only needed in kind, due to usage
     # of local-path provisioner.
@@ -2148,7 +2155,7 @@ dagProcessor:
 flower:
   # Enable flower.
   # If True, and using CeleryExecutor/CeleryKubernetesExecutor, will deploy flower app.
-  enabled: true
+  enabled: false
 
   livenessProbe:
     initialDelaySeconds: 10
@@ -2596,7 +2603,7 @@ pgbouncer:
 # Configuration for the redis provisioned by the chart
 redis:
   enabled: true
-  terminationGracePeriodSeconds: 600
+  terminationGracePeriodSeconds: 30
 
   # Annotations for Redis Statefulset
   annotations: {}
@@ -2629,7 +2636,7 @@ redis:
     # Volume size for worker StatefulSet
     size: 1Gi
     # If using a custom storageClass, pass name ref to all statefulSets here
-    storageClassName: auto-ebs-sc
+    storageClassName:
     # Annotations to add to redis volumes
     annotations: {}
     # the name of an existing PVC to use
@@ -2826,9 +2833,6 @@ cleanup:
 # Configuration for postgresql subchart
 # Not recommended for production
 postgresql:
-  primary:
-    persistence:
-      storageClass: auto-ebs-sc
   enabled: true
   auth:
     enablePostgresUser: true
@@ -2847,6 +2851,8 @@ postgresql:
 # Do not set config containing secrets via plain text values, use Env Var or k8s secret object
 # yamllint disable rule:line-length
 config:
+  api:
+    expose_config: 'True'
   core:
     dags_folder: '{{ include "airflow_dags" . }}'
     # This is ignored when used with the official Docker image
@@ -2960,7 +2966,7 @@ dags:
     # Volume size for dags
     size: 1Gi
     # If using a custom storageClass, pass name here
-    storageClassName: auto-ebs-sc
+    storageClassName:
     # access mode of the persistent volume
     accessMode: ReadWriteOnce
     ## the name of an existing PVC to use
@@ -3094,6 +3100,6 @@ logs:
     # Annotations for the logs PVC
     annotations: {}
     # If using a custom storageClass, pass name here
-    storageClassName: auto-ebs-sc
+    storageClassName:
     ## the name of an existing PVC to use
     existingClaim:

@@ -24,8 +24,10 @@ spec:
 
     {{ if .Values.appOfApps.autoSync }}
     automated:
+      enabled: false
       prune: true
-      selfHeal: true
+      selfHeal: false
+      allowEmpty: false
     {{ end }}
 
     retry:
