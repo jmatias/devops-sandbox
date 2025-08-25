@@ -6,5 +6,5 @@ helmCharts:
     repo: https://airflow.apache.org
     releaseName: airflow
     namespace: airflow
-    version: 1.*
+    version: 1.18.*
     valuesFile: values.yaml

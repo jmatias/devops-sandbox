@@ -127,6 +127,5 @@ addons:
     version: latest
 
 
-
 addonsConfig:
   autoApplyPodIdentityAssociations: true

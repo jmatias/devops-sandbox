@@ -1,0 +1,15 @@
+gitGraph
+    commit id: "Initial commit"
+    branch develop
+    checkout develop
+    commit id: "Add feature A"
+    branch feature/A
+    checkout feature/A
+    commit id: "Implement feature A"
+    checkout develop
+    merge feature/A id: "Merge feature A into develop"
+    branch feature/B
+    checkout feature/B
+    commit id: "Implement feature B"
+    checkout develop
+    merge feature/B id: "Merge feature B into develop"
