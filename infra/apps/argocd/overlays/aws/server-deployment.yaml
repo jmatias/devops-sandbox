@@ -4,7 +4,7 @@
 
 - op: add
   path: /spec/replicas
-  value: 1
+  value: 2
 
 - op: add
   path: /spec/template/metadata/annotations
