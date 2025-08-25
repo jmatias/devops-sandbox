@@ -97,12 +97,12 @@ addons:
 
   - name: external-dns
     version: latest
-    configurationValues: |-
-      interval: "20s"
-      policy: sync
-      serviceMonitor:
-        enabled: true
-    resolveConflicts: overwrite
+#    configurationValues: |-
+#      interval: "20s"
+#      policy: sync
+#      serviceMonitor:
+#        enabled: true
+#    resolveConflicts: overwrite
 
   - name: cert-manager
     version: latest

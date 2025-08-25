@@ -13,7 +13,7 @@ spec:
   source:
     path: manifests/crds
     repoURL: https://github.com/argoproj/argo-cd.git
-    targetRevision: v2.14.*
+    targetRevision: v3.*
 
   syncPolicy:
     automated:
