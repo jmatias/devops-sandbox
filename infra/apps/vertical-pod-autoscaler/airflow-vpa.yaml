@@ -15,14 +15,14 @@ spec:
     minReplicas: 1
   resourcePolicy:
     containerPolicies:
-      - containerName: "argocd-repo-server"
+      - containerName: "airflow-api-server"
         controlledResources: [ "cpu", "memory" ]
         minAllowed:
           cpu: 50m
           memory: "128Mi"
         maxAllowed:
-          memory: "400Mi"
-          cpu: "500m"
+          memory: "512Mi"
+          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
@@ -43,14 +43,71 @@ spec:
     minReplicas: 1
   resourcePolicy:
     containerPolicies:
-      - containerName: "argocd-repo-server"
+      - containerName: "airflow-statsd"
         controlledResources: [ "cpu", "memory" ]
         minAllowed:
           cpu: 50m
           memory: "128Mi"
         maxAllowed:
-          memory: "400Mi"
-          cpu: "500m"
+          memory: "512Mi"
+          cpu: "1000m"
+        controlledValues: RequestsAndLimits
+  recommenders:
+    - name: frugal
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: airflow-scheduler
+  namespace: airflow
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: airflow-scheduler
+  updatePolicy:
+    updateMode: "InPlaceOrRecreate"
+    minReplicas: 1
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "aircflow-scheduler"
+        controlledResources: [ "cpu", "memory" ]
+        minAllowed:
+          cpu: 50m
+          memory: "128Mi"
+        maxAllowed:
+          memory: "512Mi"
+          cpu: "1000m"
+        controlledValues: RequestsAndLimits
+  recommenders:
+    - name: frugal
+
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: airflow-dag-processor
+  namespace: airflow
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: airflow-dag-processor
+  updatePolicy:
+    updateMode: "InPlaceOrRecreate"
+    minReplicas: 1
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "aircflow-dag-processor"
+        controlledResources: [ "cpu", "memory" ]
+        minAllowed:
+          cpu: 50m
+          memory: "128Mi"
+        maxAllowed:
+          memory: "512Mi"
+          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
