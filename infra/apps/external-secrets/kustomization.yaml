@@ -6,8 +6,9 @@ helmCharts:
     repo: https://charts.external-secrets.io
     releaseName: external-secrets
     namespace: external-secrets
-    version: 0.*
+    version: 0.18.*
     valuesFile: values.yaml
+    includeCRDs: false
 
 resources:
   - secret-store.yaml
