@@ -1597,7 +1597,7 @@ webserver:
 
   # Allow HPA
   hpa:
-    enabled: false
+    enabled: true
 
     # Minimum number of webservers created by HPA
     minReplicaCount: 1
