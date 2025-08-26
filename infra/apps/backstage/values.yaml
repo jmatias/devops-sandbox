@@ -9,7 +9,7 @@
 # @default -- See below
 global:
   # -- Global Docker image registry
-  imageRegistry: "public.ecr.aws"
+  imageRegistry: "386757133934.dkr.ecr.us-east-1.amazonaws.com"
 
   # -- Global Docker registry secret names as an array
   # </br> E.g. `imagePullSecrets: [myRegistryKeySecretName]`
