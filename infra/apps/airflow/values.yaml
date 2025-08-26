@@ -140,12 +140,12 @@ labels: {}
 ingress:
   # Enable all ingress resources
   # (deprecated - use ingress.web.enabled, ingress.apiServer.enabled and ingress.flower.enabled)
-  enabled: true
+  enabled: ~
 
   # Configs for the Ingress of the API Server
   apiServer:
     # Enable API Server ingress resource
-    enabled: false
+    enabled: true
 
     # Annotations for the API Server Ingress
     annotations: {}
