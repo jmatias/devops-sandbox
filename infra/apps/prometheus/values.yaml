@@ -41,7 +41,7 @@ crds:
     forceConflicts: true
     image:
       busybox:
-        registry: docker.io
+        registry: public.ecr.aws
         repository: busybox
         tag: "latest"
         sha: ""
