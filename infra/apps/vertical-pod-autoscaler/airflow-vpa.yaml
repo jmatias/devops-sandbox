@@ -1,0 +1,56 @@
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: airflow-api-server
+  namespace: airflow
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: airflow-api-server
+  updatePolicy:
+    updateMode: "InPlaceOrRecreate"
+    minReplicas: 1
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "argocd-repo-server"
+        controlledResources: [ "cpu", "memory" ]
+        minAllowed:
+          cpu: 50m
+          memory: "128Mi"
+        maxAllowed:
+          memory: "400Mi"
+          cpu: "500m"
+        controlledValues: RequestsAndLimits
+  recommenders:
+    - name: frugal
+
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: airflow-statsd
+  namespace: airflow
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: airflow-statsd
+  updatePolicy:
+    updateMode: "InPlaceOrRecreate"
+    minReplicas: 1
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "argocd-repo-server"
+        controlledResources: [ "cpu", "memory" ]
+        minAllowed:
+          cpu: 50m
+          memory: "128Mi"
+        maxAllowed:
+          memory: "400Mi"
+          cpu: "500m"
+        controlledValues: RequestsAndLimits
+  recommenders:
+    - name: frugal
