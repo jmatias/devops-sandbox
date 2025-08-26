@@ -82,7 +82,6 @@ addons:
   - name: kube-state-metrics
     version: latest
 
-
 #  - name: aws-ebs-csi-driver
 #    version: latest
 #    wellKnownPolicies:

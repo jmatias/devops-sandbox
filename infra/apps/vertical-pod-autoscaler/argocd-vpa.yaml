@@ -16,12 +16,12 @@ spec:
     containerPolicies:
       - containerName: "argocd-server"
         controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
+#        minAllowed:
+#          cpu: 50m
+#          memory: "128Mi"
+#        maxAllowed:
+#          cpu: "1000m"
+#          memory: "512Mi"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: default
@@ -44,12 +44,12 @@ spec:
     containerPolicies:
       - containerName: "argocd-application-controller"
         controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
+#        minAllowed:
+#          cpu: 50m
+#          memory: "128Mi"
+#        maxAllowed:
+#          memory: "512Mi"
+#          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: default
@@ -73,12 +73,12 @@ spec:
     containerPolicies:
       - containerName: "argocd-repo-server"
         controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
+#        minAllowed:
+#          cpu: 50m
+#          memory: "128Mi"
+#        maxAllowed:
+#          memory: "512Mi"
+#          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: default

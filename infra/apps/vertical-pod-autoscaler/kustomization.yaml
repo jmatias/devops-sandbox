@@ -10,3 +10,4 @@ resources:
   - self-serve-example-vpa.yaml
   - unleash-vpa.yaml
   - vpa.yaml
+  - airflow-vpa.yaml

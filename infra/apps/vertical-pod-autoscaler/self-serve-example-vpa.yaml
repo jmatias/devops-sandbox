@@ -3,6 +3,7 @@ apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
   name: self-serve-example
+  namespace: self-serve-example
 spec:
   targetRef:
     apiVersion: apps/v1
