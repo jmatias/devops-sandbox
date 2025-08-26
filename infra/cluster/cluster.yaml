@@ -12,6 +12,9 @@ autoModeConfig:
   enabled: true
   nodePools:
     - general-purpose
+    - javier-workloads
+
+
 
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 

@@ -68,13 +68,13 @@ airflowHome: /opt/airflow
 defaultAirflowRepository: apache/airflow
 
 # Default airflow tag to deploy
-defaultAirflowTag: "3.0.2"
+defaultAirflowTag: "3.0.5"
 
 # Default airflow digest. If specified, it takes precedence over tag
 defaultAirflowDigest: ~
 
 # Airflow version (Used to make some decisions based on Airflow Version being deployed)
-airflowVersion: "3.0.2"
+airflowVersion: "3.0.5"
 
 # Images
 images:
@@ -148,7 +148,13 @@ ingress:
     enabled: true
 
     # Annotations for the API Server Ingress
-    annotations: {}
+    annotations:
+      kubernetes.io/ingress.class: alb
+      external-dns.alpha.kubernetes.io/hostname: airflow.tw-ocean.com
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/group.name: "sandbox-external"
+      alb.ingress.kubernetes.io/healthcheck-path: /api/v2/version
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
 
     # The path for the API Server Ingress
     path: "/"
@@ -160,7 +166,8 @@ ingress:
     host: ""
 
     # The hostnames or hosts configuration for the API Server Ingress
-    hosts: []
+    hosts:
+      - name: airflow.tw-ocean.com
     #   # The hostname for the web Ingress (templated)
     # - name: ""
     #   # configs for API Server Ingress TLS
@@ -171,7 +178,7 @@ ingress:
     #     secretName: ""
 
     # The Ingress Class for the API Server Ingress (used only with Kubernetes v1.19 and above)
-    ingressClassName: ""
+    ingressClassName: "alb"
 
     # configs for API Server Ingress TLS (Deprecated - renamed to `ingress.apiServer.hosts[*].tls`)
     tls:
@@ -195,12 +202,10 @@ ingress:
     annotations:
       kubernetes.io/ingress.class: alb
       external-dns.alpha.kubernetes.io/hostname: airflow.tw-ocean.com
-      external-dns.alpha.kubernetes.io/ttl: "60"
       alb.ingress.kubernetes.io/scheme: internet-facing
-      alb.ingress.kubernetes.io/target-type: 'ip'
       alb.ingress.kubernetes.io/group.name: "sandbox-external"
+      alb.ingress.kubernetes.io/healthcheck-path: /health
       alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
-      alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
     # The path for the web Ingress
     path: "/"
@@ -209,7 +214,7 @@ ingress:
     pathType: "ImplementationSpecific"
 
     # The hostname for the web Ingress (Deprecated - renamed to `ingress.web.hosts`)
-    host: "airflow.tw-ocean.com"
+    host: ""
 
     # The hostnames or hosts configuration for the web Ingress
     hosts:
@@ -447,12 +452,7 @@ priorityClasses: []
 #    * key (templated) is the name of the secret that will be created
 #    * value: an object with the standard 'data' or 'stringData' key (or both).
 #          The value associated with those keys must be a string (templated)
-#extraSecrets:
-#  '{{ .Release.Name }}-example':
-#    data: |
-#      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
-
-
+extraSecrets: {}
 # eg:
 # extraSecrets:
 #   '{{ .Release.Name }}-airflow-connections':
@@ -479,10 +479,10 @@ priorityClasses: []
 #    * key (templated) is the name of the configmap that will be created
 #    * value: an object with the standard 'data' key.
 #          The value associated with this keys must be a string (templated)
-extraConfigMaps:
-  '{{ .Release.Name }}-example':
-    data: |
-      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
+#extraConfigMaps:
+#  '{{ .Release.Name }}-example':
+#    data: |
+#      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
 # eg:
 # extraConfigMaps:
 #   '{{ .Release.Name }}-airflow-variables':
@@ -495,7 +495,10 @@ extraConfigMaps:
 # Extra env 'items' that will be added to the definition of airflow containers
 # a string is expected (templated).
 # TODO: difference from `env`? This is a templated string. Probably should template `env` and remove this.
-extraEnv: ~
+#extraEnv: ~
+#extraEnv: |
+#  - name: AIRFLOW__WEBSERVER__BASE_URL
+#    value: airflow.tw-ocean.com
 # eg:
 # extraEnv: |
 #   - name: AIRFLOW__CORE__LOAD_EXAMPLES
@@ -647,7 +650,7 @@ kerberos:
 # Airflow Worker Config
 workers:
   # Number of Airflow Celery workers
-  replicas: 2
+  replicas: 1
 
   # Max number of old Airflow Celery workers ReplicaSets to retain
   revisionHistoryLimit: ~
@@ -1034,7 +1037,7 @@ scheduler:
 
   # Airflow 2.0 allows users to run multiple schedulers,
   # However this feature is only recommended for MySQL 8+ and Postgres
-  replicas: 2
+  replicas: 1
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
@@ -1066,7 +1069,7 @@ scheduler:
   containerLifecycleHooks: {}
 
   # Grace period for tasks to finish after SIGTERM is sent from kubernetes
-  terminationGracePeriodSeconds: 30
+  terminationGracePeriodSeconds: 10
 
   # Create ServiceAccount
   serviceAccount:
@@ -1414,7 +1417,7 @@ apiServer:
     # Annotations to add to Airflow API server kubernetes service account.
     annotations: {}
   service:
-    type: ClusterIP
+    type: LoadBalancer
     ## service annotations
     annotations: {}
     ports:
@@ -1499,13 +1502,13 @@ apiServer:
       ports:
         - port: "{{ .Values.ports.apiServer }}"
 
-  resources:
-     limits:
-       cpu: 200m
-       memory: 256Mi
-     requests:
-       cpu: 100m
-       memory: 128Mi
+  resources: {}
+  #   limits:
+  #     cpu: 100m
+  #     memory: 128Mi
+  #   requests:
+  #     cpu: 100m
+  #     memory: 128Mi
 
   # Add custom annotations to the apiServer configmap
   configMapAnnotations: {}
@@ -1548,7 +1551,7 @@ apiServer:
 
 # Airflow webserver settings
 webserver:
-  enabled: true
+  enabled: false
   # Add custom annotations to the webserver configmap
   configMapAnnotations: {}
   #  hostAliases for the webserver pod
@@ -1598,7 +1601,7 @@ webserver:
 
   # Allow HPA
   hpa:
-    enabled: true
+    enabled: false
 
     # Minimum number of webservers created by HPA
     minReplicaCount: 1
@@ -1732,10 +1735,10 @@ webserver:
       - name: airflow-ui
         port: "{{ .Values.ports.airflowUI }}"
     # To change the port used to access the webserver:
-    # ports:
-    #   - name: airflow-ui
-    #     port: 80
-    #     targetPort: airflow-ui
+#    ports:
+#       - name: airflow-ui
+#         port: 80
+#         targetPort: "{{ .Values.ports.airflowUI }}"
     # To only expose a sidecar, not the webserver directly:
     # ports:
     #   - name: only_sidecar
@@ -2852,8 +2855,10 @@ postgresql:
 # Do not set config containing secrets via plain text values, use Env Var or k8s secret object
 # yamllint disable rule:line-length
 config:
-  api:
-    expose_config: 'True'
+#  api:
+#    expose_config: 'True'
+#    port: '{{ .Values.ports.apiServer }}'
+#    base_url: https://airflow.tw-ocean.com
   core:
     dags_folder: '{{ include "airflow_dags" . }}'
     # This is ignored when used with the official Docker image
@@ -2874,6 +2879,8 @@ config:
   fab:
     enable_proxy_fix: 'True'
   webserver:
+    base_url: https://airflow.tw-ocean.com:8080
+    web_server_port: '{{ .Values.ports.airflowUI }}'
     # For Airflow 2.X
     enable_proxy_fix: 'True'
     # For Airflow 1.10

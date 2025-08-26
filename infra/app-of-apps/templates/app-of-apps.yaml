@@ -24,9 +24,9 @@ spec:
 
     {{ if .Values.appOfApps.autoSync }}
     automated:
-      enabled: false
+      enabled: true
       prune: true
-      selfHeal: false
+      selfHeal: true
       allowEmpty: false
     {{ end }}
 

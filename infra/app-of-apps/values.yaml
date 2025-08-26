@@ -7,7 +7,7 @@ spec:
 
 
 airflow:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
@@ -103,7 +103,7 @@ unleash:
     tag: "latest"
 
 vpa:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"

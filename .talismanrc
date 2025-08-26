@@ -187,6 +187,8 @@ fileignoreconfig:
   checksum: 4d6f4d41b60fdb7885c5cb26347c196477b20fa486a0ebc69a8c472f7945aa98
 - filename: infra/cluster/cluster.yaml
   checksum: 44c29b86712c2f4d313f99bd55ca60058640fdf2a899edff753f9a4c85ba6400
+- filename: infra/cluster/node_pool.yaml
+  checksum: cb710a5150558432f53fcbbe94084ce2d372a1c52313de106fb10f639249bbbe
 scopeconfig:
 - scope: python
 - scope: node
