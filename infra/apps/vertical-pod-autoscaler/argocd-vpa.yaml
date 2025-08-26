@@ -20,8 +20,8 @@ spec:
           cpu: 50m
           memory: "128Mi"
         maxAllowed:
-          memory: "400Mi"
-          cpu: "500m"
+          memory: "512Mi"
+          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
@@ -48,8 +48,8 @@ spec:
           cpu: 50m
           memory: "128Mi"
         maxAllowed:
-          memory: "400Mi"
-          cpu: "500m"
+          memory: "512Mi"
+          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
@@ -77,8 +77,8 @@ spec:
           cpu: 50m
           memory: "128Mi"
         maxAllowed:
-          memory: "400Mi"
-          cpu: "500m"
+          memory: "512Mi"
+          cpu: "1000m"
         controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
