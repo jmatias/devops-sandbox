@@ -17,7 +17,7 @@ livenessProbe: { }
 redis:
   url : "redis://redis:6379/0"
   image:
-    repository: redis
+    repository:  public.ecr.aws/library/redis
     tag: 6.2-alpine
     pullPolicy: IfNotPresent
 
@@ -30,7 +30,7 @@ flower:
     auth: "javier@javiermatias.com"
     oauth2RedirectUri: "http://localhost:5555/login"
   image:
-    repository: mher/flower
+    repository:  public.ecr.aws/mher/flower
     tag: "2.0"
     pullPolicy: IfNotPresent
 
