@@ -6,7 +6,6 @@ namespace: argocd
 resources:
   - ../../base
   - github-oauth-secret.yaml
-  - ingress-class.yaml
 
 patches:
 #  - path: application-controller.yaml

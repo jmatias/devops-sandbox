@@ -8,13 +8,11 @@ metadata:
   region: "us-east-1"
   version: "1.33"
 
+
 autoModeConfig:
   enabled: true
   nodePools:
     - general-purpose
-    - javier-workloads
-
-
 
 availabilityZones: [ "us-east-1a","us-east-1b" ]
 
