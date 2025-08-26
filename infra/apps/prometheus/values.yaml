@@ -344,7 +344,7 @@ global:
 
   ## Global image registry to use if it needs to be overridden for some specific use cases (e.g local registries, custom images, ...)
   ##
-  imageRegistry: "386757133934.dkr.ecr.us-east-1.amazonaws.com"
+  imageRegistry: ""
 
   ## Reference to one or more secrets to be used when pulling images
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
