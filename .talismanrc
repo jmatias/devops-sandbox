@@ -11,6 +11,8 @@ fileignoreconfig:
   checksum: 9c720f444f562a4b3863773e548ba41055d2380579309c53767f422f5c692da7
 - filename: infra/app-of-apps/templates/datahub.yaml
   checksum: 41ce1707909138bcadaac218710d98ebc5a60d0da4eb74b841e80791a2753a94
+- filename: infra/app-of-apps/templates/eks-auto/node-pool.yaml
+  checksum: bbad358384b5a947105fc47c6764dd0b6f5d5c34975c84f7b5721bc57207a26f
 - filename: infra/app-of-apps/templates/gha-runner-scale-set.yaml
   checksum: 21cf1e138c8c893c2d9ed01036349cffd87bce0c48113e7a6d7f4eb7708250ba
 - filename: infra/app-of-apps/templates/gha-runner-ss.yaml
