@@ -8,3 +8,6 @@ helmCharts:
     namespace: airflow
     version: 1.18.*
     valuesFile: values.yaml
+
+resources:
+  - secrets.yaml
