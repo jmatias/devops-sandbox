@@ -5,7 +5,7 @@ metadata:
   name: datahub
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: docker.io/acryldata/datahub-gms:^1.1,
       docker.io/acryldata/datahub-frontend-react:^1.1
