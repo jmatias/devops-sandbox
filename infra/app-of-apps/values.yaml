@@ -101,7 +101,7 @@ unleash:
     tag: "latest"
 
 vpa:
-  enabled: true
+  enabled: disable
   autoSync: true
   image:
     tag: "latest"
