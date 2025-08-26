@@ -28,20 +28,6 @@ spec:
     path: infra/apps/celery-sandbox
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    helm:
-      valuesObject:
-        flower:
-          enabled: true
-          replicas: 2
-
-        fastapi:
-          enabled: true
-          replicas: 2
-
-        worker:
-          enabled: true
-          replicas: 2
-
   syncPolicy:
     retry:
       limit: 6
