@@ -28,10 +28,10 @@ spec:
           resources:
             limits:
               cpu: 200m
-              memory: 1000Mi
+              memory: 512Mi
             requests:
               cpu: 50m
-              memory: 256Mi
+              memory: 128Mi
           ports:
             - name: prometheus
               containerPort: 8942
@@ -67,10 +67,10 @@ spec:
           resources:
             limits:
               cpu: 200m
-              memory: 1000Mi
+              memory: 512Mi
             requests:
               cpu: 50m
-              memory: 256Mi
+              memory: 128Mi
           ports:
             - name: prometheus
               containerPort: 8942
