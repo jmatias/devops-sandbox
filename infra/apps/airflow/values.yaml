@@ -212,7 +212,8 @@ ingress:
     host: "airflow.tw-ocean.com"
 
     # The hostnames or hosts configuration for the web Ingress
-    hosts: []
+    hosts:
+      - name: "airflow.tw-ocean.com"
     #   # The hostname for the web Ingress (templated)
     # - name: ""
     #   # configs for web Ingress TLS
