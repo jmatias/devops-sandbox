@@ -2858,7 +2858,7 @@ config:
   api:
     expose_config: 'True'
 #    port: '{{ .Values.ports.apiServer }}'
-#    base_url: https://airflow.tw-ocean.com
+    base_url: https://airflow.tw-ocean.com
   core:
 #    dags_folder: '{{ include "airflow_dags" . }}'
     dags_are_paused_at_creation: 'True'
