@@ -479,10 +479,11 @@ extraSecrets: {}
 #    * key (templated) is the name of the configmap that will be created
 #    * value: an object with the standard 'data' key.
 #          The value associated with this keys must be a string (templated)
-#extraConfigMaps:
-#  '{{ .Release.Name }}-example':
-#    data: |
-#      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
+extraConfigMaps:
+  '{{ .Release.Name }}-example':
+    useHelmHooks: false
+    data: |
+      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
 # eg:
 # extraConfigMaps:
 #   '{{ .Release.Name }}-airflow-variables':
@@ -1218,8 +1219,7 @@ createUserJob:
   # Annotations on the create user job pod
   annotations: {}
   # jobAnnotations are annotations on the create user job
-  jobAnnotations:
-    "argocd.argoproj.io/hook": Sync
+  jobAnnotations: {}
 
   # Labels specific to createUserJob objects and pods
   labels: {}
@@ -2855,12 +2855,13 @@ postgresql:
 # Do not set config containing secrets via plain text values, use Env Var or k8s secret object
 # yamllint disable rule:line-length
 config:
-#  api:
-#    expose_config: 'True'
+  api:
+    expose_config: 'True'
 #    port: '{{ .Values.ports.apiServer }}'
 #    base_url: https://airflow.tw-ocean.com
   core:
     dags_folder: '{{ include "airflow_dags" . }}'
+    dags_are_paused_at_creation: 'True'
     # This is ignored when used with the official Docker image
     load_examples: 'True'
     executor: '{{ .Values.executor }}'
@@ -2879,7 +2880,7 @@ config:
   fab:
     enable_proxy_fix: 'True'
   webserver:
-    base_url: https://airflow.tw-ocean.com:8080
+#    base_url: https://airflow.tw-ocean.com:8080
     web_server_port: '{{ .Values.ports.airflowUI }}'
     # For Airflow 2.X
     enable_proxy_fix: 'True'

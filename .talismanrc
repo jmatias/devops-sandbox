@@ -191,6 +191,8 @@ fileignoreconfig:
   checksum: 44c29b86712c2f4d313f99bd55ca60058640fdf2a899edff753f9a4c85ba6400
 - filename: infra/cluster/node_pool.yaml
   checksum: cb710a5150558432f53fcbbe94084ce2d372a1c52313de106fb10f639249bbbe
+- filename: src/airflow/docker-compose.yaml
+  checksum: 225426ad85a79d5544b3e7fc5baf555b5c0d520a7796d9f54651b5fe7d982164
 scopeconfig:
 - scope: python
 - scope: node
