@@ -85,32 +85,3 @@ spec:
           memory: "75Mi"
         maxAllowed:
           memory: "128Mi"
-
----
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: metrics-server
-  namespace: kube-system
-spec:
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: metrics-server
-  updatePolicy:
-    updateMode: "InPlaceOrRecreate"
-    minReplicas: 1
-  recommenders:
-    - name: frugal
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "metrics-server"
-        controlledResources:
-          - cpu
-          - memory
-        controlledValues: "RequestsAndLimits"
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "300Mi"

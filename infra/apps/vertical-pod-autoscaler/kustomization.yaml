@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - argocd-vpa.yaml
   - backstage-vpa.yaml
-  - metrics-server-vpas.yaml
+  - metrics-server-vpa.yaml
   - prometheus-vpa.yaml
   - recommenders.yaml
   - self-serve-example-vpa.yaml
