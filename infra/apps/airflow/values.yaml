@@ -1065,7 +1065,7 @@ scheduler:
   containerLifecycleHooks: {}
 
   # Grace period for tasks to finish after SIGTERM is sent from kubernetes
-  terminationGracePeriodSeconds: 10
+  terminationGracePeriodSeconds: 30
 
   # Create ServiceAccount
   serviceAccount:
@@ -1498,13 +1498,13 @@ apiServer:
       ports:
         - port: "{{ .Values.ports.apiServer }}"
 
-  resources: {}
-  #   limits:
-  #     cpu: 100m
-  #     memory: 128Mi
-  #   requests:
-  #     cpu: 100m
-  #     memory: 128Mi
+  resources:
+     limits:
+       cpu: 200m
+       memory: 128Mi
+     requests:
+       cpu: 100m
+       memory: 256Mi
 
   # Add custom annotations to the apiServer configmap
   configMapAnnotations: {}
