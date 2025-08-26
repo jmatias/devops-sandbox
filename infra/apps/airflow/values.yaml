@@ -446,10 +446,10 @@ priorityClasses: []
 #    * key (templated) is the name of the secret that will be created
 #    * value: an object with the standard 'data' or 'stringData' key (or both).
 #          The value associated with those keys must be a string (templated)
-extraSecrets:
-  '{{ .Release.Name }}-example':
-    data: |
-      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
+#extraSecrets:
+#  '{{ .Release.Name }}-example':
+#    data: |
+#      AIRFLOW_VAR_HELLO_MESSAGE: "Hi!"
 
 
 # eg:
