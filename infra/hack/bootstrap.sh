@@ -5,7 +5,7 @@ install_argocd() {
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
 
-  kubectl apply -f "https://raw.githubusercontent.com/external-secrets/external-secrets/v0.16.2/deploy/crds/bundle.yaml"
+  kubectl apply --server-side -f "https://raw.githubusercontent.com/external-secrets/external-secrets/v0.19.2/deploy/crds/bundle.yaml"
 
 
   kubectl apply -n argocd -k ../apps/argocd/overlays/aws
@@ -48,8 +48,10 @@ install_apps() {
 set -e
 
 pushd ../cluster
-eksctl create cluster -f cluster.yaml
-kubectl apply -f ingress_class.yaml
+#eksctl create cluster -f cluster.yaml
+kubectl apply -f ../app-of-apps/templates/eks-auto/node-pool.yaml
+kubectl apply -f ../app-of-apps/templates/eks-auto/ingress-class.yaml
+kubectl apply -f ../app-of-apps/templates/eks-auto/storage-class.yaml
 popd
 
 install_argocd
