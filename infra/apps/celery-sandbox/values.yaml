@@ -17,7 +17,7 @@ livenessProbe: { }
 redis:
   url : "redis://redis:6379/0"
   image:
-    repository:  public.ecr.aws/docker/library/redis
+    repository:  386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/library/redis
     tag: 6.2-alpine
     pullPolicy: IfNotPresent
 
@@ -30,7 +30,7 @@ flower:
     auth: "javier@javiermatias.com"
     oauth2RedirectUri: "http://localhost:5555/login"
   image:
-    repository:  386757133934.dkr.ecr.us-east-1.amazonaws.com/mher/flower
+    repository:  386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/mher/flower
     tag: "2.0"
     pullPolicy: IfNotPresent
 
@@ -45,7 +45,7 @@ fastapi:
 
 worker:
     enabled: true
-    replicas: 2
+    replicas: 1
     image:
       repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
       pullPolicy: IfNotPresent
