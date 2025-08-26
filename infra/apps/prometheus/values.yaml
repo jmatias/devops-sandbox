@@ -41,7 +41,7 @@ crds:
     forceConflicts: true
     image:
       busybox:
-        registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
+        registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/library
         repository: busybox
         tag: "latest"
         sha: ""
