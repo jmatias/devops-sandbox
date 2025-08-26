@@ -9,6 +9,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd.argoproj.io/sync-wave: "2"
     argocd-image-updater.argoproj.io/image-list: backstage=386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/backstage:0.*
     argocd-image-updater.argoproj.io/backstage.helm.image-tag: backstage.image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver

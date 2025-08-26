@@ -5,6 +5,7 @@ metadata:
   name: prometheus
   namespace: argocd
   annotations:
+    argocd.argoproj.io/sync-wave: "2"
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: public.ecr.aws/grafana/grafana:^12.0, quay.io/prometheus/prometheus:^3.4.1, quay.io/prometheus-operator/prometheus-operator:^0, quay.io/prometheus/node-exporter:^1, quay.io/prometheus/alertmanager:^0
     argocd-image-updater.argoproj.io/update-strategy: semver
