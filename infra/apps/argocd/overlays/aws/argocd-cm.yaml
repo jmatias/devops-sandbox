@@ -9,6 +9,13 @@ data:
   application.resourceTrackingMethod: annotation
   accounts.javier: apiKey, login
   accounts.admin: apiKey, login
+  resource.customizations.ignoreResourceUpdates.external-secrets.io_ExternalSecret:
+    |
+    jqPathExpressions:
+     - .spec.data[].remoteRef.conversionStrategy
+     - .spec.data[].remoteRef.decodingStrategy
+     - .spec.data[].remoteRef.metadataPolicy
+
   resource.customizations: |
     apiextensions.k8s.io/CustomResourceDefinition:
       ignoreDifferences: |
