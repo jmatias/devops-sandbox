@@ -4,6 +4,7 @@ metadata:
   name: argocd-server
   namespace: argocd
 spec:
+  replicas: 2
   template:
     spec:
       containers:
