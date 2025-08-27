@@ -1207,15 +1207,15 @@ createUserJob:
     - "-r"
     - "{{ .Values.webserver.defaultUser.role }}"
     - "-u"
-    - "${ADMIN_USERNAME}"
+    - "$(ADMIN_USERNAME)"
     - "-e"
     - "{{ .Values.webserver.defaultUser.email }}"
     - "-f"
-    - "{{ .Values.webserver.defaultUser.firstName }}"
+    - "$ADMIN_USERNAME"
     - "-l"
     - "{{ .Values.webserver.defaultUser.lastName }}"
     - "-p"
-    - "${ADMIN_PASSWORD}"
+    - "$(ADMIN_PASSWORD)"
 
   # Annotations on the create user job pod
   annotations: {}
