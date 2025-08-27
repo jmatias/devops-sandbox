@@ -3,7 +3,7 @@ global:
   storageClass: auto-ebs-sc
 
 image:
-  repository: public.ecr.aws/unleashorg/unleash-server
+  repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/unleashorg/unleash-server
 
 replicaCount: 1
 
@@ -58,6 +58,9 @@ dbConfig:
     key: "postgres-password"
 
 postgresql:
+  image:
+    registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
+    repository: bitnami/postgresql
   auth:
     existingSecret: "unleash-postgresql"
     secretKeys:

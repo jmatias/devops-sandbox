@@ -52,7 +52,7 @@ cicdStrawman:
     tag: "0.*"
 
 datahub:
-  enabled: true
+  enabled: false
   autoSync: true
 
 daysSince:
