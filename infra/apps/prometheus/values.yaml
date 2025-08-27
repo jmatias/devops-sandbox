@@ -1136,7 +1136,7 @@ grafana:
     repository: grafana/grafana
     pullPolicy: IfNotPresent
 
-  replicas: 1
+  replicas: 2
   enabled: true
   namespaceOverride: ""
 
