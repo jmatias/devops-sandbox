@@ -2850,6 +2850,9 @@ cleanup:
 # Configuration for postgresql subchart
 # Not recommended for production
 postgresql:
+  image:
+    registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
+    repository: bitnami/postgresql
   enabled: true
   auth:
     enablePostgresUser: true
