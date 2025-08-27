@@ -8,7 +8,7 @@ resources:
   - github-oauth-secret.yaml
 
 patches:
-  -
+
   - path: patch-application-controller.yaml
     target:
       kind: StatefulSet
@@ -29,9 +29,8 @@ patches:
 
   - path: patch-server-deployment.yaml
     target:
-      kind: Deployment
       name: argocd-server
-      namespace: argocd
+      kind: Deployment
 
   - path: repo-server-deployment.yaml
     target:
