@@ -1515,13 +1515,13 @@ apiServer:
       ports:
         - port: "{{ .Values.ports.apiServer }}"
 
-  resources: {}
-  #   limits:
-  #     cpu: 100m
-  #     memory: 128Mi
-  #   requests:
-  #     cpu: 100m
-  #     memory: 128Mi
+  resources:
+#     limits:
+#       cpu: 100m
+#       memory: 512Mi
+     requests:
+       cpu: 200m
+       memory: 512Mi
 
   # Add custom annotations to the apiServer configmap
   configMapAnnotations: {}
@@ -2078,13 +2078,13 @@ dagProcessor:
   # container level lifecycle hooks
   containerLifecycleHooks: {}
 
-  resources: {}
+  resources:
   #  limits:
   #   cpu: 100m
   #   memory: 128Mi
-  #  requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+    requests:
+     cpu: 100m
+     memory: 250Mi
 
   # Grace period for dag processor to finish after SIGTERM is sent from kubernetes
   terminationGracePeriodSeconds: 60

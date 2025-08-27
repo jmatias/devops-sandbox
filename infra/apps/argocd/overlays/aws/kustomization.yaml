@@ -13,6 +13,12 @@ patches:
 #      name: argocd-application-controller
 #      kind: StatefulSet
 
+  - path: patch-application-controller.yaml
+    target:
+      kind: StatefulSet
+      name: argocd-application-controller
+      namespace: argocd
+
   - path: argocd-cmd-params-cm.yaml
     target:
       name: argocd-cmd-params-cm
@@ -25,10 +31,16 @@ patches:
     target:
       name: argocd-server-ingress
 
-  - path: server-deployment.yaml
+#  - path: server-deployment.yaml
+#    target:
+#      name: argocd-server
+#      kind: Deployment
+
+  - path: patch-server-deployment.yaml
     target:
-      name: argocd-server
       kind: Deployment
+      name: argocd-server
+      namespace: argocd
 
   - path: repo-server-deployment.yaml
     target:
