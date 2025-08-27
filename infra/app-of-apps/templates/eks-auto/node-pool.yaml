@@ -19,6 +19,7 @@ spec:
         - key: "eks.amazonaws.com/instance-cpu"
           operator: In
           values:
+            - "2"
             - "4"
             - "8"
         - key: karpenter.sh/capacity-type
