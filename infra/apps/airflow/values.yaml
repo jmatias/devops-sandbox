@@ -1404,7 +1404,7 @@ migrateDatabaseJob:
 apiServer:
 
   # Number of Airflow API servers in the deployment
-  replicas: 1
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
@@ -2026,7 +2026,7 @@ triggerer:
 dagProcessor:
   enabled: ~
   # Number of airflow dag processors in the deployment
-  replicas: 1
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
