@@ -1124,6 +1124,8 @@ alertmanager:
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
 grafana:
+  global:
+    imageRegistry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
 
   image:
     registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
