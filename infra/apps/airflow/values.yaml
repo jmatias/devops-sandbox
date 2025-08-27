@@ -1520,8 +1520,8 @@ apiServer:
 #       cpu: 100m
 #       memory: 512Mi
      requests:
-       cpu: 200m
-       memory: 512Mi
+       cpu: 100m
+       memory: 750Mi
 
   # Add custom annotations to the apiServer configmap
   configMapAnnotations: {}
