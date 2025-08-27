@@ -1,4 +1,3 @@
 kustomize:
   images:
-  - unleashorg/unleash-server:6.10.0
-  - public.ecr.aws/unleashorg/unleash-server:7.1.1
+  - 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/unleashorg/unleash-server:7.1.1
