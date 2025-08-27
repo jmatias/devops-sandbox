@@ -22,13 +22,11 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
 
-    {{ if .Values.appOfApps.autoSync }}
     automated:
-      enabled: true
+      enabled: {{ .Values.appOfApps.autoSync }}
       prune: true
-      selfHeal: true
+      selfHeal: {{ .Values.appOfApps.autoSync }}
       allowEmpty: false
-    {{ end }}
 
     retry:
       backoff:
