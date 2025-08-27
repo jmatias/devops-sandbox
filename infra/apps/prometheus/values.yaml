@@ -1140,9 +1140,9 @@ grafana:
   enabled: true
   namespaceOverride: ""
 
-  grafana.ini:
-    server:
-      root_url: "https://grafana.tw-ocean.com"
+#  grafana.ini:
+#    server:
+#      root_url: "https://grafana.tw-ocean.com"
 
   annotations:
     reloader.stakater.com/auto: "true"
