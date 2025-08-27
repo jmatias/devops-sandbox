@@ -30,7 +30,7 @@ fileignoreconfig:
 - filename: infra/apps/airflow/secrets.yaml
   checksum: 3cc51cd35af17e75c9e2bc1808cecd2431c1d40931212b0ae4254a57efd6583e
 - filename: infra/apps/airflow/values.yaml
-  checksum: 4e012e28e955043573d2e979e907df68006ab5b796626fe42dd7075bc215849e
+  checksum: 36951088e06b1c5d56dc287ad64c276868506210470f0fec812c4e8e7bef1388
 - filename: infra/apps/app-of-apps/templates/actions-runner-scale-set.yaml
   checksum: f371634a73856c9c8ed4d1c4789331200b267b9cfb41daf6a60764f8f4171161
 - filename: infra/apps/app-of-apps/templates/datahub-prerequisites.yaml
