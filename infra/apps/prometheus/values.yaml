@@ -1124,6 +1124,7 @@ alertmanager:
 ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
 ##
 grafana:
+  replicas: 2
   enabled: true
   namespaceOverride: ""
 
