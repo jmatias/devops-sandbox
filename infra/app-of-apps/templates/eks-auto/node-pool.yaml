@@ -29,6 +29,7 @@ spec:
         - key: eks.amazonaws.com/instance-category
           operator: In
           values:
+            - m
             - r
         - key: eks.amazonaws.com/instance-generation
           operator: Gt
