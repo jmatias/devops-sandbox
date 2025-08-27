@@ -1207,7 +1207,7 @@ createUserJob:
     - "-r"
     - "{{ .Values.webserver.defaultUser.role }}"
     - "-u"
-    - "{{ .Values.webserver.defaultUser.username }}"
+    - "${ADMIN_USERNAME}"
     - "-e"
     - "{{ .Values.webserver.defaultUser.email }}"
     - "-f"
@@ -1215,7 +1215,7 @@ createUserJob:
     - "-l"
     - "{{ .Values.webserver.defaultUser.lastName }}"
     - "-p"
-    - "{{ .Values.webserver.defaultUser.password }}"
+    - "${ADMIN_PASSWORD}"
 
   # Annotations on the create user job pod
   annotations: {}
@@ -1284,7 +1284,18 @@ createUserJob:
   useHelmHooks: false
   applyCustomEnv: false
 
-  env: []
+  env:
+    - name: ADMIN_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: grafana-secret
+          key: admin-user
+    - name: ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: grafana-secret
+          key: admin-password
+
 
   resources: {}
   #  limits:
