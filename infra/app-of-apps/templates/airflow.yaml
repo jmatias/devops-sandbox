@@ -22,11 +22,10 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{ if .Values.airflow.autoSync }}
     automated:
       prune: true
-      selfHeal: true
-    {{ end }}
+      enabled: {{ .Values.airflow.autoSync }}
+      selfHeal: {{ .Values.airflow.autoSync }}
 
     retry:
       backoff:
