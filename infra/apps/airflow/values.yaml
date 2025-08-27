@@ -1211,12 +1211,23 @@ createUserJob:
     - "-e"
     - "{{ .Values.webserver.defaultUser.email }}"
     - "-f"
-    - "$ADMIN_USERNAME"
+    - "{{ .Values.webserver.defaultUser.firstName }}"
     - "-l"
     - "{{ .Values.webserver.defaultUser.lastName }}"
     - "-p"
     - "$(ADMIN_PASSWORD)"
 
+  env:
+    - name: ADMIN_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: airflow-admin
+          key: admin-user
+    - name: ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: airflow-admin
+          key: admin-password
   # Annotations on the create user job pod
   annotations: {}
   # jobAnnotations are annotations on the create user job
@@ -1284,17 +1295,7 @@ createUserJob:
   useHelmHooks: false
   applyCustomEnv: false
 
-  env:
-    - name: ADMIN_USERNAME
-      valueFrom:
-        secretKeyRef:
-          name: grafana-secret
-          key: admin-user
-    - name: ADMIN_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: grafana-secret
-          key: admin-password
+
 
 
   resources: {}
