@@ -7,7 +7,7 @@ spec:
 
 
 airflow:
-  enabled: true
+  enabled: false
   autoSync: true
 
 argocd:

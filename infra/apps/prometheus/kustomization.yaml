@@ -9,6 +9,29 @@ helmCharts:
     valuesFile: values.yaml
     version: 77.*
 
+  - name: postgresql
+    repo: https://charts.bitnami.com/bitnami
+    version: 15.5.26
+    releaseName: prometheus-grafana-pg
+    namespace: monitoring
+    valuesInline:
+      global:
+        security:
+          allowInsecureImages: true
+      image:
+        registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
+      auth:
+        existingSecret: prometheus-grafana-pg-auth
+        username: grafana
+        database: grafana
+      primary:
+        persistence:
+          enabled: true
+          size: 8Gi
+        resources:
+          requests: { cpu: 100m, memory: 256Mi }
+          limits:   { cpu: 500m, memory: 512Mi }
+
 resources:
   - secrets.yaml
   - grafana-dashboard-15661-cm.yaml

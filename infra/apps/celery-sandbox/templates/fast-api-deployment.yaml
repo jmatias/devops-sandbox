@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fast-api
+  name: {{ include "celery-sandbox.name" . }}-fast-api
 spec:
   replicas: {{ .Values.fastapi.replicas }}
   selector:
