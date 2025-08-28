@@ -8,6 +8,8 @@ metadata:
 
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-repository: {{ .Values.spec.source.repoURL }}
+    argocd-image-updater.argoproj.io/git-branch:  {{ .Values.spec.source.targetRevision }}
     argocd-image-updater.argoproj.io/image-list: ghcr.io/actions/actions-runner:^0
     argocd-image-updater.argoproj.io/update-strategy: semver
     argocd.argoproj.io/sync-wave: "3"
@@ -21,9 +23,10 @@ spec:
     namespace: github-actions
     server: {{ .Values.spec.destination.server }}
 
-  project: default
+  project: github-actions
 
   source:
+    path: infra/apps/gha-runner-scale-set
     chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.*
@@ -59,12 +62,11 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
 
-    {{- if .Values.actionsRunnerController.autoSync }}
     automated:
+      enabled: {{ .Values.actionsRunnerController.autoSync }}
       prune: true
-      selfHeal: true
+      selfHeal: {{ .Values.actionsRunnerController.autoSync }}
 
-    {{- end }}
 
     retry:
       backoff:

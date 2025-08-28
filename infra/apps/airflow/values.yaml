@@ -65,7 +65,7 @@ containerLifecycleHooks: {}
 airflowHome: /opt/airflow
 
 # Default airflow repository -- overridden by all the specific images below
-defaultAirflowRepository: apache/airflow
+defaultAirflowRepository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/apache/airflow
 
 # Default airflow tag to deploy
 defaultAirflowTag: "3.0.5"
@@ -154,7 +154,8 @@ ingress:
       alb.ingress.kubernetes.io/scheme: internet-facing
       alb.ingress.kubernetes.io/group.name: "sandbox-external"
       alb.ingress.kubernetes.io/healthcheck-path: /api/v2/version
-      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
+#      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
+      alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06
 
     # The path for the API Server Ingress
     path: "/"

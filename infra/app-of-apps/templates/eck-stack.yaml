@@ -7,6 +7,7 @@ metadata:
   name: eck-stack
   namespace: argocd
   annotations:
+    argocd.argoproj.io/sync-wave: "7"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: docker.elastic.co/beats/filebeat:^9.0,

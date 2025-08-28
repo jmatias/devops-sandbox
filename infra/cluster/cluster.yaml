@@ -89,17 +89,22 @@ addons:
 
   - name: external-dns
     version: latest
-#    configurationValues: |-
+
+    configurationValues: |-
+      serviceMonitor:
+        enabled: true
 #      interval: "20s"
-#      policy: sync
-#      serviceMonitor:
-#        enabled: true
-#    resolveConflicts: overwrite
+  #      policy: sync
+
+    resolveConflicts: overwrite
+
 
   - name: cert-manager
     version: latest
+
     wellKnownPolicies:
       certManager: true
+
     configurationValues: |-
       replicaCount: 2
 
