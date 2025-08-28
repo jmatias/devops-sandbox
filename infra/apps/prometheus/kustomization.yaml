@@ -25,6 +25,7 @@ helmCharts:
         username: grafana
         database: grafana
       primary:
+        terminationGracePeriodSeconds: 30s
         persistence:
           enabled: true
           size: 8Gi
