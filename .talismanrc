@@ -200,7 +200,7 @@ fileignoreconfig:
 - filename: infra/cluster/node_pool.yaml
   checksum: cb710a5150558432f53fcbbe94084ce2d372a1c52313de106fb10f639249bbbe
 - filename: infra/hack/bootstrap.sh
-  checksum: 1fdaf64463ba512faf3eebb906d220908f228a3984e8f7c4990642a00cada0a7
+  checksum: e28859897ba9a8d564dd9123d53531ed93a432fcf35b40cd73266c5865a602c6
 - filename: src/airflow/docker-compose.yaml
   checksum: 225426ad85a79d5544b3e7fc5baf555b5c0d520a7796d9f54651b5fe7d982164
 scopeconfig:
