@@ -5,15 +5,21 @@ kind: Application
 metadata:
   name: gha-runner-config
   namespace: argocd
+
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+
 spec:
+
   destination:
     namespace: github-actions
     server: {{ .Values.spec.destination.server }}
-  project: default
+
+  project: github-actions
+
   source:
     path: infra/apps/gha-runner-config
     repoURL: {{ .Values.spec.source.repoURL }}
@@ -26,12 +32,11 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{- if .Values.actionsRunnerController.autoSync }}
     automated:
+      enabled: {{ .Values.actionsRunnerController.autoSync }}
       prune: true
-      selfHeal: true
+      selfHeal: {{ .Values.actionsRunnerController.autoSync }}
 
-    {{- end }}
 
     retry:
       backoff:

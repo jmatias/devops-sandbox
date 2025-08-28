@@ -4,6 +4,11 @@ kind: Application
 metadata:
   name: airflow
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/apache/airflow
+    argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

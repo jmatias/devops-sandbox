@@ -6,6 +6,8 @@ spec:
   scheme: internet-facing
   group:
     name: sandbox-external
+  certificateARNs:
+    - arn:aws:acm:us-east-1:386757133934:certificate/ee3c4183-b44b-4e47-8c5d-a74343e848f3
 
 ---
 

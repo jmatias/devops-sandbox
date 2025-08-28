@@ -1,12 +1,10 @@
 #!/bin/bash
 
+
 install_argocd() {
 
   kubectl create namespace argocd || true
   kubectl config set-context --current --namespace argocd
-
-  kubectl apply -f "https://raw.githubusercontent.com/external-secrets/external-secrets/v0.18.2/deploy/crds/bundle.yaml"
-
 
   kubectl apply -n argocd -k ../apps/argocd/overlays/aws
 
@@ -14,8 +12,7 @@ install_argocd() {
   kubectl wait --timeout=60s --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
   argocd login --core
 
-  argocd repo add git@github.com:jmatiascabrera/devops-sandbox.git --ssh-private-key-path ~/.ssh/id_ed25519_personal --project default --name devops-sandbox
-  argocd repo add git@github.com:jmatias/self-serve-example.git --ssh-private-key-path ~/.ssh/id_ed25519_personal --project default --name devops-sandbox
+  ./add-repos.sh
 
   sleep 2
   kubectl wait --for=condition=Ready pod/"$(kubectl get pod -n argocd -l app.kubernetes.io/name=argocd-server -o jsonpath='{.items[0].metadata.name}')" -n argocd
@@ -23,16 +20,7 @@ install_argocd() {
 
 install_apps() {
 
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
-  kubectl apply --server-side -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.82.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+  ./apply-crds.sh
 
   argocd login --core
   argocd app create app-of-apps \
@@ -47,12 +35,20 @@ install_apps() {
 
 set -e
 
-pushd ../cluster
-#eksctl create cluster -f cluster.yaml
+# if eks cluster does not exist, create it
+if ! ./check-if-eks-cluster-exists.sh javier-sandbox-eks; then
+  pushd ../cluster
+  echo "Cluster does not exist, creating it..."
+  eksctl create cluster -f cluster.yaml
+  popd
+else
+  echo "Cluster exists, skipping creation."
+fi
+
 kubectl apply -f ../app-of-apps/templates/eks-auto/node-pool.yaml
 kubectl apply -f ../app-of-apps/templates/eks-auto/ingress-class.yaml
 kubectl apply -f ../app-of-apps/templates/eks-auto/storage-class.yaml
-popd
+
 
 install_argocd
 install_apps

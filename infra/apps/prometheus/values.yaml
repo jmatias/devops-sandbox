@@ -1244,7 +1244,7 @@ grafana:
   # # To make Grafana persistent (Using Statefulset)
   # #
   persistence:
-    enabled: true
+    enabled: false
     type: sts
     storageClassName: "auto-ebs-sc"
     accessModes:
