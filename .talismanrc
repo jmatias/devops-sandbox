@@ -175,10 +175,12 @@ fileignoreconfig:
   checksum: d7a973950a919f511c46f82f2f83739614fa5c7f8de894ec518b423ce8c69d78
 - filename: infra/apps/prometheus/grafana-dashboard-15661-cm.yaml
   checksum: 5944e52ff98b4ea4043d0eb7672239fd0266eb4d769103ae3250044f7e0f5977
+- filename: infra/apps/prometheus/kustomization.yaml
+  checksum: 931f515412a6e7dd5ce4d751ebc4e1cd96ffbbdb34536aecdb5a5a1d1d3e8a80
 - filename: infra/apps/prometheus/secrets.yaml
   checksum: b1607556fffa91fbf3ef20a5132f1a546a4751f3ed5b8138ebe8b54c2d825bdb
 - filename: infra/apps/prometheus/values.yaml
-  checksum: 06d23530ac0d906cb60fb26fc6faff6694e6e51181e5c0857e310f239bb8279a
+  checksum: 89193762981af9a33d83a8ce1762a8c9d2a1fe89cfb1baec1c6385ec0be8978d
 - filename: infra/apps/unleash/Chart.lock
   checksum: 4ea843dede0b4b851cbee5aeb2a66953ea0e15bc203f0428655aa4c6d4245c8b
 - filename: infra/apps/unleash/secrets.yaml

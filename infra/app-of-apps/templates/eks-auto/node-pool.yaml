@@ -6,7 +6,7 @@ spec:
   disruption:
     budgets:
       - nodes: 10%
-    consolidateAfter: 15m
+    consolidateAfter: 30m
     consolidationPolicy: WhenEmptyOrUnderutilized
   template:
     metadata: { }
@@ -29,6 +29,7 @@ spec:
         - key: eks.amazonaws.com/instance-category
           operator: In
           values:
+            - c
             - m
             - r
         - key: eks.amazonaws.com/instance-generation

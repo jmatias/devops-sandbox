@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: flower-ui
+  name: {{ include "celery-sandbox.name" . }}-flower-ui
   annotations:
     external-dns.alpha.kubernetes.io/hostname: flower.tw-ocean.com
     external-dns.alpha.kubernetes.io/ttl: "60"

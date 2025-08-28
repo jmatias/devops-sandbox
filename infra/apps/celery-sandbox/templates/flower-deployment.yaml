@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flower-ui
+  name: {{ include "celery-sandbox.name" . }}-flower-ui
   annotations:
     reloader.stakater.com/auto: "true"
 spec:
