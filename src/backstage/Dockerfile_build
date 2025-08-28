@@ -1,0 +1,24 @@
+FROM node:20-bookworm-slim AS build
+
+# Set Python interpreter for `node-gyp` to use
+ENV PYTHON=/usr/bin/python3
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  --mount=type=cache,target=/var/lib/apt,sharing=locked \
+  apt-get update
+# Install isolate-vm dependencies, these are needed by the @backstage/plugin-scaffolder-backend.
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  --mount=type=cache,target=/var/lib/apt,sharing=locked \
+  apt-get install -y --no-install-recommends python3
+
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  --mount=type=cache,target=/var/lib/apt,sharing=locked \
+  apt-get install -y --no-install-recommends build-essential; \
+  apt-get install -y --no-install-recommends g++
+
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  --mount=type=cache,target=/var/lib/apt,sharing=locked \
+  apt-get install -y --no-install-recommends libsqlite3-dev && \
+  rm -rf /var/lib/apt/lists/*
