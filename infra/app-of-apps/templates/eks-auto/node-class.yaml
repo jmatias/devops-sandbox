@@ -1,0 +1,15 @@
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: sandbox-node
+spec:
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+        kubernetes.io/role/internal-elb: "1"
+  securityGroupSelectorTerms:
+    - tags:
+        aws:eks:cluster-name: javier-sandbox-eks
+  ephemeralStorage:
+    size: "80Gi"
+  role: javier-sandbox-eks-cluster-AutoModeNodeRole

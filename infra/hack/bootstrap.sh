@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 install_argocd() {
 
   kubectl create namespace argocd || true
@@ -19,8 +18,6 @@ install_argocd() {
 }
 
 install_apps() {
-
-  ./apply-crds.sh
 
   argocd login --core
   argocd app create app-of-apps \
@@ -45,14 +42,29 @@ else
   echo "Cluster exists, skipping creation."
 fi
 
+kubectl apply -f ../app-of-apps/templates/eks-auto/node-class.yaml
 kubectl apply -f ../app-of-apps/templates/eks-auto/node-pool.yaml
 kubectl apply -f ../app-of-apps/templates/eks-auto/ingress-class.yaml
 kubectl apply -f ../app-of-apps/templates/eks-auto/storage-class.yaml
 
+aws eks create-access-entry \
+  --cluster-name javier-sandbox-eks \
+  --principal-arn arn:aws:iam::386757133934:role/javier-sandbox-eks-cluster-AutoModeNodeRole \
+  --type EC2 || echo "Access entry already exists, skipping."
 
+aws eks associate-access-policy \
+  --cluster-name javier-sandbox-eks \
+  --principal-arn arn:aws:iam::386757133934:role/javier-sandbox-eks-cluster-AutoModeNodeRole \
+  --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSAutoNodePolicy \
+  --access-scope type=cluster || echo "Access policy already associated, skipping."
+
+./apply-crds.sh
 install_argocd
 install_apps
 
 #pushd $HOME/work/external-repos/autoscaler/vertical-pod-autoscaler/hack
 #FEATURE_GATES="InPlaceOrRecreate=true" ./vpa-up.sh
 #popd || true
+
+printf "To read the Admin password, run:\n"
+echo "argocd admin initial-password -n argocd | head -n 1 | pbcopy"
