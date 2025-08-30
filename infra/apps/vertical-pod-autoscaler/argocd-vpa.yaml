@@ -30,7 +30,7 @@ spec:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
 
 
 ---
