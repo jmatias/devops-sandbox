@@ -15,9 +15,9 @@ spec:
   resourcePolicy:
     containerPolicies:
       - containerName: "*"
-        minAllowed:
-          cpu: 1m
-          memory: 10Mi
+#        minAllowed:
+#          cpu: 1m
+#          memory: 10Mi
 #        maxAllowed:
 #          cpu: 200m
 #          memory: 100Mi
@@ -42,9 +42,9 @@ spec:
   resourcePolicy:
     containerPolicies:
       - containerName: "*"
-        minAllowed:
-          cpu: 1m
-          memory: 10Mi
+#        minAllowed:
+#          cpu: 1m
+#          memory: 10Mi
         controlledResources: [ "cpu", "memory" ]
         controlledValues: RequestsAndLimits
   recommenders:
@@ -90,9 +90,9 @@ spec:
   resourcePolicy:
     containerPolicies:
       - containerName: "*"
-        minAllowed:
-          cpu: 1m
-          memory: 10Mi
+#        minAllowed:
+#          cpu: 1m
+#          memory: 10Mi
         controlledResources: [ "cpu", "memory" ]
         controlledValues: RequestsAndLimits
   recommenders:
