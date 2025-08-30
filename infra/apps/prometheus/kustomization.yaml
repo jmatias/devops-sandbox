@@ -7,11 +7,11 @@ helmCharts:
     releaseName: prometheus
     namespace: monitoring
     valuesFile: values.yaml
-    version: 77.*
+    version: 77.1.0
 
-  - name: postgresql
+  - name: postgresql-ha
     repo: https://charts.bitnami.com/bitnami
-    version: 15.5.26
+    version: 16.3.2
     releaseName: prometheus-grafana-pg
     namespace: monitoring
     valuesInline:
