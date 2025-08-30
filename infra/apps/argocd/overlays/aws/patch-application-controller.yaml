@@ -4,6 +4,7 @@ metadata:
   name: argocd-application-controller
   namespace: argocd
 spec:
+  replicas: 2
   template:
     spec:
       containers:

@@ -113,7 +113,7 @@ deschedulerPolicy:
         - name: RemoveDuplicates
         - name: RemovePodsHavingTooManyRestarts
           args:
-            podRestartThreshold: 100
+            podRestartThreshold: 20
             includingInitContainers: true
         - name: RemovePodsViolatingNodeAffinity
           args:
