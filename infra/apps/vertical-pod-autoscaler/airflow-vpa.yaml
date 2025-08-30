@@ -13,17 +13,6 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "airflow-api-server"
-        controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
 
@@ -43,7 +32,7 @@ spec:
     minReplicas: 1
   resourcePolicy:
     containerPolicies:
-      - containerName: "airflow-statsd"
+      - containerName: "statsd"
         controlledResources: [ "cpu", "memory" ]
         minAllowed:
           cpu: 50m
@@ -69,17 +58,6 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "aircflow-scheduler"
-        controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
 
@@ -98,16 +76,5 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "aircflow-dag-processor"
-        controlledResources: [ "cpu", "memory" ]
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "512Mi"
-          cpu: "1000m"
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal

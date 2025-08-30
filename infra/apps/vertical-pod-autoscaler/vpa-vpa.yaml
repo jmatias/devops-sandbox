@@ -13,18 +13,6 @@ spec:
     minReplicas: 1
   recommenders:
     - name: frugal
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "recommender"
-        controlledResources:
-          - cpu
-          - memory
-        controlledValues: "RequestsAndLimits"
-        minAllowed:
-          cpu: 50m
-          memory: "128Mi"
-        maxAllowed:
-          memory: "256Mi"
 
 ---
 
@@ -43,18 +31,6 @@ spec:
     minReplicas: 1
   recommenders:
     - name: frugal
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "*"
-        controlledResources:
-          - cpu
-          - memory
-        controlledValues: "RequestsAndLimits"
-        minAllowed:
-          cpu: 50m
-          memory: "100Mi"
-        maxAllowed:
-          memory: "256Mi"
 
 
 ---
@@ -73,15 +49,3 @@ spec:
     minReplicas: 1
   recommenders:
     - name: frugal
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "*"
-        controlledResources:
-          - cpu
-          - memory
-        controlledValues: "RequestsAndLimits"
-        minAllowed:
-          cpu: 25m
-          memory: "75Mi"
-        maxAllowed:
-          memory: "128Mi"
