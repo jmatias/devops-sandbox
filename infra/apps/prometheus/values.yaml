@@ -1263,7 +1263,7 @@ grafana:
 #    reloader.stakater.com/auto: "true"
 
   envFromSecrets:
-     - name: prometheus-grafana-db
+     - name: grafana-pg-auth
      - name: github-oauth
   env:
     GF_AUTH_GITHUB_ENABLED: "true"
