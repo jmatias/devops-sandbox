@@ -31,11 +31,10 @@ spec:
       - PruneLast=true
       - ServerSideApply=false
 
-    {{ if .Values.prometheus.autoSync }}
     automated:
+      enabled: {{ .Values.prometheus.autoSync }}
+      selfHeal: {{ .Values.prometheus.autoSync }}
       prune: true
-      selfHeal: true
-    {{ end }}
 
     retry:
       limit: 10
