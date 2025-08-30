@@ -3,11 +3,11 @@ installCRDs: true
 imagePullSecrets:
   - name: dockerhub-secret
 
-replicaCount: 2
+replicaCount: 1
 webhook:
-  replicaCount: 2
+  replicaCount: 1
 certController:
-  replicaCount: 2
+  replicaCount: 1
 
 tolerations:
   - key: "spotInstance"
