@@ -36,13 +36,13 @@ backstage:
   autoSync: true
 
 celerySandbox:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
 
 cicdStrawman:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "0.*"
@@ -80,18 +80,18 @@ reloader:
   autoSync: true
 
 selfServeExample:
-  enabled: true
+  enabled: false
   autoSync: true
 
 sdlcTrace:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     pullPolicy: IfNotPresent
     tag: "0.*"
 
 unleash:
-  enabled: true
+  enabled: false
   autoSync: true
   image:
     tag: "latest"
