@@ -32,17 +32,16 @@ spec:
       - CreateNamespace=true
       - Prune=true
 
-    {{ if .Values.backstage.autoSync }}
     automated:
       prune: true
-      selfHeal: true
-    {{ end }}
+      enabled: {{ .Values.backstage.autoSync }}
+      selfHeal: {{ .Values.backstage.autoSync }}
 
     retry:
+      limit: 10
       backoff:
         duration: 5s
         factor: 2
-        maxDuration: 3m0s
-      limit: 5
+        maxDuration: 3m
 
 {{- end}}
