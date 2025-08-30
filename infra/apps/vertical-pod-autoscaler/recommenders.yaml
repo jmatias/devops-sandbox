@@ -24,9 +24,15 @@ spec:
           args:
             - --recommender-name=frugal
             - --target-cpu-percentile=0.75
+            - --target-memory-percentile=0.75
             - --humanize-memory=true
             - --round-cpu-millicores=50
             - --round-memory-bytes=134217728
+            - --confidence-interval-cpu=1h0m0s
+            - --confidence-interval-memory=1h0m0s
+            - --cpu-histogram-decay-half-life=1h0m0s
+            - --memory-histogram-decay-half-life=1h0m0s
+            - --memory-aggregation-interval=1h0m0s
           resources:
             limits:
               cpu: 200m
@@ -65,9 +71,17 @@ spec:
           args:
             - --recommender-name=default
             - --target-cpu-percentile=0.90
+            - --target-memory-percentile=0.90
             - --humanize-memory=true
             - --round-cpu-millicores=50
             - --round-memory-bytes=134217728
+            - --confidence-interval-cpu=1h0m0s
+            - --confidence-interval-memory=1h0m0s
+            - --cpu-histogram-decay-half-life=1h0m0s
+            - --memory-histogram-decay-half-life=1h0m0s
+            - --memory-aggregation-interval=1h0m0s
+            - --pod-recommendation-min-memory-mb=128
+            - --pod-recommendation-min-cpu-millicores=50
           resources:
             limits:
               cpu: 200m
