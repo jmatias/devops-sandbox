@@ -66,6 +66,8 @@ postgresql:
     secretKeys:
       adminPasswordKey: postgres-password
       userPasswordKey: password
+  readReplicas:
+    replicaCount: 2
 
 deploymentAnnotations:
   reloader.stakater.com/auto: "true"
