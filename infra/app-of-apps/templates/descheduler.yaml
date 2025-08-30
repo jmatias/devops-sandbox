@@ -10,6 +10,7 @@ metadata:
     argocd-image-updater.argoproj.io/git-repository: {{ .Values.spec.source.repoURL }}
     argocd-image-updater.argoproj.io/image-list: registry.k8s.io/descheduler/descheduler
     argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

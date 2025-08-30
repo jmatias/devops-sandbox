@@ -8,10 +8,11 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-repository: {{ .Values.spec.source.repoURL }}
-    argocd-image-updater.argoproj.io/image-list: reloader=ghcr.io/stakater/reloader
+    argocd-image-updater.argoproj.io/image-list: reloader=386757133934.dkr.ecr.us-east-1.amazonaws.com/ghcr.io/stakater/reloader
     argocd-image-updater.argoproj.io/reloader.helm.image-name: image.name
     argocd-image-updater.argoproj.io/reloader.helm.image-tag: image.tag
     argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

@@ -7,10 +7,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3"
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: public.ecr.aws/grafana/grafana:^12.0,
-      quay.io/prometheus/prometheus:^3.4.1, quay.io/prometheus-operator/prometheus-operator:^0,
-      quay.io/prometheus/node-exporter:^1,
-      quay.io/prometheus/alertmanager:^0
+    argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/grafana/grafana:^12.0,
+      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/prometheus/prometheus:^3.4.1,
+      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/prometheus-operator/prometheus-operator:^0,
+      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/prometheus/node-exporter:^1,
+      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/prometheus/alertmanager:^0
     argocd-image-updater.argoproj.io/update-strategy: semver
   finalizers:
     - resources-finalizer.argocd.argoproj.io

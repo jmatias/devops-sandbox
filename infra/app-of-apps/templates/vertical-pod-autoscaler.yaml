@@ -9,6 +9,7 @@ metadata:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: registry.k8s.io/autoscaling/vpa-recommender:^1.4
     argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "-1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -28,11 +29,10 @@ spec:
       backoff:
         duration: "30s"
 
-    {{ if .Values.vpa.autoSync }}
     automated:
+      enabled: {{ .Values.vpa.autoSync }}
+      selfHeal: {{ .Values.vpa.autoSync }}
       prune: true
-      selfHeal: true
-    {{ end }}
 
     syncOptions:
       - CreateNamespace=true
