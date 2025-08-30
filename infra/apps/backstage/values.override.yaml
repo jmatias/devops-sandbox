@@ -8,10 +8,9 @@ postgresql:
   imagePullSecrets:
     - dockerhub-secret
   image:
-    repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub/bitnami/postgresql
+    registry: 386757133934.dkr.ecr.us-east-1.amazonaws.com/docker-hub
+    repository: bitnami/postgresql
     tag: 15.4.0-debian-11-r10
-    defaultStorageClass: auto-ebs-sc
-    storageClass: auto-ebs-sc
   enabled: true
   auth:
     username: backstage
