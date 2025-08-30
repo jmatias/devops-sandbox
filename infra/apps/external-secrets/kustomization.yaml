@@ -13,3 +13,4 @@ helmCharts:
 resources:
   - secret-store.yaml
   - secrets.yaml
+  - external-secrets-vpa.yaml
