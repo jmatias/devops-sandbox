@@ -1,23 +1,25 @@
-- op: add
-  path: /spec/template/spec/containers/0/args/-
-  value: --insecure  # Already implied if you're handling TLS at ALB
-
-- op: add
-  path: /spec/replicas
-  value: 1
-
-#- op: add
-#  path: /spec/template/metadata/annotations
-#  value:
-#    reloader.stakater.com/auto: "true"
-
-
-## Add toleration for spot instances
-
-- op: add
-  path: /spec/template/spec/tolerations
-  value:
-    - key: "spot-instance"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server
+  namespace: argocd
+spec:
+  replicas: 2
+  template:
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.k8s.aws/zone-id
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: argocd-server
+      containers:
+        - name: argocd-server
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"

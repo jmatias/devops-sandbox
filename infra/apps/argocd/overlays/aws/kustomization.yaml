@@ -10,11 +10,25 @@ resources:
 
 patches:
 
-  - path: patch-application-controller.yaml
+  - path: application-controller.yaml
     target:
       kind: StatefulSet
       name: argocd-application-controller
-      namespace: argocd
+
+  - path: server-deployment.yaml
+    target:
+      name: argocd-server
+      kind: Deployment
+
+  - path: applicationset-controller.yaml
+    target:
+      name: argocd-applicationset-controller
+      kind: Deployment
+
+  - path: repo-server-deployment.yaml
+    target:
+      name: argocd-repo-server
+      kind: Deployment
 
   - path: argocd-cmd-params-cm.yaml
     target:
@@ -27,16 +41,6 @@ patches:
   - path: ingress.yaml
     target:
       name: argocd-server-ingress
-
-  - path: patch-server-deployment.yaml
-    target:
-      name: argocd-server
-      kind: Deployment
-
-  - path: repo-server-deployment.yaml
-    target:
-      name: argocd-repo-server
-      kind: Deployment
 
   - path: redis.yaml
     target:
