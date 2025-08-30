@@ -12,17 +12,6 @@ spec:
   updatePolicy:
     updateMode: InPlaceOrRecreate
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "*"
-#        minAllowed:
-#          cpu: 1m
-#          memory: 10Mi
-#        maxAllowed:
-#          cpu: 200m
-#          memory: 100Mi
-        controlledResources: [ "cpu", "memory" ]
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
 ---
@@ -39,14 +28,6 @@ spec:
   updatePolicy:
     updateMode: InPlaceOrRecreate
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "*"
-#        minAllowed:
-#          cpu: 1m
-#          memory: 10Mi
-        controlledResources: [ "cpu", "memory" ]
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
 ---
@@ -63,14 +44,6 @@ spec:
   updatePolicy:
     updateMode: InPlaceOrRecreate
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "*"
-        minAllowed:
-          cpu: 1m
-          memory: 10Mi
-        controlledResources: [ "cpu", "memory" ]
-        controlledValues: RequestsAndLimits
   recommenders:
     - name: frugal
 ---

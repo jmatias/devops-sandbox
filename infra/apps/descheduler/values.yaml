@@ -16,7 +16,7 @@ imagePullSecrets:
 
 resources:
   requests:
-    cpu: 500m
+    cpu: 200m
     memory: 256Mi
   limits:
     cpu: 500m
@@ -231,7 +231,7 @@ service:
   ipFamilies: []
 
 serviceMonitor:
-  enabled: false
+  enabled: true
   # The namespace where Prometheus expects to find service monitors.
   # namespace: ""
   # Add custom labels to the ServiceMonitor resource
