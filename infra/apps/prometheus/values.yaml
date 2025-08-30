@@ -1259,8 +1259,8 @@ grafana:
       cookie_secure: true
       cookie_samesite: lax
 
-  annotations:
-    reloader.stakater.com/auto: "true"
+#  annotations:
+#    reloader.stakater.com/auto: "true"
 
   envFromSecrets:
      - name: prometheus-grafana-db
