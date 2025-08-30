@@ -38,10 +38,10 @@ spec:
     {{ end }}
 
     retry:
+      limit: 10
       backoff:
         duration: 5s
         factor: 2
-        maxDuration: 3m0s
-      limit: 5
+        maxDuration: 3m
 
 {{- end }}
