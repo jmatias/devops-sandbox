@@ -43,7 +43,7 @@ spec:
     minReplicas: 1
   resourcePolicy:
     containerPolicies:
-      - containerName: "airflow-statsd"
+      - containerName: "statsd"
         controlledResources: [ "cpu", "memory" ]
         minAllowed:
           cpu: 50m
