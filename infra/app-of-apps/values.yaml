@@ -22,8 +22,6 @@ albIngressController:
 argocdImageUpdater:
   enabled: true
   autoSync: true
-  image:
-    tag: "latest"
 
 actionsRunnerController:
   enabled: true
@@ -36,8 +34,6 @@ appOfApps:
 backstage:
   enabled: false
   autoSync: true
-  image:
-    tag: "latest"
 
 celerySandbox:
   enabled: true
@@ -101,7 +97,5 @@ unleash:
     tag: "latest"
 
 vpa:
-  enabled: false
+  enabled: true
   autoSync: true
-  image:
-    tag: "latest"
