@@ -14,7 +14,7 @@ spec:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
 
 ---
 apiVersion: autoscaling.k8s.io/v1
@@ -31,7 +31,7 @@ spec:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
 
 ---
 apiVersion: autoscaling.k8s.io/v1
@@ -48,7 +48,7 @@ spec:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
 
 
 ---
@@ -66,4 +66,4 @@ spec:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
   recommenders:
-    - name: frugal
+    - name: default
