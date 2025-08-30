@@ -27,11 +27,13 @@ spec:
             - --target-memory-percentile=0.75
 #            - --humanize-memory=true
             - --round-cpu-millicores=50
-            - --confidence-interval-cpu=1h0m0s
-            - --confidence-interval-memory=1h0m0s
-            - --cpu-histogram-decay-half-life=1h0m0s
-            - --memory-histogram-decay-half-life=1h0m0s
-            - --memory-aggregation-interval=1h0m0s
+#            - --confidence-interval-cpu=1h0m0s
+#            - --confidence-interval-memory=1h0m0s
+#            - --cpu-histogram-decay-half-life=1h0m0s
+#            - --memory-histogram-decay-half-life=1h0m0s
+#            - --memory-aggregation-interval=1h0m0s
+            - --pod-recommendation-min-memory-mb=64
+            - --pod-recommendation-min-cpu-millicores=50
           resources:
             limits:
               cpu: 200m
@@ -73,12 +75,12 @@ spec:
             - --target-memory-percentile=0.90
 #            - --humanize-memory=true
             - --round-cpu-millicores=50
-            - --confidence-interval-cpu=1h0m0s
-            - --confidence-interval-memory=1h0m0s
-            - --cpu-histogram-decay-half-life=1h0m0s
-            - --memory-histogram-decay-half-life=1h0m0s
-            - --memory-aggregation-interval=1h0m0s
-            - --pod-recommendation-min-memory-mb=128
+#            - --confidence-interval-cpu=1h0m0s
+#            - --confidence-interval-memory=1h0m0s
+#            - --cpu-histogram-decay-half-life=1h0m0s
+#            - --memory-histogram-decay-half-life=1h0m0s
+#            - --memory-aggregation-interval=1h0m0s
+            - --pod-recommendation-min-memory-mb=64
             - --pod-recommendation-min-cpu-millicores=50
           resources:
             limits:
