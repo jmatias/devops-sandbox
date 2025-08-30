@@ -27,7 +27,6 @@ spec:
             - --target-memory-percentile=0.75
             - --humanize-memory=true
             - --round-cpu-millicores=50
-            - --round-memory-bytes=134217728
             - --confidence-interval-cpu=1h0m0s
             - --confidence-interval-memory=1h0m0s
             - --cpu-histogram-decay-half-life=1h0m0s
@@ -74,7 +73,6 @@ spec:
             - --target-memory-percentile=0.90
             - --humanize-memory=true
             - --round-cpu-millicores=50
-            - --round-memory-bytes=134217728
             - --confidence-interval-cpu=1h0m0s
             - --confidence-interval-memory=1h0m0s
             - --cpu-histogram-decay-half-life=1h0m0s
