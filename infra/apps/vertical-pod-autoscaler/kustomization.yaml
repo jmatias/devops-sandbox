@@ -3,8 +3,6 @@ kind: Kustomization
 
 resources:
 #  - datahub-vpa.yaml
-  - external-secrets-vpa.yaml
   - metrics-server-vpa.yaml
-  - prometheus-vpa.yaml
   - recommenders.yaml
   - vpa-vpa.yaml
