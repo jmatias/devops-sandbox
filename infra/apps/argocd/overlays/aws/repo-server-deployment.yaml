@@ -1,3 +1,7 @@
-- op: add
-  path: /spec/replicas
-  value: 1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-repo-server
+  namespace: argocd
+spec:
+  replicas: 2
