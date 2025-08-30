@@ -107,16 +107,16 @@ addons:
       certManager: true
 
     configurationValues: |-
-      replicaCount: 2
+      replicaCount: 1
 
       resources: {}
 
       cainjector:
-        replicaCount: 2
+        replicaCount: 1
         resources: {}
 
       webhook:
-        replicaCount: 2
+        replicaCount: 1
         resources: {}
 
     resolveConflicts: overwrite
