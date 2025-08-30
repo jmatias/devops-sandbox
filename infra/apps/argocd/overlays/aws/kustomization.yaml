@@ -20,6 +20,11 @@ patches:
       name: argocd-server
       kind: Deployment
 
+  - path: applicationset-controller.yaml
+    target:
+      name: argocd-applicationset-controller
+      kind: Deployment
+
   - path: repo-server-deployment.yaml
     target:
       name: argocd-repo-server
