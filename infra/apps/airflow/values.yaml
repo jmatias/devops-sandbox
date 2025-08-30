@@ -653,7 +653,7 @@ kerberos:
 # Airflow Worker Config
 workers:
   # Number of Airflow Celery workers
-  replicas: 1
+  replicas: 2
 
   # Max number of old Airflow Celery workers ReplicaSets to retain
   revisionHistoryLimit: ~
@@ -1040,7 +1040,7 @@ scheduler:
 
   # Airflow 2.0 allows users to run multiple schedulers,
   # However this feature is only recommended for MySQL 8+ and Postgres
-  replicas: 1
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
@@ -1601,7 +1601,7 @@ webserver:
     scheme: HTTP
 
   # Number of webservers
-  replicas: 1
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
@@ -1809,7 +1809,7 @@ webserver:
 triggerer:
   enabled: true
   # Number of airflow triggerers in the deployment
-  replicas: 1
+  replicas: 2
   # Max number of old replicasets to retain
   revisionHistoryLimit: ~
 
