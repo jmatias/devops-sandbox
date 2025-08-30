@@ -7,7 +7,7 @@ metadata:
 spec:
   targetRef:
     apiVersion: apps/v1
-    kind: StatefulSet
+    kind: Deployment
     name: prometheus-grafana
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
@@ -24,5 +24,5 @@ spec:
         minAllowed:
           cpu: 25m
           memory: "64Mi"
-        maxAllowed:
-          memory: "256Mi"
+#        maxAllowed:
+#          memory: "256Mi"
