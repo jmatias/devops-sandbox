@@ -25,6 +25,8 @@ spec:
             - --recommender-name=frugal
             - --target-cpu-percentile=0.75
             - --humanize-memory=true
+            - --round-cpu-millicores=50
+            - --round-memory-bytes=134217728
           resources:
             limits:
               cpu: 200m
@@ -64,6 +66,8 @@ spec:
             - --recommender-name=default
             - --target-cpu-percentile=0.90
             - --humanize-memory=true
+            - --round-cpu-millicores=50
+            - --round-memory-bytes=134217728
           resources:
             limits:
               cpu: 200m
