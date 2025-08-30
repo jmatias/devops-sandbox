@@ -50,7 +50,7 @@ namespaceOverride: ""
 commonLabels: {}
 
 cronJobApiVersion: "batch/v1"
-schedule: "* * * * *"
+schedule: "*/2 * * * *"
 suspend: false
 # startingDeadlineSeconds: 200
 # successfulJobsHistoryLimit: 3
