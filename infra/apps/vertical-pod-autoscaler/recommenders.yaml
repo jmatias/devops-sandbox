@@ -25,7 +25,7 @@ spec:
             - --recommender-name=frugal
             - --target-cpu-percentile=0.75
             - --target-memory-percentile=0.75
-            - --humanize-memory=true
+#            - --humanize-memory=true
             - --round-cpu-millicores=50
             - --confidence-interval-cpu=1h0m0s
             - --confidence-interval-memory=1h0m0s
@@ -71,7 +71,7 @@ spec:
             - --recommender-name=default
             - --target-cpu-percentile=0.90
             - --target-memory-percentile=0.90
-            - --humanize-memory=true
+#            - --humanize-memory=true
             - --round-cpu-millicores=50
             - --confidence-interval-cpu=1h0m0s
             - --confidence-interval-memory=1h0m0s
