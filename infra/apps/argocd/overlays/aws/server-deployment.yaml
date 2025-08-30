@@ -7,6 +7,13 @@ spec:
   replicas: 2
   template:
     spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: topology.k8s.aws/zone-id
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: argocd-server
       containers:
         - name: argocd-server
           resources:
