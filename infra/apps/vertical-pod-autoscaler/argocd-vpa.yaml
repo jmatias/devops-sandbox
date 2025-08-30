@@ -12,19 +12,8 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "argocd-server"
-        controlledResources: [ "cpu", "memory" ]
-#        minAllowed:
-#          cpu: 50m
-#          memory: "128Mi"
-#        maxAllowed:
-#          cpu: "1000m"
-#          memory: "512Mi"
-        controlledValues: RequestsAndLimits
   recommenders:
-    - name: default
+    - name: frugal
 
 ---
 apiVersion: autoscaling.k8s.io/v1
@@ -40,19 +29,8 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "argocd-application-controller"
-        controlledResources: [ "cpu", "memory" ]
-#        minAllowed:
-#          cpu: 50m
-#          memory: "128Mi"
-#        maxAllowed:
-#          memory: "512Mi"
-#          cpu: "1000m"
-        controlledValues: RequestsAndLimits
   recommenders:
-    - name: default
+    - name: frugal
 
 
 ---
@@ -69,16 +47,5 @@ spec:
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1
-  resourcePolicy:
-    containerPolicies:
-      - containerName: "argocd-repo-server"
-        controlledResources: [ "cpu", "memory" ]
-#        minAllowed:
-#          cpu: 50m
-#          memory: "128Mi"
-#        maxAllowed:
-#          memory: "512Mi"
-#          cpu: "1000m"
-        controlledValues: RequestsAndLimits
   recommenders:
-    - name: default
+    - name: frugal
