@@ -102,7 +102,7 @@ ingress:
 backstage:
 
   # -- Number of deployment replicas
-  replicas: 1
+  replicas: 2
 
   # -- Define the [count of deployment revisions](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#clean-up-policy) to be kept.
   # May be set to 0 in case of GitOps deployment approach.
