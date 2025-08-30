@@ -1250,7 +1250,7 @@ grafana:
   grafana.ini:
     database:
         type: postgres
-        host: prometheus-grafana-pg-postgresql.monitoring.svc.cluster.local:5432
+        host: prometheus-grafana-pg-postgresql-ha-pgpool.monitoring.svc.cluster.local:5432
         name: grafana
         user: grafana
         ssl_mode: disable
