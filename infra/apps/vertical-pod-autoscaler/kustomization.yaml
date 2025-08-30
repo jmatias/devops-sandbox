@@ -13,4 +13,4 @@ resources:
   - recommenders.yaml
   - self-serve-example-vpa.yaml
   - unleash-vpa.yaml
-  - vpa.yaml
+  - vpa-vpa.yaml
