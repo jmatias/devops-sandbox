@@ -5,6 +5,7 @@ spec:
     repoURL: git@github.com:jmatiascabrera/devops-sandbox.git
     targetRevision: main
 
+host: tw-ocean.com
 
 airflow:
   enabled: false
