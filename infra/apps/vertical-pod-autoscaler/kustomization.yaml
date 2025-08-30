@@ -2,12 +2,15 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - airflow-vpa.yaml
   - argocd-vpa.yaml
   - backstage-vpa.yaml
+  - cicd-strawman-vpa.yaml
+  - datahub-vpa.yaml
+  - external-secrets-vpa.yaml
   - metrics-server-vpa.yaml
   - prometheus-vpa.yaml
   - recommenders.yaml
   - self-serve-example-vpa.yaml
   - unleash-vpa.yaml
   - vpa.yaml
-  - airflow-vpa.yaml

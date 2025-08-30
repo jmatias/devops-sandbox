@@ -23,7 +23,7 @@ redis:
 
 flower:
   enabled: true
-  replicas: 1
+  replicas: 2
   githubOAuth:
     enabled: true
     authProvider: "flower.views.auth.GithubLoginHandler"
@@ -36,7 +36,7 @@ flower:
 
 fastapi:
     enabled: true
-    replicas: 1
+    replicas: 2
     image:
       repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
       pullPolicy: IfNotPresent
@@ -45,7 +45,7 @@ fastapi:
 
 worker:
     enabled: true
-    replicas: 1
+    replicas: 2
     image:
       repository: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/celery-sandbox
       pullPolicy: IfNotPresent
