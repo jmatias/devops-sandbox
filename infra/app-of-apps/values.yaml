@@ -80,7 +80,7 @@ prometheus:
   autoSync: true
 
 reloader:
-  enabled: false
+  enabled: true
   autoSync: true
 
 selfServeExample:

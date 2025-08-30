@@ -8,7 +8,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: 386757133934.dkr.ecr.us-east-1.amazonaws.com/ocean/self-serve-example,
     argocd-image-updater.argoproj.io/update-strategy: semver
@@ -30,6 +30,7 @@ spec:
 
     {{ if .Values.selfServeExample.autoSync }}
     automated:
+      enabled: true
       prune: true
       selfHeal: true
     {{ end }}

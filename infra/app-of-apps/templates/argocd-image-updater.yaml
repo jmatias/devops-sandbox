@@ -5,9 +5,10 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/image-list: quay.io/argoprojlabs/argocd-image-updater,
-      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/argoprojlabs/argocd-image-updater
+    argocd-image-updater.argoproj.io/image-list:
+      386757133934.dkr.ecr.us-east-1.amazonaws.com/quay/argoprojlabs/argocd-image-updater,
     argocd-image-updater.argoproj.io/update-strategy: semver
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
     namespace: argocd
