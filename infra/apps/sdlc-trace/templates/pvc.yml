@@ -4,7 +4,7 @@ metadata:
   name: sdlc-trace-pvc
 spec:
   accessModes:
-    - {{ .Values.pvc.accessMode }}
+    - {{ .Values.persistence.accessModes }}
   resources:
     requests:
       storage: 1Gi
