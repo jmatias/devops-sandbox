@@ -19,20 +19,20 @@ livenessProbe:
     path: /docs
     port: 8000
   initialDelaySeconds: 15
-  periodSeconds: 10
+  periodSeconds: 20
 readinessProbe:
   httpGet:
     path: /docs
     port: 8000
   initialDelaySeconds: 15
-  periodSeconds: 10
+  periodSeconds: 20
 startupProbe:
   httpGet:
     path: /docs
     port: 8000
   initialDelaySeconds: 15
   periodSeconds: 10
-  failureThreshold: 30
+  failureThreshold: 5
 
 replicas: 2
 
