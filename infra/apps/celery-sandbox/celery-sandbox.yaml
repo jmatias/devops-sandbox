@@ -1,0 +1,64 @@
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: celery-sandbox-fast-api
+  namespace: celery-sandbox
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: celery-sandbox-fast-api
+  updatePolicy:
+    updateMode: InPlaceOrRecreate
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: celery-sandbox-flower-ui
+  namespace: celery-sandbox
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: celery-sandbox-flower-ui
+  updatePolicy:
+    updateMode: InPlaceOrRecreate
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: celery-sandbox-redis
+  namespace: celery-sandbox
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: celery-sandbox-redis
+  updatePolicy:
+    updateMode: InPlaceOrRecreate
+    minReplicas: 1
+  recommenders:
+    - name: frugal
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: celery-sandbox-worker
+  namespace: celery-sandbox
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: celery-sandbox-worker
+  updatePolicy:
+    updateMode: InPlaceOrRecreate
+    minReplicas: 1
+  recommenders:
+    - name: frugal
