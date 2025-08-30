@@ -8,5 +8,4 @@ resources:
   - metrics-server-vpa.yaml
   - prometheus-vpa.yaml
   - recommenders.yaml
-  - unleash-vpa.yaml
   - vpa-vpa.yaml
