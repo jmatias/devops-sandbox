@@ -4,4 +4,4 @@ metadata:
   name: argocd-repo-server
   namespace: argocd
 spec:
-  replicas: 2
+  replicas: 1
