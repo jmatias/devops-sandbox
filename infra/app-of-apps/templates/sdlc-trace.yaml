@@ -31,9 +31,11 @@ spec:
 
   syncPolicy:
     retry:
-      limit: 6
+      limit: 10
       backoff:
-        duration: "30s"
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
 
     {{ if .Values.sdlcTrace.autoSync }}
     automated:
