@@ -4,5 +4,5 @@ helm:
     value: 386757133934.dkr.ecr.us-east-1.amazonaws.com/javier/backstage
     forcestring: true
   - name: backstage.image.tag
-    value: 0.12.0
+    value: 0.12.1
     forcestring: true
