@@ -8,6 +8,7 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-repository: {{ .Values.spec.source.repoURL }}
+    argocd-image-updater.argoproj.io/git-branch: {{ .Values.spec.source.targetRevision }}
     argocd-image-updater.argoproj.io/image-list: registry.k8s.io/descheduler/descheduler
     argocd-image-updater.argoproj.io/update-strategy: semver
     argocd.argoproj.io/sync-wave: "2"
