@@ -28,6 +28,7 @@ spec:
       limit: 6
       backoff:
         duration: "30s"
+        maxDuration: 3m0s
 
     automated:
       prune: true
