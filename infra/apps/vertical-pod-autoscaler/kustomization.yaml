@@ -5,6 +5,7 @@ resources:
   - airflow-vpa.yaml
   - argocd-vpa.yaml
   - backstage-vpa.yaml
+  - celery-sandbox.yaml
   - cicd-strawman-vpa.yaml
   - datahub-vpa.yaml
   - external-secrets-vpa.yaml
