@@ -50,12 +50,12 @@ namespaceOverride: ""
 commonLabels: {}
 
 cronJobApiVersion: "batch/v1"
-schedule: "*/5 * * * *"
+schedule: "*/10 * * * *"
 suspend: false
 # startingDeadlineSeconds: 200
 # successfulJobsHistoryLimit: 3
 # failedJobsHistoryLimit: 1
-# ttlSecondsAfterFinished: 600
+ttlSecondsAfterFinished: 300
 # activeDeadlineSeconds: 60 # Make sure this value is SHORTER than the cron interval.
 # timeZone: Etc/UTC
 
@@ -108,15 +108,25 @@ deschedulerPolicy:
       pluginConfig:
         - name: DefaultEvictor
           args:
+            namespaces:
+              exclude:
+                - "github-actions"
             ignorePvcPods: true
             evictLocalStoragePods: true
         - name: RemoveDuplicates
+          args:
+            exclude:
+              - "github-actions"
         - name: RemovePodsHavingTooManyRestarts
           args:
             podRestartThreshold: 20
             includingInitContainers: true
+            exclude:
+              - "github-actions"
         - name: RemovePodsViolatingNodeAffinity
           args:
+            exclude:
+              - "github-actions"
             nodeAffinityType:
               - requiredDuringSchedulingIgnoredDuringExecution
         - name: RemovePodsViolatingNodeTaints
@@ -124,12 +134,16 @@ deschedulerPolicy:
         - name: RemovePodsViolatingTopologySpreadConstraint
         - name: HighNodeUtilization
           args:
+            exclude:
+              - "github-actions"
             thresholds:
               cpu: 90
               memory: 90
               pods: 90
         - name: LowNodeUtilization
           args:
+            exclude:
+              - "github-actions"
             thresholds:
               cpu: 20
               memory: 20
@@ -230,13 +244,13 @@ service:
   #   - IPv4
   ipFamilies: []
 
-serviceMonitor:
+serviceMon`itor:
   enabled: true
   # The namespace where Prometheus expects to find service monitors.
   # namespace: ""
   # Add custom labels to the ServiceMonitor resource
   additionalLabels: {}
-  # prometheus: kube-prometheus-stack
+  prometheus: kube-prometheus-stack
   interval: ""
   # honorLabels: true
   insecureSkipVerify: true
