@@ -9,3 +9,6 @@ helmCharts:
     version: 3.0.0
     namespace: eck-stack
     valuesFile: values.yaml
+
+resources:
+  - vpa.yaml
