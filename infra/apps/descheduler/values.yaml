@@ -108,9 +108,6 @@ deschedulerPolicy:
       pluginConfig:
         - name: DefaultEvictor
           args:
-            namespaces:
-              exclude:
-                - "github-actions"
             ignorePvcPods: true
             evictLocalStoragePods: true
         - name: RemoveDuplicates
@@ -137,18 +134,12 @@ deschedulerPolicy:
         - name: RemovePodsViolatingTopologySpreadConstraint
         - name: HighNodeUtilization
           args:
-            namespaces:
-              exclude:
-                - "github-actions"
             thresholds:
               cpu: 90
               memory: 90
               pods: 90
         - name: LowNodeUtilization
           args:
-            namespaces:
-              exclude:
-                - "github-actions"
             thresholds:
               cpu: 20
               memory: 20
