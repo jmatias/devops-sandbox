@@ -115,18 +115,21 @@ deschedulerPolicy:
             evictLocalStoragePods: true
         - name: RemoveDuplicates
           args:
-            exclude:
-              - "github-actions"
+            namespaces:
+              exclude:
+                - "github-actions"
         - name: RemovePodsHavingTooManyRestarts
           args:
             podRestartThreshold: 20
             includingInitContainers: true
-            exclude:
-              - "github-actions"
+            namespaces:
+              exclude:
+                - "github-actions"
         - name: RemovePodsViolatingNodeAffinity
           args:
-            exclude:
-              - "github-actions"
+            namespaces:
+              exclude:
+                - "github-actions"
             nodeAffinityType:
               - requiredDuringSchedulingIgnoredDuringExecution
         - name: RemovePodsViolatingNodeTaints
@@ -134,16 +137,18 @@ deschedulerPolicy:
         - name: RemovePodsViolatingTopologySpreadConstraint
         - name: HighNodeUtilization
           args:
-            exclude:
-              - "github-actions"
+            namespaces:
+              exclude:
+                - "github-actions"
             thresholds:
               cpu: 90
               memory: 90
               pods: 90
         - name: LowNodeUtilization
           args:
-            exclude:
-              - "github-actions"
+            namespaces:
+              exclude:
+                - "github-actions"
             thresholds:
               cpu: 20
               memory: 20
