@@ -85,11 +85,8 @@ selfServeExample:
   autoSync: true
 
 sdlcTrace:
-  enabled: false
+  enabled: true
   autoSync: true
-  image:
-    pullPolicy: IfNotPresent
-    tag: "0.*"
 
 unleash:
   enabled: true
