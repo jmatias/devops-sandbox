@@ -43,7 +43,5 @@ ingress:
 
 persistence:
   enabled: true
-  accessModes:
-    - ReadWriteOnce
   size: 1Gi
   storageClass: auto-ebs-sc

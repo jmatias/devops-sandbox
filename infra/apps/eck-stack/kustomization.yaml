@@ -12,3 +12,4 @@ helmCharts:
 resources:
   - filebeat_autodiscover.yaml
   - metricbeat_hosts.yaml
+  - vpa.yaml
