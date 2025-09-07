@@ -42,7 +42,7 @@ spec:
   targetRef:
     apiVersion: apps/v1
     kind: DaemonSet
-    name: prometheus-node-exporter
+    name: prometheus-prometheus-node-exporter
   updatePolicy:
     updateMode: "InPlaceOrRecreate"
     minReplicas: 1

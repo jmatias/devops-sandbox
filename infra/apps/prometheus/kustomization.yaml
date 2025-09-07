@@ -42,5 +42,5 @@ helmCharts:
 
 resources:
   - secrets.yaml
-  - prometheus-vpa.yaml
+  - vpa.yaml
   - grafana-dashboard-15661-cm.yaml
