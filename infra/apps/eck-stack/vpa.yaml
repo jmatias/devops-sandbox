@@ -57,9 +57,9 @@ metadata:
   namespace: elastic-stack
 spec:
   targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: kibana-kb
+    apiVersion: kibana.k8s.elastic.co/v1
+    kind: Kibana
+    name: kibana
   updatePolicy:
     updateMode: "Auto"
     minReplicas: 1
