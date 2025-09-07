@@ -69,7 +69,7 @@ externalSecrets:
     tag: "latest"
 
 eckOperator:
-  enabled: false
+  enabled: true
   autoSync: true
 
 prometheus:
@@ -92,7 +92,7 @@ sdlcTrace:
     tag: "0.*"
 
 unleash:
-  enabled: false
+  enabled: true
   autoSync: true
   image:
     tag: "latest"
