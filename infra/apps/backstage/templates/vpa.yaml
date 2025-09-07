@@ -9,7 +9,7 @@ spec:
     kind: Deployment
     name: backstage
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: frugal
@@ -26,7 +26,7 @@ spec:
     kind: StatefulSet
     name: backstage-postgresql
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: frugal

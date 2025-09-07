@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: argocd-server
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -27,7 +27,7 @@ spec:
     kind: StatefulSet
     name: argocd-application-controller
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -44,7 +44,7 @@ spec:
     kind: Deployment
     name: argocd-applicationset-controller
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -62,7 +62,7 @@ spec:
     kind: Deployment
     name: argocd-repo-server
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default

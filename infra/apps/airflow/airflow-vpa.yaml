@@ -11,7 +11,7 @@ spec:
     kind: Deployment
     name: airflow-api-server
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -28,7 +28,7 @@ spec:
     kind: Deployment
     name: airflow-statsd
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -45,7 +45,7 @@ spec:
     kind: Deployment
     name: airflow-scheduler
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -63,7 +63,7 @@ spec:
     kind: Deployment
     name: airflow-dag-processor
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default

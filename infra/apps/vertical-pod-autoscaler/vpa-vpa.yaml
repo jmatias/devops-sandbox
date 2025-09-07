@@ -9,7 +9,7 @@ spec:
     kind: Deployment
     name: vpa-recommender-frugal
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: frugal
@@ -27,7 +27,7 @@ spec:
     kind: Deployment
     name: vpa-recommender
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: frugal
@@ -45,7 +45,7 @@ spec:
     kind: Deployment
     name: vpa-updater
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: frugal

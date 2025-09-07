@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: prometheus-grafana
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default
@@ -27,7 +27,7 @@ spec:
         kind: StatefulSet
         name: prometheus-grafana-pg-postgresql
     updatePolicy:
-        updateMode: "InPlaceOrRecreate"
+        updateMode: "Auto"
         minReplicas: 1
     recommenders:
       - name: default
@@ -44,7 +44,7 @@ spec:
     kind: DaemonSet
     name: prometheus-prometheus-node-exporter
   updatePolicy:
-    updateMode: "InPlaceOrRecreate"
+    updateMode: "Auto"
     minReplicas: 1
   recommenders:
     - name: default

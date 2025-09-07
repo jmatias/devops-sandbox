@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: self-serve-example
   updatePolicy:
-    updateMode: InPlaceOrRecreate
+    updateMode: Auto
     minReplicas: 1
   recommenders:
     - name: frugal

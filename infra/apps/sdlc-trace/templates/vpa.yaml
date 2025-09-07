@@ -10,7 +10,7 @@ spec:
     kind: Deployment
     name: sdlc-trace
   updatePolicy:
-    updateMode: InPlaceOrRecreate
+    updateMode: Auto
     minReplicas: 1
   recommenders:
     - name: frugal
