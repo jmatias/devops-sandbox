@@ -39,7 +39,7 @@ spec:
         runnerGroup: javier-k8s-runner-group
         runnerScaleSetName: javier-runner
 
-        githubConfigUrl: https://github.com/jmatiascabrera
+        githubConfigUrl: https://github.com/jmatias
         githubConfigSecret: github-auth
 
         controllerServiceAccount:
