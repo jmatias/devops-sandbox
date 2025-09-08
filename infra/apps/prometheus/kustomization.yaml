@@ -40,6 +40,12 @@ helmCharts:
     version: 77.1.0
 
 
+patches:
+  - path: grafana.yaml
+    target:
+      kind: Deployment
+      name: prometheus-grafana
+
 resources:
   - secrets.yaml
   - vpa.yaml
